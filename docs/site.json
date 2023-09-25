@@ -1,5 +1,5 @@
 {
-  "baseUrl": "",
+  "baseUrl": "/tp",
   "titlePrefix": "NUSearch",
   "titleSuffix": "AddressBook Level-3",
   "faviconPath": "images/SeEduLogo.png",
@@ -23,7 +23,9 @@
     }
   ],
   "deploy": {
-    "message": "Site Update."
+    "message": "Site Update.",
+    "repo": "https://github.com/AY2324S1-CS2103T-F08-0/tp.git",
+    "branch": "gh-pages"
   },
   "timeZone": "Asia/Singapore"
 }
