@@ -52,33 +52,33 @@ The app helps students to consolidate important data, such as profiles of profes
 ### A Guide to reading each command
 The description of each command will contain the following: 
 
-#### WHAT IT DOES:
+##### WHAT IT DOES:
 Tells you the basic idea of what the command does. 
 
-#### FORMAT:
+##### FORMAT:
 It specifies how the command should be formatted. You should follow the format specified to ensure that the command gives the desired output.
  
-#### EXAMPLE COMMAND:
+##### EXAMPLE COMMAND:
 Gives you a few examples of how the command can be used for reference.
 
-#### ACCEPTABLE VALUES:
+##### ACCEPTABLE VALUES:
 Describes the accepted values used in a command field, specifying any restrictions. Values for the command must satisfy the restrictions for the command to be accepted.
 
-#### EXPECTED OUTPUT ON SUCCESS:
+##### EXPECTED OUTPUT ON SUCCESS:
 Describes the desired output that you would see when the command is valid.
 
-#### EXPECTED OUTPUT ON FAILURE:
+##### EXPECTED OUTPUT ON FAILURE:
 Shows the error messages that will be shown to you if an invalid command is given.
 
 ### How to interpret a command format
 
-#### COMMAND FORMAT
+##### COMMAND FORMAT
 ```
 command --specifier INPUTFIELD [--specifier INPUTFIELD1, ...] [--specifier INPUTFIELD1/SUBFIELD1
 -SUBFIELD2-..., ...]
 ```
 
-#### EXAMPLE COMMAND FORMAT
+##### EXAMPLE COMMAND FORMAT
 ```
 add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1
 -CLASS2-..., ...] 
@@ -95,7 +95,7 @@ add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSEC
 | `INPUTFIELD/SUBFIELD` |     `COURSECODE/CLASS`      | Slash indicates that this INPUTFIELD can have a SUBFIELD. This SUBFIELD is optional.                        |
 | `SUBFIELD1-SUBFIELD2` |    `CLASS1-CLASS2-...`      | Dash separates the multiple SUBFIELDs.                                                                      |
 
-#### VALID SPECIFIERS
+##### VALID SPECIFIERS
 
 |  Specifier  | Purpose                                          |
 |:-----------:|--------------------------------------------------|
