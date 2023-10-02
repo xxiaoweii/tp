@@ -6,7 +6,7 @@
 
 # NUSearch User Guide
 
-AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized for use via a  Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+NUSearch is a **desktop app for consolidating NUS professors, teaching assistants (TAs) and students’ profiles, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a **Graphical User Interface (GUI)**. If you can type fast, NUSearch add and search for your NUS peers and mentors faster than traditional GUI apps.
 
 <!-- * Table of Contents -->
 <page-nav-print />
@@ -94,6 +94,15 @@ add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSEC
 | `, ` |       `CONTACT1, ...`       | Comma separates the multiple INPUTFIELDs                                                                    |
 | `INPUTFIELD/SUBFIELD` |     `COURSECODE/CLASS`      | Slash indicates that this INPUTFIELD can have a SUBFIELD. This SUBFIELD is optional.                        |
 | `SUBFIELD1-SUBFIELD2` |    `CLASS1-CLASS2-...`      | Dash separates the multiple SUBFIELDs.                                                                      |
+
+#### VALID SPECIFIERS
+
+|  Specifier  | Purpose                                          |
+|:-----------:|--------------------------------------------------|
+|  `--name`   | The name of the person you are adding            |
+|  `--role`   | The role of the person you are adding            |
+| `--contact` | The contact details of the person you are adding |
+| `--course`  | The course the person is taking                  |
 
 
 ### Viewing help : `help`
