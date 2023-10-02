@@ -4,7 +4,7 @@
   pageNav: 3
 ---
 
-# AB-3 User Guide
+# NUSearch User Guide
 
 AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized for use via a  Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
 
@@ -42,29 +42,54 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Features
+## 3. Features & Commands
 
-<box type="info" seamless>
+### A Guide to reading each command
+The description of each command will contain the following: 
 
-**Notes about the command format:**<br>
+#### WHAT IT DOES:
+Tells you the basic idea of what the command does. 
 
-* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
+#### FORMAT:
+It specifies how the command should be formatted. You should follow the format specified to ensure that the command gives the desired output.
+ 
+#### EXAMPLE COMMAND:
+Gives you a few examples of how the command can be used for reference.
 
-* Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+#### ACCEPTABLE VALUES:
+Describes the accepted values used in a command field, specifying any restrictions. Values for the command must satisfy the restrictions for the command to be accepted.
 
-* Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+#### EXPECTED OUTPUT ON SUCCESS:
+Describes the desired output that you would see when the command is valid.
 
-* Parameters can be in any order.<br>
-  e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+#### EXPECTED OUTPUT ON FAILURE:
+Shows the error messages that will be shown to you if an invalid command is given.
 
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
-  e.g. if the command specifies `help 123`, it will be interpreted as `help`.
+### How to interpret a command format
 
-* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
-</box>
+#### COMMAND FORMAT
+```
+command --specifier INPUTFIELD [--specifier INPUTFIELD1, ...] [--specifier INPUTFIELD1/SUBFIELD1
+-SUBFIELD2-..., ...]
+```
+
+#### EXAMPLE COMMAND FORMAT
+```
+add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1
+-CLASS2-..., ...] 
+```
+
+| Command Types |          Examples           | What they mean                                                                                              |
+|:-------------:|:---------------------------:|-------------------------------------------------------------------------------------------------------------|
+|   `command`   |            `add`            | The name of the command. It is in bold in the format.                                                       |
+| `--specifier` |          `--name`           | The specifier of the field to indicate the field type.                                                      |
+| `INPUTFIELD`  |           `NAME`            | The content of the INPUT FIELD the user wants to input.                                                     |
+|     `...`      |       `CONTACT1, ...`       | Ellipses indicate that the field can accept multiple values.                                                |
+| ` [ ] ` | `[--contact CONTACT1, ...]` | Square brackets indicate an optional field. The user can input these fields if they want to in the command. |
+| `, ` |       `CONTACT1, ...`       | Comma separates the multiple INPUTFIELDs                                                                    |
+| `INPUTFIELD/SUBFIELD` |     `COURSECODE/CLASS`      | Slash indicates that this INPUTFIELD can have a SUBFIELD. This SUBFIELD is optional.                        |
+| `SUBFIELD1-SUBFIELD2` |    `CLASS1-CLASS2-...`      | Dash separates the multiple SUBFIELDs.                                                                      |
+
 
 ### Viewing help : `help`
 
