@@ -11,21 +11,21 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ## NUSearch
 
-### John Doe
+### Fan Ruoyu
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/frrrrry.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/frrrrry)]
+[[portfolio](team/frrrrry.md)]
 
-* Role: Project Advisor
+* Role: Developer
+* Responsibilities: Documentation 
 
-### Jane Doe
+### William Jacob
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/william.jpeg" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[github](http://github.com/wjacobw)]
 [[portfolio](team/johndoe.md)]
 
 * Role: Team Lead
