@@ -16,7 +16,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/frrrrry.png" width="200px">
 
 [[github](https://github.com/frrrrry)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/frrrrry.md)]
 
 * Role: Developer
 * Responsibilities: Documentation 
