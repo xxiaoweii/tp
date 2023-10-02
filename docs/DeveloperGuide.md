@@ -269,13 +269,19 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+NUS students:
+* who wants to consolidate and access profiles of professors, teaching assistants (TAs), and fellow classmates easily
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**:
+
+* Helps students to consolidate profiles of professors, teaching assistants (TAs), and fellow classmates, within a single platform 
+* Compact and easy to navigate 
+* Students can save time and energy that would otherwise be spent searching for scattered and hard-to-access essential academic contacts
+* Features an intuitive and user-friendly interface, making it convenient for users to quickly find the information they need
 
 
 ### User stories
