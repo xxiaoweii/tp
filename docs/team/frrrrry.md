@@ -19,7 +19,7 @@ Given below are my contributions to the project.
 
 * **Project management**:
     * Created team organization, team repository, and set up repository with MarkBind and Codecov
-    * Created and assigned issues(tasks) to team members for v1.1
+    * Created milestones (v1.1 and v1.2) and assigned issues(tasks) to team members for v1.1
 
 * **Enhancements to existing features**:
     * to be added soon
@@ -34,11 +34,13 @@ Given below are my contributions to the project.
         * Added user stories
 
 * **Team Tasks**:
-  * to be added
+  * Updated AboutUs
 
 * **Community**:
-    * to be added
+    * PRs reviewed: 
+      * to be added
+    * to be added    
 
-* **Tools**:
+* **Beyond the project team**:
     * to be added
 
