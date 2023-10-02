@@ -20,11 +20,11 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 * Role: Team Member
 
-### Jane Doe
+### William Jacob
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/WilliamInPekingUni.jpeg" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[github](http://github.com/wjacobw)]
 [[portfolio](team/johndoe.md)]
 
 * Role: Team Lead
