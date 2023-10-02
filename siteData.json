@@ -140,6 +140,14 @@
       "headingKeywords": {}
     },
     {
+      "src": "team/frrrrry.md",
+      "title": "Fan Ruoyu's Project Portfolio Page",
+      "headings": {
+        "project-nusearch": "Project: NUSearch"
+      },
+      "headingKeywords": {}
+    },
+    {
       "src": "team/johndoe.md",
       "title": "John Doe's Project Portfolio Page",
       "headings": {
