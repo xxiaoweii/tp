@@ -107,9 +107,11 @@
       "src": "UserGuide.md",
       "title": "User Guide",
       "headings": {
-        "ab-3-user-guide": "AB-3 User Guide",
+        "nusearch-user-guide": "NUSearch User Guide",
         "quick-start": "Quick start",
-        "features": "Features",
+        "3-features-and-amp-commands": "3. Features &amp; Commands",
+        "a-guide-to-reading-each-command": "A Guide to reading each command",
+        "how-to-interpret-a-command-format": "How to interpret a command format",
         "viewing-help-help": "Viewing help : help",
         "adding-a-person-add": "Adding a person: add",
         "listing-all-persons-list": "Listing all persons : list",
