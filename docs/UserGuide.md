@@ -199,6 +199,14 @@ _Details coming soon ..._
 
 --------------------------------------------------------------------------------------------------------------------
 
+## UI Mockup
+
+Here's a mockup of how the User Interface might look: <br>
+
+![NUSearch UI Mockup](./images/Ui.png)
+
+--------------------------------------------------------------------------------------------------------------------
+
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
