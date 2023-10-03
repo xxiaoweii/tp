@@ -24,13 +24,13 @@ import seedu.address.model.tag.Tag;
 class JsonAdaptedPerson {
 
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Person's %s field is missing!";
+    final Remark modelRemark = new Remark("");
 
     private final String name;
     private final String phone;
     private final String email;
     private final String address;
     private final String remark;
-    final Remark modelRemark = new Remark("");
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
     /**
