@@ -334,6 +334,19 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+4.  The system should store data in a human-editable text file, in a human-readable format.
+5.  The system should work without requiring an installer.
+6.  The system should not depend on a remote server.
+7.  The GUI should not cause any resolution-related inconveniences for a user for standard screen resolutions 1920x1080 or higher.
+8.  The GUI should not cause any resolution-related inconveniences for a user at screen scales 100% or 125%.
+9.  The GUI should be usable at standard screen resolutions 1280x720 or higher.
+10. The GUI should be usable at screen scale 150%.
+11. The system should be packaged into a single JAR file.
+12. The JAR file containing the system should not exceed 100MB in size.
+13. The system should not take more than 2 seconds to process any given command.
+14. The GUI should be easy to navigate for an experienced user of the system.
+15. The system should generally follow the object-oriented paradigm.
+16. It should be easy to incorporate new commands, attributes or fields into the system.
 
 *{More to be added}*
 
