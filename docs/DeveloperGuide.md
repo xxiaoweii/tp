@@ -352,8 +352,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Glossary
 
-* **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Private contact detail**: A contact detail that is not meant to be shared with others
+1. **API**: Application Programming Interface, a set of rules and protocols that allow different software applications to communicate with each other
+2. **Architecture Diagram**: Visual representation that illustrates how various components of the software project are structured and interconnected
+3. **JavaFX UI**: A user interface framework in Java for creating interactive and visually appealing desktop applications
+4. **Mainstream OS**: Windows, Linux, Unix, OS-X
+5. **PlantUML**: A text-based tool for creating diagrams using simple text descriptions
+6. **Private contact detail**: A contact detail that is not meant to be shared with others
+7. **Sequence Diagram**: A visual tool showing the order of actions between system components or objects
+
+*{More to be added}*
 
 --------------------------------------------------------------------------------------------------------------------
 
