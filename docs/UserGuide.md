@@ -90,33 +90,115 @@ add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSEC
 
 #### Viewing help : `help`
 
-Shows a message explaning how to access the help page.
+Shows a message which will give you the url to the help page.
 
+##### FORMAT: 
+`help`
+
+##### EXAMPLE COMMAND: 
+`help`
+
+##### ACCEPTABLE VALUES: 
+This command does not accept any parameters.
+
+##### EXPECTED OUTPUT ON SUCCESS:
+Upon successfully executing the help command, you should see a message that provides the URL to the help page. 
+The help page is a comprehensive documentation containing a list of valid commands and how to use them.
 ![help message](images/helpMessage.png)
 
-Format: `help`
-
+##### EXPECTED OUTPUT ON FAILURE:
+`The  command or the format of the command that you have entered is wrong.
+Please refer to this link for the list of valid commands:`
+[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
 
 #### Adding a person: `add`
 
-Adds a person to the address book.
+Adds new profiles in the profile lists.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+##### FORMAT:
+`add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...] `
 
 <box type="tip" seamless>
 
-**Tip:** A person can have any number of tags (including 0)
+**Tip:**
+
+-Contacts can be any type of contact: email address, telegram handle, phone number, etc.
+
+-Courses can be any of the courses offered by NUS
+
+> 📝Note:
+> 
+> Please use a comma (,) to separate the different contacts as well as the different courses
+
+-The different fields are colour-coded to differentiate between them.
+
+-The user can press tab to auto fill commands.
+
+-The square brackets, [ ], are not needed when entering the command (see example below for more details)
+
 </box>
 
-Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+##### EXAMPLE COMMAND:
+`add --name Aiken Dueet --role STUDENT --contact @aikendueet, aikendueet@gmail.com 
+--course CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30 `
+
+##### ACCEPTABLE VALUES:
+`NAME`: Any non-empty input of alphabetical characters.
+
+`ROLE1`: Any three roles allowed here: student, ta, professor (all in lowercase).
+
+`CONTACT1`: Any non-empty input of characters.
+
+`COURSECODE1`: Any non-empty input of characters.
+
+`CLASS1`: Any non-empty input of characters.
+
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+You have added a new profile in :)
+Name: Aiken Dueet  
+Role: STUDENT
+Contact: @aikendueet, aikendueet@gmail.com
+Course: CS2103T, CS2101, CS2100
+Tutorials: CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30
+```
+
+
+##### EXPECTED OUTPUT ON FAILURE:
+`The  command or the format of the command that you have entered is wrong.
+Please refer to this link for the list of valid commands:`
+[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
+
 
 #### Listing all persons : `list`
 
-Shows a list of all persons in the address book.
+List all the profiles added by the user.
 
-Format: `list`
+##### FORMAT:
+`list`
+
+##### EXAMPLE COMMAND:
+`list`
+
+##### ACCEPTABLE VALUES:
+This command does not accept any parameters.
+
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+You have 1 profile in your list: 
+Name: Aiken Dueet  
+Role: STUDENT
+Contact: @aikendueet, aikendueet@gmail.com
+Course: CS2103T, CS2101, CS2100
+Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30 
+```
+
+##### EXPECTED OUTPUT ON FAILURE:
+`The  command or the format of the command that you have entered is wrong.
+Please refer to this link for the list of valid commands:`
+[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
+
+
 
 #### Editing a person : `edit`
 
