@@ -50,12 +50,12 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Developer
 * Responsibilities: Scheduling and tracking
 
-### James Doe
+### Kirthigha Shanmuganantham
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/kayabuttertoastt.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/kayabuttertoastt)]
+[[portfolio](team/kayabuttertoastt.md)]
 
-* Role: Developer
-* Responsibilities: UI
+* Role: Team Lead
+* Responsibilities: Leader
