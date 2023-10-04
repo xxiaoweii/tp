@@ -2,7 +2,7 @@
 
 [![CI Status](https://github.com/AY2324S1-CS2103T-F08-0/tp/actions/workflows/gradle.yml/badge.svg?branch=master)](https://github.com/AY2324S1-CS2103T-F08-0/tp/actions)
 
-> Introducing the NUS Address Book: Your Comprehensive NUS Contact Tracking Resource
+> Introducing the NUSearch: Your Comprehensive NUS Contact Tracking Resource
 
 ## Description
 NUSearch is designed for NUS students seeking quick access to contact details of professors, teaching assistants,
