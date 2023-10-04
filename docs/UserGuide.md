@@ -169,7 +169,6 @@ Tutorials: CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30
 Please refer to this link for the list of valid commands:`
 [Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
 
-
 #### Listing all persons : `list`
 
 List all the profiles added by the user.
@@ -198,86 +197,128 @@ Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30
 Please refer to this link for the list of valid commands:`
 [Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
 
+#### Deleting a profile : `delete`
 
+Delete the specific profile based on the index allocated to the profile.
 
-#### Editing a person : `edit`
+##### FORMAT:
+`delete INDEX`
 
-Edits an existing person in the address book.
+##### EXAMPLE COMMAND:
+`delete 1`
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
+##### ACCEPTABLE VALUES:
+`INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …), 
+less than or equal to the number of profiles the user currently has.
 
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
-* At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `t/` without
-    specifying any tags after it.
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+You have deleted a profile
+Deleted Profile: 
+Name: Aiken Dueet  
+Role: STUDENT
+Contact: @aikendueet, aikendueet@gmail.com
+Course: CS2103T, CS2101, CS2100
+Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30 
+```
 
-Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+##### EXPECTED OUTPUT ON FAILURE:
+The command or the format of the command that you have entered is wrong. 
+Please refer to this link for the list of valid commands:
+[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
 
-#### Locating persons by name: `find`
+#### Searching for profiles: `search`
 
-Finds persons whose names contain any of the given keywords.
+Search for profiles that match the input keyword
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
+##### FORMAT:
+`search KEYWORD`
 
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+##### EXAMPLE COMMAND:
+`search CS2100`
 
-Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+##### ACCEPTABLE VALUES:
+`KEYWORD`: Any non-empty string of alphanumeric characters.
 
-#### Deleting a person : `delete`
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+There are 2 profile that match your input 'CS2100':
+Name: Aiken Dueet  
+Role: STUDENT
+Contact: @aikendueet, aikendueet@gmail.com
+Course: CS2103T, CS2101, CS2100
+Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30 
 
-Deletes the specified person from the address book.
+Name: Aikennot Dueet  
+Role: STUDENT
+Contact: @aikennotdueet, aikennotdueet@gmail.com
+Course: CS2100
+Tutorials: CS2100/Lab30-Tut10 
+```
 
-Format: `delete INDEX`
+##### EXPECTED OUTPUT ON FAILURE:
+`The command or the format of the command that you have entered is wrong. 
+Please refer to this link for the list of valid commands:
+[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)`
 
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3, …​
+#### Adding profiles to favourites: `fav`
 
-Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the address book.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+Favourite the profiles in the user’s current profile list.
 
-#### Clearing all entries : `clear`
+##### FORMAT:
+`fav INDEX`
 
-Clears all entries from the address book.
+##### EXAMPLE COMMAND:
+`fav 2`
 
-Format: `clear`
+##### ACCEPTABLE VALUES:
+`INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …), 
+less than or equal to the number of profiles the user currently has.
 
-#### Exiting the program : `exit`
+> 📝Note:
+>
+> INDEX refers to the index of the profile allocated to the specific profile in the current profile list.
 
-Exits the program.
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+You have favourited this profile: 
+Name: Joseph
+Role: PROFESSOR
+Contact: @josephhhhh, josephhhhh@nus.edu.sg
+Course: CS2102
+Tutorials: CS2102/Tut14
+```
 
-Format: `exit`
+##### EXPECTED OUTPUT ON FAILURE:
+`The command or the format of the command that you have entered is wrong. 
+Please refer to this link for the list of valid commands:
+[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)`
 
-#### Saving the data
+#### Exiting the application: `exit`
 
-AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+Closes and exits the application
 
-#### Editing the data file
+##### FORMAT:
+`exit`
 
-AddressBook data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+##### EXAMPLE COMMAND:
+`exit`
 
-<box type="warning" seamless>
+##### ACCEPTABLE VALUES:
+This command does not accept any parameters
 
-**Caution:**
-If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.  Hence, it is recommended to take a backup of the file before editing it.
-</box>
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+You have exitted the application. 
+```
+> 📝Note:
+>
+> App closes and the program stops.
 
-#### Archiving data files `[coming in v2.0]`
-
-_Details coming soon ..._
+##### EXPECTED OUTPUT ON FAILURE:
+`The command or the format of the command that you have entered is wrong.
+Please refer to this link for the list of valid commands:
+[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)`
 
 --------------------------------------------------------------------------------------------------------------------
 
