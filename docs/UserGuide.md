@@ -12,13 +12,13 @@ NUSearch is a **desktop app for consolidating NUS professors, teaching assistant
 <page-nav-print />
 
 --------------------------------------------------------------------------------------------------------------------
-## 1. Motivation
+## Motivation
 We aim to simplify the process of accessing academic information by developing an efficient directory app. This app will help students to consolidate professors, teaching assistants (TAs) and their fellow classmates’ profile, improving the ease of accessing the details of individuals whom the students might need to contact for that semester.
 
-## 2. Unique Selling Point
+## Unique Selling Point
 The app helps students to consolidate important data, such as profiles of professors, teaching assistants (TAs), and fellow classmates, providing students with a single platform that is compact and easy to navigate. With this application, students can save time and energy that would otherwise be spent searching for scattered and hard-to-access essential academic contacts. The app features an intuitive and user-friendly interface, making it convenient for users to quickly find the information they need.
 
-## 3. Quick start
+## Quick start
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
@@ -28,7 +28,7 @@ The app helps students to consolidate important data, such as profiles of profes
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 4. Features & Commands
+## Features & Commands
 
 ### A Guide to reading each command
 The description of each command will contain the following: 
@@ -55,14 +55,12 @@ Shows the error messages that will be shown to you if an invalid command is give
 
 ##### COMMAND FORMAT
 ```
-command --specifier INPUTFIELD [--specifier INPUTFIELD1, ...] [--specifier INPUTFIELD1/SUBFIELD1
--SUBFIELD2-..., ...]
+command --specifier INPUTFIELD [--specifier INPUTFIELD1, ...] [--specifier INPUTFIELD1/SUBFIELD1-SUBFIELD2-..., ...]
 ```
 
 ##### EXAMPLE COMMAND FORMAT
 ```
-add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1
--CLASS2-..., ...] 
+add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...] 
 ```
 
 | Command Types |          Examples           | What they mean                                                                                              |
@@ -345,12 +343,13 @@ Here's a mockup of how the User Interface might look: <br>
 
 ## Command summary
 
-Action     | Format, Examples
------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-**Clear**  | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List**   | `list`
-**Help**   | `help`
+|     Action     | Format                                                                                                          | Example                                                                                                                                   |
+|:--------------:|-----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+|    **Help**    | `help`                                                                                                          | `help`                                                                                                                                    |                                                                                                                                  
+|    **Add**     | `add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]`  | `add --name Aiken Dueet --role STUDENT --contact @aikendueet, aikendueet@gmail.com --course CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30` |
+|    **List**    | `list`                                                                                                          | `list`                                                                                                                                    |
+|   **Delete**   | `delete INDEX`                                                                                                  | `delete 3`                                                                                                                                |
+|   **Search**   | `find KEYWORD`                                                                                                  | `find CS2100`                                                                                                                             | 
+| **Favourite**  | `fav INDEX`                                                                                                     | `fav 1`                                                                                                                                   |
+|    **Exit**    | `exit`                                                                                                          | `exit`                                                                                                                                    | 
+
