@@ -304,28 +304,75 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+**System: NUSearch**
+**Use case: UC1 - Add a new profile**
+**Actor: User**
 
 **MSS**
-
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
-
-    Use case ends.
+1.  User input a new profile 
+2.  NUSearch adds the new profile to the list
+Use case ends
 
 **Extensions**
+* 1a. NUSearch detects an error in the input data
+*  * 1a1. NUSearch requests for the correct data
+* Use case ends
 
-* 2a. The list is empty.
+**System: NUSearch**
+**Use case: UC2 - Asking for help**
+**Actor: User**
+**MSS**
+1. User requests for help
+2. NUSearch sends the help
 
-  Use case ends.
+**System: NUSearch**
+**Use case: UC3 - Asking for List**
+**Actor: User**
+**MSS**
+1. User requests for the list of profiles
+2. NUSearch sends the list of profiles
 
-* 3a. The given index is invalid.
+**Extensions**
+* 1a. NUSearch detects no data in the list
+*  * 1a1. NUSearch tells the user the list is empty
+* Use case ends
 
-    * 3a1. AddressBook shows an error message.
+**System: NUSearch**
+**Use case: UC4 - Exit**
+**Actor: User**
+**MSS**
+1. User requests for an exit 
+2. NUSSearch exits
 
-      Use case resumes at step 2.
+**System: NUSearch**
+**Use case: UC5 - Add favorite**
+**Actor: User**
+**MSS**
+1. User favorites a profile
+2. NUSearch favorites the profile
+
+**Extensions**
+* 1b. The profile does not exists
+* * 1b1. NUSearch tells the user the profile does not exists
+*  Use case ends
+
+**System: NUSearch**
+**Use case: UC6 - Search for a profile**
+**Actor: User**
+**MSS**
+1. User requests for a profile
+2. NUSearch shows the profile
+
+**Extensions**
+* 1b. The profile does not exists
+* * 1b1. NUSearch tells the user the profile does not exists
+*  Use case ends
+
+
+
+
+
+
 
 *{More to be added}*
 
