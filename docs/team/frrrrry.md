@@ -15,7 +15,7 @@ Given below are my contributions to the project.
 * **New Feature**: 
   * to be added soon
 
-* **Code contributed**: [Fan Ruoyu's RepoSense link](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=frrrrry&breakdown=true)
+* **Code contributed**: [fry's RepoSense link](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=frrrrry&breakdown=true)
 
 * **Project management**:
     * Created team organization, team repository, and set up repository with MarkBind and Codecov
@@ -30,6 +30,7 @@ Given below are my contributions to the project.
           * Added section - A guide to reading each command
           * Added section - How to interpret a command format
           * Created the structure for all the existing features
+          * Created command summary table
     * Developer Guide (v1.1):
         * Added user stories
 
