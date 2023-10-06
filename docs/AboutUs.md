@@ -23,7 +23,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### William Jacob
 
-<img src="images/wjacobw.jpeg" width="200px">
+<img src="images/wjacobw.png" width="200px">
 
 [[github](http://github.com/wjacobw)]
 [[portfolio](team/johndoe.md)]
