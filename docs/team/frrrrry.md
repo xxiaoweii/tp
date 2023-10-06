@@ -30,6 +30,7 @@ Given below are my contributions to the project.
           * Added section - A guide to reading each command
           * Added section - How to interpret a command format
           * Created the structure for all the existing features
+          * Created command summary table
     * Developer Guide (v1.1):
         * Added user stories
 
