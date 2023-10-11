@@ -22,6 +22,7 @@ import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Contact;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
@@ -100,10 +101,11 @@ public class EditCommand extends Command {
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Set<Role> updatedRoles = editPersonDescriptor.getRoles().orElse(personToEdit.getRoles());
+        Set<Contact> updatedContacts = editPersonDescriptor.getContacts().orElse(personToEdit.getContacts());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedRoles, updatedAddress, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedRoles, updatedContacts, updatedAddress, updatedTags);
     }
 
     @Override
@@ -139,6 +141,7 @@ public class EditCommand extends Command {
         private Phone phone;
         private Email email;
         private Set<Role> roles;
+        private Set<Contact> contacts;
         private Address address;
         private Set<Tag> tags;
 
@@ -153,6 +156,7 @@ public class EditCommand extends Command {
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setRoles(toCopy.roles);
+            setContacts(toCopy.contacts);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
         }
@@ -161,7 +165,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, roles, address, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, roles, contacts, address, tags);
         }
 
         public void setName(Name name) {
@@ -214,6 +218,23 @@ public class EditCommand extends Command {
         }
 
         /**
+         * Sets {@code contacts} to this object's {@code contacts}.
+         * A defensive copy of {@code contacts} is used internally.
+         */
+        public void setContacts(Set<Contact> contacts) {
+            this.contacts = (contacts != null) ? new HashSet<>(contacts) : null;
+        }
+
+        /**
+         * Returns an unmodifiable tag set, which throws {@code UnsupportedOperationException}
+         * if modification is attempted.
+         * Returns {@code Optional#empty()} if {@code contacts} is null.
+         */
+        public Optional<Set<Contact>> getContacts() {
+            return (contacts != null) ? Optional.of(Collections.unmodifiableSet(contacts)) : Optional.empty();
+        }
+
+        /**
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
          */
@@ -246,6 +267,7 @@ public class EditCommand extends Command {
                     && Objects.equals(phone, otherEditPersonDescriptor.phone)
                     && Objects.equals(email, otherEditPersonDescriptor.email)
                     && Objects.equals(roles, otherEditPersonDescriptor.roles)
+                    && Objects.equals(contacts, otherEditPersonDescriptor.contacts)
                     && Objects.equals(address, otherEditPersonDescriptor.address)
                     && Objects.equals(tags, otherEditPersonDescriptor.tags);
         }
@@ -257,6 +279,7 @@ public class EditCommand extends Command {
                     .add("phone", phone)
                     .add("email", email)
                     .add("roles", roles)
+                    .add("contacts", contacts)
                     .add("address", address)
                     .add("tags", tags)
                     .toString();

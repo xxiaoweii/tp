@@ -23,18 +23,20 @@ public class Person {
 
     // Data fields
     private final Set<Role> roles = new HashSet<>();
+    private final Set<Contact> contacts = new HashSet<>();
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Set<Role> roles, Address address, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, Set<Role> roles, Set<Contact> contacts, Address address, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.roles.addAll(roles);
+        this.contacts.addAll(contacts);
         this.address = address;
         this.tags.addAll(tags);
     }
@@ -57,6 +59,10 @@ public class Person {
      */
     public Set<Role> getRoles() {
         return Collections.unmodifiableSet(roles);
+    }
+
+    public Set<Contact> getContacts() {
+        return Collections.unmodifiableSet(contacts);
     }
 
     public Address getAddress() {
@@ -104,6 +110,7 @@ public class Person {
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
                 && roles.equals(otherPerson.roles)
+                && contacts.equals(otherPerson.contacts)
                 && address.equals(otherPerson.address)
                 && tags.equals(otherPerson.tags);
     }
@@ -111,7 +118,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, roles, address, tags);
+        return Objects.hash(name, phone, email, roles, contacts, address, tags);
     }
 
     @Override
@@ -121,6 +128,7 @@ public class Person {
                 .add("phone", phone)
                 .add("email", email)
                 .add("roles", roles)
+                .add("contacts", contacts)
                 .add("address", address)
                 .add("tags", tags)
                 .toString();

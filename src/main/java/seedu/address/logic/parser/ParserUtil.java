@@ -10,6 +10,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Contact;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
@@ -91,6 +92,33 @@ public class ParserUtil {
             roleSet.add(parseRole(roleName));
         }
         return roleSet;
+    }
+
+    /**
+     * Parses a {@code String contact} into a {@code Contact}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code contact} is invalid.
+     */
+    public static Contact parseContact(String contact) throws ParseException {
+        requireNonNull(contact);
+        String trimmedContact = contact.trim();
+        if (!Contact.isValidContactName(trimmedContact)) {
+            throw new ParseException(Contact.MESSAGE_CONSTRAINTS);
+        }
+        return new Contact(trimmedContact);
+    }
+
+    /**
+     * Parses {@code Collection<String> contacts} into a {@code Set<Contact>}.
+     */
+    public static Set<Contact> parseContacts(Collection<String> contacts) throws ParseException {
+        requireNonNull(contacts);
+        final Set<Contact> contactSet = new HashSet<>();
+        for (String contactName : contacts) {
+            contactSet.add(parseContact(contactName));
+        }
+        return contactSet;
     }
 
     /**

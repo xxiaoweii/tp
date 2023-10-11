@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Contact;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
@@ -29,6 +30,7 @@ class JsonAdaptedPerson {
     private final String phone;
     private final String email;
     private final List<JsonAdaptedRole> roles = new ArrayList<>();
+    private final List<JsonAdaptedContact> contacts = new ArrayList<>();
     private final String address;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
@@ -39,6 +41,7 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email,
             @JsonProperty("roles") List<JsonAdaptedRole> roles,
+            @JsonProperty("contacts") List<JsonAdaptedContact> contacts,
             @JsonProperty("address") String address,
             @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.name = name;
@@ -46,6 +49,9 @@ class JsonAdaptedPerson {
         this.email = email;
         if (roles != null) {
             this.roles.addAll(roles);
+        }
+        if (contacts != null) {
+            this.contacts.addAll(contacts);
         }
         this.address = address;
         if (tags != null) {
@@ -63,6 +69,9 @@ class JsonAdaptedPerson {
         roles.addAll(source.getRoles().stream()
                 .map(JsonAdaptedRole::new)
                 .collect(Collectors.toList()));
+        contacts.addAll(source.getContacts().stream()
+                .map(JsonAdaptedContact::new)
+                .collect(Collectors.toList()));
         address = source.getAddress().value;
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
@@ -78,6 +87,11 @@ class JsonAdaptedPerson {
         final List<Role> personRoles = new ArrayList<>();
         for (JsonAdaptedRole role : roles) {
             personRoles.add(role.toModelType());
+        }
+
+        final List<Contact> personContacts = new ArrayList<>();
+        for (JsonAdaptedContact contact : contacts) {
+            personContacts.add(contact.toModelType());
         }
 
         final List<Tag> personTags = new ArrayList<>();
@@ -110,6 +124,7 @@ class JsonAdaptedPerson {
         final Email modelEmail = new Email(email);
 
         final Set<Role> modelRoles = new HashSet<>(personRoles);
+        final Set<Contact> modelContacts = new HashSet<>(personContacts);
 
         if (address == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
@@ -120,7 +135,7 @@ class JsonAdaptedPerson {
         final Address modelAddress = new Address(address);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelRoles, modelAddress, modelTags);
+        return new Person(modelName, modelPhone, modelEmail, modelRoles, modelContacts, modelAddress, modelTags);
     }
 
 }
