@@ -32,6 +32,7 @@ Given below are my contributions to the project.
           * Created the structure for all the existing features
           * Created command summary table
     * Developer Guide (v1.1):
+        * Added product scope
         * Added user stories
 
 * **Team Tasks**:
@@ -39,7 +40,7 @@ Given below are my contributions to the project.
 
 * **Community**:
     * PRs reviewed: 
-      * to be added
+      * team member's PRs in v1.1
     * to be added    
 
 * **Beyond the project team**:
