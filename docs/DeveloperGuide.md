@@ -270,7 +270,8 @@ _{Explain here how the data archiving feature will be implemented}_
 **Target user profile**:
 
 NUS students:
-* who wants to consolidate and access profiles of professors, teaching assistants (TAs), and fellow classmates easily
+* who wants to consolidate and access profiles of professors, teaching assistants (TAs), and their fellow classmates easily
+* who are lazy to navigate to numerous NUS websites for academic resources
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
@@ -278,9 +279,9 @@ NUS students:
 
 **Value proposition**:
 
-* Helps students to consolidate profiles of professors, teaching assistants (TAs), and fellow classmates, within a single platform 
+* Helps students to consolidate profiles of professors, teaching assistants (TAs), and their fellow classmates, within a single platform 
 * Compact and easy to navigate 
-* Students can save time and energy that would otherwise be spent searching for scattered and hard-to-access essential academic contacts
+* Students can save time and energy that would otherwise be spent searching for scattered and hard-to-access essential college information
 * Features an intuitive and user-friendly interface, making it convenient for users to quickly find the information they need
 
 
