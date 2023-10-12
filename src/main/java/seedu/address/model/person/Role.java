@@ -15,13 +15,12 @@ public class Role {
         Professor
     }
 
-    public static final String MESSAGE_CONSTRAINTS = "Roles must take one of the roleTypes: student, ta, or professor.";
+    public static final String MESSAGE_CONSTRAINTS = "Roles must take one of the roleTypes: Student, TA, or Professor.";
 
     /*
-     * The Role must be either one of Student, TA or Professor. It is optional to capitalize the first letter (or both
-     * letters, in the case of TA) in the String.
+     * The Role must be either one of Student, TA or Professor.
      */
-    public static final String VALIDATION_REGEX = "^(student|ta|professor)$";
+    public static final String VALIDATION_REGEX = "^(Student|TA|Professor)$";
 
     public final RoleType roleType;
 

@@ -123,7 +123,9 @@ class JsonAdaptedPerson {
         final List<Tutorial> personTutorials = new ArrayList<>();
         for (JsonAdaptedTutorial tutorial : tutorials) {
             // Get the course that is relevant to this tutorial.
-            String courseName = tutorial.getCourseName();
+            String[] courseTutorialName = Tutorial.splitCourseTutorialName(tutorial.getTutorialString());
+            String courseName = courseTutorialName[0];
+
             Course relevantCourse = null;
             for (Course course : personCourses) {
                 if (course.courseName == courseName) {

@@ -34,52 +34,52 @@ public class SampleDataUtil {
         Iterator<Course> courseListIterator = courseList.iterator();
 
         ArrayList<Tutorial> tutorialList = new ArrayList<>();
-        tutorialList.add(new Tutorial(courseList.get(0), "T03E"));
-        tutorialList.add(new Tutorial(courseList.get(1), "B32"));
-        tutorialList.add(new Tutorial(courseList.get(2), "T04"));
-        tutorialList.add(new Tutorial(courseList.get(3), "G06"));
-        tutorialList.add(new Tutorial(courseList.get(4), "F08"));
-        tutorialList.add(new Tutorial(courseList.get(5), "T31"));
+        tutorialList.add(new Tutorial(courseList.get(0), courseList.get(0).courseName + "/T03E"));
+        tutorialList.add(new Tutorial(courseList.get(1), courseList.get(1).courseName + "/B32"));
+        tutorialList.add(new Tutorial(courseList.get(2), courseList.get(2).courseName + "/T04"));
+        tutorialList.add(new Tutorial(courseList.get(3), courseList.get(3).courseName + "/G06"));
+        tutorialList.add(new Tutorial(courseList.get(4), courseList.get(4).courseName + "/F08"));
+        tutorialList.add(new Tutorial(courseList.get(5), courseList.get(5).courseName + "/T31"));
         Iterator<Tutorial> tutorialListIterator = tutorialList.iterator();
 
         return new Person[] {
             new Person(new Name("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
-                getRolesSet("student"),
+                getRolesSet("Student"),
                 getContactSet("alexyeoh@example.com"),
                 getCourseSet(courseListIterator.next()),
                 getTutorialSet(tutorialListIterator.next()),
                 new Address("Blk 30 Geylang Street 29, #06-40"),
                 getTagSet("friends")),
             new Person(new Name("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
-                getRolesSet("ta"),
+                getRolesSet("TA"),
                 getContactSet("berniceyu@example.com"),
                 getCourseSet(courseListIterator.next()),
                 getTutorialSet(tutorialListIterator.next()),
                 new Address("Blk 30 Lorong 3 Serangoon Gardens, #07-18"),
                 getTagSet("colleagues", "friends")),
             new Person(new Name("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
-                getRolesSet("professor"),
+                getRolesSet("Professor"),
                 getContactSet("charlotte@example.com"),
                 getCourseSet(courseListIterator.next()),
                 getTutorialSet(tutorialListIterator.next()),
                 new Address("Blk 11 Ang Mo Kio Street 74, #11-04"),
                 getTagSet("neighbours")),
             new Person(new Name("David Li"), new Phone("91031282"), new Email("lidavid@example.com"),
-                getRolesSet("student"),
+                getRolesSet("Student"),
                 getContactSet("lidavid@example.com"),
                 getCourseSet(courseListIterator.next()),
                 getTutorialSet(tutorialListIterator.next()),
                 new Address("Blk 436 Serangoon Gardens Street 26, #16-43"),
                 getTagSet("family")),
             new Person(new Name("Irfan Ibrahim"), new Phone("92492021"), new Email("irfan@example.com"),
-                getRolesSet("ta"),
+                getRolesSet("TA"),
                 getContactSet("irfan@example.com"),
                 getCourseSet(courseListIterator.next()),
                 getTutorialSet(tutorialListIterator.next()),
                 new Address("Blk 47 Tampines Street 20, #17-35"),
                 getTagSet("classmates")),
             new Person(new Name("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
-                getRolesSet("professor"),
+                getRolesSet("Professor"),
                 getContactSet("royb@example.com"),
                 getCourseSet(courseListIterator.next()),
                 getTutorialSet(tutorialListIterator.next()),

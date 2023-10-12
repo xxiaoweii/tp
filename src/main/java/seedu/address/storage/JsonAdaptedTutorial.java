@@ -12,17 +12,15 @@ import seedu.address.model.person.Tutorial;
  */
 class JsonAdaptedTutorial {
 
-    private final String courseName;
-    private final String tutorialName;
+    private final String tutorialString;
 
     /**
      * Constructs a {@code JsonAdaptedTutorial} with the given {@code courseName} and {@code tutorialName}. Course will be linked when
      * converting to a modelType.
      */
     @JsonCreator
-    public JsonAdaptedTutorial(String courseName, String tutorialName) {
-        this.courseName = courseName;
-        this.tutorialName = tutorialName;
+    public JsonAdaptedTutorial(String tutorialString) {
+        this.tutorialString = tutorialString;
     }
 
     /**
@@ -30,17 +28,12 @@ class JsonAdaptedTutorial {
      * to a modelType.
      */
     public JsonAdaptedTutorial(Tutorial source) {
-        courseName = source.course.courseName;
-        tutorialName = source.tutorialName;
-    }
-
-    public String getCourseName() {
-        return courseName;
+        tutorialString = source.getFullTutorialString();
     }
 
     @JsonValue
-    public String getTutorialName() {
-        return tutorialName;
+    public String getTutorialString() {
+        return tutorialString;
     }
 
     /**
@@ -51,10 +44,10 @@ class JsonAdaptedTutorial {
      * @throws IllegalValueException if there were any data constraints violated in the adapted tutorial.
      */
     public Tutorial toModelType(Course course) throws IllegalValueException {
-        if (!Tutorial.isValidTutorialString(tutorialName)) {
+        if (!Tutorial.isValidTutorialString(tutorialString)) {
             throw new IllegalValueException(Tutorial.MESSAGE_CONSTRAINTS);
         }
-        return new Tutorial(course, tutorialName);
+        return new Tutorial(course, tutorialString);
     }
 
 }

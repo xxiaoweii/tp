@@ -15,6 +15,10 @@ public class Tutorial {
     // Matches a single character, any number of characters, a slash, a single character, then any number of characters.
     public static final String VALIDATION_REGEX = "[^\\s].*\\/[^\\s].*";
 
+    // A tutorial String is in the format of courseName + COURSE_TUTORIAL_DELIMITER + tutorialName.
+    // This is a constant representing that delimiter.
+    public static final String COURSE_TUTORIAL_DELIMITER = "/";
+
     public final Course course;
     public final String tutorialName;
 
@@ -53,8 +57,15 @@ public class Tutorial {
             return new String[0];
         }
 
-        String[] tutorialStringSplit = tutorialString.split("/");
+        String[] tutorialStringSplit = tutorialString.split(COURSE_TUTORIAL_DELIMITER);
         return tutorialStringSplit;
+    }
+
+    /**
+     * Returns the course name followed by this tutorial's name, separated by the delimiter.
+     */
+    public String getFullTutorialString() {
+        return course.courseName + Tutorial.COURSE_TUTORIAL_DELIMITER + tutorialName;
     }
 
     @Override
