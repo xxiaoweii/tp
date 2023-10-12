@@ -23,11 +23,13 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Contact;
+import seedu.address.model.person.Course;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Role;
+import seedu.address.model.person.Tutorial;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -102,10 +104,12 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Set<Role> updatedRoles = editPersonDescriptor.getRoles().orElse(personToEdit.getRoles());
         Set<Contact> updatedContacts = editPersonDescriptor.getContacts().orElse(personToEdit.getContacts());
+        Set<Course> updatedCourses = editPersonDescriptor.getCourses().orElse(personToEdit.getCourses());
+        Set<Tutorial> updatedTutorials = editPersonDescriptor.getTutorials().orElse(personToEdit.getTutorials());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedRoles, updatedContacts, updatedAddress, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedRoles, updatedContacts, updatedCourses, updatedTutorials, updatedAddress, updatedTags);
     }
 
     @Override
@@ -142,6 +146,8 @@ public class EditCommand extends Command {
         private Email email;
         private Set<Role> roles;
         private Set<Contact> contacts;
+        private Set<Course> courses;
+        private Set<Tutorial> tutorials;
         private Address address;
         private Set<Tag> tags;
 
@@ -157,6 +163,8 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setRoles(toCopy.roles);
             setContacts(toCopy.contacts);
+            setCourses(toCopy.courses);
+            setTutorials(toCopy.tutorials);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
         }
@@ -165,7 +173,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, roles, contacts, address, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, roles, contacts, courses, tutorials, address, tags);
         }
 
         public void setName(Name name) {
@@ -235,6 +243,40 @@ public class EditCommand extends Command {
         }
 
         /**
+         * Sets {@code courses} to this object's {@code courses}.
+         * A defensive copy of {@code courses} is used internally.
+         */
+        public void setCourses(Set<Course> courses) {
+            this.courses = (courses != null) ? new HashSet<>(courses) : null;
+        }
+
+        /**
+         * Returns an unmodifiable tag set, which throws {@code UnsupportedOperationException}
+         * if modification is attempted.
+         * Returns {@code Optional#empty()} if {@code courses} is null.
+         */
+        public Optional<Set<Course>> getCourses() {
+            return (courses != null) ? Optional.of(Collections.unmodifiableSet(courses)) : Optional.empty();
+        }
+
+        /**
+         * Sets {@code tutorials} to this object's {@code tutorials}.
+         * A defensive copy of {@code tutorials} is used internally.
+         */
+        public void setTutorials(Set<Tutorial> tutorials) {
+            this.tutorials = (tutorials != null) ? new HashSet<>(tutorials) : null;
+        }
+
+        /**
+         * Returns an unmodifiable tag set, which throws {@code UnsupportedOperationException}
+         * if modification is attempted.
+         * Returns {@code Optional#empty()} if {@code tutorials} is null.
+         */
+        public Optional<Set<Tutorial>> getTutorials() {
+            return (tutorials != null) ? Optional.of(Collections.unmodifiableSet(tutorials)) : Optional.empty();
+        }
+
+        /**
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
          */
@@ -268,6 +310,8 @@ public class EditCommand extends Command {
                     && Objects.equals(email, otherEditPersonDescriptor.email)
                     && Objects.equals(roles, otherEditPersonDescriptor.roles)
                     && Objects.equals(contacts, otherEditPersonDescriptor.contacts)
+                    && Objects.equals(courses, otherEditPersonDescriptor.courses)
+                    && Objects.equals(tutorials, otherEditPersonDescriptor.tutorials)
                     && Objects.equals(address, otherEditPersonDescriptor.address)
                     && Objects.equals(tags, otherEditPersonDescriptor.tags);
         }
@@ -280,6 +324,8 @@ public class EditCommand extends Command {
                     .add("email", email)
                     .add("roles", roles)
                     .add("contacts", contacts)
+                    .add("courses", courses)
+                    .add("tutorials", tutorials)
                     .add("address", address)
                     .add("tags", tags)
                     .toString();

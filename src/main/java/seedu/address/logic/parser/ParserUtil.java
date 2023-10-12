@@ -11,10 +11,12 @@ import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Contact;
+import seedu.address.model.person.Course;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Role;
+import seedu.address.model.person.Tutorial;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -119,6 +121,83 @@ public class ParserUtil {
             contactSet.add(parseContact(contactName));
         }
         return contactSet;
+    }
+
+    /**
+     * Parses a {@code String course} into a {@code Course}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code course} is invalid.
+     */
+    public static Course parseCourse(String course) throws ParseException {
+        requireNonNull(course);
+        String trimmedCourse = course.trim();
+        if (!Course.isValidCourseName(trimmedCourse)) {
+            throw new ParseException(Course.MESSAGE_CONSTRAINTS);
+        }
+        return new Course(trimmedCourse);
+    }
+
+    /**
+     * Parses {@code Collection<String> courses} into a {@code Set<Course>}.
+     */
+    public static Set<Course> parseCourses(Collection<String> courses) throws ParseException {
+        requireNonNull(courses);
+        final Set<Course> courseSet = new HashSet<>();
+        for (String courseName : courses) {
+            courseSet.add(parseCourse(courseName));
+        }
+        return courseSet;
+    }
+
+    /**
+     * Parses a {@code String tutorial} into a {@code Tutorial}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code tutorial} is invalid.
+     */
+    public static Tutorial parseTutorial(Set<Course> courseList, String tutorial) throws ParseException {
+        requireNonNull(tutorial);
+        String trimmedTutorial = tutorial.trim();
+        if (!Tutorial.isValidTutorialString(trimmedTutorial)) {
+            throw new ParseException(Tutorial.MESSAGE_CONSTRAINTS);
+        }
+
+        Course relevantCourse = null;
+        String[] courseTutorialName = Tutorial.splitCourseTutorialName(trimmedTutorial);
+        if (courseTutorialName == null || courseTutorialName.length <= 0) {
+            throw new ParseException(Tutorial.MESSAGE_CONSTRAINTS);
+        }
+
+        for (Course course : courseList) {
+            if (course.courseName == courseTutorialName[0]) {
+                relevantCourse = course;
+            }
+        }
+        if (relevantCourse == null) {
+            String givenCoursesString = courseList.stream().map(
+                    (course) -> course.courseName
+            ).reduce(
+                "", 
+                (current, next) -> current + next.toString() + " "
+            );
+            givenCoursesString = String.format("[ %s]", givenCoursesString);
+            throw new ParseException(String.format(Tutorial.INVALID_COURSE_MESSAGE, courseTutorialName[0], givenCoursesString));
+        }
+
+        return new Tutorial(relevantCourse, trimmedTutorial);
+    }
+
+    /**
+     * Parses {@code Collection<String> tutorials} into a {@code Set<Tutorial>}.
+     */
+    public static Set<Tutorial> parseTutorials(Set<Course> courseList, Collection<String> tutorials) throws ParseException {
+        requireNonNull(tutorials);
+        final Set<Tutorial> tutorialSet = new HashSet<>();
+        for (String tutorialName : tutorials) {
+            tutorialSet.add(parseTutorial(courseList, tutorialName));
+        }
+        return tutorialSet;
     }
 
     /**

@@ -24,19 +24,23 @@ public class Person {
     // Data fields
     private final Set<Role> roles = new HashSet<>();
     private final Set<Contact> contacts = new HashSet<>();
+    private final Set<Course> courses = new HashSet<>();
+    private final Set<Tutorial> tutorials = new HashSet<>();
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Set<Role> roles, Set<Contact> contacts, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Person(Name name, Phone phone, Email email, Set<Role> roles, Set<Contact> contacts, Set<Course> courses, Set<Tutorial> tutorials, Address address, Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, roles, contacts, courses, tutorials, address, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.roles.addAll(roles);
         this.contacts.addAll(contacts);
+        this.courses.addAll(courses);
+        this.tutorials.addAll(tutorials);
         this.address = address;
         this.tags.addAll(tags);
     }
@@ -63,6 +67,14 @@ public class Person {
 
     public Set<Contact> getContacts() {
         return Collections.unmodifiableSet(contacts);
+    }
+
+    public Set<Course> getCourses() {
+        return Collections.unmodifiableSet(courses);
+    }
+
+    public Set<Tutorial> getTutorials() {
+        return Collections.unmodifiableSet(tutorials);
     }
 
     public Address getAddress() {
@@ -111,6 +123,8 @@ public class Person {
                 && email.equals(otherPerson.email)
                 && roles.equals(otherPerson.roles)
                 && contacts.equals(otherPerson.contacts)
+                && courses.equals(otherPerson.courses)
+                && tutorials.equals(otherPerson.tutorials)
                 && address.equals(otherPerson.address)
                 && tags.equals(otherPerson.tags);
     }
@@ -118,7 +132,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, roles, contacts, address, tags);
+        return Objects.hash(name, phone, email, roles, contacts, courses, tutorials, address, tags);
     }
 
     @Override
@@ -128,6 +142,8 @@ public class Person {
                 .add("phone", phone)
                 .add("email", email)
                 .add("roles", roles)
+                .add("courses", courses)
+                .add("tutorials", tutorials)
                 .add("contacts", contacts)
                 .add("address", address)
                 .add("tags", tags)

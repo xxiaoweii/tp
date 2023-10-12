@@ -12,11 +12,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Contact;
+import seedu.address.model.person.Course;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Role;
+import seedu.address.model.person.Tutorial;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -31,6 +33,8 @@ class JsonAdaptedPerson {
     private final String email;
     private final List<JsonAdaptedRole> roles = new ArrayList<>();
     private final List<JsonAdaptedContact> contacts = new ArrayList<>();
+    private final List<JsonAdaptedCourse> courses = new ArrayList<>();
+    private final List<JsonAdaptedTutorial> tutorials = new ArrayList<>();
     private final String address;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
@@ -42,17 +46,27 @@ class JsonAdaptedPerson {
             @JsonProperty("email") String email,
             @JsonProperty("roles") List<JsonAdaptedRole> roles,
             @JsonProperty("contacts") List<JsonAdaptedContact> contacts,
+            @JsonProperty("courses") List<JsonAdaptedCourse> courses,
+            @JsonProperty("tutorials") List<JsonAdaptedTutorial> tutorials,
             @JsonProperty("address") String address,
             @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.name = name;
         this.phone = phone;
         this.email = email;
+
         if (roles != null) {
             this.roles.addAll(roles);
         }
         if (contacts != null) {
             this.contacts.addAll(contacts);
         }
+        if (courses != null) {
+            this.courses.addAll(courses);
+        }
+        if (tutorials != null) {
+            this.tutorials.addAll(tutorials);
+        }
+
         this.address = address;
         if (tags != null) {
             this.tags.addAll(tags);
@@ -72,6 +86,13 @@ class JsonAdaptedPerson {
         contacts.addAll(source.getContacts().stream()
                 .map(JsonAdaptedContact::new)
                 .collect(Collectors.toList()));
+        courses.addAll(source.getCourses().stream()
+                .map(JsonAdaptedCourse::new)
+                .collect(Collectors.toList()));
+        tutorials.addAll(source.getTutorials().stream()
+                .map(JsonAdaptedTutorial::new)
+                .collect(Collectors.toList()));
+
         address = source.getAddress().value;
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
@@ -92,6 +113,27 @@ class JsonAdaptedPerson {
         final List<Contact> personContacts = new ArrayList<>();
         for (JsonAdaptedContact contact : contacts) {
             personContacts.add(contact.toModelType());
+        }
+
+        final List<Course> personCourses = new ArrayList<>();
+        for (JsonAdaptedCourse course : courses) {
+            personCourses.add(course.toModelType());
+        }
+
+        final List<Tutorial> personTutorials = new ArrayList<>();
+        for (JsonAdaptedTutorial tutorial : tutorials) {
+            // Get the course that is relevant to this tutorial.
+            String courseName = tutorial.getCourseName();
+            Course relevantCourse = null;
+            for (Course course : personCourses) {
+                if (course.courseName == courseName) {
+                    relevantCourse = course;
+                    break;
+                }
+            }
+            if (relevantCourse != null) {
+                personTutorials.add(tutorial.toModelType(relevantCourse));
+            }
         }
 
         final List<Tag> personTags = new ArrayList<>();
@@ -125,6 +167,8 @@ class JsonAdaptedPerson {
 
         final Set<Role> modelRoles = new HashSet<>(personRoles);
         final Set<Contact> modelContacts = new HashSet<>(personContacts);
+        final Set<Course> modelCourses = new HashSet<>(personCourses);
+        final Set<Tutorial> modelTutorials = new HashSet<>(personTutorials);
 
         if (address == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
@@ -135,7 +179,7 @@ class JsonAdaptedPerson {
         final Address modelAddress = new Address(address);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelRoles, modelContacts, modelAddress, modelTags);
+        return new Person(modelName, modelPhone, modelEmail, modelRoles, modelContacts, modelCourses, modelTutorials, modelAddress, modelTags);
     }
 
 }
