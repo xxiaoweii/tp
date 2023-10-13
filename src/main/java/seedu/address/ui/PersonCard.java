@@ -1,7 +1,5 @@
 package seedu.address.ui;
 
-import java.util.Comparator;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
@@ -50,16 +48,16 @@ public class PersonCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
 
-        contacts.setText(person.getContacts().stream().map(
-                    (contact) -> contact.toString()
-                ).reduce("", (current, next) -> current + next));
+        contacts.setText(person.getContacts().stream()
+                .map((contact) -> contact.toString())
+                .reduce("", (current, next) -> current + next));
 
-        courses.setText(person.getCourses().stream().map(
-                    (course) -> course.toString()
-                ).reduce("", (current, next) -> current + next));
+        courses.setText(person.getCourses().stream()
+                .map((course) -> course.toString())
+                .reduce("", (current, next) -> current + next));
 
-        tutorials.setText(person.getTutorials().stream().map(
-                    (tutorial) -> tutorial.toString()
-                ).reduce("", (current, next) -> current + next));
+        tutorials.setText(person.getTutorials().stream()
+                .map((tutorial) -> tutorial.toString())
+                .reduce("", (current, next) -> current + next));
     }
 }

@@ -15,8 +15,8 @@ class JsonAdaptedTutorial {
     private final String tutorialString;
 
     /**
-     * Constructs a {@code JsonAdaptedTutorial} with the given {@code courseName} and {@code tutorialName}. Course will be linked when
-     * converting to a modelType.
+     * Constructs a {@code JsonAdaptedTutorial} with the given {@code courseName} and
+     * {@code tutorialName}. Course will be linked when converting to a modelType.
      */
     @JsonCreator
     public JsonAdaptedTutorial(String tutorialString) {

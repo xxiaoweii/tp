@@ -1,9 +1,9 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTACT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
@@ -98,7 +98,7 @@ public class EditCommand extends Command {
         Set<Course> updatedCourses = editPersonDescriptor.getCourses().orElse(personToEdit.getCourses());
         Set<Tutorial> updatedTutorials = editPersonDescriptor.getTutorials().orElse(personToEdit.getTutorials());
 
-        return new Person(updatedName,  updatedRoles, updatedContacts, updatedCourses, updatedTutorials);
+        return new Person(updatedName, updatedRoles, updatedContacts, updatedCourses, updatedTutorials);
     }
 
     @Override

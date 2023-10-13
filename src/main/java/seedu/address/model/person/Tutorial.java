@@ -10,8 +10,9 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Tutorial {
 
     public static final String MESSAGE_CONSTRAINTS = "Tutorials should be written in the format COURSECODE/TUTORIAL";
-    public static final String INVALID_COURSE_MESSAGE = "Given course's name (%s) does not match Tutorial's course name (%s).";
-    
+    public static final String INVALID_COURSE_MESSAGE =
+        "Given course's name (%s) does not match Tutorial's course name (%s).";
+
     // Matches a single character, any number of characters, a slash, a single character, then any number of characters.
     public static final String VALIDATION_REGEX = "[^\\s].*\\/[^\\s].*";
 
@@ -34,8 +35,9 @@ public class Tutorial {
 
         String[] tutorialStringSplit = Tutorial.splitCourseTutorialName(tutorialString);
 
-        assert course.courseName.equals(tutorialStringSplit[0]) : 
-            String.format(Tutorial.INVALID_COURSE_MESSAGE, course.courseName, tutorialStringSplit[0]);
+        assert course.courseName.equals(tutorialStringSplit[0]) : String.format(
+                Tutorial.INVALID_COURSE_MESSAGE, course.courseName, tutorialStringSplit[0]
+                );
 
         this.course = course;
         this.tutorialName = tutorialStringSplit[1];

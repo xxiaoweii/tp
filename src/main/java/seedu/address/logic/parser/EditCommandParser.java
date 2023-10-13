@@ -2,9 +2,9 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTACT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL;
 
 import java.util.Collection;
@@ -55,14 +55,10 @@ public class EditCommandParser implements Parser<EditCommand> {
         parseContactsForEdit(argMultimap.getAllValues(PREFIX_CONTACT)).ifPresent(editPersonDescriptor::setContacts);
         parseCoursesForEdit(argMultimap.getAllValues(PREFIX_COURSE)).ifPresent(editPersonDescriptor::setCourses);
 
-        parseTutorialsForEdit(editPersonDescriptor.getCourses().orElse(new HashSet<Course>()), argMultimap.getAllValues(PREFIX_COURSE)).ifPresent(editPersonDescriptor::setTutorials);
-
-        //editPersonDescriptor.getCourses().ifPresent((courses) -> {
-            //parseTutorialsForEdit(
-                    //courses,
-                    //argMultimap.getAllValues(PREFIX_TUTORIAL)
-                //).ifPresent(editPersonDescriptor::setTutorials);
-        //});
+        parseTutorialsForEdit(
+                editPersonDescriptor.getCourses().orElse(new HashSet<Course>()),
+                argMultimap.getAllValues(PREFIX_COURSE)
+                ).ifPresent(editPersonDescriptor::setTutorials);
 
         if (!editPersonDescriptor.isAnyFieldEdited()) {
             throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
@@ -82,14 +78,15 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (contacts.isEmpty()) {
             return Optional.empty();
         }
-        Collection<String> contactSet = contacts.size() == 1 && contacts.contains("") ? Collections.emptySet() : contacts;
+        Collection<String> contactSet = contacts.size() == 1 && contacts.contains("")
+            ? Collections.emptySet() : contacts;
         return Optional.of(ParserUtil.parseContacts(contactSet));
     }
 
     /**
-     * Parses {@code Collection<String> courses} into a {@code Set<Course>} if {@code courses} is non-empty.
-     * If {@code courses} contain only one element which is an empty string, it will be parsed into a
-     * {@code Set<Course>} containing zero courses.
+     * Parses {@code Collection<String> courses} into a {@code Set<Course>} if {@code courses}
+     * is non-empty. If {@code courses} contain only one element which is an empty string,
+     * it will be parsed into a {@code Set<Course>} containing zero courses.
      */
     private Optional<Set<Course>> parseCoursesForEdit(Collection<String> courses) throws ParseException {
         assert courses != null;
@@ -106,13 +103,17 @@ public class EditCommandParser implements Parser<EditCommand> {
      * If {@code tutorials} contain only one element which is an empty string, it will be parsed into a
      * {@code Set<Tutorial>} containing zero tutorials.
      */
-    private Optional<Set<Tutorial>> parseTutorialsForEdit(Set<Course> courses, Collection<String> tutorials) throws ParseException {
+    private Optional<Set<Tutorial>> parseTutorialsForEdit(Set<Course> courses,
+            Collection<String> tutorials) throws ParseException {
         assert tutorials != null;
 
         if (tutorials.isEmpty()) {
             return Optional.empty();
         }
-        Collection<String> tutorialSet = tutorials.size() == 1 && tutorials.contains("") ? Collections.emptySet() : tutorials;
+
+        Collection<String> tutorialSet = (tutorials.size() == 1 && tutorials.contains(""))
+            ? Collections.emptySet() : tutorials;
+
         return Optional.of(ParserUtil.parseTutorials(courses, tutorialSet));
     }
 }

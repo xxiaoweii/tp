@@ -15,7 +15,7 @@ class JsonAdaptedCourse {
 
     /**
      * Constructs a {@code JsonAdaptedCourse} with the given {@code courseName}.
-     */ 
+     */
     @JsonCreator
     public JsonAdaptedCourse(String courseName) {
         this.courseName = courseName;

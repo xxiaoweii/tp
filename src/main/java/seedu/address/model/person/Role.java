@@ -9,6 +9,10 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Role {
 
+    /**
+     * Describes the type of the Role. The user input / output must match these values
+     * in the code exactly.
+     */
     public enum RoleType {
         Student,
         TA,
@@ -24,13 +28,6 @@ public class Role {
 
     public final RoleType roleType;
 
-    /**
-     * Retrieves the corresponding RoleType from the String input.
-     */
-    public static RoleType toRoleType(String roleString) {
-        checkArgument(isValidRoleType(roleString), MESSAGE_CONSTRAINTS);
-        return RoleType.valueOf(roleString);
-    }
 
     /**
      * Constructs a {@code Role}.
@@ -41,6 +38,14 @@ public class Role {
         requireNonNull(roleString);
         checkArgument(isValidRoleType(roleString), MESSAGE_CONSTRAINTS);
         roleType = toRoleType(roleString);
+    }
+
+    /**
+     * Retrieves the corresponding RoleType from the String input.
+     */
+    public static RoleType toRoleType(String roleString) {
+        checkArgument(isValidRoleType(roleString), MESSAGE_CONSTRAINTS);
+        return RoleType.valueOf(roleString);
     }
 
     /**

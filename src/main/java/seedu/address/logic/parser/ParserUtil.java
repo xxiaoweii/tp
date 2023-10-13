@@ -156,14 +156,15 @@ public class ParserUtil {
             }
         }
         if (relevantCourse == null) {
-            String givenCoursesString = courseList.stream().map(
-                    (course) -> course.courseName
-            ).reduce(
-                "", 
-                (current, next) -> current + next.toString() + " "
-            );
+            String givenCoursesString = courseList.stream()
+                .map((course) -> course.courseName)
+                .reduce(
+                        "", (current, next) -> current + next.toString() + " "
+                       );
             givenCoursesString = String.format("[ %s]", givenCoursesString);
-            throw new ParseException(String.format(Tutorial.INVALID_COURSE_MESSAGE, courseTutorialName[0], givenCoursesString));
+            throw new ParseException(String.format(
+                        Tutorial.INVALID_COURSE_MESSAGE, courseTutorialName[0], givenCoursesString
+                        ));
         }
 
         return new Tutorial(relevantCourse, trimmedTutorial);
@@ -172,7 +173,8 @@ public class ParserUtil {
     /**
      * Parses {@code Collection<String> tutorials} into a {@code Set<Tutorial>}.
      */
-    public static Set<Tutorial> parseTutorials(Set<Course> courseList, Collection<String> tutorials) throws ParseException {
+    public static Set<Tutorial> parseTutorials(Set<Course> courseList,
+            Collection<String> tutorials) throws ParseException {
         requireNonNull(tutorials);
         final Set<Tutorial> tutorialSet = new HashSet<>();
         for (String tutorialName : tutorials) {
