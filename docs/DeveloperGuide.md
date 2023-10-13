@@ -289,15 +289,21 @@ NUS students:
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​     | I want to …​                                                      | So that I can…​                                                         |
-|----------|-------------|-------------------------------------------------------------------|-------------------------------------------------------------------------|
-| `* * *`  | new user    | see usage instructions                                            | refer to instructions when I forget how to use the App                  |
-| `* * *`  | NUS student | add my classmates, professors and teaching assistants profiles in | easily keep track of my peers and mentors in NUS                        |
-| `* * *`  | NUS student | my classmates, professors or teaching assistants profiles         | remove entries that I no longer need                                    |
-| `* * *`  | NUS student | search a profile by name                                          | locate details of a person without having to go through the entire list |
-| `* *`    | NUS student | view the list of profiles added                                   |                                                                         |
-| `*`      | NUS student | favourite profiles I would view often                             | easily view their profiles when using the app                           |
-| `* * *`  | NUS student | close the app when I am done using it                             |                                                                         |
+| Priority | As a …​     | I want to …​                                                                                                                   | So that I can…​                                                        |
+|---------|-------------|--------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| `* * *` | new user    | see usage instructions                                                                                                         | refer to instructions when I forget how to use the App                 |
+| `* * *` | NUS student | add my classmates, professors and teaching assistants profiles in                                                              | easily keep track of my peers and mentors in NUS                       |
+| `* * *` | NUS student | my classmates, professors or teaching assistants profiles                                                                      | remove entries that I no longer need                                   |
+| `* * *` | NUS student | search a profile by name                                                                                                       | locate details of a person without having to go through the entire list |
+| `* *`   | NUS student | view the list of profiles added                                                                                                |                                                                        |
+| `*`     | NUS student | favourite profiles I would view often                                                                                          | easily view their profiles when using the app                          |
+| `* * *` | NUS student | close the app when I am done using it                                                                                          |                                                                        |
+| `* * `  | NUS student | save my favourite professors, teaching assistants, and classmates in a personal contact list within NUSearch |  reach out to them easily in the future                           |
+| `* * `  | Professor   | include my don’t disturb timings I can reach out to them easily in the future                           | so that I can have better work life balance                          |
+| `* * `  | NUS student   | delete my classmates, professors or teaching assistants profiles                           | I can remove entries I no longer need                         |
+| `*  `   | NUS student   | find the direction to my tutorial / lecture classrooms                         | I will not get lost on campus.                       |
+
+
 
 *{More to be added}*
 
