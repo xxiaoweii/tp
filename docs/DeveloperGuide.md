@@ -1,7 +1,7 @@
 ---
-  layout: default.md
-  title: "Developer Guide"
-  pageNav: 3
+layout: default.md
+title: "Developer Guide"
+pageNav: 3
 ---
 
 # NUSearch Developer Guide
@@ -102,9 +102,9 @@ The sequence diagram below illustrates the interactions within the `Logic` compo
 How the `Logic` component works:
 
 1. When `Logic` is called upon to execute a command, it is passed to an `AddressBookParser` object which in turn creates a parser that matches the command (e.g., `DeleteCommandParser`) and uses it to parse the command.
-1. This results in a `Command` object (more precisely, an object of one of its subclasses e.g., `DeleteCommand`) which is executed by the `LogicManager`.
-1. The command can communicate with the `Model` when it is executed (e.g. to delete a person).
-1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+2. This results in a `Command` object (more precisely, an object of one of its subclasses e.g., `DeleteCommand`) which is executed by the `LogicManager`.
+3. The command can communicate with the `Model` when it is executed (e.g. to delete a person).
+4. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
 
 Here are the other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command:
 
@@ -269,57 +269,111 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+NUS students:
+* who wants to consolidate and access profiles of professors, teaching assistants (TAs), and their fellow classmates easily
+* who are lazy to navigate to numerous NUS websites for academic resources
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**:
+
+* Helps students to consolidate profiles of professors, teaching assistants (TAs), and their fellow classmates, within a single platform 
+* Compact and easy to navigate 
+* Students can save time and energy that would otherwise be spent searching for scattered and hard-to-access essential college information
+* Features an intuitive and user-friendly interface, making it convenient for users to quickly find the information they need
 
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​     | I want to …​                                                      | So that I can…​                                                         |
-|----------|-------------|-------------------------------------------------------------------|-------------------------------------------------------------------------|
-| `* * *`  | new user    | see usage instructions                                            | refer to instructions when I forget how to use the App                  |
-| `* * *`  | NUS student | add my classmates, professors and teaching assistants profiles in | easily keep track of my peers and mentors in NUS                        |
-| `* * *`  | NUS student | my classmates, professors or teaching assistants profiles         | remove entries that I no longer need                                    |
-| `* * *`  | NUS student | search a profile by name                                          | locate details of a person without having to go through the entire list |
-| `* *`    | NUS student | view the list of profiles added                                   |                                                                         |
-| `*`      | NUS student | favourite profiles I would view often                             | easily view their profiles when using the app                           |
-| `* * *`  | NUS student | close the app when I am done using it                             |                                                                         |
+| Priority | As a …​     | I want to …​                                                                                                                   | So that I can…​                                                        |
+|---------|-------------|--------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| `* * *` | new user    | see usage instructions                                                                                                         | refer to instructions when I forget how to use the App                 |
+| `* * *` | NUS student | add my classmates, professors and teaching assistants profiles in                                                              | easily keep track of my peers and mentors in NUS                       |
+| `* * *` | NUS student | my classmates, professors or teaching assistants profiles                                                                      | remove entries that I no longer need                                   |
+| `* * *` | NUS student | search a profile by name                                                                                                       | locate details of a person without having to go through the entire list |
+| `* *`   | NUS student | view the list of profiles added                                                                                                |                                                                        |
+| `*`     | NUS student | favourite profiles I would view often                                                                                          | easily view their profiles when using the app                          |
+| `* * *` | NUS student | close the app when I am done using it                                                                                          |                                                                        |
+| `* * `  | NUS student | save my favourite professors, teaching assistants, and classmates in a personal contact list within NUSearch |  reach out to them easily in the future                           |
+| `* * `  | Professor   | include my don’t disturb timings I can reach out to them easily in the future                           | so that I can have better work life balance                          |
+| `* * `  | NUS student   | delete my classmates, professors or teaching assistants profiles                           | I can remove entries I no longer need                         |
+| `*  `   | NUS student   | find the direction to my tutorial / lecture classrooms                         | I will not get lost on campus.                       |
+
+
 
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is `NUSearch` and the **Actor** is the `User`, unless specified otherwise)
 
-**Use case: Delete a person**
+**System: NUSearch**
+**Use case: UC1 - Add a new profile**
+**Actor: User**
 
 **MSS**
-
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
-
-    Use case ends.
+1.  User input a new profile 
+2.  NUSearch adds the new profile to the list
+Use case ends
 
 **Extensions**
+* 1a. NUSearch detects an error in the input data
+*  * 1a1. NUSearch requests for the correct data
+* Use case ends
 
-* 2a. The list is empty.
+**System: NUSearch**
+**Use case: UC2 - Asking for help**
+**Actor: User**
+**MSS**
+1. User requests for help
+2. NUSearch sends the help
 
-  Use case ends.
+**System: NUSearch**
+**Use case: UC3 - Asking for List**
+**Actor: User**
+**MSS**
+1. User requests for the list of profiles
+2. NUSearch sends the list of profiles
 
-* 3a. The given index is invalid.
+**Extensions**
+* 1a. NUSearch detects no data in the list
+*  * 1a1. NUSearch tells the user the list is empty
+* Use case ends
 
-    * 3a1. AddressBook shows an error message.
+**System: NUSearch**
+**Use case: UC4 - Exit**
+**Actor: User**
+**MSS**
+1. User requests for an exit 
+2. NUSSearch exits
 
-      Use case resumes at step 2.
+**System: NUSearch**
+**Use case: UC5 - Add favorite**
+**Actor: User**
+**MSS**
+1. User favorites a profile
+2. NUSearch favorites the profile
+
+**Extensions**
+* 1b. The profile does not exists
+* * 1b1. NUSearch tells the user the profile does not exists
+*  Use case ends
+
+**System: NUSearch**
+**Use case: UC6 - Search for a profile**
+**Actor: User**
+**MSS**
+1. User requests for a profile
+2. NUSearch shows the profile
+
+**Extensions**
+* 1b. The profile does not exists
+* * 1b1. NUSearch tells the user the profile does not exists
+*  Use case ends
 
 *{More to be added}*
 
@@ -328,13 +382,32 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+4.  The system should store data in a human-editable text file, in a human-readable format.
+5.  The system should work without requiring an installer.
+6.  The system should not depend on a remote server.
+7.  The GUI should not cause any resolution-related inconveniences for a user for standard screen resolutions 1920x1080 or higher.
+8.  The GUI should not cause any resolution-related inconveniences for a user at screen scales 100% or 125%.
+9.  The GUI should be usable at standard screen resolutions 1280x720 or higher.
+10. The GUI should be usable at screen scale 150%.
+11. The system should be packaged into a single JAR file.
+12. The JAR file containing the system should not exceed 100MB in size.
+13. The system should not take more than 2 seconds to process any given command.
+14. The GUI should be easy to navigate for an experienced user of the system.
+15. The system should generally follow the object-oriented paradigm.
+16. It should be easy to incorporate new commands, attributes or fields into the system.
 
 *{More to be added}*
 
 ### Glossary
 
-* **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Private contact detail**: A contact detail that is not meant to be shared with others
+1. **API**: Application Programming Interface, a set of rules and protocols that allow different software applications to communicate with each other
+2. **Architecture Diagram**: Visual representation that illustrates how various components of the software project are structured and interconnected
+3. **JavaFX UI**: A user interface framework in Java for creating interactive and visually appealing desktop applications
+4. **Mainstream OS**: Windows, Linux, Unix, OS-X
+5. **PlantUML**: A text-based tool for creating diagrams using simple text descriptions
+6. **Sequence Diagram**: A visual tool showing the order of actions between system components or objects
+
+*{More to be added}*
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -355,16 +428,16 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   2. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
-1. Saving window preferences
+2. Saving window preferences
 
    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
-   1. Re-launch the app by double-clicking the jar file.<br>
+   2. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
+3. _{ more test cases …​ }_
 
 ### Deleting a person
 
@@ -372,16 +445,16 @@ testers are expected to do more *exploratory* testing.
 
    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
 
-   1. Test case: `delete 1`<br>
+   2. Test case: `delete 1`<br>
       Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
 
-   1. Test case: `delete 0`<br>
+   3. Test case: `delete 0`<br>
       Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+   4. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+2. _{ more test cases …​ }_
 
 ### Saving data
 
@@ -389,4 +462,4 @@ testers are expected to do more *exploratory* testing.
 
    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
-1. _{ more test cases …​ }_
+2. _{ more test cases …​ }_

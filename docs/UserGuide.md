@@ -13,7 +13,7 @@ NUSearch is a **desktop app for consolidating NUS professors, teaching assistant
 
 --------------------------------------------------------------------------------------------------------------------
 ## Motivation
-We aim to simplify the process of accessing academic information by developing an efficient directory app. This app will help students to consolidate professors, teaching assistance (TAs) and their fellow classmates’ profile, improving the ease of accessing the details of individuals whom the students might need to contact for that semester.
+We aim to simplify the process of accessing academic information by developing an efficient directory app. This app will help students to consolidate professors, teaching assistants (TAs) and their fellow classmates’ profile, improving the ease of accessing the details of individuals whom the students might need to contact for that semester.
 
 ## Unique Selling Point
 The app helps students to consolidate important data, such as profiles of professors, teaching assistants (TAs), and fellow classmates, providing students with a single platform that is compact and easy to navigate. With this application, students can save time and energy that would otherwise be spent searching for scattered and hard-to-access essential academic contacts. The app features an intuitive and user-friendly interface, making it convenient for users to quickly find the information they need.
@@ -22,32 +22,13 @@ The app helps students to consolidate important data, such as profiles of profes
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `addressbook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
+2. to be added
 
-1. Copy the file to the folder you want to use as the _home folder_ for your AddressBook.
-
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar addressbook.jar` command to run the application.<br>
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   ![Ui](images/Ui.png)
-
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some example commands you can try:
-
-   * `list` : Lists all contacts.
-
-   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
-
-   * `delete 3` : Deletes the 3rd contact shown in the current list.
-
-   * `clear` : Deletes all contacts.
-
-   * `exit` : Exits the app.
-
-1. Refer to the [Features](#features) below for details of each command.
+3. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 3. Features & Commands
+## Features & Commands
 
 ### A Guide to reading each command
 The description of each command will contain the following: 
@@ -74,14 +55,12 @@ Shows the error messages that will be shown to you if an invalid command is give
 
 ##### COMMAND FORMAT
 ```
-command --specifier INPUTFIELD [--specifier INPUTFIELD1, ...] [--specifier INPUTFIELD1/SUBFIELD1
--SUBFIELD2-..., ...]
+command --specifier INPUTFIELD [--specifier INPUTFIELD1, ...] [--specifier INPUTFIELD1/SUBFIELD1-SUBFIELD2-..., ...]
 ```
 
 ##### EXAMPLE COMMAND FORMAT
 ```
-add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1
--CLASS2-..., ...] 
+add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...] 
 ```
 
 | Command Types |          Examples           | What they mean                                                                                              |
@@ -105,114 +84,247 @@ add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSEC
 | `--course`  | The course the person is taking                  |
 
 
-### Viewing help : `help`
+### Features
 
-Shows a message explaning how to access the help page.
+#### Viewing help : `help`
 
+Shows a message which will give you the url to the help page.
+
+##### FORMAT: 
+`help`
+
+##### EXAMPLE COMMAND: 
+`help`
+
+##### ACCEPTABLE VALUES: 
+This command does not accept any parameters.
+
+##### EXPECTED OUTPUT ON SUCCESS:
+Upon successfully executing the help command, you should see a message that provides the URL to the help page. 
+The help page is a comprehensive documentation containing a list of valid commands and how to use them.
 ![help message](images/helpMessage.png)
 
-Format: `help`
+##### EXPECTED OUTPUT ON FAILURE:
+`The  command or the format of the command that you have entered is wrong.
+Please refer to this link for the list of valid commands:`
+[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
 
+#### Adding a person: `add`
 
-### Adding a person: `add`
+Adds new profiles in the profile lists.
 
-Adds a person to the address book.
-
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+##### FORMAT:
+`add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...] `
 
 <box type="tip" seamless>
 
-**Tip:** A person can have any number of tags (including 0)
+**Tip:**
+
+-Contacts can be any type of contact: email address, telegram handle, phone number, etc.
+
+-Courses can be any of the courses offered by NUS
+
+> 📝Note:
+> 
+> Please use a comma (,) to separate the different contacts as well as the different courses
+
+-The different fields are colour-coded to differentiate between them.
+
+-The user can press tab to auto fill commands.
+
+-The square brackets, [ ], are not needed when entering the command (see example below for more details)
+
 </box>
 
-Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+##### EXAMPLE COMMAND:
+`add --name Aiken Dueet --role STUDENT --contact @aikendueet, aikendueet@gmail.com 
+--course CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30 `
 
-### Listing all persons : `list`
+##### ACCEPTABLE VALUES:
+`NAME`: Any non-empty input of alphabetical characters.
 
-Shows a list of all persons in the address book.
+`ROLE1`: Any three roles allowed here: student, ta, professor (all in lowercase).
 
-Format: `list`
+`CONTACT1`: Any non-empty input of characters.
 
-### Editing a person : `edit`
+`COURSECODE1`: Any non-empty input of characters.
 
-Edits an existing person in the address book.
+`CLASS1`: Any non-empty input of characters.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+You have added a new profile in :)
+Name: Aiken Dueet  
+Role: STUDENT
+Contact: @aikendueet, aikendueet@gmail.com
+Course: CS2103T, CS2101, CS2100
+Tutorials: CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30
+```
 
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
-* At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `t/` without
-    specifying any tags after it.
 
-Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+##### EXPECTED OUTPUT ON FAILURE:
+`The  command or the format of the command that you have entered is wrong.
+Please refer to this link for the list of valid commands:`
+[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
 
-### Locating persons by name: `find`
+#### Listing all persons : `list`
 
-Finds persons whose names contain any of the given keywords.
+List all the profiles added by the user.
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
+##### FORMAT:
+`list`
 
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+##### EXAMPLE COMMAND:
+`list`
 
-Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+##### ACCEPTABLE VALUES:
+This command does not accept any parameters.
 
-### Deleting a person : `delete`
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+You have 1 profile in your list: 
+Name: Aiken Dueet  
+Role: STUDENT
+Contact: @aikendueet, aikendueet@gmail.com
+Course: CS2103T, CS2101, CS2100
+Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30 
+```
 
-Deletes the specified person from the address book.
+##### EXPECTED OUTPUT ON FAILURE:
+`The  command or the format of the command that you have entered is wrong.
+Please refer to this link for the list of valid commands:`
+[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
 
-Format: `delete INDEX`
+#### Deleting a profile : `delete`
 
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3, …​
+Delete the specific profile based on the index allocated to the profile.
 
-Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the address book.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+##### FORMAT:
+`delete INDEX`
 
-### Clearing all entries : `clear`
+##### EXAMPLE COMMAND:
+`delete 1`
 
-Clears all entries from the address book.
+##### ACCEPTABLE VALUES:
+`INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …), 
+less than or equal to the number of profiles the user currently has.
 
-Format: `clear`
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+You have deleted a profile
+Deleted Profile: 
+Name: Aiken Dueet  
+Role: STUDENT
+Contact: @aikendueet, aikendueet@gmail.com
+Course: CS2103T, CS2101, CS2100
+Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30 
+```
 
-### Exiting the program : `exit`
+##### EXPECTED OUTPUT ON FAILURE:
+The command or the format of the command that you have entered is wrong. 
+Please refer to this link for the list of valid commands:
+[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
 
-Exits the program.
+#### Searching for profiles: `search`
 
-Format: `exit`
+Search for profiles that match the input keyword
 
-### Saving the data
+##### FORMAT:
+`search KEYWORD`
 
-AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+##### EXAMPLE COMMAND:
+`search CS2100`
 
-### Editing the data file
+##### ACCEPTABLE VALUES:
+`KEYWORD`: Any non-empty string of alphanumeric characters.
 
-AddressBook data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+There are 2 profile that match your input 'CS2100':
+Name: Aiken Dueet  
+Role: STUDENT
+Contact: @aikendueet, aikendueet@gmail.com
+Course: CS2103T, CS2101, CS2100
+Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30 
 
-<box type="warning" seamless>
+Name: Aikennot Dueet  
+Role: STUDENT
+Contact: @aikennotdueet, aikennotdueet@gmail.com
+Course: CS2100
+Tutorials: CS2100/Lab30-Tut10 
+```
 
-**Caution:**
-If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.  Hence, it is recommended to take a backup of the file before editing it.
-</box>
+##### EXPECTED OUTPUT ON FAILURE:
+`The command or the format of the command that you have entered is wrong. 
+Please refer to this link for the list of valid commands:
+[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)`
 
-### Archiving data files `[coming in v2.0]`
+#### Adding profiles to favourites: `fav`
 
-_Details coming soon ..._
+Favourite the profiles in the user’s current profile list.
+
+##### FORMAT:
+`fav INDEX`
+
+##### EXAMPLE COMMAND:
+`fav 2`
+
+##### ACCEPTABLE VALUES:
+`INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …), 
+less than or equal to the number of profiles the user currently has.
+
+> 📝Note:
+>
+> INDEX refers to the index of the profile allocated to the specific profile in the current profile list.
+
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+You have favourited this profile: 
+Name: Joseph
+Role: PROFESSOR
+Contact: @josephhhhh, josephhhhh@nus.edu.sg
+Course: CS2102
+Tutorials: CS2102/Tut14
+```
+
+##### EXPECTED OUTPUT ON FAILURE:
+`The command or the format of the command that you have entered is wrong. 
+Please refer to this link for the list of valid commands:
+[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)`
+
+#### Exiting the application: `exit`
+
+Closes and exits the application
+
+##### FORMAT:
+`exit`
+
+##### EXAMPLE COMMAND:
+`exit`
+
+##### ACCEPTABLE VALUES:
+This command does not accept any parameters
+
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+You have exitted the application. 
+```
+> 📝Note:
+>
+> App closes and the program stops.
+
+##### EXPECTED OUTPUT ON FAILURE:
+`The command or the format of the command that you have entered is wrong.
+Please refer to this link for the list of valid commands:
+[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)`
+
+--------------------------------------------------------------------------------------------------------------------
+
+## UI Mockup
+
+Here's a mockup of how the User Interface might look: <br>
+
+![NUSearch UI Mockup](./images/Ui.png)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -231,12 +343,13 @@ _Details coming soon ..._
 
 ## Command summary
 
-Action     | Format, Examples
------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-**Clear**  | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List**   | `list`
-**Help**   | `help`
+|     Action     | Format                                                                                                          | Example                                                                                                                                   |
+|:--------------:|-----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+|    **Help**    | `help`                                                                                                          | `help`                                                                                                                                    |                                                                                                                                  
+|    **Add**     | `add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]`  | `add --name Aiken Dueet --role STUDENT --contact @aikendueet, aikendueet@gmail.com --course CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30` |
+|    **List**    | `list`                                                                                                          | `list`                                                                                                                                    |
+|   **Delete**   | `delete INDEX`                                                                                                  | `delete 3`                                                                                                                                |
+|   **Search**   | `find KEYWORD`                                                                                                  | `find CS2100`                                                                                                                             | 
+| **Favourite**  | `fav INDEX`                                                                                                     | `fav 1`                                                                                                                                   |
+|    **Exit**    | `exit`                                                                                                          | `exit`                                                                                                                                    | 
+

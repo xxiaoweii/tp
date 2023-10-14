@@ -1,6 +1,6 @@
 ---
-  layout: default.md
-  title: "About Us"
+layout: default.md
+title: "About Us"
 ---
 
 # About Us
@@ -23,39 +23,39 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### William Jacob
 
-<img src="images/william.jpeg" width="200px">
+<img src="images/wjacobw.png" width="200px">
 
 [[github](http://github.com/wjacobw)]
 [[portfolio](team/johndoe.md)]
 
+* Role: Developer
+* Responsibilities: Testing
+
+### Law Rui Xi
+
+<img src="images/lawruixi.png" width="200px">
+
+[[github](http://github.com/lawruixi)] [[portfolio](team/lawruixi.md)]
+
+* Role: Developer
+* Responsibilities: Code Quality
+
+### Ong Xiao Wei
+
+<img src="images/xxiaoweii.png" width="200px">
+
+[[github](http://github.com/xxiaoweii)]
+[[portfolio](team/xxiaoweii.md)]
+
+* Role: Developer
+* Responsibilities: Scheduling and tracking
+
+### Kirthigha Shanmuganantham
+
+<img src="images/kayabuttertoastt.png" width="200px">
+
+[[github](http://github.com/kayabuttertoastt)]
+[[portfolio](team/kayabuttertoastt.md)]
+
 * Role: Team Lead
-* Responsibilities: UI
-
-### Johnny Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: Data
-
-### Jean Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
-
-### James Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: UI
+* Responsibilities: Leader
