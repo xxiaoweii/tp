@@ -64,6 +64,13 @@ public interface Model {
     void deletePerson(Person target);
 
     /**
+     * Favourites the given person.
+     * The person must exist in the address book.
+     * @param target
+     */
+    void favouritePerson(Person target);
+
+    /**
      * Adds the given person.
      * {@code person} must not already exist in the address book.
      */

@@ -79,6 +79,22 @@ public class UniquePersonList implements Iterable<Person> {
         }
     }
 
+    /**
+     * Favourites the equivalent person from the list.
+     * The person must exist in the list.
+     * @param toFavourite The Person to favourite.
+     */
+    public void favourite(Person toFavourite) {
+        requireNonNull(toFavourite);
+
+        int index = internalList.indexOf(toFavourite);
+        if (index == -1) {
+            throw new PersonNotFoundException();
+        }
+
+        toFavourite.setFavourite();
+    }
+
     public void setPersons(UniquePersonList replacement) {
         requireNonNull(replacement);
         internalList.setAll(replacement.internalList);
