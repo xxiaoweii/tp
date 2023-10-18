@@ -94,6 +94,14 @@ public class AddressBook implements ReadOnlyAddressBook {
         persons.remove(key);
     }
 
+    /**
+     * Favourites {@code key} from this {@code AddressBook}.
+     * {@code key} must exist in the address book.
+     */
+    public void favouritePerson(Person key) {
+        persons.favourite(key);
+    }
+
     //// util methods
 
     @Override
