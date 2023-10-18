@@ -5,7 +5,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents a Tutorial in the address book.
- * Guarantees: immutable; name is valid as declared in {@link #isValidTutorialName(String)}
+ * Guarantees: immutable; name is valid as declared in {@link #isValidTutorialString(String)}
  */
 public class Tutorial {
 
@@ -27,7 +27,7 @@ public class Tutorial {
      * Constructs a {@code Tutorial}.
      *
      * @param course A valid course.
-     * @param tutorialName A valid tutorial name.
+     * @param tutorialString A valid tutorial name.
      */
     public Tutorial(Course course, String tutorialString) {
         requireNonNull(tutorialString);
