@@ -1,7 +1,7 @@
 ---
-  layout: default.md
-  title: "User Guide"
-  pageNav: 3
+layout: default.md
+title: "User Guide"
+pageNav: 3
 ---
 
 # NUSearch User Guide
@@ -137,7 +137,7 @@ Adds new profiles in the profile lists.
 </box>
 
 ##### EXAMPLE COMMAND:
-`add --name Aiken Dueet --role STUDENT --contact @aikendueet, aikendueet@gmail.com 
+`add --name Aiken Dueet --role Student --contact @aikendueet, aikendueet@gmail.com 
 --course CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30 `
 
 ##### ACCEPTABLE VALUES:
@@ -153,9 +153,9 @@ Adds new profiles in the profile lists.
 
 ##### EXPECTED OUTPUT ON SUCCESS:
 ```
-You have added a new profile in :)
+You have added a new profile in :
 Name: Aiken Dueet  
-Role: STUDENT
+Role: Student
 Contact: @aikendueet, aikendueet@gmail.com
 Course: CS2103T, CS2101, CS2100
 Tutorials: CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30
