@@ -3,10 +3,12 @@ package seedu.address.model.person;
 import java.util.List;
 import java.util.function.Predicate;
 
-import seedu.address.commons.util.StringUtil;
 import seedu.address.commons.util.ToStringBuilder;
 
-public class TutorialContainsKeywordsPredicate implements Predicate<Person>{
+/**
+ * Tests that a {@code Person}'s {@code Tutorial} matches any of the keywords given.
+ */
+public class TutorialContainsKeywordsPredicate implements Predicate<Person> {
     private final List<String> keywords;
 
     public TutorialContainsKeywordsPredicate(List<String> keywords) {
@@ -32,7 +34,8 @@ public class TutorialContainsKeywordsPredicate implements Predicate<Person>{
             return false;
         }
 
-        TutorialContainsKeywordsPredicate otherTutorialContainsKeywordsPredicate = (TutorialContainsKeywordsPredicate) other;
+        TutorialContainsKeywordsPredicate otherTutorialContainsKeywordsPredicate =
+                (TutorialContainsKeywordsPredicate) other;
         return keywords.equals(otherTutorialContainsKeywordsPredicate.keywords);
     }
 

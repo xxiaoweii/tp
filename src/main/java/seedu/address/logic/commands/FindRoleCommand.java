@@ -1,12 +1,15 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.model.Model;
 import seedu.address.model.person.RoleContainsKeywordsPredicate;
 
-import static java.util.Objects.requireNonNull;
-
+/**
+ * Command that filters out the people based on their role
+ */
 public class FindRoleCommand extends Command {
     public static final String COMMAND_WORD = "searchrole";
 
