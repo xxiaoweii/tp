@@ -1,20 +1,20 @@
-//package seedu.address;
+// package seedu.address;
 //
-//import static org.junit.jupiter.api.Assertions.assertEquals;
-//import static org.junit.jupiter.api.Assertions.assertFalse;
-//import static org.junit.jupiter.api.Assertions.assertTrue;
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+// import static org.junit.jupiter.api.Assertions.assertFalse;
+// import static org.junit.jupiter.api.Assertions.assertTrue;
 //
-//import java.nio.file.Paths;
-//import java.util.Collections;
-//import java.util.HashMap;
-//import java.util.List;
-//import java.util.Map;
+// import java.nio.file.Paths;
+// import java.util.Collections;
+// import java.util.HashMap;
+// import java.util.List;
+// import java.util.Map;
 //
-//import org.junit.jupiter.api.Test;
+// import org.junit.jupiter.api.Test;
 //
-//import javafx.application.Application;
+// import javafx.application.Application;
 //
-//public class AppParametersTest {
+// public class AppParametersTest {
 //
 //    private final ParametersStub parametersStub = new ParametersStub();
 //    private final AppParameters expected = new AppParameters();
@@ -42,7 +42,8 @@
 //    @Test
 //    public void toStringMethod() {
 //        AppParameters appParameters = new AppParameters();
-//        String expected = AppParameters.class.getCanonicalName() + "{configPath=" + appParameters.getConfigPath() + "}";
+//        String expected = AppParameters.class.getCanonicalName() +
+//            "{configPath=" + appParameters.getConfigPath() + "}";
 //        assertEquals(expected, appParameters.toString());
 //    }
 //
@@ -86,4 +87,4 @@
 //            return Collections.unmodifiableMap(namedParameters);
 //        }
 //    }
-//}
+// }
