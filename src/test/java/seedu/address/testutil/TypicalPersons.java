@@ -13,20 +13,13 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_STUDENT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_TA;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_1;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_2;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_3;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_4;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.model.AddressBook;
-import seedu.address.model.person.Contact;
-import seedu.address.model.person.Course;
-import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
-import seedu.address.model.person.Role;
-import seedu.address.model.person.Tutorial;
 
 /**
  * A utility class containing a list of {@code Person} objects to be used in tests.
@@ -38,7 +31,8 @@ public class TypicalPersons {
             .withCourses(VALID_COURSE_1).withTutorials(VALID_TUTORIAL_1).build();
     public static final Person BENSON = new PersonBuilder().withName("Benson Meier")
             .withRoles(VALID_ROLE_TA).withContacts("johnd@example.com")
-            .withCourses(VALID_COURSE_2).withTutorials(VALID_TUTORIAL_2).build();
+            .withCourses(VALID_COURSE_1, VALID_COURSE_2)
+            .withTutorials(VALID_TUTORIAL_1, VALID_TUTORIAL_2).build();
     public static final Person CARL = new PersonBuilder().withName("Carl Kurz")
             .withRoles(VALID_ROLE_PROFESSOR).withContacts("profcarl@example.com").build();
     public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier")
