@@ -10,6 +10,10 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_1;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_2;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_1;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_2;
 import seedu.address.testutil.PersonBuilder;
 
 public class NameContainsKeywordsPredicateTest {
@@ -69,9 +73,11 @@ public class NameContainsKeywordsPredicateTest {
         assertFalse(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
 
         // Keywords match phone, email and address, but does not match name
-        predicate = new NameContainsKeywordsPredicate(Arrays.asList("12345", "alice@email.com", "Main", "Street"));
-        assertFalse(predicate.test(new PersonBuilder().withName("Alice").withPhone("12345")
-                .withEmail("alice@email.com").withAddress("Main Street").build()));
+        predicate = new NameContainsKeywordsPredicate(Arrays.asList("Student", "alice@email.com",
+                VALID_COURSE_1.courseName, VALID_TUTORIAL_1.tutorialName));
+        assertFalse(predicate.test(new PersonBuilder().withName("Alice").withRoles("Student")
+                .withContacts("alice@email.com").withCourses(VALID_COURSE_1)
+                .withTutorials(VALID_TUTORIAL_1).build()));
     }
 
     @Test
