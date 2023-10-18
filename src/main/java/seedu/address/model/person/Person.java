@@ -23,6 +23,7 @@ public class Person {
     private final Set<Contact> contacts = new HashSet<>();
     private final Set<Course> courses = new HashSet<>();
     private final Set<Tutorial> tutorials = new HashSet<>();
+    private boolean isFavourite = false;
 
     /**
      * Every field must be present and not null.
@@ -58,6 +59,13 @@ public class Person {
 
     public Set<Tutorial> getTutorials() {
         return Collections.unmodifiableSet(tutorials);
+    }
+
+    /**
+     * Favourites the person.
+     */
+    public void setFavourite() {
+        this.isFavourite = true;
     }
 
     /**
