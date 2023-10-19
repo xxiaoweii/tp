@@ -17,12 +17,12 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
-import seedu.address.model.person.Contact;
+//import seedu.address.model.person.Contact;
 import seedu.address.model.person.Course;
-import seedu.address.model.person.Name;
+//import seedu.address.model.person.Name;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
-import seedu.address.model.person.Role;
+//import seedu.address.model.person.Role;
 import seedu.address.model.person.Tutorial;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 
@@ -67,7 +67,8 @@ public class CommandTestUtil {
     public static final String INVALID_ROLE_DESC = " " + PREFIX_ROLE + "Teacher"; // Teacher is not a supported role
     public static final String INVALID_CONTACT_DESC = " " + PREFIX_CONTACT + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_COURSE_DESC = " " + PREFIX_COURSE; // empty string not allowed for courses
-    public static final String INVALID_TUTORIAL_DESC = " " + PREFIX_TUTORIAL + "/F08"; // a Course is required for a tutorial
+    public static final String INVALID_TUTORIAL_DESC = " " + PREFIX_TUTORIAL
+            + "/F08"; // a Course is required for a tutorial
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";

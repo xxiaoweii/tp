@@ -94,8 +94,8 @@ public class EditCommandParserTest {
         assertParseFailure(parser, "1" + INVALID_ROLE_DESC + CONTACT_DESC_AMY, Role.MESSAGE_CONSTRAINTS);
 
         // multiple invalid values, but only the first invalid value is captured
-        assertParseFailure(parser, "1" + INVALID_NAME_DESC + INVALID_ROLE_DESC + VALID_CONTACT_AMY + INVALID_COURSE_DESC,
-                Name.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + INVALID_NAME_DESC + INVALID_ROLE_DESC + VALID_CONTACT_AMY
+            + INVALID_COURSE_DESC, Name.MESSAGE_CONSTRAINTS);
     }
 
     @Test
@@ -174,14 +174,16 @@ public class EditCommandParserTest {
                 + CONTACT_DESC_BOB + COURSE_DESC_2 + TUTORIAL_DESC_3;
 
         assertParseFailure(parser, userInput,
-                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_ROLE, PREFIX_CONTACT, PREFIX_COURSE, PREFIX_TUTORIAL));
+                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_ROLE, PREFIX_CONTACT, PREFIX_COURSE,
+                PREFIX_TUTORIAL));
 
         // multiple invalid values
         userInput = targetIndex.getOneBased() + INVALID_CONTACT_DESC + INVALID_COURSE_DESC + INVALID_ROLE_DESC
                 + INVALID_TUTORIAL_DESC;
 
         assertParseFailure(parser, userInput,
-                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_ROLE, PREFIX_CONTACT, PREFIX_COURSE, PREFIX_TUTORIAL));
+                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_ROLE, PREFIX_CONTACT, PREFIX_COURSE,
+                PREFIX_TUTORIAL));
     }
 
 }

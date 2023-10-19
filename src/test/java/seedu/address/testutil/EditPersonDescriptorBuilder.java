@@ -10,8 +10,6 @@ import seedu.address.model.person.Course;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Role;
-import seedu.address.model.person.Tutorial;
-import seedu.address.model.util.SampleDataUtil;
 
 /**
  * A utility class to help with building EditPersonDescriptor objects.
