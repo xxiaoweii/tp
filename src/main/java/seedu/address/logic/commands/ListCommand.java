@@ -2,15 +2,16 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+
 import java.util.ArrayList;
 import java.util.Set;
 
+import seedu.address.model.Model;
 import seedu.address.model.person.Contact;
 import seedu.address.model.person.Course;
 import seedu.address.model.person.Role;
 import seedu.address.model.person.Tutorial;
 
-import seedu.address.model.Model;
 
 
 /**

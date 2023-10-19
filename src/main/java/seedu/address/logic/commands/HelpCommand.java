@@ -11,8 +11,8 @@ public class HelpCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Shows program usage instructions.\n"
             + "Example: " + COMMAND_WORD;
-    public static final String ADD_PERSON = "Adding a person: add --name NAME [--role ROLE1, ...]  " +
-            "[--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]";
+    public static final String ADD_PERSON = "Adding a person: add --name NAME [--role ROLE1, ...]  "
+            + "[--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]";
     public static final String LIST = "Listing all persons: list";
     public static final String DELETE = "Deleting a profile: delete INDEX";
     public static final String SEARCH = "Searching for profiles: search KEYWORD";
