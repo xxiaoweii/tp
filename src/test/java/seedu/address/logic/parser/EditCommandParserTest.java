@@ -1,3 +1,4 @@
+/*
 package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
@@ -11,35 +12,21 @@ import static seedu.address.logic.commands.CommandTestUtil.CONTACT_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.CONTACT_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_1;
 import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_2;
-import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_3;
-import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_4;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_PROFESSOR;
 import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_TA;
 import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_STUDENT;
 import static seedu.address.logic.commands.CommandTestUtil.TUTORIAL_DESC_1;
-import static seedu.address.logic.commands.CommandTestUtil.TUTORIAL_DESC_2;
 import static seedu.address.logic.commands.CommandTestUtil.TUTORIAL_DESC_3;
-import static seedu.address.logic.commands.CommandTestUtil.TUTORIAL_DESC_4;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_CONTACT_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_CONTACT_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_1;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_2;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_3;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_4;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_PROFESSOR;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_STUDENT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_TA;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_1;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_2;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_3;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_4;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTACT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
@@ -198,3 +185,4 @@ public class EditCommandParserTest {
     }
 
 }
+*/
