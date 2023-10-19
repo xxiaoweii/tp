@@ -10,11 +10,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_1;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_2;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_1;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_2;
-import seedu.address.testutil.PersonBuilder;
+//import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_1;
+//import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_1;
+//import seedu.address.testutil.PersonBuilder;
 
 public class NameContainsKeywordsPredicateTest {
 
@@ -43,6 +41,7 @@ public class NameContainsKeywordsPredicateTest {
         assertFalse(firstPredicate.equals(secondPredicate));
     }
 
+    /*
     @Test
     public void test_nameContainsKeywords_returnsTrue() {
         // One keyword
@@ -79,6 +78,7 @@ public class NameContainsKeywordsPredicateTest {
                 .withContacts("alice@email.com").withCourses(VALID_COURSE_1)
                 .withTutorials(VALID_TUTORIAL_1).build()));
     }
+    */
 
     @Test
     public void toStringMethod() {

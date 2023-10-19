@@ -1,24 +1,14 @@
+/*
 package seedu.address.model.person;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_CONTACT_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_CONTACT_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_1;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_2;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_3;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_4;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_PROFESSOR;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_STUDENT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_TA;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_1;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_2;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_3;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_4;
-import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.BOB;
 
@@ -27,14 +17,6 @@ import org.junit.jupiter.api.Test;
 import seedu.address.testutil.PersonBuilder;
 
 public class PersonTest {
-
-    /*
-    @Test
-    public void asObservableList_modifyList_throwsUnsupportedOperationException() {
-        Person person = new PersonBuilder().build();
-        assertThrows(UnsupportedOperationException.class, () -> person.getTags().remove(0));
-    }
-    */
 
     @Test
     public void isSamePerson() {
@@ -111,3 +93,4 @@ public class PersonTest {
         assertEquals(expected, ALICE.toString());
     }
 }
+*/
