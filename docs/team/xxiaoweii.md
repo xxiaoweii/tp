@@ -34,6 +34,8 @@ Given below are my contributions to the project.
   
 * **Team Tasks**:
   * Updated AboutUs
+  * Updated UserGuide
+  * Updated DeveloperGuide
 
 * **Community**:
   * PRs reviewed:

@@ -137,13 +137,13 @@ Adds new profiles in the profile lists.
 </box>
 
 ##### EXAMPLE COMMAND:
-`add --name Aiken Dueet --role STUDENT --contact @aikendueet, aikendueet@gmail.com
+`add --name Aiken Dueet --role Student --contact @aikendueet, aikendueet@gmail.com
 --course CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30 `
 
 ##### ACCEPTABLE VALUES:
 `NAME`: Any non-empty input of alphabetical characters.
 
-`ROLE1`: Any three roles allowed here: student, ta, professor (all in lowercase).
+`ROLE1`: Any three roles allowed here: Student, TA, Professor (Case-sensitive)
 
 `CONTACT1`: Any non-empty input of characters.
 
@@ -153,7 +153,7 @@ Adds new profiles in the profile lists.
 
 ##### EXPECTED OUTPUT ON SUCCESS:
 ```
-You have added a new profile in :)
+You have added a new profile in :
 Name: Aiken Dueet  
 Role: STUDENT
 Contact: @aikendueet, aikendueet@gmail.com
