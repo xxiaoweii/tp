@@ -236,7 +236,7 @@ Search for profiles that match the input keyword
 `search CS2100`
 
 ##### ACCEPTABLE VALUES:
-`KEYWORD`: Any non-empty string of alphanumeric characters.
+`KEYWORD`: Any non-empty string of alphanumeric characters (not case-sensitive).
 
 ##### EXPECTED OUTPUT ON SUCCESS:
 ```
