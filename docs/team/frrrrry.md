@@ -9,7 +9,7 @@ NUSearch is a desktop application used for consolidating NUS professors, teachin
 
 Given below are my contributions to the project.
 
-* **New Feature**: 
+* **Favourite Feature**: 
   * to be added soon
 
 * **New Feature**: 
@@ -22,7 +22,7 @@ Given below are my contributions to the project.
     * Created milestones (v1.1 and v1.2) and assigned issues(tasks) to team members for v1.1
 
 * **Enhancements to existing features**:
-    * to be added soon
+    * add favourite feature
 
 * **Documentation**:
     * User Guide (v1.1):
@@ -37,10 +37,12 @@ Given below are my contributions to the project.
 
 * **Team Tasks**:
   * Updated AboutUs
+  * Updated Developer Guide
 
 * **Community**:
     * PRs reviewed: 
       * team member's PRs in v1.1
+      * team member's PRs in v1.2
     * to be added    
 
 * **Beyond the project team**:
