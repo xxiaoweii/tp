@@ -17,10 +17,9 @@ public class RoleContainsKeywordsPredicate implements Predicate<Person> {
 
     @Override
     public boolean test(Person person) {
-        // Use flatMap to stream all the role types from the Set<RoleType>
         return person.getRoles().stream()
                 .flatMap(role -> role.getRoleType().stream())
-                .map(Enum::toString) // Convert role types to strings
+                .map(Enum::toString)
                 .anyMatch(roleType -> keywords.stream()
                         .anyMatch(keyword -> keyword.equalsIgnoreCase(roleType)));
     }
