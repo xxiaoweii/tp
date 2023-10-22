@@ -20,7 +20,7 @@ public class PersonBuilder {
     public static final String DEFAULT_ROLE = "Student";
     public static final String DEFAULT_CONTACT = "amy@gmail.com";
     public static final Course DEFAULT_COURSE = new Course("CS2103T");
-    public static final Tutorial DEFAULT_TUTORIAL = new Tutorial(DEFAULT_COURSE, "F08");
+    public static final Tutorial DEFAULT_TUTORIAL = new Tutorial(DEFAULT_COURSE, "CS2103T/F08");
 
     private Name name;
     private Set<Role> roles;
