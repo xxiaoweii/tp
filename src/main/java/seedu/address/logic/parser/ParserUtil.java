@@ -157,7 +157,7 @@ public class ParserUtil {
         }
 
         for (Course course : courseList) {
-            if (course.courseName == courseTutorialName[0]) {
+            if (course.courseName.equals(courseTutorialName[0])) {
                 relevantCourse = course;
             }
         }
@@ -167,7 +167,7 @@ public class ParserUtil {
                 .reduce(
                         "", (current, next) -> current + next.toString() + " "
                        );
-            givenCoursesString = String.format("[ %s]", givenCoursesString);
+            givenCoursesString = String.format("[%s]", givenCoursesString);
             throw new ParseException(String.format(
                         Tutorial.INVALID_COURSE_MESSAGE, courseTutorialName[0], givenCoursesString
                         ));

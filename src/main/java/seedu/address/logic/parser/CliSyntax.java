@@ -12,7 +12,7 @@ public class CliSyntax {
     public static final Prefix PREFIX_ROLE = new Prefix("--role");
     public static final Prefix PREFIX_CONTACT = new Prefix("--contact");
     public static final Prefix PREFIX_COURSE = new Prefix("--course");
-    public static final Prefix PREFIX_TUTORIAL = new Prefix("s/");
+    public static final Prefix PREFIX_TUTORIAL = new Prefix("--tutorial");
     public static final Prefix PREFIX_ADDRESS = new Prefix("a/");
     public static final Prefix PREFIX_TAG = new Prefix("t/");
 

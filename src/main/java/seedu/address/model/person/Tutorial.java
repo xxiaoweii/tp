@@ -34,8 +34,9 @@ public class Tutorial {
         checkArgument(isValidTutorialString(tutorialString), MESSAGE_CONSTRAINTS);
 
         String[] tutorialStringSplit = Tutorial.splitCourseTutorialName(tutorialString);
+        String tutorialCourseName = tutorialStringSplit[0];
 
-        assert course.courseName.equals(tutorialStringSplit[0]) : String.format(
+        assert course.courseName.equals(tutorialCourseName) : String.format(
                 Tutorial.INVALID_COURSE_MESSAGE, course.courseName, tutorialStringSplit[0]
                 );
 
