@@ -33,11 +33,15 @@ public class CommandTestUtil {
 
     public static final String VALID_NAME_AMY = "Amy Bee";
     public static final String VALID_NAME_BOB = "Bob Choo";
+    public static final String VALID_NAME_CHARLIE = "Charlie";
     public static final String VALID_ROLE_STUDENT = "Student";
     public static final String VALID_ROLE_TA = "TA";
     public static final String VALID_ROLE_PROFESSOR = "Professor";
     public static final String VALID_CONTACT_AMY = "amy@example.com";
     public static final String VALID_CONTACT_BOB = "bob@example.com";
+    public static final String VALID_PHONE_CONTACT_CHARLIE = "91234567";
+    public static final String VALID_EMAIL_CONTACT_CHARLIE = "charlie@example.com";
+    public static final String VALID_TELE_CONTACT_CHARLIE = "@charlieee";
     public static final Course VALID_COURSE_1 = new Course("CS2103T");
     public static final Course VALID_COURSE_2 = new Course("CS2100");
     public static final Course VALID_COURSE_3 = new Course("CS2109S");
@@ -49,11 +53,15 @@ public class CommandTestUtil {
 
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
+    public static final String NAME_DESC_CHARLIE = " " + PREFIX_NAME + VALID_NAME_CHARLIE;
     public static final String ROLE_DESC_STUDENT = " " + PREFIX_ROLE + VALID_ROLE_STUDENT;
     public static final String ROLE_DESC_TA = " " + PREFIX_ROLE + VALID_ROLE_TA;
     public static final String ROLE_DESC_PROFESSOR = " " + PREFIX_ROLE + VALID_ROLE_PROFESSOR;
     public static final String CONTACT_DESC_AMY = " " + PREFIX_CONTACT + VALID_CONTACT_AMY;
     public static final String CONTACT_DESC_BOB = " " + PREFIX_CONTACT + VALID_CONTACT_BOB;
+    public static final String CONTACT_DESC_CHARLIE_PHONE = " " + PREFIX_CONTACT + VALID_PHONE_CONTACT_CHARLIE;
+    public static final String CONTACT_DESC_CHARLIE_EMAIL = " " + PREFIX_CONTACT + VALID_EMAIL_CONTACT_CHARLIE;
+    public static final String CONTACT_DESC_CHARLIE_TELE = " " + PREFIX_CONTACT + VALID_TELE_CONTACT_CHARLIE;
     public static final String COURSE_DESC_1 = " " + PREFIX_COURSE + VALID_COURSE_1;
     public static final String COURSE_DESC_2 = " " + PREFIX_COURSE + VALID_COURSE_2;
     public static final String COURSE_DESC_3 = " " + PREFIX_COURSE + VALID_COURSE_3;
