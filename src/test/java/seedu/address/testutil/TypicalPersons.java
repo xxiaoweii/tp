@@ -1,5 +1,20 @@
 package seedu.address.testutil;
 
+import static seedu.address.logic.commands.CommandTestUtil.VALID_CONTACT_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_CONTACT_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_1;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_2;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_3;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_4;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_CHARLIE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_PROFESSOR;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_STUDENT;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_TA;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_1;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_2;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,7 +22,6 @@ import java.util.List;
 import seedu.address.model.AddressBook;
 import seedu.address.model.person.Person;
 
-import static seedu.address.logic.commands.CommandTestUtil.*;
 
 /**
  * A utility class containing a list of {@code Person} objects to be used in tests.
