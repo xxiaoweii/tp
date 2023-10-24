@@ -18,10 +18,12 @@ public class RoleContainsKeywordsPredicate implements Predicate<Person> {
     @Override
     public boolean test(Person person) {
         return person.getRoles().stream()
-                .map(Role::getRoleType)
+                .flatMap(role -> role.getRoleType().stream())
+                .map(Enum::toString)
                 .anyMatch(roleType -> keywords.stream()
-                        .anyMatch(keyword -> keyword.equalsIgnoreCase(roleType.toString())));
+                        .anyMatch(keyword -> keyword.equalsIgnoreCase(roleType)));
     }
+
 
     @Override
     public boolean equals(Object other) {
