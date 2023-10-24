@@ -69,5 +69,11 @@ public class PersonCard extends UiPart<Region> {
 
         roles.setText(ROLES_BEGIN_STRING + person.getRoles().stream().map((roles) -> roles.toString())
                 .reduce("", (current, next) -> current + next));
+
+        Label favouriteLabel = new Label("Favourite");
+        if (person.getFavourite().isFavourite) {
+            favouriteLabel.getStyleClass().add("fav-label");
+            tags.getChildren().add(favouriteLabel);
+        }
     }
 }

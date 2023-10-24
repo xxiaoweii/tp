@@ -37,7 +37,7 @@ public class Person {
         this.contacts.addAll(contacts);
         this.courses.addAll(courses);
         this.tutorials.addAll(tutorials);
-        this.favourite = favourite; // default favourite is false
+        this.favourite = favourite;
     }
 
     public Name getName() {
