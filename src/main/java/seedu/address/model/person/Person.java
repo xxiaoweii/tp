@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.logic.commands.FavouriteCommand;
 
 /**
  * Represents a Person in the address book.
@@ -23,18 +24,20 @@ public class Person {
     private final Set<Contact> contacts = new HashSet<>();
     private final Set<Course> courses = new HashSet<>();
     private final Set<Tutorial> tutorials = new HashSet<>();
-    private boolean isFavourite = false;
+    private final Favourite favourite;
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Set<Role> roles, Set<Contact> contacts, Set<Course> courses, Set<Tutorial> tutorials) {
+    public Person(Name name, Set<Role> roles, Set<Contact> contacts, Set<Course> courses, Set<Tutorial> tutorials,
+                  Favourite favourite) {
         requireAllNonNull(name, roles, contacts, courses, tutorials);
         this.name = name;
         this.roles.addAll(roles);
         this.contacts.addAll(contacts);
         this.courses.addAll(courses);
         this.tutorials.addAll(tutorials);
+        this.favourite = favourite; // default favourite is false
     }
 
     public Name getName() {
@@ -61,11 +64,15 @@ public class Person {
         return Collections.unmodifiableSet(tutorials);
     }
 
+    public Favourite getFavourite() {
+        return favourite;
+    }
+
     /**
      * Favourites the person.
      */
     public void setFavourite() {
-        this.isFavourite = true;
+        favourite.setFavourite();
     }
 
     /**

@@ -10,6 +10,7 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.person.Contact;
 import seedu.address.model.person.Course;
+import seedu.address.model.person.Favourite;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Role;
@@ -43,37 +44,43 @@ public class SampleDataUtil {
                 getRolesSet("Student"),
                 getContactSet("alexyeoh@example.com"),
                 getCourseSet(courseListIterator.next()),
-                getTutorialSet(tutorialListIterator.next())
+                getTutorialSet(tutorialListIterator.next()),
+                new Favourite(true)
                 ),
             new Person(new Name("Bernice Yu"),
                 getRolesSet("TA"),
                 getContactSet("berniceyu@example.com"),
                 getCourseSet(courseListIterator.next()),
-                getTutorialSet(tutorialListIterator.next())
+                getTutorialSet(tutorialListIterator.next()),
+                new Favourite(false)
                 ),
             new Person(new Name("Charlotte Oliveiro"),
                 getRolesSet("Professor"),
                 getContactSet("charlotte@example.com"),
                 getCourseSet(courseListIterator.next()),
-                getTutorialSet(tutorialListIterator.next())
+                getTutorialSet(tutorialListIterator.next()),
+                new Favourite(false)
                 ),
             new Person(new Name("David Li"),
                 getRolesSet("Student"),
                 getContactSet("lidavid@example.com"),
                 getCourseSet(courseListIterator.next()),
-                getTutorialSet(tutorialListIterator.next())
+                getTutorialSet(tutorialListIterator.next()),
+                new Favourite(false)
                 ),
             new Person(new Name("Irfan Ibrahim"),
                 getRolesSet("TA"),
                 getContactSet("irfan@example.com"),
                 getCourseSet(courseListIterator.next()),
-                getTutorialSet(tutorialListIterator.next())
+                getTutorialSet(tutorialListIterator.next()),
+                new Favourite(false)
                 ),
             new Person(new Name("Roy Balakrishnan"),
                 getRolesSet("Professor"),
                 getContactSet("royb@example.com"),
                 getCourseSet(courseListIterator.next()),
-                getTutorialSet(tutorialListIterator.next())
+                getTutorialSet(tutorialListIterator.next()),
+                new Favourite(true)
                 )
         };
     }
