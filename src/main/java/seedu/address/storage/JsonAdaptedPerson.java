@@ -3,6 +3,7 @@ package seedu.address.storage;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -95,22 +96,17 @@ class JsonAdaptedPerson {
             personCourses.add(course.toModelType());
         }
 
+        final Set<Course> courseSet = new HashSet<>(personCourses);
         final List<Tutorial> personTutorials = new ArrayList<>();
         for (JsonAdaptedTutorial tutorial : tutorials) {
-            // Get the course that is relevant to this tutorial.
-            String[] courseTutorialName = Tutorial.splitCourseTutorialName(tutorial.getTutorialString());
-            String courseName = courseTutorialName[0];
+            // Get the course relevant to this tutorial.
+            final String tutorialString = tutorial.getTutorialString();
 
-            Course relevantCourse = null;
-            for (Course course : personCourses) {
-                if (course.toString().equals(courseName)) {
-                    relevantCourse = course;
-                    break;
-                }
-            }
-            if (relevantCourse != null) {
-                personTutorials.add(tutorial.toModelType(relevantCourse));
-            }
+            Optional<Course> relevantCourse = Tutorial.findMatchingCourse(courseSet, tutorialString);
+            relevantCourse.ifPresent((course) -> {
+                Tutorial newTutorial = new Tutorial(course, tutorialString);
+                personTutorials.add(newTutorial);
+            });
         }
 
         if (name == null) {

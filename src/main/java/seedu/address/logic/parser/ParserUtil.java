@@ -5,6 +5,7 @@ import static java.util.Objects.requireNonNull;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Optional;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
@@ -143,37 +144,34 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code tutorial} is invalid.
      */
-    public static Tutorial parseTutorial(Set<Course> courseList, String tutorial) throws ParseException {
-        requireNonNull(tutorial);
-        String trimmedTutorial = tutorial.trim();
-        if (!Tutorial.isValidTutorialString(trimmedTutorial)) {
+    public static Tutorial parseTutorial(Set<Course> courseSet, String tutorialString) throws ParseException {
+        requireNonNull(tutorialString);
+        String trimmedTutorialString = tutorialString.trim();
+        if (!Tutorial.isValidTutorialString(trimmedTutorialString)) {
             throw new ParseException(Tutorial.MESSAGE_CONSTRAINTS);
         }
 
-        Course relevantCourse = null;
-        String[] courseTutorialName = Tutorial.splitCourseTutorialName(trimmedTutorial);
+
+        // Check if in the format of COURSECODE/TUTORIALCODE
+        String[] courseTutorialName = Tutorial.splitCourseTutorialName(trimmedTutorialString);
         if (courseTutorialName == null || courseTutorialName.length <= 0) {
             throw new ParseException(Tutorial.MESSAGE_CONSTRAINTS);
         }
 
-        for (Course course : courseList) {
-            if (course.courseName.equals(courseTutorialName[0])) {
-                relevantCourse = course;
-            }
-        }
-        if (relevantCourse == null) {
-            String givenCoursesString = courseList.stream()
-                .map((course) -> course.courseName)
-                .reduce(
-                        "", (current, next) -> current + next.toString() + " "
-                       );
-            givenCoursesString = String.format("[%s]", givenCoursesString);
-            throw new ParseException(String.format(
-                        Tutorial.INVALID_COURSE_MESSAGE, courseTutorialName[0], givenCoursesString
-                        ));
-        }
+        // Get the relevant course if it exists.
+        Optional<Course> relevantCourse = Tutorial.findMatchingCourse(courseSet, trimmedTutorialString);
+        Tutorial parsedTutorial = relevantCourse.map((course) -> {
+            return new Tutorial(course, trimmedTutorialString);
+        }).orElseThrow(() -> {
+            // Prepare the error message; we should format the invalid course message with
+            // the concatenation of all course strings.
+            String allCoursesString = courseSet.stream()
+                .map((course) -> course.getCourseName())
+                .reduce("", (current, next) -> current + next.toString() + "  ");
+            return new ParseException(String.format(Tutorial.INVALID_COURSE_MESSAGE, courseTutorialName[0], allCoursesString));
+        });
 
-        return new Tutorial(relevantCourse, trimmedTutorial);
+        return parsedTutorial;
     }
 
     /**
