@@ -406,6 +406,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 4. **Mainstream OS**: Windows, Linux, Unix, OS-X
 5. **PlantUML**: A text-based tool for creating diagrams using simple text descriptions
 6. **Sequence Diagram**: A visual tool showing the order of actions between system components or objects
+7. **Object-oriented paradigm**:A programming paradigm
 
 *{More to be added}*
 
