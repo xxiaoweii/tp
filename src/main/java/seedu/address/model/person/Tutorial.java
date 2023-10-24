@@ -71,7 +71,8 @@ public class Tutorial {
      * Given a set of courses, finds the course matching the course name given by the tutoralString.
      *
      * @param courses        the Set of Courses to look through.
-     * @param tutorialString the string representing the course and tutorial names, separated by COURSE_TUTORIAL_DELIMITER.
+     * @param tutorialString the string representing the course and tutorial names,
+     *                       separated by COURSE_TUTORIAL_DELIMITER.
      * @return               an Optional containing the Course that may (or may not) be found in the Set.
      */
     public static Optional<Course> findMatchingCourse(Set<Course> courses, String tutorialString) {
