@@ -72,9 +72,13 @@ public class ParserUtil {
     public static Set<Role> parseRoles(Collection<String> roles) throws ParseException {
         requireNonNull(roles);
         final Set<Role> roleSet = new HashSet<>();
-        for (String roleName : roles) {
-            if (!roleName.trim().isEmpty()) {
-                roleSet.add(parseRole(roleName));
+        for (String roleNames : roles) {
+            String[] roleNameSplit = roleNames.split(Role.PARSE_ROLE_DELIMITER);
+
+            for (String roleName : roleNameSplit) {
+                if (!roleName.trim().isEmpty()) {
+                    roleSet.add(parseRole(roleName));
+                }
             }
         }
         return roleSet;

@@ -1,11 +1,14 @@
 package seedu.address.ui;
 
+import java.util.stream.Collectors;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Role;
 
 /**
  * An UI component that displays information of a {@code Person}.
@@ -68,6 +71,6 @@ public class PersonCard extends UiPart<Region> {
                 .reduce("", (current, next) -> current + next));
 
         roles.setText(ROLES_BEGIN_STRING + person.getRoles().stream().map((roles) -> roles.toString())
-                .reduce("", (current, next) -> current + next));
+                .collect(Collectors.joining(Role.PARSE_ROLE_DELIMITER)));
     }
 }
