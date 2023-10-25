@@ -46,7 +46,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         Set<Role> roleList = ParserUtil.parseRoles(argMultimap.getAllValues(PREFIX_ROLE));
         Set<Contact> contactList = ParserUtil.parseContacts(argMultimap.getAllValues(PREFIX_CONTACT));
         Set<Course> courseList = ParserUtil.parseCourses(argMultimap.getAllValues(PREFIX_COURSE));
-        Set<Tutorial> tutorialList = ParserUtil.parseTutorials(courseList, argMultimap.getAllValues(PREFIX_TUTORIAL));
+        Set<Tutorial> tutorialList = ParserUtil.parseTutorials(argMultimap.getAllValues(PREFIX_COURSE));
         Favourite favourite = new Favourite(false); // default favourite is false
 
         Person person = new Person(name, roleList, contactList, courseList, tutorialList, favourite);

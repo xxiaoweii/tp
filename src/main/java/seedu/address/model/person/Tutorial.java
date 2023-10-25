@@ -22,6 +22,7 @@ public class Tutorial {
     // A tutorial String is in the format of courseName + COURSE_TUTORIAL_DELIMITER + tutorialName.
     // This is a constant representing that delimiter.
     public static final String COURSE_TUTORIAL_DELIMITER = "/";
+    public static final String PARSE_TUTORIAL_DELIMITER = ", ";
 
     public final Course course;
     public final String tutorialName;
@@ -39,8 +40,8 @@ public class Tutorial {
         String[] tutorialStringSplit = Tutorial.splitCourseTutorialName(tutorialString);
         String tutorialCourseName = tutorialStringSplit[0];
 
-        assert course.courseName.equals(tutorialCourseName) : String.format(
-                Tutorial.INVALID_COURSE_MESSAGE, course.courseName, tutorialStringSplit[0]
+        assert course.getCourseName().equals(tutorialCourseName) : String.format(
+                Tutorial.INVALID_COURSE_MESSAGE, course.getCourseName(), tutorialStringSplit[0]
                 );
 
         this.course = course;
@@ -55,7 +56,7 @@ public class Tutorial {
     }
 
     /**
-     * Returns an array splitting the a tutorial string by the slash. Typically, this returns a two-element array,
+     * Returns an array splitting the tutorial string by the slash. Typically, this returns a two-element array,
      * the first element (index 0) being the course name, while the second element (index 1) is the tutorial name.
      */
     public static String[] splitCourseTutorialName(String tutorialString) {
@@ -78,7 +79,7 @@ public class Tutorial {
     public static Optional<Course> findMatchingCourse(Set<Course> courses, String tutorialString) {
         String[] courseTutorialName = splitCourseTutorialName(tutorialString);
 
-        if (tutorialString.length() != 2) {
+        if (courseTutorialName.length != 2) {
             // Invalid input tutorialString.
             return Optional.empty();
         }
@@ -101,7 +102,7 @@ public class Tutorial {
      * Returns the course name followed by this tutorial's name, separated by the delimiter.
      */
     public String getFullTutorialString() {
-        return course.courseName + Tutorial.COURSE_TUTORIAL_DELIMITER + tutorialName;
+        return this.course + Tutorial.COURSE_TUTORIAL_DELIMITER + tutorialName;
     }
 
     @Override
@@ -128,7 +129,7 @@ public class Tutorial {
      * Format state as text for viewing.
      */
     public String toString() {
-        return course.toString() + "/" + tutorialName;
+        return course.getCourseName() + "/" + tutorialName;
     }
 
 }

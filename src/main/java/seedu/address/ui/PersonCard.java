@@ -10,6 +10,7 @@ import javafx.scene.layout.Region;
 import seedu.address.model.person.Course;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Role;
+import seedu.address.model.person.Tutorial;
 
 /**
  * An UI component that displays information of a {@code Person}.
@@ -69,7 +70,7 @@ public class PersonCard extends UiPart<Region> {
 
         tutorials.setText(TUTORIAL_BEGIN_STRING + person.getTutorials().stream()
                 .map((tutorial) -> tutorial.toString())
-                .reduce("", (current, next) -> current + next));
+                .collect(Collectors.joining(Tutorial.PARSE_TUTORIAL_DELIMITER)));
 
         roles.setText(ROLES_BEGIN_STRING + person.getRoles().stream().map((roles) -> roles.toString())
                 .collect(Collectors.joining(Role.PARSE_ROLE_DELIMITER)));

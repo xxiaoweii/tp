@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 import seedu.address.logic.parser.Prefix;
 import seedu.address.model.person.Course;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Tutorial;
 
 /**
  * Container for user visible messages.
@@ -50,7 +51,10 @@ public class Messages {
         builder.append(courseList);
 
         builder.append("; Tutorials: ");
-        person.getTutorials().forEach(builder::append);
+        String tutorialList = person.getTutorials().stream()
+                .map(Tutorial::toString) // Assuming you have a suitable toString method for Tutorial
+                .collect(Collectors.joining(", "));
+        builder.append(tutorialList);
         return builder.toString();
     }
 
