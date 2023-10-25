@@ -172,9 +172,8 @@ public class ParserUtil {
             String allCoursesString = courseSet.stream()
                 .map((course) -> course.getCourseName())
                 .reduce("", (current, next) -> current + next.toString() + "  ");
-            return new ParseException(String.format(
-                        Tutorial.INVALID_COURSE_MESSAGE, courseTutorialName[0], allCoursesString
-                        ));
+            return new ParseException(String.format(Tutorial.INVALID_COURSE_MESSAGE,
+                    courseTutorialName[0], allCoursesString));
         });
 
         return parsedTutorial;
