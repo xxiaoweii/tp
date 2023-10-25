@@ -5,7 +5,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTACT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL;
 
 import java.util.Set;
 import java.util.stream.Stream;
@@ -34,7 +33,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         ArgumentMultimap argMultimap =
             ArgumentTokenizer.tokenize(args, PREFIX_NAME,
                     PREFIX_ROLE, PREFIX_CONTACT,
-                    PREFIX_COURSE, PREFIX_TUTORIAL);
+                    PREFIX_COURSE);
 
         if (!arePrefixesPresent(argMultimap)
                 || !argMultimap.getPreamble().isEmpty()) {
@@ -46,7 +45,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         Set<Role> roleList = ParserUtil.parseRoles(argMultimap.getAllValues(PREFIX_ROLE));
         Set<Contact> contactList = ParserUtil.parseContacts(argMultimap.getAllValues(PREFIX_CONTACT));
         Set<Course> courseList = ParserUtil.parseCourses(argMultimap.getAllValues(PREFIX_COURSE));
-        Set<Tutorial> tutorialList = ParserUtil.parseTutorials(courseList, argMultimap.getAllValues(PREFIX_TUTORIAL));
+        Set<Tutorial> tutorialList = ParserUtil.parseTutorials(argMultimap.getAllValues(PREFIX_COURSE));
         Favourite favourite = new Favourite(false); // default favourite is false
 
         Person person = new Person(name, roleList, contactList, courseList, tutorialList, favourite);

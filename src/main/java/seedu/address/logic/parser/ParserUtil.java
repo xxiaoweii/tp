@@ -106,8 +106,11 @@ public class ParserUtil {
         requireNonNull(contacts);
         final Set<Contact> contactSet = new HashSet<>();
         for (String contactName : contacts) {
-            if (!contactName.trim().isEmpty()) {
-                contactSet.add(parseContact(contactName));
+            String[] splitContacts = contactName.split(Contact.PARSE_CONTACT_DELIMITER);
+            for (String splitContact : splitContacts) {
+                if (!splitContact.trim().isEmpty()) {
+                    contactSet.add(parseContact(splitContact));
+                }
             }
         }
         return contactSet;
@@ -122,10 +125,12 @@ public class ParserUtil {
     public static Course parseCourse(String course) throws ParseException {
         requireNonNull(course);
         String trimmedCourse = course.trim();
-        if (!Course.isValidCourseName(trimmedCourse)) {
+        String[] splitTrimmedCourse = Course.splitCourseName(trimmedCourse);
+        String courseCode = splitTrimmedCourse[0];
+        if (!Course.isValidCourseName(courseCode)) {
             throw new ParseException(Course.MESSAGE_CONSTRAINTS);
         }
-        return new Course(trimmedCourse);
+        return new Course(courseCode);
     }
 
     /**
@@ -134,9 +139,34 @@ public class ParserUtil {
     public static Set<Course> parseCourses(Collection<String> courses) throws ParseException {
         requireNonNull(courses);
         final Set<Course> courseSet = new HashSet<>();
-        for (String courseName : courses) {
-            if (!courseName.trim().isEmpty()) {
-                courseSet.add(parseCourse(courseName));
+        for (String courseNames : courses) {
+            String[] splitCourse = courseNames.split(Course.PARSE_COURSE_DELIMITER);
+            for (String courseName : splitCourse) {
+                if (!courseName.trim().isEmpty()) {
+                    courseSet.add(parseCourse(courseName));
+                }
+            }
+        }
+        return courseSet;
+    }
+
+    /**
+     * Parses {@code Collection<String> coursesCollection} into a {@code Set<Tutorial>}.
+     * The courseCollection will contain the full course input that has
+     * yet be split into course code and tutorial class
+     */
+    public static Set<Course> parseCourseInput(Collection<String> courseCollection) throws ParseException {
+        requireNonNull(courseCollection);
+        final Set<Course> courseSet = new HashSet<>();
+        for (String course : courseCollection) {
+            String[] splitCourseInputs = course.split(Course.PARSE_COURSE_DELIMITER);
+            for (String splitCourseInput : splitCourseInputs) {
+                String[] splitCourseTutorial = Course.splitCourseName(splitCourseInput);
+                int courseTutorialLength = splitCourseTutorial.length;
+                if (courseTutorialLength == 2) {
+                    Course stringToCourse = new Course(splitCourseInput);
+                    courseSet.add(stringToCourse);
+                }
             }
         }
         return courseSet;
@@ -182,15 +212,25 @@ public class ParserUtil {
     /**
      * Parses {@code Collection<String> tutorials} into a {@code Set<Tutorial>}.
      */
-    public static Set<Tutorial> parseTutorials(Set<Course> courseList,
-            Collection<String> tutorials) throws ParseException {
-        requireNonNull(tutorials);
+    public static Set<Tutorial> parseTutorials(Set<Course> courseList) throws ParseException {
+        requireNonNull(courseList);
         final Set<Tutorial> tutorialSet = new HashSet<>();
-        for (String tutorialName : tutorials) {
-            if (!tutorialName.trim().isEmpty()) {
-                tutorialSet.add(parseTutorial(courseList, tutorialName));
+        for (Course courseName : courseList) {
+            String[] splitCourseAndTutorial = Course.splitCourseName(courseName.toString());
+            if (splitCourseAndTutorial.length == 2) {
+                tutorialSet.add(parseTutorial(courseList, courseName.toString()));
             }
         }
         return tutorialSet;
+    }
+
+    /**
+     * Parses {@code Collection<String> courseCollection} into a {@code Set<Tutorial>}.
+     */
+    public static Set<Tutorial> parseTutorials(Collection<String> courseCollection) throws ParseException {
+        requireNonNull(courseCollection);
+        Set<Course> courseSet = parseCourseInput(courseCollection);
+        Set<Tutorial> tutSet = parseTutorials(courseSet);
+        return tutSet;
     }
 }

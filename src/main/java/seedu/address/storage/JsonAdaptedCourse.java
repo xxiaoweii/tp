@@ -25,7 +25,7 @@ class JsonAdaptedCourse {
      * Converts a given {@code Course} into this class for Jackson use.
      */
     public JsonAdaptedCourse(Course source) {
-        courseName = source.courseName;
+        courseName = source.getCourseName();
     }
 
     @JsonValue

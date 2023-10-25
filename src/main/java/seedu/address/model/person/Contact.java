@@ -11,6 +11,7 @@ public class Contact {
 
     public static final String MESSAGE_CONSTRAINTS = "Contacts' names should a non-empty string of characters.";
     public static final String VALIDATION_REGEX = "[^\\s].*";
+    public static final String PARSE_CONTACT_DELIMITER = ", ";
 
     public final String contact;
 
