@@ -56,6 +56,13 @@ public class Tutorial {
     }
 
     /**
+     * Returns the Course that this Tutorial belongs to.
+     */
+    public Course getCourse() {
+        return course;
+    }
+
+    /**
      * Returns an array splitting the tutorial string by the slash. Typically, this returns a two-element array,
      * the first element (index 0) being the course name, while the second element (index 1) is the tutorial name.
      */
