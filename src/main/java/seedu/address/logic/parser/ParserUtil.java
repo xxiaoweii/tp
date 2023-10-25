@@ -4,8 +4,8 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.Optional;
+import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
@@ -168,7 +168,8 @@ public class ParserUtil {
             String allCoursesString = courseSet.stream()
                 .map((course) -> course.getCourseName())
                 .reduce("", (current, next) -> current + next.toString() + "  ");
-            return new ParseException(String.format(Tutorial.INVALID_COURSE_MESSAGE, courseTutorialName[0], allCoursesString));
+            return new ParseException(String.format(Tutorial.INVALID_COURSE_MESSAGE,
+                    courseTutorialName[0], allCoursesString));
         });
 
         return parsedTutorial;
