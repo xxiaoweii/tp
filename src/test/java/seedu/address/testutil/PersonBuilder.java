@@ -1,7 +1,9 @@
 package seedu.address.testutil;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import seedu.address.model.person.Contact;
 import seedu.address.model.person.Course;
@@ -80,6 +82,7 @@ public class PersonBuilder {
 
     /**
      * Parses the {@code courses} into a {@code Set<Course>} and set it to the {@code Person} that we are building.
+     * NOTE: This method is used to add course ONLY (with no tutorials) into the person we are building.
      */
     public PersonBuilder withCourses(Course... courses) {
         this.courses = SampleDataUtil.getCourseSet(courses);
@@ -88,9 +91,14 @@ public class PersonBuilder {
 
     /**
      * Parses the {@code tutorials} into a {@code Set<Tutorial>} and set it to the {@code Person} that we are building.
+     * Parses the {@code tutorials} into a stream and collects the Courses of each Tutorial into a {@code Set<Course>}
+     * NOTE: This method is used to add both tutorials and courses into the person we are building.
      */
     public PersonBuilder withTutorials(Tutorial... tutorials) {
         this.tutorials = SampleDataUtil.getTutorialSet(tutorials);
+        this.courses = Arrays.stream(tutorials)
+            .map(Tutorial::getCourse)
+            .collect(Collectors.toSet());
         return this;
     }
 

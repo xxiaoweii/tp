@@ -10,6 +10,7 @@ import seedu.address.model.person.Course;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Role;
+// import seedu.address.model.person.Tutorial;
 
 /**
  * A utility class to help with building EditPersonDescriptor objects.
