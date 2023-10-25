@@ -10,7 +10,10 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Course {
 
     public static final String MESSAGE_CONSTRAINTS = "INVALID COURSE FORMAT!"
-            + "\n COURSE CODE SHOULD BE IN THE FOLLOWING FORMAT: ";
+            + "\nCOURSE CODE SHOULD BE IN THE FOLLOWING FORMAT: "
+            + "\n 1. Starts with two- or three-letter prefix"
+            + "\n 2. Follows by four digits, first of which indicates the level of the course"
+            + "\n 3. Can end with a letter";
     public static final String VALIDATION_REGEX = "^[A-Za-z]{2,3}\\d{4}[A-Za-z]?$";
     public static final String PARSE_COURSE_DELIMITER = ", ";
 
