@@ -1,5 +1,6 @@
 package seedu.address.model.person;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -12,6 +13,7 @@ public class RoleContainsKeywordsPredicate implements Predicate<Person> {
     private final List<String> keywords;
 
     public RoleContainsKeywordsPredicate(List<String> keywords) {
+
         this.keywords = keywords;
     }
 
