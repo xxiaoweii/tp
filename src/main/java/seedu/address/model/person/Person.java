@@ -121,9 +121,9 @@ public class Person {
         return new ToStringBuilder(this)
                 .add("name", name)
                 .add("roles", roles)
+                .add("contacts", contacts)
                 .add("courses", courses)
                 .add("tutorials", tutorials)
-                .add("contacts", contacts)
                 .toString();
     }
 
