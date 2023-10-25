@@ -14,6 +14,7 @@ import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Contact;
 import seedu.address.model.person.Course;
+import seedu.address.model.person.Favourite;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Role;
@@ -46,8 +47,9 @@ public class AddCommandParser implements Parser<AddCommand> {
         Set<Contact> contactList = ParserUtil.parseContacts(argMultimap.getAllValues(PREFIX_CONTACT));
         Set<Course> courseList = ParserUtil.parseCourses(argMultimap.getAllValues(PREFIX_COURSE));
         Set<Tutorial> tutorialList = ParserUtil.parseTutorials(courseList, argMultimap.getAllValues(PREFIX_TUTORIAL));
+        Favourite favourite = new Favourite(false); // default favourite is false
 
-        Person person = new Person(name, roleList, contactList, courseList, tutorialList);
+        Person person = new Person(name, roleList, contactList, courseList, tutorialList, favourite);
 
         return new AddCommand(person);
     }
