@@ -55,7 +55,7 @@ public class Tutorial {
     }
 
     /**
-     * Returns an array splitting the a tutorial string by the slash. Typically, this returns a two-element array,
+     * Returns an array splitting the tutorial string by the slash. Typically, this returns a two-element array,
      * the first element (index 0) being the course name, while the second element (index 1) is the tutorial name.
      */
     public static String[] splitCourseTutorialName(String tutorialString) {
@@ -71,14 +71,15 @@ public class Tutorial {
      * Given a set of courses, finds the course matching the course name given by the tutoralString.
      *
      * @param courses        the Set of Courses to look through.
-     * @param tutorialString the string representing the course and tutorial names, separated by COURSE_TUTORIAL_DELIMITER.
+     * @param courseTutorialString the string representing the course and tutorial names,
+     *                       separated by COURSE_TUTORIAL_DELIMITER.
      * @return               an Optional containing the Course that may (or may not) be found in the Set.
      */
-    public static Optional<Course> findMatchingCourse(Set<Course> courses, String tutorialString) {
-        String[] courseTutorialName = splitCourseTutorialName(tutorialString);
+    public static Optional<Course> findMatchingCourse(Set<Course> courses, String courseTutorialString) {
+        String[] courseTutorialName = splitCourseTutorialName(courseTutorialString);
 
-        if (tutorialString.length() != 2) {
-            // Invalid input tutorialString.
+        if (courseTutorialName.length != 2) {
+            // Invalid input courseTutorialString.
             return Optional.empty();
         }
 
@@ -88,11 +89,10 @@ public class Tutorial {
 
         for (Course course : courses) {
             if (course.getCourseName().equals(relevantCourseName)) {
-                relevantCourse = course;
+                relevantCourse = new Course(course.getCourseName());
                 break;
             }
         }
-
         return Optional.ofNullable(relevantCourse);
     }
 
