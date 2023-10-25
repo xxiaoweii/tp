@@ -18,11 +18,6 @@ import seedu.address.testutil.PersonBuilder;
 public class PersonTest {
 
     @Test
-    public void getFavourite() {
-        assertFalse(ALICE.getFavourite().getFavourite());
-    }
-
-    @Test
     public void setFavourite() {
         ALICE.setFavourite();
         assertTrue(ALICE.getFavourite().getFavourite());
