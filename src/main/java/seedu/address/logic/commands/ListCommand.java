@@ -76,9 +76,6 @@ public class ListCommand extends Command {
     @Override
     public CommandResult execute(Model model) {
         String peopleList = "";
-
-
-
         requireNonNull(model);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         numPeople = model.getFilteredPersonList().size();
