@@ -106,8 +106,11 @@ public class ParserUtil {
         requireNonNull(contacts);
         final Set<Contact> contactSet = new HashSet<>();
         for (String contactName : contacts) {
-            if (!contactName.trim().isEmpty()) {
-                contactSet.add(parseContact(contactName));
+            String[] splitContacts = contactName.split(Contact.PARSE_CONTACT_DELIMITER);
+            for (String splitContact : splitContacts) {
+                if (!splitContact.trim().isEmpty()) {
+                    contactSet.add(parseContact(splitContact));
+                }
             }
         }
         return contactSet;

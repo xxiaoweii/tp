@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import seedu.address.logic.parser.Prefix;
+import seedu.address.model.person.Contact;
 import seedu.address.model.person.Course;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Tutorial;
@@ -41,7 +42,10 @@ public class Messages {
         builder.append(person.getName());
 
         builder.append("; Contacts: ");
-        person.getContacts().forEach(builder::append);
+        String contactList = person.getContacts().stream()
+                .map(Contact::toString) // Assuming you have a suitable toString method for Contact
+                .collect(Collectors.joining(", "));
+        builder.append(contactList);
 
         builder.append("; Courses: ");
         //        person.getCourses().forEach(builder::append);

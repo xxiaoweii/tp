@@ -62,7 +62,7 @@ public class PersonCard extends UiPart<Region> {
 
         contacts.setText(CONTACTS_BEGIN_STRING + person.getContacts().stream()
                 .map((contact) -> contact.toString())
-                .reduce("", (current, next) -> current + next));
+                .collect(Collectors.joining(Course.PARSE_COURSE_DELIMITER)));
 
         courses.setText(COURSES_BEGIN_STRING + person.getCourses().stream()
                 .map((course) -> course.toString())
