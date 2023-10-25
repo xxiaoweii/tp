@@ -102,7 +102,7 @@ public class Tutorial {
      * Returns the course name followed by this tutorial's name, separated by the delimiter.
      */
     public String getFullTutorialString() {
-        return this.course + Tutorial.COURSE_TUTORIAL_DELIMITER + tutorialName;
+        return course.getCourseName() + Tutorial.COURSE_TUTORIAL_DELIMITER + tutorialName;
     }
 
     @Override
