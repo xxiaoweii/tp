@@ -46,35 +46,50 @@ public class CommandTestUtil {
     public static final Course VALID_COURSE_2 = new Course("CS2100");
     public static final Course VALID_COURSE_3 = new Course("CS2109S");
     public static final Course VALID_COURSE_4 = new Course("CS2106");
-    public static final Tutorial VALID_TUTORIAL_1 = new Tutorial(VALID_COURSE_1, VALID_COURSE_1.courseName + "/F08");
-    public static final Tutorial VALID_TUTORIAL_2 = new Tutorial(VALID_COURSE_2, VALID_COURSE_2.courseName + "/T32");
-    public static final Tutorial VALID_TUTORIAL_3 = new Tutorial(VALID_COURSE_3, VALID_COURSE_3.courseName + "/T31");
-    public static final Tutorial VALID_TUTORIAL_4 = new Tutorial(VALID_COURSE_4, VALID_COURSE_4.courseName + "/T04");
+    public static final Tutorial VALID_TUTORIAL_1 = new Tutorial(VALID_COURSE_1,
+            VALID_COURSE_1.courseName + "/F08");
+    public static final Tutorial VALID_TUTORIAL_2 = new Tutorial(VALID_COURSE_2,
+            VALID_COURSE_2.courseName + "/T32");
+    public static final Tutorial VALID_TUTORIAL_3 = new Tutorial(VALID_COURSE_3,
+            VALID_COURSE_3.courseName + "/T31");
+    public static final Tutorial VALID_TUTORIAL_4 = new Tutorial(VALID_COURSE_4,
+            VALID_COURSE_4.courseName + "/T04");
 
-    public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
-    public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
-    public static final String NAME_DESC_CHARLIE = " " + PREFIX_NAME + VALID_NAME_CHARLIE;
-    public static final String ROLE_DESC_STUDENT = " " + PREFIX_ROLE + VALID_ROLE_STUDENT;
-    public static final String ROLE_DESC_TA = " " + PREFIX_ROLE + VALID_ROLE_TA;
-    public static final String ROLE_DESC_PROFESSOR = " " + PREFIX_ROLE + VALID_ROLE_PROFESSOR;
-    public static final String CONTACT_DESC_AMY = " " + PREFIX_CONTACT + VALID_CONTACT_AMY;
-    public static final String CONTACT_DESC_BOB = " " + PREFIX_CONTACT + VALID_CONTACT_BOB;
-    public static final String CONTACT_DESC_CHARLIE_PHONE = " " + PREFIX_CONTACT + VALID_PHONE_CONTACT_CHARLIE;
-    public static final String CONTACT_DESC_CHARLIE_EMAIL = " " + PREFIX_CONTACT + VALID_EMAIL_CONTACT_CHARLIE;
-    public static final String CONTACT_DESC_CHARLIE_TELE = " " + PREFIX_CONTACT + VALID_TELE_CONTACT_CHARLIE;
-    public static final String COURSE_DESC_1 = " " + PREFIX_COURSE + VALID_COURSE_1;
-    public static final String COURSE_DESC_2 = " " + PREFIX_COURSE + VALID_COURSE_2;
-    public static final String COURSE_DESC_3 = " " + PREFIX_COURSE + VALID_COURSE_3;
-    public static final String COURSE_DESC_4 = " " + PREFIX_COURSE + VALID_COURSE_4;
-    public static final String TUTORIAL_DESC_1 = " " + PREFIX_TUTORIAL + VALID_TUTORIAL_1;
-    public static final String TUTORIAL_DESC_2 = " " + PREFIX_TUTORIAL + VALID_TUTORIAL_2;
-    public static final String TUTORIAL_DESC_3 = " " + PREFIX_TUTORIAL + VALID_TUTORIAL_3;
-    public static final String TUTORIAL_DESC_4 = " " + PREFIX_TUTORIAL + VALID_TUTORIAL_4;
+    public static final String NAME_DESC_AMY = " " + PREFIX_NAME + " " + VALID_NAME_AMY;
+    public static final String NAME_DESC_BOB = " " + PREFIX_NAME + " " + VALID_NAME_BOB;
+    public static final String NAME_DESC_CHARLIE = " " + PREFIX_NAME + " " + VALID_NAME_CHARLIE;
+    public static final String ROLE_DESC_STUDENT = " " + PREFIX_ROLE + " " + VALID_ROLE_STUDENT;
+    public static final String ROLE_DESC_TA = " " + PREFIX_ROLE + " " + VALID_ROLE_TA;
+    public static final String ROLE_DESC_PROFESSOR = " " + PREFIX_ROLE + " " + VALID_ROLE_PROFESSOR;
+    public static final String ROLE_DESC_MULTIPLE = " " + PREFIX_ROLE + " " + VALID_ROLE_STUDENT + ", "
+            + VALID_ROLE_TA;
+    public static final String CONTACT_DESC_AMY = " " + PREFIX_CONTACT + " " + VALID_CONTACT_AMY;
+    public static final String CONTACT_DESC_BOB = " " + PREFIX_CONTACT + " " + VALID_CONTACT_BOB;
+    public static final String CONTACT_DESC_CHARLIE_PHONE = " " + PREFIX_CONTACT + " " + VALID_PHONE_CONTACT_CHARLIE;
+    public static final String CONTACT_DESC_CHARLIE_EMAIL = " " + PREFIX_CONTACT + " " + VALID_EMAIL_CONTACT_CHARLIE;
+    public static final String CONTACT_DESC_CHARLIE_TELE = " " + PREFIX_CONTACT + " " + VALID_TELE_CONTACT_CHARLIE;
+    public static final String CONTACT_DESC_MULTIPLE = " " + PREFIX_CONTACT + " " + VALID_PHONE_CONTACT_CHARLIE
+            + ", " + VALID_EMAIL_CONTACT_CHARLIE + ", " + VALID_TELE_CONTACT_CHARLIE;
 
-    public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
-    public static final String INVALID_ROLE_DESC = " " + PREFIX_ROLE + "Teacher"; // Teacher is not a supported role
-    public static final String INVALID_CONTACT_DESC = " " + PREFIX_CONTACT + "bob!yahoo"; // missing '@' symbol
-    public static final String INVALID_COURSE_DESC = " " + PREFIX_COURSE; // empty string not allowed for courses
+    // COURSE_DESC is used only when a Course is added without a Tutorial
+    public static final String COURSE_DESC_1 = " " + PREFIX_COURSE + " " + VALID_COURSE_1;
+    public static final String COURSE_DESC_2 = " " + PREFIX_COURSE + " " + VALID_COURSE_2;
+    public static final String COURSE_DESC_3 = " " + PREFIX_COURSE + " " + VALID_COURSE_3;
+    public static final String COURSE_DESC_4 = " " + PREFIX_COURSE + " " + VALID_COURSE_4;
+
+    // when using TUTORIAL_DESC, COURSE_DESC should not be used
+    public static final String TUTORIAL_DESC_1 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_1;
+    public static final String TUTORIAL_DESC_2 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_2;
+    public static final String TUTORIAL_DESC_3 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_3;
+    public static final String TUTORIAL_DESC_4 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_4;
+
+    public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + " "
+            + "James&"; // '&' not allowed in names
+    public static final String INVALID_ROLE_DESC = " " + PREFIX_ROLE + " "
+            + "Teacher"; // Teacher is not a supported role
+    public static final String INVALID_CONTACT_DESC = " " + PREFIX_CONTACT + " "; // empty contact
+    public static final String INVALID_COURSE_DESC = " " + PREFIX_COURSE
+            + "  "; // empty string not allowed for courses
     public static final String INVALID_TUTORIAL_DESC = " " + PREFIX_TUTORIAL
             + "/F08"; // a Course is required for a tutorial
 
