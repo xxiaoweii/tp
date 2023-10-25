@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import seedu.address.model.person.Course;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Role;
 
@@ -64,7 +65,7 @@ public class PersonCard extends UiPart<Region> {
 
         courses.setText(COURSES_BEGIN_STRING + person.getCourses().stream()
                 .map((course) -> course.toString())
-                .reduce("", (current, next) -> current + next));
+                .collect(Collectors.joining(Course.PARSE_COURSE_DELIMITER)));
 
         tutorials.setText(TUTORIAL_BEGIN_STRING + person.getTutorials().stream()
                 .map((tutorial) -> tutorial.toString())
