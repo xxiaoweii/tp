@@ -8,7 +8,7 @@ public class Favourite {
 
     public static final String MESSAGE_CONSTRAINTS = "Favourite should be either true or false.";
 
-    public boolean isFavourite;
+    private boolean isFavourite;
 
     /**
     * Constructs a {@code Favourite}.
@@ -19,6 +19,13 @@ public class Favourite {
 
     public static boolean isValidFavourite(String test) {
         return test.equals("true") || test.equals("false");
+    }
+
+    /**
+     * Returns the favourite status of the person.
+     */
+    public boolean getFavourite() {
+        return this.isFavourite;
     }
 
     /**

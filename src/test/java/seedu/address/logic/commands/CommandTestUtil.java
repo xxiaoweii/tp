@@ -46,10 +46,14 @@ public class CommandTestUtil {
     public static final Course VALID_COURSE_2 = new Course("CS2100");
     public static final Course VALID_COURSE_3 = new Course("CS2109S");
     public static final Course VALID_COURSE_4 = new Course("CS2106");
-    public static final Tutorial VALID_TUTORIAL_1 = new Tutorial(VALID_COURSE_1, VALID_COURSE_1.courseName + "/F08");
-    public static final Tutorial VALID_TUTORIAL_2 = new Tutorial(VALID_COURSE_2, VALID_COURSE_2.courseName + "/T32");
-    public static final Tutorial VALID_TUTORIAL_3 = new Tutorial(VALID_COURSE_3, VALID_COURSE_3.courseName + "/T31");
-    public static final Tutorial VALID_TUTORIAL_4 = new Tutorial(VALID_COURSE_4, VALID_COURSE_4.courseName + "/T04");
+    public static final Tutorial VALID_TUTORIAL_1 = new Tutorial(VALID_COURSE_1,
+            VALID_COURSE_1.courseName + "/F08");
+    public static final Tutorial VALID_TUTORIAL_2 = new Tutorial(VALID_COURSE_2,
+            VALID_COURSE_2.courseName + "/T32");
+    public static final Tutorial VALID_TUTORIAL_3 = new Tutorial(VALID_COURSE_3,
+            VALID_COURSE_3.courseName + "/T31");
+    public static final Tutorial VALID_TUTORIAL_4 = new Tutorial(VALID_COURSE_4,
+            VALID_COURSE_4.courseName + "/T04");
 
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + " " + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + " " + VALID_NAME_BOB;
@@ -79,10 +83,13 @@ public class CommandTestUtil {
     public static final String TUTORIAL_DESC_3 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_3;
     public static final String TUTORIAL_DESC_4 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_4;
 
-    public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + " " + "James&"; // '&' not allowed in names
-    public static final String INVALID_ROLE_DESC = " " + PREFIX_ROLE + " " + "Teacher"; // Teacher is not a supported role
-    public static final String INVALID_CONTACT_DESC = " " + PREFIX_CONTACT + " " + " "; // empty contact
-    public static final String INVALID_COURSE_DESC = " " + PREFIX_COURSE + "  " ; // empty string not allowed for courses
+    public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + " "
+            + "James&"; // '&' not allowed in names
+    public static final String INVALID_ROLE_DESC = " " + PREFIX_ROLE + " "
+            + "Teacher"; // Teacher is not a supported role
+    public static final String INVALID_CONTACT_DESC = " " + PREFIX_CONTACT + " "; // empty contact
+    public static final String INVALID_COURSE_DESC = " " + PREFIX_COURSE
+            + "  "; // empty string not allowed for courses
     public static final String INVALID_TUTORIAL_DESC = " " + PREFIX_TUTORIAL
             + "/F08"; // a Course is required for a tutorial
 

@@ -78,7 +78,7 @@ class JsonAdaptedPerson {
         tutorials.addAll(source.getTutorials().stream()
                 .map(JsonAdaptedTutorial::new)
                 .collect(Collectors.toList()));
-        favourite = source.getFavourite().isFavourite;
+        favourite = source.getFavourite().getFavourite();
     }
 
     /**
