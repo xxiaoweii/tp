@@ -1,4 +1,3 @@
-/*
 package seedu.address.model.person;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,6 +16,17 @@ import org.junit.jupiter.api.Test;
 import seedu.address.testutil.PersonBuilder;
 
 public class PersonTest {
+
+    @Test
+    public void getFavourite() {
+        assertFalse(ALICE.getFavourite().getFavourite());
+    }
+
+    @Test
+    public void setFavourite() {
+        ALICE.setFavourite();
+        assertTrue(ALICE.getFavourite().getFavourite());
+    }
 
     @Test
     public void isSamePerson() {
@@ -93,4 +103,3 @@ public class PersonTest {
         assertEquals(expected, ALICE.toString());
     }
 }
-*/
