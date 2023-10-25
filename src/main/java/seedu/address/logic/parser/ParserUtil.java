@@ -150,6 +150,11 @@ public class ParserUtil {
         return courseSet;
     }
 
+    /**
+     * Parses {@code Collection<String> coursesCollection} into a {@code Set<Tutorial>}.
+     * The courseCollection will contain the full course input that has
+     * yet be split into course code and tutorial class
+     */
     public static Set<Course> parseCourseInput(Collection<String> courseCollection) throws ParseException {
         requireNonNull(courseCollection);
         final Set<Course> courseSet = new HashSet<>();
@@ -219,6 +224,9 @@ public class ParserUtil {
         return tutorialSet;
     }
 
+    /**
+     * Parses {@code Collection<String> courseCollection} into a {@code Set<Tutorial>}.
+     */
     public static Set<Tutorial> parseTutorials(Collection<String> courseCollection) throws ParseException {
         requireNonNull(courseCollection);
         Set<Course> courseSet = parseCourseInput(courseCollection);

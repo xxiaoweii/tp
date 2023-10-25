@@ -71,6 +71,11 @@ public class Course {
         return courseName.toString();
     }
 
+    /**
+     * Splits the course into the course code and the tutorial class
+     * @param courseName the full course string
+     * @return an array that contains a course code and tutorial class as its elements
+     */
     public static String[] splitCourseName(String courseName) {
         return courseName.split("/");
     }
