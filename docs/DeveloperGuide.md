@@ -157,6 +157,11 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### Favourite feature
+
+The favourite feature is implemented using the `Favourite` class. The `Favourite` class contains a `boolean` field `isFavourite` to indicate whether the person is a favourite.
+
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
