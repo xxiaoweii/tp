@@ -36,6 +36,10 @@ class JsonAdaptedTutorial {
         return tutorialString;
     }
 
+    public Course getCourse() {
+        return new Course(tutorialString.split(Tutorial.COURSE_TUTORIAL_DELIMITER)[0]);
+    }
+
     /**
      * Converts this Jackson-friendly adapted tutorial object into the model's {@code Tutorial} object.
      * This requires a reference to an already-converted course to maintain a reference.

@@ -22,7 +22,7 @@ public class Tutorial {
     // A tutorial String is in the format of courseName + COURSE_TUTORIAL_DELIMITER + tutorialName.
     // This is a constant representing that delimiter.
     public static final String COURSE_TUTORIAL_DELIMITER = "/";
-    public static final String PARSE_TUTORIAL_DELIMITER = ", ";
+    public static final String PARSE_TUTORIAL_DELIMITER = "-";
 
     public final Course course;
     public final String tutorialName;

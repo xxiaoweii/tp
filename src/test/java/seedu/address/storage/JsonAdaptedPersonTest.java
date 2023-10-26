@@ -19,7 +19,7 @@ public class JsonAdaptedPersonTest {
     private static final String INVALID_ROLE = "Teacher";
     private static final String INVALID_CONTACT = " ";
     private static final String INVALID_COURSE = "@@@@";
-    private static final String INVALID_TUTORIAL = " ";
+    private static final String INVALID_TUTORIAL = "cs2100/ f";
 
     private static final String VALID_NAME = BENSON.getName().toString();
     private static final List<JsonAdaptedRole> VALID_ROLES = BENSON.getRoles().stream()
@@ -90,8 +90,7 @@ public class JsonAdaptedPersonTest {
         assertThrows(IllegalValueException.class, person::toModelType);
     }
 
-    // my brain not braining anymore, please help me find an invalid tutorialstring T^T
-    /*
+
     @Test
     public void toModelType_invalidTutorials_throwsIllegalValueException() {
         List<JsonAdaptedTutorial> invalidTutorials = new ArrayList<>(VALID_TUTORIALS);
@@ -101,6 +100,5 @@ public class JsonAdaptedPersonTest {
                         VALID_FAVOURITE);
         assertThrows(IllegalValueException.class, person::toModelType);
     }
-    */
 
 }

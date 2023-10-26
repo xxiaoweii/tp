@@ -94,7 +94,7 @@ public class PersonBuilder {
      * Parses the {@code tutorials} into a stream and collects the Courses of each Tutorial into a {@code Set<Course>}
      * NOTE: This method is used to add both tutorials and courses into the person we are building.
      */
-    public PersonBuilder withTutorials(Tutorial... tutorials) {
+    public PersonBuilder withCoursesAndTutorials(Tutorial... tutorials) {
         this.tutorials = SampleDataUtil.getTutorialSet(tutorials);
         this.courses = Arrays.stream(tutorials)
             .map(Tutorial::getCourse)
