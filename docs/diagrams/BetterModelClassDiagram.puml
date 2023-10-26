@@ -14,5 +14,6 @@ Person *--> "0..3" Role
 Person *--> "*" Contact
 Person *--> "*" Course
 Person *--> "*" Tutorial
+Person *--> Favourite
 Course *--> "*" Tutorial
 @enduml
