@@ -14,6 +14,12 @@ public class ContactTest {
     }
 
     @Test
+    public void constructor_invalidContact_throwsIllegalArgumentException() {
+        String invalidContact = "!@#$%";
+        assertThrows(IllegalArgumentException.class, () -> new Contact(invalidContact));
+    }
+
+    @Test
     public void isValidContactName() {
         // invalid contact names
         assertFalse(Contact.isValidContactName("")); // empty string
