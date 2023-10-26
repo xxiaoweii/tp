@@ -17,12 +17,12 @@ public class Tutorial {
         "Given course's name (%s) does not match Tutorial's course name (%s).";
 
     // Matches a single character, any number of characters, a slash, a single character, then any number of characters.
-    public static final String VALIDATION_REGEX = "[^\\s].*\\/[^\\s].*";
+    public static final String VALIDATION_REGEX = "^[A-Za-z]{2,3}\\d{4}[A-Za-z]?\\/[^\\s].*$";
 
     // A tutorial String is in the format of courseName + COURSE_TUTORIAL_DELIMITER + tutorialName.
     // This is a constant representing that delimiter.
     public static final String COURSE_TUTORIAL_DELIMITER = "/";
-    public static final String PARSE_TUTORIAL_DELIMITER = ", ";
+    public static final String PARSE_TUTORIAL_DELIMITER = "-";
 
     public final Course course;
     public final String tutorialName;
@@ -34,6 +34,7 @@ public class Tutorial {
      * @param tutorialString A valid tutorial name.
      */
     public Tutorial(Course course, String tutorialString) {
+        requireNonNull(course);
         requireNonNull(tutorialString);
         checkArgument(isValidTutorialString(tutorialString), MESSAGE_CONSTRAINTS);
 
