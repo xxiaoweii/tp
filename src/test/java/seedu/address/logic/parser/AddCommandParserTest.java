@@ -36,6 +36,7 @@ import static seedu.address.logic.commands.CommandTestUtil.CONTACT_DESC_CHARLIE_
 //import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_1;
 //import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_2;
 //import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_3;
+import static seedu.address.logic.commands.CommandTestUtil.CONTACT_DESC_CHARLIE_TELE;
 import static seedu.address.logic.commands.CommandTestUtil.CONTACT_DESC_MULTIPLE;
 import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_1;
 import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_2;
@@ -45,6 +46,7 @@ import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_CHARLIE;
 //import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_MULTIPLE;
 //import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_STUDENT;
 import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_MULTIPLE;
+import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_STUDENT;
 import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_TA;
 //import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_CONTACT_CHARLIE;
 //import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_CONTACT_CHARLIE;
@@ -100,73 +102,78 @@ public class AddCommandParserTest {
     @Test
     public void parse_allFieldsPresent_success() {
 
-//        // Only name is provided
-//        Person personWithName = new PersonBuilder().withName(VALID_NAME_CHARLIE).build();
-//        assertParseSuccess(parser, NAME_DESC_CHARLIE, new AddCommand(personWithName));
-
-//        // Name and one role
-//        Person personWithOneRole = new PersonBuilder().withName(VALID_NAME_CHARLIE).withRoles(VALID_ROLE_TA).build();
-//        assertParseSuccess(parser, NAME_DESC_CHARLIE + ROLE_DESC_TA,
-//                new AddCommand(personWithOneRole));
-
-//        // Name and multiple roles
-//        Person personWithManyRoles = new PersonBuilder().withName(VALID_NAME_CHARLIE)
-//                .withRoles(VALID_ROLE_STUDENT, VALID_ROLE_TA).build();
-//        assertParseSuccess(parser, NAME_DESC_CHARLIE + ROLE_DESC_MULTIPLE,
-//                new AddCommand(personWithManyRoles));
-
-//        // Name and one contact
-//        Person personWithOneContact = new PersonBuilder(CHARLIE).withContacts(VALID_PHONE_CONTACT_CHARLIE).build();
-//        assertParseSuccess(parser, NAME_DESC_CHARLIE + CONTACT_DESC_CHARLIE_PHONE,
-//                new AddCommand(personWithOneContact));
-
-//        // Name and many contacts
-//        Person personWithManyContacts = new PersonBuilder(CHARLIE).withContacts(VALID_PHONE_CONTACT_CHARLIE,
-//                VALID_EMAIL_CONTACT_CHARLIE, VALID_TELE_CONTACT_CHARLIE).build();
-//        assertParseSuccess(parser, NAME_DESC_CHARLIE + CONTACT_DESC_MULTIPLE,
-//                new AddCommand(personWithManyContacts));
-
-//        // Name and many roles and many contacts
-//        Person manyRolesAndManyContacts = new PersonBuilder(CHARLIE)
-//                .withRoles(VALID_ROLE_TA, VALID_ROLE_STUDENT)
-//                .withContacts(VALID_EMAIL_CONTACT_CHARLIE, VALID_PHONE_CONTACT_CHARLIE, VALID_TELE_CONTACT_CHARLIE)
-//                .build();
-//        String userInput2 = NAME_DESC_CHARLIE + ROLE_DESC_MULTIPLE + CONTACT_DESC_MULTIPLE;
-//        assertParseSuccess(parser, userInput2, new AddCommand(manyRolesAndManyContacts));
-
-//        // Name and a course
-//        Person personWithOneCourse = new PersonBuilder(CHARLIE).withCourses(VALID_COURSE_1).build();
-//        assertParseSuccess(parser, NAME_DESC_CHARLIE + COURSE_DESC_1,
-//                new AddCommand(personWithOneCourse));
-
-//        // Name and many courses
-//        Person personWithManyCourses = new PersonBuilder(CHARLIE)
-//                .withCourses(VALID_COURSE_1, VALID_COURSE_2, VALID_COURSE_3, VALID_COURSE_4).build();
-//        assertParseSuccess(parser, NAME_DESC_CHARLIE + COURSE_DESC_MULTIPLE,
-//                new AddCommand(personWithManyCourses));
-
-//        // Name, many roles, many contacts and many courses
-//        Person manyRolesContactsCourses = new PersonBuilder(CHARLIE)
-//                .withRoles(VALID_ROLE_TA, VALID_ROLE_STUDENT)
-//                .withContacts(VALID_PHONE_CONTACT_CHARLIE, VALID_EMAIL_CONTACT_CHARLIE, VALID_TELE_CONTACT_CHARLIE)
-//                .withCourses(VALID_COURSE_1, VALID_COURSE_2, VALID_COURSE_3, VALID_COURSE_4)
-//                .build();
-//        String userInput3 = NAME_DESC_CHARLIE + ROLE_DESC_MULTIPLE + CONTACT_DESC_MULTIPLE + COURSE_DESC_MULTIPLE;
-//        assertParseSuccess(parser, userInput3, new AddCommand(manyRolesContactsCourses));
-
-//        // Name and one tutorial
-//        Person personWithOneTutorial = new PersonBuilder(CHARLIE)
-//                .withTutorials(VALID_TUTORIAL_1).build();
-//        assertParseSuccess(parser, NAME_DESC_CHARLIE + TUTORIAL_DESC_1,
-//                new AddCommand(personWithOneTutorial));
-
-//        // Name and many tutorials
-//        Person personWithManyTutorials = new PersonBuilder(CHARLIE)
-//                .withTutorials(VALID_TUTORIAL_1, VALID_TUTORIAL_2, VALID_TUTORIAL_3, VALID_TUTORIAL_4).build();
-//        String userInput4 = NAME_DESC_CHARLIE + TUTORIAL_DESC_MULTIPLE;
-//        assertParseSuccess(parser, userInput4, new AddCommand(personWithManyTutorials));
+        // All fields present
+        Person personWithAllFields = new PersonBuilder(CHARLIE)
+                .withRoles(VALID_ROLE_STUDENT)
+                .withContacts(VALID_TELE_CONTACT_CHARLIE)
+                .withCourses(VALID_COURSE_1)
+                .build();
+        String userInput4 = NAME_DESC_CHARLIE + ROLE_DESC_STUDENT + CONTACT_DESC_CHARLIE_TELE + COURSE_DESC_1;
+        assertParseSuccess(parser, userInput4, new AddCommand(personWithAllFields));
     }
 
+
+    @Test
+    public void parse_optionalFieldsMissing_success() {
+
+        // Only name is provided
+        Person personWithName = new PersonBuilder().withName(VALID_NAME_CHARLIE).build();
+        assertParseSuccess(parser, NAME_DESC_CHARLIE, new AddCommand(personWithName));
+
+        // Name and one role
+        Person personWithOneRole = new PersonBuilder().withName(VALID_NAME_CHARLIE).withRoles(VALID_ROLE_TA).build();
+        assertParseSuccess(parser, NAME_DESC_CHARLIE + ROLE_DESC_TA,
+                new AddCommand(personWithOneRole));
+
+        // Name and one contact
+        Person personWithOneContact = new PersonBuilder(CHARLIE).withContacts(VALID_PHONE_CONTACT_CHARLIE).build();
+        assertParseSuccess(parser, NAME_DESC_CHARLIE + CONTACT_DESC_CHARLIE_PHONE,
+                new AddCommand(personWithOneContact));
+
+        // Name and a course without tutorial
+        Person personWithOneCourse = new PersonBuilder(CHARLIE).withCourses(VALID_COURSE_1).build();
+        assertParseSuccess(parser, NAME_DESC_CHARLIE + COURSE_DESC_1,
+                new AddCommand(personWithOneCourse));
+    }
+
+    @Test
+    public void parse_optionalFieldsWithMultiplesInput_success() {
+
+        // Name and multiple roles
+        Person personWithManyRoles = new PersonBuilder().withName(VALID_NAME_CHARLIE)
+                .withRoles(VALID_ROLE_STUDENT, VALID_ROLE_TA).build();
+        assertParseSuccess(parser, NAME_DESC_CHARLIE + ROLE_DESC_MULTIPLE,
+                new AddCommand(personWithManyRoles));
+
+        // Name and many contacts
+        Person personWithManyContacts = new PersonBuilder(CHARLIE).withContacts(VALID_PHONE_CONTACT_CHARLIE,
+                VALID_EMAIL_CONTACT_CHARLIE, VALID_TELE_CONTACT_CHARLIE).build();
+        assertParseSuccess(parser, NAME_DESC_CHARLIE + CONTACT_DESC_MULTIPLE,
+                new AddCommand(personWithManyContacts));
+
+        // Name and many roles and many contacts
+        Person manyRolesAndManyContacts = new PersonBuilder(CHARLIE)
+                .withRoles(VALID_ROLE_TA, VALID_ROLE_STUDENT)
+                .withContacts(VALID_EMAIL_CONTACT_CHARLIE, VALID_PHONE_CONTACT_CHARLIE, VALID_TELE_CONTACT_CHARLIE)
+                .build();
+        String userInput2 = NAME_DESC_CHARLIE + ROLE_DESC_MULTIPLE + CONTACT_DESC_MULTIPLE;
+        assertParseSuccess(parser, userInput2, new AddCommand(manyRolesAndManyContacts));
+
+        // Name and many courses without tutorial class
+        Person personWithManyCourses = new PersonBuilder(CHARLIE)
+                .withCourses(VALID_COURSE_1, VALID_COURSE_2, VALID_COURSE_3, VALID_COURSE_4).build();
+        assertParseSuccess(parser, NAME_DESC_CHARLIE + COURSE_DESC_MULTIPLE,
+                new AddCommand(personWithManyCourses));
+
+        // Name, many roles, many contacts and many courses without tutorial class
+        Person manyRolesContactsCourses = new PersonBuilder(CHARLIE)
+                .withRoles(VALID_ROLE_TA, VALID_ROLE_STUDENT)
+                .withContacts(VALID_PHONE_CONTACT_CHARLIE, VALID_EMAIL_CONTACT_CHARLIE, VALID_TELE_CONTACT_CHARLIE)
+                .withCourses(VALID_COURSE_1, VALID_COURSE_2, VALID_COURSE_3, VALID_COURSE_4)
+                .build();
+        String userInput3 = NAME_DESC_CHARLIE + ROLE_DESC_MULTIPLE + CONTACT_DESC_MULTIPLE + COURSE_DESC_MULTIPLE;
+        assertParseSuccess(parser, userInput3, new AddCommand(manyRolesContactsCourses));
+    }
     /*
     @Test
     public void parse_repeatedNonTagValue_failure() {

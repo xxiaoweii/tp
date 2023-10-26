@@ -46,6 +46,10 @@ public class CommandTestUtil {
     public static final Course VALID_COURSE_2 = new Course("CS2100");
     public static final Course VALID_COURSE_3 = new Course("CS2109S");
     public static final Course VALID_COURSE_4 = new Course("CS2106");
+    public static final Course VALID_COURSE_WITH_TUTORIAL_1 = new Course("CS2103T/F08");
+    public static final Course VALID_COURSE_WITH_TUTORIAL_2 = new Course("CS2100/T32");
+    public static final Course VALID_COURSE_WITH_TUTORIAL_3 = new Course("CS2109S/T31");
+    public static final Course VALID_COURSE_WITH_TUTORIAL_4 = new Course("CS2106/T04");
     public static final Tutorial VALID_TUTORIAL_1 = new Tutorial(VALID_COURSE_1,
             VALID_COURSE_1.courseName + "/F08");
     public static final Tutorial VALID_TUTORIAL_2 = new Tutorial(VALID_COURSE_2,
@@ -78,6 +82,14 @@ public class CommandTestUtil {
     public static final String COURSE_DESC_4 = " " + PREFIX_COURSE + " " + VALID_COURSE_4;
     public static final String COURSE_DESC_MULTIPLE = " " + PREFIX_COURSE + " " + VALID_COURSE_1 + ", " + VALID_COURSE_2
             + ", " + VALID_COURSE_3 + ", " + VALID_COURSE_4;
+    public static final String COURSE_DESC_WITH_TUTORIAL_1 = " " + PREFIX_COURSE + " " + VALID_COURSE_WITH_TUTORIAL_1;
+    public static final String COURSE_DESC_WITH_TUTORIAL_2 = " " + PREFIX_COURSE + " " + VALID_COURSE_WITH_TUTORIAL_2;
+    public static final String COURSE_DESC_WITH_TUTORIAL_3 = " " + PREFIX_COURSE + " " + VALID_COURSE_WITH_TUTORIAL_3;
+    public static final String COURSE_DESC_WITH_TUTORIAL_4 = " " + PREFIX_COURSE + " " + VALID_COURSE_WITH_TUTORIAL_4;
+    public static final String COURSE_DESC_WITH_TUTORIAL_MULTIPLE = " " + PREFIX_COURSE + " "
+            + VALID_COURSE_WITH_TUTORIAL_1 + VALID_COURSE_WITH_TUTORIAL_2
+            + VALID_COURSE_WITH_TUTORIAL_3 + VALID_COURSE_WITH_TUTORIAL_4;
+
 
     // when using TUTORIAL_DESC, COURSE_DESC should not be used
     public static final String TUTORIAL_DESC_1 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_1;
