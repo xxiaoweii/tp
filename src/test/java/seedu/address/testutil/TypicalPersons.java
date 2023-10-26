@@ -31,12 +31,12 @@ public class TypicalPersons {
     // ALICE --> all fields present, not favourited
     public static final Person ALICE = new PersonBuilder().withName("Alice Pauline")
             .withRoles(VALID_ROLE_STUDENT).withContacts("alice@example.com")
-            .withTutorials(VALID_TUTORIAL_1).withFavourite(false).build();
+            .withCoursesAndTutorials(VALID_TUTORIAL_1).withFavourite(false).build();
 
     // BENSON --> all fields present, multiple courses with tutorials, not favourited
     public static final Person BENSON = new PersonBuilder().withName("Benson Meier")
             .withRoles(VALID_ROLE_TA).withContacts("johnd@example.com")
-            .withTutorials(VALID_TUTORIAL_1, VALID_TUTORIAL_2).withFavourite(false).build();
+            .withCoursesAndTutorials(VALID_TUTORIAL_1, VALID_TUTORIAL_2).withFavourite(false).build();
 
     // CARL --> courses and tutorials not present, not favourited
     public static final Person CARL = new PersonBuilder().withName("Carl Kurz")
@@ -65,23 +65,23 @@ public class TypicalPersons {
     // HOON --> all fields present, favourited
     public static final Person HOON = new PersonBuilder().withName("Hoon Meier")
             .withRoles("Student").withContacts("stefan@example.com")
-            .withTutorials(VALID_TUTORIAL_2).withFavourite(true).build();
+            .withCoursesAndTutorials(VALID_TUTORIAL_2).withFavourite(true).build();
 
     // IDA --> all fields present, not favourited
     public static final Person IDA = new PersonBuilder().withName("Ida Mueller")
             .withRoles("TA").withContacts("hans@example.com")
-            .withTutorials(VALID_TUTORIAL_2).withFavourite(false).build();
+            .withCoursesAndTutorials(VALID_TUTORIAL_2).withFavourite(false).build();
 
     // Manually added - Person's details found in {@code CommandTestUtil}
     // AMY --> all fields present, not favourited
     public static final Person AMY = new PersonBuilder().withName(VALID_NAME_AMY)
             .withRoles(VALID_ROLE_STUDENT).withContacts(VALID_CONTACT_AMY)
-            .withTutorials(VALID_TUTORIAL_1).withFavourite(false).build();
+            .withCoursesAndTutorials(VALID_TUTORIAL_1).withFavourite(false).build();
 
     // BOB --> all fields present, favourited
     public static final Person BOB = new PersonBuilder().withName(VALID_NAME_BOB)
             .withRoles(VALID_ROLE_TA).withContacts(VALID_CONTACT_BOB)
-            .withTutorials(VALID_TUTORIAL_2).withFavourite(true).build();
+            .withCoursesAndTutorials(VALID_TUTORIAL_2).withFavourite(true).build();
 
     // CHARLIE --> name present only, not favourited
     public static final Person CHARLIE = new PersonBuilder().withName(VALID_NAME_CHARLIE)
