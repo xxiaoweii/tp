@@ -109,10 +109,21 @@ class JsonAdaptedPerson {
             final String tutorialString = tutorial.getTutorialString();
 
             Optional<Course> relevantCourse = Tutorial.findMatchingCourse(courseSet, tutorialString);
+            /*
             relevantCourse.ifPresent((course) -> {
                 Tutorial newTutorial = new Tutorial(course, tutorialString);
                 personTutorials.add(newTutorial);
             });
+            */
+            // seems like IllegalValueException is not thrown when an invalid tutorial is added.
+            // but I can't think of an invalid tutorial string for the test case.
+            // I will get back to this.
+            if (relevantCourse.isPresent()) {
+                Course course = relevantCourse.get();
+                Tutorial modelTutorial = tutorial.toModelType(course);
+                personTutorials.add(modelTutorial);
+            }
+
         }
 
         if (name == null) {

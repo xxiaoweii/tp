@@ -1,4 +1,3 @@
-/*
 package seedu.address.storage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,9 +17,9 @@ import seedu.address.model.person.Name;
 public class JsonAdaptedPersonTest {
     private static final String INVALID_NAME = "R@chel";
     private static final String INVALID_ROLE = "Teacher";
-    private static final String INVALID_CONTACT = "yahooOoo!!!";
+    private static final String INVALID_CONTACT = " ";
     private static final String INVALID_COURSE = "@@@@";
-    private static final String INVALID_TUTORIAL = "/###";
+    private static final String INVALID_TUTORIAL = " ";
 
     private static final String VALID_NAME = BENSON.getName().toString();
     private static final List<JsonAdaptedRole> VALID_ROLES = BENSON.getRoles().stream()
@@ -36,6 +35,8 @@ public class JsonAdaptedPersonTest {
             .map(JsonAdaptedTutorial::new)
             .collect(Collectors.toList());
 
+    private static final boolean VALID_FAVOURITE = false;
+
     @Test
     public void toModelType_validPersonDetails_returnsPerson() throws Exception {
         JsonAdaptedPerson person = new JsonAdaptedPerson(BENSON);
@@ -45,7 +46,8 @@ public class JsonAdaptedPersonTest {
     @Test
     public void toModelType_invalidName_throwsIllegalValueException() {
         JsonAdaptedPerson person =
-                new JsonAdaptedPerson(INVALID_NAME, VALID_ROLES, VALID_CONTACTS, VALID_COURSES, VALID_TUTORIALS);
+                new JsonAdaptedPerson(INVALID_NAME, VALID_ROLES, VALID_CONTACTS, VALID_COURSES, VALID_TUTORIALS,
+                        VALID_FAVOURITE);
         String expectedMessage = Name.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
@@ -53,7 +55,7 @@ public class JsonAdaptedPersonTest {
     @Test
     public void toModelType_nullName_throwsIllegalValueException() {
         JsonAdaptedPerson person = new JsonAdaptedPerson(null, VALID_ROLES, VALID_CONTACTS, VALID_COURSES,
-                VALID_TUTORIALS);
+                VALID_TUTORIALS, VALID_FAVOURITE);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
@@ -63,7 +65,8 @@ public class JsonAdaptedPersonTest {
         List<JsonAdaptedRole> invalidRoles = new ArrayList<>(VALID_ROLES);
         invalidRoles.add(new JsonAdaptedRole(INVALID_ROLE));
         JsonAdaptedPerson person =
-                new JsonAdaptedPerson(VALID_NAME, invalidRoles, VALID_CONTACTS, VALID_COURSES, VALID_TUTORIALS);
+                new JsonAdaptedPerson(VALID_NAME, invalidRoles, VALID_CONTACTS, VALID_COURSES, VALID_TUTORIALS,
+                        VALID_FAVOURITE);
         assertThrows(IllegalValueException.class, person::toModelType);
     }
 
@@ -72,7 +75,8 @@ public class JsonAdaptedPersonTest {
         List<JsonAdaptedContact> invalidContacts = new ArrayList<>(VALID_CONTACTS);
         invalidContacts.add(new JsonAdaptedContact(INVALID_CONTACT));
         JsonAdaptedPerson person =
-                new JsonAdaptedPerson(VALID_NAME, VALID_ROLES, invalidContacts, VALID_COURSES, VALID_TUTORIALS);
+                new JsonAdaptedPerson(VALID_NAME, VALID_ROLES, invalidContacts, VALID_COURSES, VALID_TUTORIALS,
+                        VALID_FAVOURITE);
         assertThrows(IllegalValueException.class, person::toModelType);
     }
 
@@ -81,18 +85,22 @@ public class JsonAdaptedPersonTest {
         List<JsonAdaptedCourse> invalidCourses = new ArrayList<>(VALID_COURSES);
         invalidCourses.add(new JsonAdaptedCourse(INVALID_COURSE));
         JsonAdaptedPerson person =
-                new JsonAdaptedPerson(VALID_NAME, VALID_ROLES, VALID_CONTACTS, invalidCourses, VALID_TUTORIALS);
+                new JsonAdaptedPerson(VALID_NAME, VALID_ROLES, VALID_CONTACTS, invalidCourses, VALID_TUTORIALS,
+                        VALID_FAVOURITE);
         assertThrows(IllegalValueException.class, person::toModelType);
     }
 
+    // my brain not braining anymore, please help me find an invalid tutorialstring T^T
+    /*
     @Test
     public void toModelType_invalidTutorials_throwsIllegalValueException() {
         List<JsonAdaptedTutorial> invalidTutorials = new ArrayList<>(VALID_TUTORIALS);
         invalidTutorials.add(new JsonAdaptedTutorial(INVALID_TUTORIAL));
         JsonAdaptedPerson person =
-                new JsonAdaptedPerson(VALID_NAME, VALID_ROLES, VALID_CONTACTS, VALID_COURSES, invalidTutorials);
+                new JsonAdaptedPerson(VALID_NAME, VALID_ROLES, VALID_CONTACTS, VALID_COURSES, invalidTutorials,
+                        VALID_FAVOURITE);
         assertThrows(IllegalValueException.class, person::toModelType);
     }
+    */
 
 }
-*/
