@@ -54,15 +54,17 @@ public class TutorialTest {
         assertFalse(Tutorial.isValidTutorialString("cs1234/")); // empty tutorial name
 
         // valid tutorialstring
-        assertTrue(Tutorial.isValidTutorialString("CS2106/G06")); // double letter + quad digit 
-                                                                  // course, three chars for tutorial
 
-        assertTrue(Tutorial.isValidTutorialString("CS2103T/F08")); // double letter + quad digit 
-                                                                   // + letter course, three 
-                                                                   // chars for tutorial
+        // double letter + quad digit course, three chars for tutorial
+        assertTrue(Tutorial.isValidTutorialString("CS2106/G06"));
 
-        assertTrue(Tutorial.isValidTutorialString("GEA1000/a")); // three letter course,
-                                                                 // one char for tutorial name
+
+        // double letter + quad digit + letter course, three chars for tutorial
+        assertTrue(Tutorial.isValidTutorialString("CS2103T/F08"));
+
+
+        // three letter course, one char for tutorial name
+        assertTrue(Tutorial.isValidTutorialString("GEA1000/a"));
     }
 
     @Test
@@ -81,8 +83,8 @@ public class TutorialTest {
     public void splitCourseTutorialName_validTutorialString_returnsCorrectly() {
         String validCourseString = "CS2103T";
         String validTutorialString = "F08";
-        String courseTutorialName = validCourseString + 
-            Tutorial.COURSE_TUTORIAL_DELIMITER + validTutorialString;
+        String courseTutorialName = validCourseString
+            + Tutorial.COURSE_TUTORIAL_DELIMITER + validTutorialString;
 
         String[] result = Tutorial.splitCourseTutorialName(courseTutorialName);
         assertEquals(2, result.length);
