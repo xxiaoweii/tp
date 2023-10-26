@@ -120,13 +120,18 @@ Adds new profiles in the profile lists.
 
 **Tip:**
 
+-The input for role is case-sensitive
+
 -Contacts can be any type of contact: email address, telegram handle, phone number, etc.
 
 -Courses can be any of the courses offered by NUS
 
+-Courses can be added without the tutorial classes but tutorial classes must be added with a course 
+(see example below for more details)
+
 > 📝Note:
 >
-> Please use a comma (,) to separate the different contacts as well as the different courses
+> Please use a comma (,) to separate the different roles, contacts and courses
 
 -The different fields are colour-coded to differentiate between them.
 
@@ -137,13 +142,21 @@ Adds new profiles in the profile lists.
 </box>
 
 ##### EXAMPLE COMMAND:
+
+Example 1:
+
 `add --name Aiken Dueet --role Student --contact @aikendueet, aikendueet@gmail.com
 --course CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30 `
+
+Example 2:
+
+`add --name Charlie Dueet --role TA, Student --contact @charliee, charliee@gmail.com
+--course GEA1000, QF2103 `
 
 ##### ACCEPTABLE VALUES:
 `NAME`: Any non-empty input of alphabetical characters.
 
-`ROLE1`: Any three roles allowed here: Student, TA, Professor (Case-sensitive)
+`ROLE1`: Any three roles allowed here: Student, TA, Professor
 
 `CONTACT1`: Any non-empty input of characters.
 
@@ -152,20 +165,43 @@ Adds new profiles in the profile lists.
 `CLASS1`: Any non-empty input of characters.
 
 ##### EXPECTED OUTPUT ON SUCCESS:
+
+Example 1:
+
 ```
 You have added a new profile in :
 Name: Aiken Dueet  
-Role: STUDENT
+Role: Student
 Contact: @aikendueet, aikendueet@gmail.com
 Course: CS2103T, CS2101, CS2100
 Tutorials: CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30
 ```
 
+Example 2:
+
+```
+You have added a new profile in :
+Name: Charlie Dueet  
+Role: Student, TA
+Contact: @charliee, charliee@gmail.com
+Course: CS2103T, CS2101, CS2100
+Tutorials: 
+```
 
 ##### EXPECTED OUTPUT ON FAILURE:
-`The  command or the format of the command that you have entered is wrong.
-Please refer to this link for the list of valid commands:`
-[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
+
+For invalid command keyword:
+
+`Error! Invalid command keyword entered. Please double check.
+You may refer to the following link for a detailed list of 
+acceptable command keyword and the format for the input:`[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
+
+For wrong input format:
+
+`Please check that you have entered in the correct format.
+You may refer to the following link for a detailed list of
+acceptable command keyword and the format for the input:`[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
+
 
 #### Listing all persons : `list`
 
