@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.model.person.Contact;
 import seedu.address.model.person.Course;
+import seedu.address.model.person.Favourite;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Role;
@@ -37,6 +38,7 @@ public class EditPersonDescriptorBuilder {
         descriptor.setContacts(person.getContacts());
         descriptor.setCourses(person.getCourses());
         descriptor.setTutorials(person.getTutorials());
+        descriptor.setFavourite(person.getFavourite());
     }
 
     /**
@@ -74,6 +76,15 @@ public class EditPersonDescriptorBuilder {
     public EditPersonDescriptorBuilder withCourses(String... courses) {
         Set<Course> courseSet = Stream.of(courses).map(Course::new).collect(Collectors.toSet());
         descriptor.setCourses(courseSet);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Favourite} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withFavourite(boolean isFavourite) {
+        Favourite favourite = new Favourite(isFavourite);
+        descriptor.setFavourite(favourite);
         return this;
     }
 
