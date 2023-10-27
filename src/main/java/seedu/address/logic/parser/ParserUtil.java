@@ -110,6 +110,8 @@ public class ParserUtil {
             for (String splitContact : splitContacts) {
                 if (!splitContact.trim().isEmpty()) {
                     contactSet.add(parseContact(splitContact));
+                } else {
+                    throw new ParseException(Contact.MESSAGE_CONSTRAINTS);
                 }
             }
         }
@@ -144,6 +146,8 @@ public class ParserUtil {
             for (String courseName : splitCourse) {
                 if (!courseName.trim().isEmpty()) {
                     courseSet.add(parseCourse(courseName));
+                } else {
+                    throw new ParseException(Course.MESSAGE_CONSTRAINTS);
                 }
             }
         }
@@ -166,6 +170,8 @@ public class ParserUtil {
                 if (courseTutorialLength == 2) {
                     Course stringToCourse = new Course(splitCourseInput);
                     courseSet.add(stringToCourse);
+                } else {
+                    throw new ParseException(Course.MESSAGE_CONSTRAINTS);
                 }
             }
         }
