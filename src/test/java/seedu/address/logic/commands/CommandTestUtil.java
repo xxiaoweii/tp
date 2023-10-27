@@ -102,10 +102,11 @@ public class CommandTestUtil {
     static {
         DESC_AMY = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
                 .withRoles(VALID_ROLE_STUDENT).withContacts(VALID_CONTACT_AMY)
-                .withCourses(VALID_COURSE_1.toString()).build();
+                .withCourses(VALID_COURSE_1.toString()).withFavourite(false).build();
         DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withRoles(VALID_ROLE_TA).withContacts(VALID_CONTACT_BOB)
-                .withCourses(VALID_COURSE_2.courseName, VALID_COURSE_3.courseName).build();
+                .withCourses(VALID_COURSE_2.courseName, VALID_COURSE_3.courseName)
+                .withFavourite(false).build();
     }
 
     /**
