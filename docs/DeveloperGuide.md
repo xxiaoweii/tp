@@ -255,6 +255,116 @@ _{more aspects and alternatives to be added}_
 
 _{Explain here how the data archiving feature will be implemented}_
 
+### Search feature
+#### Implementation Details & Philosophy
+Description: 
+
+The search feature contains 4 different sub commands namely : `search`, `searchrole`,
+`searchcourse`, `searchtutorial` .
+
+1. `search` allows the user to search for a person through their name
+2. `searchrole` allows the user to search for a list of people with the same role
+3. `searchcourse` allows the user to search for a list of people taking a particular course
+4. `searchtutorial` allows the user to search for a list of people taking a particular tutorial
+
+Implementation:
+
+`search`
+<p>
+A `search` class has a `NameContainsKeywordPredicate` field that describes the search criteria and 
+filters the list of persons.`NameContainsKeywordPredicate` implements the Predicate interface for Person
+object. It is used to filter a collection of Person objects based on whether their names contain 
+a certain keyword.
+</p>
+
+`searchrole`
+<p>
+A `searchrole` class has a `RoleContainsKeywordPredicate` field that describes the search criteria and 
+filters the list of persons. `RoleContainsKeywordPredicate` implements the Predicate interface for Person
+object. It is used to filter a collection of Person objects based on whether their role contain 
+a certain keyword. 
+</p>
+
+`searchcourse`
+<p>
+A `searchcourse` class has a `CourseContainsKeywordPredicate` field that describes the search criteria and 
+filters the list of persons. `CourseContainsKeywordPredicate` implements the Predicate interface for Person
+object. It is used to filter a collection of Person objects based on whether their courses contain 
+a certain keyword. 
+</p>
+
+`searchtutorial`
+<p>
+A `searchtutorial` class has a `TutorialContainsKeywordPredicate` field that describes the search criteria and 
+filters the list of persons. `TutorialContainsKeywordPredicate` implements the Predicate interface for Person
+object. It is used to filter a collection of Person objects based on whether their tutorials contain 
+a certain keyword. 
+</p>
+
+#### Design considerations
+<ol>
+1. Clarity and Ease of Use 
+<p>
+Having distinct search commands for different purposes instead of a single search 
+command that searches all four makes it clear to the user what each command is used for. Hence, 
+this will make the interface more user-friendly as it reduces the likelihood of the users getting 
+confused about the commands.
+</p>
+2. Scalability
+<p>
+If the search feature were to be expanded or modified in the future, it would be easier
+to add or change specific commands and their functions without affecting the whole search system. 
+
+Additionally, if the search feature was to modified to allow multiple searches in a single command,
+If a single search command was used, users may need to use complex syntax to specify what they 
+are searching for. Hence, having 4 different search commands will reduce ambiguity and hence
+make it more scalable. 
+</p>
+3. Improved Error Handling
+<p>
+With a specific search command for each search, it is easier to give specific and targeted error 
+messages. For a single search command that handles multiple types of searches, providing relevant 
+feedback can be more challenging. Hence, the error messages for a single search command might not be 
+specific, making the application less user-friendly. 
+</p>
+
+</ol>
+
+### \[Proposed\] Favourite List feature 
+#### Proposed Implementation Details & Philosophy
+High Level Description: 
+
+The favourite list feature is executed using the `favlist` command. 
+
+**FavListCommand**
+
+A FavListCommand Java class that extends the parent Command class will be created. This base class
+will represent the `favlist` command
+
+**Command Word**
+
+A constant COMMAND_WORD = "favlist" is instantiated. 
+
+**Usage Message**
+
+A usage message constant MESSAGE_USAGE will be created to explain to the users how to interact and 
+use the `favlist` command
+
+**Integration with Model**
+To ensure that the FavListCommand class interacts with the application's model 
+to perform actions related to the favorite list. This will be done through the 
+`model.updateFilteredPersonList(predicate)` method. 
+
+#### Design considerations 
+<ol>
+1. User Expectations 
+<p>
+Users have a common expectation that their favorite items should be accessible
+and manageable in a straightforward manner. Hence, this is fulfilled using a simple and intuitive 
+`favlist` command.
+</p>
+
+</ol>
 
 --------------------------------------------------------------------------------------------------------------------
 
