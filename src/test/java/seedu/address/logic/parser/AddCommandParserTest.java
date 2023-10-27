@@ -1,62 +1,15 @@
 package seedu.address.logic.parser;
 
-//import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-//import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
-//import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
-//import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
-//import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
-//import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
-//import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
-//import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
-//import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
-//import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
-//import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_NON_EMPTY;
-//import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_WHITESPACE;
-//import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
-//import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
-//import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
-//import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-//import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-//import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-//import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
-//import static seedu.address.logic.commands.CommandTestUtil.CONTACT_DESC_CHARLIE_EMAIL;
-//import static seedu.address.logic.commands.CommandTestUtil.CONTACT_DESC_CHARLIE_EMAIL;
-//import static seedu.address.logic.commands.CommandTestUtil.CONTACT_DESC_CHARLIE_EMAIL;
 import static seedu.address.logic.commands.CommandTestUtil.CONTACT_DESC_CHARLIE_PHONE;
-//import static seedu.address.logic.commands.CommandTestUtil.CONTACT_DESC_CHARLIE_TELE;
-//import static seedu.address.logic.commands.CommandTestUtil.CONTACT_DESC_MULTIPLE;
-//import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_1;
-//import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_2;
-//import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_3;
 import static seedu.address.logic.commands.CommandTestUtil.CONTACT_DESC_CHARLIE_TELE;
 import static seedu.address.logic.commands.CommandTestUtil.CONTACT_DESC_MULTIPLE;
 import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_1;
-import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_2;
-import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_3;
 import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_MULTIPLE;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_CHARLIE;
-//import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_MULTIPLE;
-//import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_STUDENT;
+import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_DANNY;
 import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_MULTIPLE;
 import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_STUDENT;
 import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_TA;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_CONTACT_CHARLIE;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_CONTACT_CHARLIE;
-//import static seedu.address.logic.commands.CommandTestUtil.TUTORIAL_DESC_1;
-//import static seedu.address.logic.commands.CommandTestUtil.TUTORIAL_DESC_2;
-//import static seedu.address.logic.commands.CommandTestUtil.TUTORIAL_DESC_3;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_1;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_2;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_3;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_CONTACT_CHARLIE;
 import static seedu.address.logic.commands.CommandTestUtil.TUTORIAL_DESC_1;
 import static seedu.address.logic.commands.CommandTestUtil.TUTORIAL_DESC_MULTIPLE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_1;
@@ -66,34 +19,23 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_4;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_CONTACT_CHARLIE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_CHARLIE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_CONTACT_CHARLIE;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_STUDENT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_STUDENT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_TA;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_TELE_CONTACT_CHARLIE;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_1;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_2;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_3;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TELE_CONTACT_CHARLIE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_1;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_2;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_3;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_4;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.address.testutil.TypicalPersons.CHARLIE;
-//import static seedu.address.testutil.TypicalPersons.AMY;
-//import static seedu.address.testutil.TypicalPersons.BOB;
 
 import org.junit.jupiter.api.Test;
 
-//import seedu.address.logic.Messages;
+import seedu.address.logic.Messages;
 import seedu.address.logic.commands.AddCommand;
-//import seedu.address.model.person.Address;
-//import seedu.address.model.person.Email;
-//import seedu.address.model.person.Name;
-import seedu.address.model.person.Course;
 import seedu.address.model.person.Person;
-//import seedu.address.model.person.Phone;
-//import seedu.address.model.tag.Tag;
 import seedu.address.testutil.PersonBuilder;
 
 public class AddCommandParserTest {
@@ -134,6 +76,13 @@ public class AddCommandParserTest {
         Person personWithOneCourse = new PersonBuilder(CHARLIE).withCourses(VALID_COURSE_1).build();
         assertParseSuccess(parser, NAME_DESC_CHARLIE + COURSE_DESC_1,
                 new AddCommand(personWithOneCourse));
+
+        // Name and a course with tutorial
+        Person personWithCourseAndTutorial = new PersonBuilder(CHARLIE)
+                .withCoursesAndTutorials(VALID_TUTORIAL_1)
+                .build();
+        assertParseSuccess(parser, NAME_DESC_CHARLIE + TUTORIAL_DESC_1,
+                new AddCommand(personWithCourseAndTutorial));
     }
 
     @Test
@@ -173,6 +122,34 @@ public class AddCommandParserTest {
                 .build();
         String userInput3 = NAME_DESC_CHARLIE + ROLE_DESC_MULTIPLE + CONTACT_DESC_MULTIPLE + COURSE_DESC_MULTIPLE;
         assertParseSuccess(parser, userInput3, new AddCommand(manyRolesContactsCourses));
+
+        // Name and many courses with tutorial class
+        Person personWithManyCoursesAndTut = new PersonBuilder(CHARLIE)
+                .withCoursesAndTutorials(VALID_TUTORIAL_1, VALID_TUTORIAL_2, VALID_TUTORIAL_3, VALID_TUTORIAL_4)
+                .build();
+        assertParseSuccess(parser, NAME_DESC_CHARLIE + TUTORIAL_DESC_MULTIPLE,
+                new AddCommand(personWithManyCoursesAndTut));
+
+        // Name, many roles, many contacts and many courses without tutorial class
+        Person manyRolesContactsCoursesWithTut = new PersonBuilder(CHARLIE)
+                .withRoles(VALID_ROLE_TA, VALID_ROLE_STUDENT)
+                .withContacts(VALID_PHONE_CONTACT_CHARLIE, VALID_EMAIL_CONTACT_CHARLIE, VALID_TELE_CONTACT_CHARLIE)
+                .withCoursesAndTutorials(VALID_TUTORIAL_1, VALID_TUTORIAL_2, VALID_TUTORIAL_3, VALID_TUTORIAL_4)
+                .build();
+        String userInput4 = NAME_DESC_CHARLIE + ROLE_DESC_MULTIPLE + CONTACT_DESC_MULTIPLE + TUTORIAL_DESC_MULTIPLE;
+        assertParseSuccess(parser, userInput4, new AddCommand(manyRolesContactsCoursesWithTut));
+    }
+
+    @Test
+    public void parse_addProfileWithRepeatedPrefix_failure() {
+
+        String validPersonStringWithCourse = NAME_DESC_CHARLIE + ROLE_DESC_TA
+                + CONTACT_DESC_CHARLIE_TELE + COURSE_DESC_1;
+
+        //Adding a profile that has multiple names
+        assertParseFailure(parser, NAME_DESC_DANNY + validPersonStringWithCourse,
+                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_NAME));
+
     }
     /*
     @Test

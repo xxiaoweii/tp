@@ -34,6 +34,7 @@ public class CommandTestUtil {
     public static final String VALID_NAME_AMY = "Amy Bee";
     public static final String VALID_NAME_BOB = "Bob Choo";
     public static final String VALID_NAME_CHARLIE = "Charlie";
+    public static final String VALID_NAME_DANNY = "Danny";
     public static final String VALID_ROLE_STUDENT = "Student";
     public static final String VALID_ROLE_TA = "TA";
     public static final String VALID_ROLE_PROFESSOR = "Professor";
@@ -62,6 +63,7 @@ public class CommandTestUtil {
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + " " + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + " " + VALID_NAME_BOB;
     public static final String NAME_DESC_CHARLIE = " " + PREFIX_NAME + " " + VALID_NAME_CHARLIE;
+    public static final String NAME_DESC_DANNY = " " + PREFIX_NAME + " " + VALID_NAME_DANNY;
     public static final String ROLE_DESC_STUDENT = " " + PREFIX_ROLE + " " + VALID_ROLE_STUDENT;
     public static final String ROLE_DESC_TA = " " + PREFIX_ROLE + " " + VALID_ROLE_TA;
     public static final String ROLE_DESC_PROFESSOR = " " + PREFIX_ROLE + " " + VALID_ROLE_PROFESSOR;
@@ -82,14 +84,6 @@ public class CommandTestUtil {
     public static final String COURSE_DESC_4 = " " + PREFIX_COURSE + " " + VALID_COURSE_4;
     public static final String COURSE_DESC_MULTIPLE = " " + PREFIX_COURSE + " " + VALID_COURSE_1 + ", " + VALID_COURSE_2
             + ", " + VALID_COURSE_3 + ", " + VALID_COURSE_4;
-    public static final String COURSE_DESC_WITH_TUTORIAL_1 = " " + PREFIX_COURSE + " " + VALID_COURSE_WITH_TUTORIAL_1;
-    public static final String COURSE_DESC_WITH_TUTORIAL_2 = " " + PREFIX_COURSE + " " + VALID_COURSE_WITH_TUTORIAL_2;
-    public static final String COURSE_DESC_WITH_TUTORIAL_3 = " " + PREFIX_COURSE + " " + VALID_COURSE_WITH_TUTORIAL_3;
-    public static final String COURSE_DESC_WITH_TUTORIAL_4 = " " + PREFIX_COURSE + " " + VALID_COURSE_WITH_TUTORIAL_4;
-    public static final String COURSE_DESC_WITH_TUTORIAL_MULTIPLE = " " + PREFIX_COURSE + " "
-            + VALID_COURSE_WITH_TUTORIAL_1 + VALID_COURSE_WITH_TUTORIAL_2
-            + VALID_COURSE_WITH_TUTORIAL_3 + VALID_COURSE_WITH_TUTORIAL_4;
-
 
     // when using TUTORIAL_DESC, COURSE_DESC should not be used
     public static final String TUTORIAL_DESC_1 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_1;

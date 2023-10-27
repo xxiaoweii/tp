@@ -70,7 +70,7 @@ public class PersonCard extends UiPart<Region> {
 
         tutorials.setText(TUTORIAL_BEGIN_STRING + person.getTutorials().stream()
                 .map((tutorial) -> tutorial.toString())
-                .collect(Collectors.joining(Tutorial.PARSE_TUTORIAL_DELIMITER)));
+                .collect(Collectors.joining(Tutorial.TUTORIAL_SEPARATOR)));
 
         roles.setText(ROLES_BEGIN_STRING + person.getRoles().stream().map((roles) -> roles.toString())
                 .collect(Collectors.joining(Role.PARSE_ROLE_DELIMITER)));
