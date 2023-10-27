@@ -3,6 +3,8 @@ package seedu.address.model.person;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_1;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_1;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,9 +12,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_1;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_1;
-//import seedu.address.testutil.PersonBuilder;
+import seedu.address.testutil.PersonBuilder;
 
 public class NameContainsKeywordsPredicateTest {
 
@@ -41,7 +41,6 @@ public class NameContainsKeywordsPredicateTest {
         assertFalse(firstPredicate.equals(secondPredicate));
     }
 
-    /*
     @Test
     public void test_nameContainsKeywords_returnsTrue() {
         // One keyword
@@ -75,10 +74,8 @@ public class NameContainsKeywordsPredicateTest {
         predicate = new NameContainsKeywordsPredicate(Arrays.asList("Student", "alice@email.com",
                 VALID_COURSE_1.courseName, VALID_TUTORIAL_1.tutorialName));
         assertFalse(predicate.test(new PersonBuilder().withName("Alice").withRoles("Student")
-                .withContacts("alice@email.com").withCourses(VALID_COURSE_1)
-                .withTutorials(VALID_TUTORIAL_1).build()));
+                .withContacts("alice@email.com").withCoursesAndTutorials(VALID_TUTORIAL_1).build()));
     }
-    */
 
     @Test
     public void toStringMethod() {

@@ -22,7 +22,7 @@ import seedu.address.model.person.Role;
 public class ParserUtilTest {
     private static final String INVALID_NAME = "R@chel";
     private static final String INVALID_ROLE = "Teacher";
-    private static final String INVALID_CONTACT = " ";
+    private static final String INVALID_CONTACT = "  invalid contact
     private static final String INVALID_COURSE = " ";
     private static final String INVALID_TUTORIAL = "/tutorial";
 
@@ -159,13 +159,11 @@ public class ParserUtilTest {
         assertThrows(NullPointerException.class, () -> ParserUtil.parseContacts(null));
     }
 
-    /*
     @Test
     public void parseContacts_collectionWithInvalidTags_throwsParseException() {
         assertThrows(ParseException.class, () -> ParserUtil.parseContacts(Arrays.asList(VALID_CONTACT_1,
                 INVALID_CONTACT)));
     }
-    */
 
     @Test
     public void parseContacts_emptyCollection_returnsEmptySet() throws Exception {
