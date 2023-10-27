@@ -1,7 +1,7 @@
 ---
-  layout: default.md
-  title: "User Guide"
-  pageNav: 3
+layout: default.md
+title: "User Guide"
+pageNav: 3
 ---
 
 # NUSearch User Guide
@@ -31,14 +31,14 @@ The app helps students to consolidate important data, such as profiles of profes
 ## Features & Commands
 
 ### A Guide to reading each command
-The description of each command will contain the following: 
+The description of each command will contain the following:
 
 ##### WHAT IT DOES:
-Tells you the basic idea of what the command does. 
+Tells you the basic idea of what the command does.
 
 ##### FORMAT:
 It specifies how the command should be formatted. You should follow the format specified to ensure that the command gives the desired output.
- 
+
 ##### EXAMPLE COMMAND:
 Gives you a few examples of how the command can be used for reference.
 
@@ -90,17 +90,17 @@ add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSEC
 
 Shows a message which will give you the url to the help page.
 
-##### FORMAT: 
+##### FORMAT:
 `help`
 
-##### EXAMPLE COMMAND: 
+##### EXAMPLE COMMAND:
 `help`
 
-##### ACCEPTABLE VALUES: 
+##### ACCEPTABLE VALUES:
 This command does not accept any parameters.
 
 ##### EXPECTED OUTPUT ON SUCCESS:
-Upon successfully executing the help command, you should see a message that provides the URL to the help page. 
+Upon successfully executing the help command, you should see a message that provides the URL to the help page.
 The help page is a comprehensive documentation containing a list of valid commands and how to use them.
 ![help message](images/helpMessage.png)
 
@@ -125,7 +125,7 @@ Adds new profiles in the profile lists.
 -Courses can be any of the courses offered by NUS
 
 > 📝Note:
-> 
+>
 > Please use a comma (,) to separate the different contacts as well as the different courses
 
 -The different fields are colour-coded to differentiate between them.
@@ -137,13 +137,13 @@ Adds new profiles in the profile lists.
 </box>
 
 ##### EXAMPLE COMMAND:
-`add --name Aiken Dueet --role STUDENT --contact @aikendueet, aikendueet@gmail.com 
+`add --name Aiken Dueet --role Student --contact @aikendueet, aikendueet@gmail.com
 --course CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30 `
 
 ##### ACCEPTABLE VALUES:
 `NAME`: Any non-empty input of alphabetical characters.
 
-`ROLE1`: Any three roles allowed here: student, ta, professor (all in lowercase).
+`ROLE1`: Any three roles allowed here: Student, TA, Professor (Case-sensitive)
 
 `CONTACT1`: Any non-empty input of characters.
 
@@ -153,7 +153,7 @@ Adds new profiles in the profile lists.
 
 ##### EXPECTED OUTPUT ON SUCCESS:
 ```
-You have added a new profile in :)
+You have added a new profile in :
 Name: Aiken Dueet  
 Role: STUDENT
 Contact: @aikendueet, aikendueet@gmail.com
@@ -206,7 +206,7 @@ Delete the specific profile based on the index allocated to the profile.
 `delete 1`
 
 ##### ACCEPTABLE VALUES:
-`INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …), 
+`INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
 less than or equal to the number of profiles the user currently has.
 
 ##### EXPECTED OUTPUT ON SUCCESS:
@@ -221,7 +221,7 @@ Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30
 ```
 
 ##### EXPECTED OUTPUT ON FAILURE:
-The command or the format of the command that you have entered is wrong. 
+The command or the format of the command that you have entered is wrong.
 Please refer to this link for the list of valid commands:
 [Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
 
@@ -236,7 +236,7 @@ Search for profiles that match the input keyword
 `search CS2100`
 
 ##### ACCEPTABLE VALUES:
-`KEYWORD`: Any non-empty string of alphanumeric characters.
+`KEYWORD`: Any non-empty string of alphanumeric characters (not case-sensitive).
 
 ##### EXPECTED OUTPUT ON SUCCESS:
 ```
@@ -255,7 +255,7 @@ Tutorials: CS2100/Lab30-Tut10
 ```
 
 ##### EXPECTED OUTPUT ON FAILURE:
-`The command or the format of the command that you have entered is wrong. 
+`The command or the format of the command that you have entered is wrong.
 Please refer to this link for the list of valid commands:
 [Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)`
 
@@ -270,7 +270,7 @@ Favourite the profiles in the user’s current profile list.
 `fav 2`
 
 ##### ACCEPTABLE VALUES:
-`INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …), 
+`INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
 less than or equal to the number of profiles the user currently has.
 
 > 📝Note:
@@ -288,7 +288,7 @@ Tutorials: CS2102/Tut14
 ```
 
 ##### EXPECTED OUTPUT ON FAILURE:
-`The command or the format of the command that you have entered is wrong. 
+`The command or the format of the command that you have entered is wrong.
 Please refer to this link for the list of valid commands:
 [Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)`
 

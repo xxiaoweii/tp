@@ -72,7 +72,9 @@ public class ParserUtil {
         requireNonNull(roles);
         final Set<Role> roleSet = new HashSet<>();
         for (String roleName : roles) {
-            roleSet.add(parseRole(roleName));
+            if (!roleName.trim().isEmpty()) {
+                roleSet.add(parseRole(roleName));
+            }
         }
         return roleSet;
     }
@@ -99,7 +101,9 @@ public class ParserUtil {
         requireNonNull(contacts);
         final Set<Contact> contactSet = new HashSet<>();
         for (String contactName : contacts) {
-            contactSet.add(parseContact(contactName));
+            if (!contactName.trim().isEmpty()) {
+                contactSet.add(parseContact(contactName));
+            }
         }
         return contactSet;
     }
@@ -126,7 +130,9 @@ public class ParserUtil {
         requireNonNull(courses);
         final Set<Course> courseSet = new HashSet<>();
         for (String courseName : courses) {
-            courseSet.add(parseCourse(courseName));
+            if (!courseName.trim().isEmpty()) {
+                courseSet.add(parseCourse(courseName));
+            }
         }
         return courseSet;
     }
@@ -178,7 +184,9 @@ public class ParserUtil {
         requireNonNull(tutorials);
         final Set<Tutorial> tutorialSet = new HashSet<>();
         for (String tutorialName : tutorials) {
-            tutorialSet.add(parseTutorial(courseList, tutorialName));
+            if (!tutorialName.trim().isEmpty()) {
+                tutorialSet.add(parseTutorial(courseList, tutorialName));
+            }
         }
         return tutorialSet;
     }
