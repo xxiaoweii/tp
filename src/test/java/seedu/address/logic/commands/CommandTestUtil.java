@@ -77,11 +77,11 @@ public class CommandTestUtil {
     public static final String COURSE_DESC_3 = " " + PREFIX_COURSE + " " + VALID_COURSE_3;
     public static final String COURSE_DESC_4 = " " + PREFIX_COURSE + " " + VALID_COURSE_4;
 
-    // when using TUTORIAL_DESC, COURSE_DESC should not be used
-    public static final String TUTORIAL_DESC_1 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_1;
-    public static final String TUTORIAL_DESC_2 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_2;
-    public static final String TUTORIAL_DESC_3 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_3;
-    public static final String TUTORIAL_DESC_4 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_4;
+    // when using COURSE_TUTORIAL_DESC, COURSE_DESC should not be used
+    public static final String COURSE_TUTORIAL_DESC_1 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_1;
+    public static final String COURSE_TUTORIAL_DESC_2 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_2;
+    public static final String COURSE_TUTORIAL_DESC_3 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_3;
+    public static final String COURSE_TUTORIAL_DESC_4 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_4;
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + " "
             + "James&"; // '&' not allowed in names
