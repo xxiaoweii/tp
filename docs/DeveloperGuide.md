@@ -330,6 +330,19 @@ specific, making the application less user-friendly.
 
 </ol>
 
+### Add Feature
+#### Implementation details 
+
+The `add` feature allows user to add up to five different details of a person, including the name, role,
+contact details, the course he is taking, as well as the respective tutorial classes.
+
+#### Implementation:
+
+- When adding a profile, the only compulsory field that user has to include is the `name` field. 
+- All the other fields `role`, `contact` and `course` are optional.
+- Users can have more than one input for each of the optional field.
+- When adding a `course`, users can also choose to include or not to include the tutorial classes of the course.
+
 ### \[Proposed\] Favourite List feature 
 #### Proposed Implementation Details & Philosophy
 High Level Description: 
