@@ -189,7 +189,6 @@ public class ParserUtil {
             throw new ParseException(Tutorial.MESSAGE_CONSTRAINTS);
         }
 
-
         // Check if in the format of COURSECODE/TUTORIALCODE
         String[] courseTutorialName = Tutorial.splitCourseTutorialName(trimmedTutorialString);
         if (courseTutorialName == null || courseTutorialName.length <= 0) {
@@ -209,7 +208,6 @@ public class ParserUtil {
             return new ParseException(String.format(Tutorial.INVALID_COURSE_MESSAGE,
                     courseTutorialName[0], allCoursesString));
         });
-
         return parsedTutorial;
     }
 
