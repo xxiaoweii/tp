@@ -35,6 +35,13 @@ public class Favourite {
         this.isFavourite = true;
     }
 
+    /**
+     * Sets the favourite to false.
+     */
+    public void setUnfavourite() {
+        this.isFavourite = false;
+    }
+
     @Override
     public boolean equals(Object other) {
         if (other == this) {

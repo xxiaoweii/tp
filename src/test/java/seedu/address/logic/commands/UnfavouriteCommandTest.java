@@ -21,49 +21,49 @@ import seedu.address.model.person.Person;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for
- * {@code FavouriteCommand}.
+ * {@code UnfavouriteCommand}.
  */
-public class FavouriteCommandTest {
+public class UnfavouriteCommandTest {
 
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
     public void execute_validIndexUnfilteredList_success() {
-        Person personToFavourite = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
-        FavouriteCommand favouriteCommand = new FavouriteCommand(INDEX_FIRST_PERSON);
+        Person personToUnfavourite = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        UnfavouriteCommand unfavouriteCommand = new UnfavouriteCommand(INDEX_FIRST_PERSON);
 
-        String expectedMessage = String.format(FavouriteCommand.MESSAGE_FAVOURITE_PERSON_SUCCESS,
-                Messages.format(personToFavourite));
+        String expectedMessage = String.format(UnfavouriteCommand.MESSAGE_UNFAVOURITE_PERSON_SUCCESS,
+                Messages.format(personToUnfavourite));
 
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
-        expectedModel.favouritePerson(personToFavourite);
+        expectedModel.unfavouritePerson(personToUnfavourite);
 
-        assertCommandSuccess(favouriteCommand, model, expectedMessage, expectedModel);
+        assertCommandSuccess(unfavouriteCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
     public void execute_invalidIndexUnfilteredList_throwsCommandException() {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredPersonList().size() + 1);
-        FavouriteCommand favouriteCommand = new FavouriteCommand(outOfBoundIndex);
+        UnfavouriteCommand unfavouriteCommand = new UnfavouriteCommand(outOfBoundIndex);
 
-        assertCommandFailure(favouriteCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        assertCommandFailure(unfavouriteCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
 
     @Test
     public void execute_validIndexFilteredList_success() {
         showPersonAtIndex(model, INDEX_FIRST_PERSON);
 
-        Person personToFavourite = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
-        FavouriteCommand favouriteCommand = new FavouriteCommand(INDEX_FIRST_PERSON);
+        Person personToUnfavourite = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        UnfavouriteCommand unfavouriteCommand = new UnfavouriteCommand(INDEX_FIRST_PERSON);
 
-        String expectedMessage = String.format(FavouriteCommand.MESSAGE_FAVOURITE_PERSON_SUCCESS,
-                Messages.format(personToFavourite));
+        String expectedMessage = String.format(UnfavouriteCommand.MESSAGE_UNFAVOURITE_PERSON_SUCCESS,
+                Messages.format(personToUnfavourite));
 
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
-        expectedModel.favouritePerson(personToFavourite);
+        expectedModel.unfavouritePerson(personToUnfavourite);
         showPersonAtIndex(expectedModel, INDEX_FIRST_PERSON);
 
-        assertCommandSuccess(favouriteCommand, model, expectedMessage, expectedModel);
+        assertCommandSuccess(unfavouriteCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
@@ -74,39 +74,39 @@ public class FavouriteCommandTest {
         // ensures that outOfBoundIndex is still in bounds of address book list
         assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getPersonList().size());
 
-        FavouriteCommand favouriteCommand = new FavouriteCommand(outOfBoundIndex);
+        UnfavouriteCommand unfavouriteCommand = new UnfavouriteCommand(outOfBoundIndex);
 
-        assertCommandFailure(favouriteCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        assertCommandFailure(unfavouriteCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
 
     @Test
     public void equals() {
-        FavouriteCommand favouriteFirstCommand = new FavouriteCommand(INDEX_FIRST_PERSON);
-        FavouriteCommand favouriteSecondCommand = new FavouriteCommand(INDEX_SECOND_PERSON);
+        UnfavouriteCommand unfavouriteFirstCommand = new UnfavouriteCommand(INDEX_FIRST_PERSON);
+        UnfavouriteCommand unfavouriteSecondCommand = new UnfavouriteCommand(INDEX_SECOND_PERSON);
 
         // same object -> returns true
-        assertTrue(favouriteFirstCommand.equals(favouriteFirstCommand));
+        assertTrue(unfavouriteFirstCommand.equals(unfavouriteFirstCommand));
 
         // same values -> returns true
-        FavouriteCommand favouriteFirstCommandCopy = new FavouriteCommand(INDEX_FIRST_PERSON);
-        assertTrue(favouriteFirstCommand.equals(favouriteFirstCommandCopy));
+        UnfavouriteCommand unfavouriteFirstCommandCopy = new UnfavouriteCommand(INDEX_FIRST_PERSON);
+        assertTrue(unfavouriteFirstCommand.equals(unfavouriteFirstCommandCopy));
 
         // different types -> returns false
-        assertFalse(favouriteFirstCommand.equals(1));
+        assertFalse(unfavouriteFirstCommand.equals(1));
 
         // null -> returns false
-        assertFalse(favouriteFirstCommand.equals(null));
+        assertFalse(unfavouriteFirstCommand.equals(null));
 
         // different person -> returns false
-        assertFalse(favouriteFirstCommand.equals(favouriteSecondCommand));
+        assertFalse(unfavouriteFirstCommand.equals(unfavouriteSecondCommand));
     }
 
     @Test
-    public void toStringMethod() {
+    public void toStringTest() {
         Index targetIndex = Index.fromOneBased(1);
-        FavouriteCommand favouriteCommand = new FavouriteCommand(targetIndex);
-        String expected = FavouriteCommand.class.getCanonicalName() + "{targetIndex=" + targetIndex + "}";
-        assertEquals(expected, favouriteCommand.toString());
+        UnfavouriteCommand unfavouriteCommand = new UnfavouriteCommand(targetIndex);
+        String expected = UnfavouriteCommand.class.getCanonicalName() + "{targetIndex=" + targetIndex + "}";
+        assertEquals(expected, unfavouriteCommand.toString());
     }
 
 }

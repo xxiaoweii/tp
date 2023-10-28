@@ -75,6 +75,13 @@ public class Person {
     }
 
     /**
+     * Unfavourites the person.
+     */
+    public void setUnfavourite() {
+        favourite.setUnfavourite();
+    }
+
+    /**
      * Returns true if both persons have the same name.
      * This defines a weaker notion of equality between two persons.
      */
