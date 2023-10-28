@@ -76,7 +76,6 @@ public class PersonCard extends UiPart<Region> {
         /*
         roles.setText(ROLES_BEGIN_STRING + person.getRoles().stream().map((roles) -> roles.toString())
                 .collect(Collectors.joining(Role.PARSE_ROLE_DELIMITER)));
-                *
          */
         // commented this out first
 
