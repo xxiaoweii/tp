@@ -85,14 +85,6 @@ public class CommandTestUtil {
     public static final String COURSE_DESC_MULTIPLE = " " + PREFIX_COURSE + " " + VALID_COURSE_1 + ", " + VALID_COURSE_2
             + ", " + VALID_COURSE_3 + ", " + VALID_COURSE_4;
 
-    // when using TUTORIAL_DESC, COURSE_DESC should not be used
-    public static final String TUTORIAL_DESC_1 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_1;
-    public static final String TUTORIAL_DESC_2 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_2;
-    public static final String TUTORIAL_DESC_3 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_3;
-    public static final String TUTORIAL_DESC_4 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_4;
-    public static final String TUTORIAL_DESC_MULTIPLE = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_1
-            + ", " + VALID_TUTORIAL_2 + ", " + VALID_TUTORIAL_3 + ", " + VALID_TUTORIAL_4;
-
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + " "
             + "James&"; // '&' not allowed in names
     public static final String INVALID_ROLE_DESC = " " + PREFIX_ROLE + " "
@@ -112,10 +104,11 @@ public class CommandTestUtil {
     static {
         DESC_AMY = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
                 .withRoles(VALID_ROLE_STUDENT).withContacts(VALID_CONTACT_AMY)
-                .withCourses(VALID_COURSE_1.toString()).build();
+                .withCourses(VALID_COURSE_1.toString()).withFavourite(false).build();
         DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withRoles(VALID_ROLE_TA).withContacts(VALID_CONTACT_BOB)
-                .withCourses(VALID_COURSE_2.courseName, VALID_COURSE_3.courseName).build();
+                .withCourses(VALID_COURSE_2.courseName, VALID_COURSE_3.courseName)
+                .withFavourite(false).build();
     }
 
     /**

@@ -159,13 +159,11 @@ public class ParserUtilTest {
         assertThrows(NullPointerException.class, () -> ParserUtil.parseContacts(null));
     }
 
-    /*
     @Test
     public void parseContacts_collectionWithInvalidTags_throwsParseException() {
         assertThrows(ParseException.class, () -> ParserUtil.parseContacts(Arrays.asList(VALID_CONTACT_1,
                 INVALID_CONTACT)));
     }
-    */
 
     @Test
     public void parseContacts_emptyCollection_returnsEmptySet() throws Exception {
@@ -211,13 +209,11 @@ public class ParserUtilTest {
         assertThrows(NullPointerException.class, () -> ParserUtil.parseCourses(null));
     }
 
-    /*
     @Test
     public void parseCourses_collectionWithInvalidCourses_throwsParseException() {
         assertThrows(ParseException.class, () -> ParserUtil.parseCourses(Arrays.asList(VALID_COURSE_1,
                 INVALID_COURSE)));
     }
-    */
 
     @Test
     public void parseCourses_emptyCollection_returnsEmptySet() throws Exception {

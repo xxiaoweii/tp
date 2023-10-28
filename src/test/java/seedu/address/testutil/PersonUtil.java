@@ -54,37 +54,37 @@ public class PersonUtil {
      */
     public static String getEditPersonDescriptorDetails(EditPersonDescriptor descriptor) {
         StringBuilder sb = new StringBuilder();
-        descriptor.getName().ifPresent(name -> sb.append(PREFIX_NAME).append(name.fullName).append(" "));
+        descriptor.getName().ifPresent(name -> sb.append(PREFIX_NAME).append(" ").append(name.fullName).append(" "));
         if (descriptor.getRoles().isPresent()) {
             Set<Role> roles = descriptor.getRoles().get();
             if (roles.isEmpty()) {
-                sb.append(PREFIX_ROLE);
+                sb.append(PREFIX_ROLE).append(" ");
             } else {
-                roles.forEach(s -> sb.append(PREFIX_ROLE).append(s.toString()).append(" "));
+                roles.forEach(s -> sb.append(PREFIX_ROLE).append(" ").append(s.toString()).append(" "));
             }
         }
         if (descriptor.getContacts().isPresent()) {
             Set<Contact> contacts = descriptor.getContacts().get();
             if (contacts.isEmpty()) {
-                sb.append(PREFIX_CONTACT);
+                sb.append(PREFIX_CONTACT).append(" ");
             } else {
-                contacts.forEach(s -> sb.append(PREFIX_CONTACT).append(s.contact).append(" "));
+                contacts.forEach(s -> sb.append(PREFIX_CONTACT).append(" ").append(s.contact).append(" "));
             }
         }
         if (descriptor.getCourses().isPresent()) {
             Set<Course> courses = descriptor.getCourses().get();
             if (courses.isEmpty()) {
-                sb.append(PREFIX_COURSE);
+                sb.append(PREFIX_COURSE).append(" ");
             } else {
-                courses.forEach(s -> sb.append(PREFIX_COURSE).append(s.courseName).append(" "));
+                courses.forEach(s -> sb.append(PREFIX_COURSE).append(" ").append(s.courseName).append(" "));
             }
         }
         if (descriptor.getTutorials().isPresent()) {
             Set<Tutorial> tutorials = descriptor.getTutorials().get();
             if (tutorials.isEmpty()) {
-                sb.append(PREFIX_TUTORIAL);
+                sb.append(PREFIX_TUTORIAL).append(" ");
             } else {
-                tutorials.forEach(s -> sb.append(PREFIX_TUTORIAL).append(s.tutorialName).append(" "));
+                tutorials.forEach(s -> sb.append(PREFIX_TUTORIAL).append(" ").append(s.tutorialName).append(" "));
             }
         }
         return sb.toString();
