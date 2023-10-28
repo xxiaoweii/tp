@@ -170,8 +170,6 @@ public class ParserUtil {
                 if (courseTutorialLength == 2) {
                     Course stringToCourse = new Course(splitCourseInput);
                     courseSet.add(stringToCourse);
-                } else {
-                    throw new ParseException(Course.MESSAGE_CONSTRAINTS);
                 }
             }
         }
