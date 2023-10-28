@@ -7,6 +7,7 @@ import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,13 +19,15 @@ import seedu.address.model.person.Contact;
 import seedu.address.model.person.Course;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Role;
+import seedu.address.model.person.Tutorial;
 
 public class ParserUtilTest {
     private static final String INVALID_NAME = "R@chel";
     private static final String INVALID_ROLE = "Teacher";
     private static final String INVALID_CONTACT = " ";
     private static final String INVALID_COURSE = " ";
-    private static final String INVALID_TUTORIAL = "/tutorial";
+    private static final String INVALID_TUTORIAL_1 = "/tutorial";
+    private static final String INVALID_TUTORIAL_2 = "CS2103T/ F08";
 
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_ROLE_1 = "TA";
@@ -192,8 +195,8 @@ public class ParserUtilTest {
 
     @Test
     public void parseCourse_validValueWithoutWhitespace_returnsCourse() throws Exception {
-        Course expectedEmail = new Course(VALID_COURSE_1);
-        assertEquals(expectedEmail, ParserUtil.parseCourse(VALID_COURSE_1));
+        Course expectedCourse = new Course(VALID_COURSE_1);
+        assertEquals(expectedCourse, ParserUtil.parseCourse(VALID_COURSE_1));
     }
 
     @Test
@@ -229,8 +232,72 @@ public class ParserUtilTest {
         assertEquals(expectedTagSet, actualTagSet);
     }
 
-    // Have yet to implement parseTutorial tests
+    // parse tutorials
 
+    @Test
+    public void parseTutorialsSetCourse_nullCourseSet_throwNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseTutorials((Set<Course>) null));
+    }
+
+    @Test
+    public void parseTutorialsSetCourse_emptyCourseSet_success() throws ParseException {
+        Set<Course> courseList = new HashSet<>();
+        Set<Tutorial> expectedTutorials = new HashSet<>();
+        assertEquals(expectedTutorials, ParserUtil.parseTutorials(courseList));
+    }
+
+    @Test
+    public void parseTutorialsSetCourse_setWithInvalidTutorial_throwParseException() throws ParseException {
+
+        Set<Course> invalidTutorials = new HashSet<>();
+        invalidTutorials.add(new Course(INVALID_TUTORIAL_2));
+
+        assertThrows(ParseException.class, () -> ParserUtil.parseTutorials(invalidTutorials));
+    }
+
+    @Test
+    public void parseTutorialsSetCourse_setWithValidTutorial_success() throws ParseException {
+        Set<Course> courseList = new HashSet<>();
+        courseList.add(new Course(VALID_TUTORIAL_1));
+        courseList.add(new Course(VALID_TUTORIAL_2));
+
+        Set<Tutorial> expectedTutorials = new HashSet<>();
+        expectedTutorials.add(new Tutorial(new Course(VALID_COURSE_1), VALID_TUTORIAL_1));
+        expectedTutorials.add(new Tutorial(new Course(VALID_COURSE_2), VALID_TUTORIAL_2));
+
+        assertEquals(expectedTutorials, ParserUtil.parseTutorials(courseList));
+    }
+
+    @Test
+    public void parseTutorialsCollection_nullCollection_throwNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseTutorials((Collection<String>) null));
+    }
+
+    @Test
+    public void parseTutorialsCollection_emptyCollection_success() throws ParseException {
+        assertTrue(ParserUtil.parseTutorials(Collections.emptyList()).isEmpty());
+    }
+
+    @Test
+    public void parseTutorialsCollection_collectionWithInvalidTutorial_throwParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseTutorials(Arrays.asList(VALID_TUTORIAL_1,
+                INVALID_TUTORIAL_2)));
+    }
+
+    @Test
+    public void parseTutorialsCollection_collectionWithValidTutorial_success() throws ParseException {
+        Collection<String> courseCollection = new HashSet<>();
+        courseCollection.add(VALID_TUTORIAL_1);
+        courseCollection.add(VALID_TUTORIAL_2);
+
+        Set<Tutorial> expectedTutorials = new HashSet<>();
+        expectedTutorials.add(new Tutorial(new Course(VALID_COURSE_1), VALID_TUTORIAL_1));
+        expectedTutorials.add(new Tutorial(new Course(VALID_COURSE_2), VALID_TUTORIAL_2));
+
+        assertEquals(expectedTutorials, ParserUtil.parseTutorials(courseCollection));
+    }
+
+    // Added some tests for parse tutorial, can add more if there are any
     /*
     @Test
     public void parseTag_null_throwsNullPointerException() {

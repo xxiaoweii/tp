@@ -170,8 +170,6 @@ public class ParserUtil {
                 if (courseTutorialLength == 2) {
                     Course stringToCourse = new Course(splitCourseInput);
                     courseSet.add(stringToCourse);
-                } else {
-                    throw new ParseException(Course.MESSAGE_CONSTRAINTS);
                 }
             }
         }
@@ -190,7 +188,6 @@ public class ParserUtil {
         if (!Tutorial.isValidTutorialString(trimmedTutorialString)) {
             throw new ParseException(Tutorial.MESSAGE_CONSTRAINTS);
         }
-
 
         // Check if in the format of COURSECODE/TUTORIALCODE
         String[] courseTutorialName = Tutorial.splitCourseTutorialName(trimmedTutorialString);
@@ -211,7 +208,6 @@ public class ParserUtil {
             return new ParseException(String.format(Tutorial.INVALID_COURSE_MESSAGE,
                     courseTutorialName[0], allCoursesString));
         });
-
         return parsedTutorial;
     }
 
