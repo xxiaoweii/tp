@@ -11,8 +11,6 @@ import org.junit.jupiter.api.Test;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
-
- 
  
 public class ListCommandTest {
     private Model model;
