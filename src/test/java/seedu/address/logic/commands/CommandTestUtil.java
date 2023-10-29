@@ -123,6 +123,16 @@ public class CommandTestUtil {
         } catch (CommandException ce) {
             throw new AssertionError("Execution of command should not fail.", ce);
         }
+
+    }
+
+    public static void assertCommandSuccess(Command command, Model dummyModel, String expectedCommandResult) {
+        try {
+            CommandResult result = command.execute(dummyModel);
+            assertEquals(expectedCommandResult, result.getFeedbackToUser());
+        } catch (CommandException ce) {
+            throw new AssertionError("Execution of command should not fail.", ce);
+        }
     }
 
     /**
@@ -133,6 +143,10 @@ public class CommandTestUtil {
                                             Model expectedModel) {
         CommandResult expectedCommandResult = new CommandResult(expectedMessage);
         assertCommandSuccess(command, actualModel, expectedCommandResult, expectedModel);
+    }
+
+    public static void asserCommandSuccess() {
+
     }
 
     /**

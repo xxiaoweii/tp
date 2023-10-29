@@ -51,7 +51,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
             editPersonDescriptor.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
         }
-
+        // the two lines below edit the editpersondescriptor
         parseContactsForEdit(argMultimap.getAllValues(PREFIX_CONTACT)).ifPresent(editPersonDescriptor::setContacts);
         parseCoursesForEdit(argMultimap.getAllValues(PREFIX_COURSE)).ifPresent(editPersonDescriptor::setCourses);
 
@@ -64,7 +64,7 @@ public class EditCommandParser implements Parser<EditCommand> {
             throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
         }
 
-        return new EditCommand(index, editPersonDescriptor);
+        return new EditCommand(index, editPersonDescriptor); // more args here
     }
 
     /**
