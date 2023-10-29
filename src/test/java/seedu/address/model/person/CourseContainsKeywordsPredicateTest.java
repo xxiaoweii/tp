@@ -3,7 +3,9 @@ package seedu.address.model.person;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.*;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_1;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_1;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_2;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -20,14 +22,17 @@ public class CourseContainsKeywordsPredicateTest {
         List<String> firstPredicateKeywordList = Collections.singletonList("first");
         List<String> secondPredicateKeywordList = Arrays.asList("first", "second");
 
-        CourseContainsKeywordsPredicate firstPredicate = new CourseContainsKeywordsPredicate(firstPredicateKeywordList);
-        CourseContainsKeywordsPredicate secondPredicate = new CourseContainsKeywordsPredicate(secondPredicateKeywordList);
+        CourseContainsKeywordsPredicate firstPredicate =
+                new CourseContainsKeywordsPredicate(firstPredicateKeywordList);
+        CourseContainsKeywordsPredicate secondPredicate =
+                new CourseContainsKeywordsPredicate(secondPredicateKeywordList);
 
         // same object -> returns true
         assertTrue(firstPredicate.equals(firstPredicate));
 
         // same values -> returns true
-        CourseContainsKeywordsPredicate firstPredicateCopy = new CourseContainsKeywordsPredicate(firstPredicateKeywordList);
+        CourseContainsKeywordsPredicate firstPredicateCopy =
+                new CourseContainsKeywordsPredicate(firstPredicateKeywordList);
         assertTrue(firstPredicate.equals(firstPredicateCopy));
 
         // different types -> returns false
@@ -43,7 +48,8 @@ public class CourseContainsKeywordsPredicateTest {
     @Test
     public void test_courseContainsKeywords_returnsTrue() {
         // One keyword
-        CourseContainsKeywordsPredicate predicate = new CourseContainsKeywordsPredicate(Collections.singletonList("CS2103T"));
+        CourseContainsKeywordsPredicate predicate =
+                new CourseContainsKeywordsPredicate(Collections.singletonList("CS2103T"));
         assertTrue(predicate.test(new PersonBuilder().withCourses(new Course("CS2103T")).build()));
 
         // Only one matching keyword

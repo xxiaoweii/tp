@@ -20,14 +20,17 @@ public class TutorialContainsKeywordsPredicateTest {
         List<String> firstPredicateKeywordList = Collections.singletonList("first");
         List<String> secondPredicateKeywordList = Arrays.asList("first", "second");
 
-        TutorialContainsKeywordsPredicate firstPredicate = new TutorialContainsKeywordsPredicate(firstPredicateKeywordList);
-        TutorialContainsKeywordsPredicate secondPredicate = new TutorialContainsKeywordsPredicate(secondPredicateKeywordList);
+        TutorialContainsKeywordsPredicate firstPredicate =
+                new TutorialContainsKeywordsPredicate(firstPredicateKeywordList);
+        TutorialContainsKeywordsPredicate secondPredicate =
+                new TutorialContainsKeywordsPredicate(secondPredicateKeywordList);
 
         // same object -> returns true
         assertTrue(firstPredicate.equals(firstPredicate));
 
         // same values -> returns true
-        TutorialContainsKeywordsPredicate firstPredicateCopy = new TutorialContainsKeywordsPredicate(firstPredicateKeywordList);
+        TutorialContainsKeywordsPredicate firstPredicateCopy =
+                new TutorialContainsKeywordsPredicate(firstPredicateKeywordList);
         assertTrue(firstPredicate.equals(firstPredicateCopy));
 
         // different types -> returns false

@@ -21,14 +21,17 @@ public class RoleContainsKeywordsPredicateTest {
         List<String> firstPredicateKeywordList = Collections.singletonList("first");
         List<String> secondPredicateKeywordList = Arrays.asList("first", "second");
 
-        RoleContainsKeywordsPredicate firstPredicate = new RoleContainsKeywordsPredicate(firstPredicateKeywordList);
-        RoleContainsKeywordsPredicate secondPredicate = new RoleContainsKeywordsPredicate(secondPredicateKeywordList);
+        RoleContainsKeywordsPredicate firstPredicate =
+                new RoleContainsKeywordsPredicate(firstPredicateKeywordList);
+        RoleContainsKeywordsPredicate secondPredicate =
+                new RoleContainsKeywordsPredicate(secondPredicateKeywordList);
 
         // same object -> returns true
         assertTrue(firstPredicate.equals(firstPredicate));
 
         // same values -> returns true
-        RoleContainsKeywordsPredicate firstPredicateCopy = new RoleContainsKeywordsPredicate(firstPredicateKeywordList);
+        RoleContainsKeywordsPredicate firstPredicateCopy =
+                new RoleContainsKeywordsPredicate(firstPredicateKeywordList);
         assertTrue(firstPredicate.equals(firstPredicateCopy));
 
         // different types -> returns false
@@ -44,7 +47,8 @@ public class RoleContainsKeywordsPredicateTest {
     @Test
     public void test_roleContainsKeywords_returnsTrue() {
         // One keyword
-        RoleContainsKeywordsPredicate predicate = new RoleContainsKeywordsPredicate(Collections.singletonList("Student"));
+        RoleContainsKeywordsPredicate predicate =
+                new RoleContainsKeywordsPredicate(Collections.singletonList("Student"));
         assertTrue(predicate.test(new PersonBuilder().withRoles("Student").build()));
 
     }
