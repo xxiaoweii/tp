@@ -4,7 +4,6 @@ import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import java.util.Arrays;
 
-import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.FindRoleCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.RoleContainsKeywordsPredicate;
@@ -22,7 +21,7 @@ public class FindRoleCommandParser implements Parser<FindRoleCommand> {
         String trimmedArgs = args.trim();
         if (trimmedArgs.isEmpty()) {
             throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindRoleCommand.MESSAGE_USAGE));
         }
 
         String[] roleKeywords = trimmedArgs.split("\\s+");

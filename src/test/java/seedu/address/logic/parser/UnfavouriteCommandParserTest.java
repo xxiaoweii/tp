@@ -14,6 +14,12 @@ public class UnfavouriteCommandParserTest {
     private UnfavouriteCommandParser parser = new UnfavouriteCommandParser();
 
     @Test
+    public void parse_emptyArg_throwsParseException() {
+        assertParseFailure(parser, "     ",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, UnfavouriteCommand.MESSAGE_USAGE));
+    }
+
+    @Test
     public void parse_validArgs_returnsUnfavouriteCommand() {
         assertParseSuccess(parser, "1", new UnfavouriteCommand(INDEX_FIRST_PERSON));
     }
