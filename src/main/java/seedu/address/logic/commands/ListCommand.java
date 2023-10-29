@@ -62,7 +62,6 @@ public class ListCommand extends Command {
     private String tutorialToString(Set<Tutorial> tutorialList) {
         String begin = "Tutorials: ";
         StringBuilder lst = new StringBuilder(begin);
-        courseList.forEach(tutorial-> lst.append(tutorial.toString()).append(", "));
         tutorialList.forEach(tutorial-> lst.append(tutorial.toString()).append(", "));
         if (lst.length() > begin.length()) {
             lst.setLength(lst.length() - 2);
