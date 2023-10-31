@@ -14,6 +14,7 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.logic.commands.CommandTestUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Contact;
 import seedu.address.model.person.Course;
@@ -266,6 +267,15 @@ public class ParserUtilTest {
         expectedTutorials.add(new Tutorial(new Course(VALID_COURSE_2), VALID_TUTORIAL_2));
 
         assertEquals(expectedTutorials, ParserUtil.parseTutorials(courseList));
+    }
+
+    @Test
+    public void parseTutorialSetCourse_validTutorialStringWithNoMatchingCourse_throwsParseException() {
+        Set<Course> courseSet = new HashSet<>();
+        courseSet.add(CommandTestUtil.VALID_COURSE_1);
+
+        String validTutorialString = VALID_TUTORIAL_2.toString();
+        assertThrows(ParseException.class, () -> ParserUtil.parseTutorial(courseSet, validTutorialString));
     }
 
     @Test
