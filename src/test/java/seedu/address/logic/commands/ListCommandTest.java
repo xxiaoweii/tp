@@ -36,7 +36,6 @@ import static seedu.address.testutil.TypicalPersons.BOB;
 import static seedu.address.testutil.TypicalPersons.CHARLIE;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
