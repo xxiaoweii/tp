@@ -1,5 +1,6 @@
 package seedu.address.logic.parser;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static seedu.address.logic.commands.CommandTestUtil.CONTACT_DESC_CHARLIE_PHONE;
 import static seedu.address.logic.commands.CommandTestUtil.CONTACT_DESC_CHARLIE_TELE;
 import static seedu.address.logic.commands.CommandTestUtil.CONTACT_DESC_MULTIPLE;
@@ -8,9 +9,12 @@ import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_2;
 import static seedu.address.logic.commands.CommandTestUtil.COURSE_DESC_MULTIPLE;
 import static seedu.address.logic.commands.CommandTestUtil.COURSE_TUTORIAL_DESC_1;
 import static seedu.address.logic.commands.CommandTestUtil.COURSE_TUTORIAL_DESC_MULTIPLE;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_ADD_COMMAND_MISSING_PREFIX;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_CONTACT_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_COURSE_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC_PREAMBLE;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC_PREFIX;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC_SYMBOL;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_ROLE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_CHARLIE;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_DANNY;
@@ -43,6 +47,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.AddCommand;
+import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Contact;
 import seedu.address.model.person.Course;
 import seedu.address.model.person.Name;
@@ -180,7 +185,7 @@ public class AddCommandParserTest {
     public void parse_invalidValue_failure() {
 
         // invalid name
-        assertParseFailure(parser, INVALID_NAME_DESC, Name.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, INVALID_NAME_DESC_SYMBOL, Name.MESSAGE_CONSTRAINTS);
 
         // invalid role
         assertParseFailure(parser, NAME_DESC_CHARLIE + INVALID_ROLE_DESC, Role.MESSAGE_CONSTRAINTS);
@@ -190,5 +195,23 @@ public class AddCommandParserTest {
 
         // invalid course
         assertParseFailure(parser, NAME_DESC_CHARLIE + INVALID_COURSE_DESC, Course.MESSAGE_CONSTRAINTS);
+    }
+
+    @Test
+    public void parse_nonEmptyPreamble_throwsParseException() {
+        // Non-empty preamble
+        String nonEmptyPreamble = INVALID_NAME_DESC_PREAMBLE;
+        assertThrows(ParseException.class, () -> parser.parse(nonEmptyPreamble));
+    }
+
+    @Test
+    public void parse_missingPrefixes_throwsParseException() {
+        // Missing all required prefixes
+        String missingPrefixes = INVALID_NAME_DESC_PREFIX;
+        assertThrows(ParseException.class, () -> parser.parse(missingPrefixes));
+
+        // Missing some required prefixes
+        String missingSomePrefixes = INVALID_ADD_COMMAND_MISSING_PREFIX;
+        assertThrows(ParseException.class, () -> parser.parse(missingSomePrefixes));
     }
 }
