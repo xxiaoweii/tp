@@ -193,10 +193,6 @@ public class CommandTestUtil {
         assertCommandSuccess(command, actualModel, expectedCommandResult, expectedModel);
     }
 
-    public static void asserCommandSuccess() {
-
-    }
-
     /**
      * Executes the given {@code command}, confirms that <br>
      * - a {@code CommandException} is thrown <br>
