@@ -3,12 +3,13 @@ package seedu.address.logic.parser;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
 
-import java.util.logging.Logger;
 import java.util.HashMap;
+import java.util.logging.Logger;
 import java.util.Map;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.Set;
 
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.util.CheckedFunction;
@@ -66,6 +67,15 @@ public class AddressBookParser {
         wordToCommandMap.put(FindTutorialCommand.COMMAND_WORD, (arguments) -> new FindTutorialCommandParser().parse(arguments));
         wordToCommandMap.put(ExitCommand.COMMAND_WORD, (arguments) -> new ExitCommand());
         wordToCommandMap.put(HelpCommand.COMMAND_WORD, (arguments) -> new HelpCommand());
+    }
+
+    /**
+     * Returns a set of all command words.
+     *
+     * @return the set of all command words.
+     */
+    public Set<String> getCommandWords() {
+        return wordToCommandMap.keySet();
     }
 
     /**
