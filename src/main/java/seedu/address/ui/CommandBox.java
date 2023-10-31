@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Set;
 import java.util.stream.Collectors;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -21,9 +22,10 @@ import seedu.address.logic.parser.exceptions.ParseException;
 public class CommandBox extends UiPart<Region> {
 
     public static final String ERROR_STYLE_CLASS = "error";
-    private static final String FXML = "CommandBox.fxml";
 
     public static final KeyCode AUTOCOMPLETE_KEY = KeyCode.TAB;
+
+    private static final String FXML = "CommandBox.fxml";
 
     /**
      * For autocompletion function;
@@ -80,7 +82,7 @@ public class CommandBox extends UiPart<Region> {
             autocompleteSuggestions = new ArrayList<>(commandWordSet.stream()
                     .filter((commandWord) -> commandWord.startsWith(userText))
                     .collect(Collectors.toList()));
-            
+
             // Alphabetical order
             Collections.sort(autocompleteSuggestions);
 

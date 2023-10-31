@@ -4,12 +4,12 @@ import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
 
 import java.util.HashMap;
-import java.util.logging.Logger;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.Set;
 
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.util.CheckedFunction;
@@ -58,13 +58,24 @@ public class AddressBookParser {
         wordToCommandMap.put(EditCommand.COMMAND_WORD, (arguments) -> new EditCommandParser().parse(arguments));
         wordToCommandMap.put(DeleteCommand.COMMAND_WORD, (arguments) -> new DeleteCommandParser().parse(arguments));
         wordToCommandMap.put(ClearCommand.COMMAND_WORD, (arguments) -> new ClearCommand());
-        wordToCommandMap.put(FavouriteCommand.COMMAND_WORD, (arguments) -> new FavouriteCommandParser().parse(arguments));
-        wordToCommandMap.put(UnfavouriteCommand.COMMAND_WORD, (arguments) -> new UnfavouriteCommandParser().parse(arguments));
+
+        wordToCommandMap.put(FavouriteCommand.COMMAND_WORD, (arguments) ->
+                new FavouriteCommandParser().parse(arguments));
+
+        wordToCommandMap.put(UnfavouriteCommand.COMMAND_WORD, (arguments) ->
+                new UnfavouriteCommandParser().parse(arguments));
+
         wordToCommandMap.put(FindCommand.COMMAND_WORD, (arguments) -> new FindCommandParser().parse(arguments));
         wordToCommandMap.put(ListCommand.COMMAND_WORD, (arguments) -> new ListCommand());
-        wordToCommandMap.put(FindRoleCommand.COMMAND_WORD, (arguments) -> new FindRoleCommandParser().parse(arguments));
-        wordToCommandMap.put(FindCourseCommand.COMMAND_WORD, (arguments) -> new FindCourseCommandParser().parse(arguments));
-        wordToCommandMap.put(FindTutorialCommand.COMMAND_WORD, (arguments) -> new FindTutorialCommandParser().parse(arguments));
+        wordToCommandMap.put(FindRoleCommand.COMMAND_WORD, (arguments) ->
+                new FindRoleCommandParser().parse(arguments));
+
+        wordToCommandMap.put(FindCourseCommand.COMMAND_WORD, (arguments) ->
+                new FindCourseCommandParser().parse(arguments));
+
+        wordToCommandMap.put(FindTutorialCommand.COMMAND_WORD, (arguments) ->
+                new FindTutorialCommandParser().parse(arguments));
+
         wordToCommandMap.put(ExitCommand.COMMAND_WORD, (arguments) -> new ExitCommand());
         wordToCommandMap.put(HelpCommand.COMMAND_WORD, (arguments) -> new HelpCommand());
     }
