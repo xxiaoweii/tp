@@ -31,7 +31,6 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_1;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_2;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_3;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.AMY;
 import static seedu.address.testutil.TypicalPersons.BOB;
 import static seedu.address.testutil.TypicalPersons.CHARLIE;
