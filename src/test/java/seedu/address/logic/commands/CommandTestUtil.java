@@ -59,25 +59,29 @@ public class CommandTestUtil {
     public static final String ROLE_TO_STRING_EMPTY = "Role: ";
     public static final String ROLE_TO_STRING_STUDENT = ROLE_TO_STRING_EMPTY + VALID_ROLE_STUDENT;
     public static final String ROLE_TO_STRING_MULTIPLE = ROLE_TO_STRING_EMPTY
+            + VALID_ROLE_STUDENT + ", "
             + VALID_ROLE_TA + ", "
-            + VALID_ROLE_PROFESSOR
-            + ", " + VALID_ROLE_STUDENT;
+            + VALID_ROLE_PROFESSOR;
     public static final String COURSE_TO_STRING_EMPTY = "Courses: ";
     public static final String COURSE_TO_STRING_VALID_COURSE_1 = COURSE_TO_STRING_EMPTY + VALID_COURSE_1.toString();
-    public static final String COURSE_TO_STRING_MULTIPLE = COURSE_TO_STRING_EMPTY + VALID_COURSE_3.toString() + ", "
-            + VALID_COURSE_2.toString() + ", " + VALID_COURSE_1.toString();
+    public static final String COURSE_TO_STRING_MULTIPLE = COURSE_TO_STRING_EMPTY
+            + VALID_COURSE_1.toString() + ", "
+            + VALID_COURSE_2.toString() + ", "
+            + VALID_COURSE_3.toString();
     public static final String CONTACT_TO_STRING_EMPTY = "Contact: ";
     public static final String CONTACT_TO_STRING_VALID_CONTACT_AMY = CONTACT_TO_STRING_EMPTY
             + "[" + VALID_CONTACT_AMY + "]";
     public static final String CONTACT_TO_STRING_MULTIPLE = CONTACT_TO_STRING_EMPTY
             + "[" + VALID_EMAIL_CONTACT_CHARLIE + "]" + ", "
-            + "[" + VALID_PHONE_CONTACT_CHARLIE + "]" + ", "
-            + "[" + VALID_TELE_CONTACT_CHARLIE + "]";
+            + "[" + VALID_TELE_CONTACT_CHARLIE + "]" + ", "
+            + "[" + VALID_PHONE_CONTACT_CHARLIE + "]";
     public static final String TUTORIAL_TO_STRING_EMPTY = "Tutorials: ";
     public static final String TUTORIAL_TO_STRING_VALID_TUTORIAL_1 = TUTORIAL_TO_STRING_EMPTY
             + VALID_TUTORIAL_1.toString();
     public static final String TUTORIAL_TO_STRING_MULTIPLE = TUTORIAL_TO_STRING_EMPTY
-            + VALID_TUTORIAL_2.toString() + ", " + VALID_TUTORIAL_3.toString() + ", " + VALID_TUTORIAL_1.toString();
+            + VALID_TUTORIAL_1.toString() + ", "
+            + VALID_TUTORIAL_2.toString() + ", "
+            + VALID_TUTORIAL_3.toString();
 
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + " " + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + " " + VALID_NAME_BOB;

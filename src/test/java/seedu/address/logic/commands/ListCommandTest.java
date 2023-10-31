@@ -37,6 +37,7 @@ import static seedu.address.testutil.TypicalPersons.CHARLIE;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -70,7 +71,7 @@ public class ListCommandTest {
 
     @Test
     public void roleToString_oneRole_success() {
-        Set<Role> roles = new HashSet<>();
+        Set<Role> roles = new LinkedHashSet<>();
         roles.add(new Role(VALID_ROLE_STUDENT));
         String expected = ROLE_TO_STRING_STUDENT;
         String result = ListCommand.roleToString(roles);
@@ -79,7 +80,7 @@ public class ListCommandTest {
 
     @Test
     public void roleToString_multipleRoles_success() {
-        Set<Role> roles = new HashSet<>();
+        Set<Role> roles = new LinkedHashSet<>();
         roles.add(new Role(VALID_ROLE_STUDENT));
         roles.add(new Role(VALID_ROLE_TA));
         roles.add(new Role(VALID_ROLE_PROFESSOR));
@@ -90,7 +91,7 @@ public class ListCommandTest {
 
     @Test
     public void roleToString_emptyRoleList_success() {
-        Set<Role> roles = new HashSet<>();
+        Set<Role> roles = new LinkedHashSet<>();
         String expected = ROLE_TO_STRING_EMPTY;
         String result = ListCommand.roleToString(roles);
         assertEquals(expected, result);
@@ -99,7 +100,7 @@ public class ListCommandTest {
 
     @Test
     public void courseToString_oneCourse_success() {
-        Set<Course> courses = new HashSet<>();
+        Set<Course> courses = new LinkedHashSet<>();
         courses.add(VALID_COURSE_1);
         String expected = COURSE_TO_STRING_VALID_COURSE_1;
         String result = ListCommand.courseToString(courses);
@@ -108,7 +109,7 @@ public class ListCommandTest {
 
     @Test
     public void courseToString_multipleCourses_success() {
-        Set<Course> courses = new HashSet<>();
+        Set<Course> courses = new LinkedHashSet<>();
         courses.add(VALID_COURSE_1);
         courses.add(VALID_COURSE_2);
         courses.add(VALID_COURSE_3);
@@ -119,7 +120,7 @@ public class ListCommandTest {
 
     @Test
     public void courseToString_emptyCourseList_success() {
-        Set<Course> courses = new HashSet<>();
+        Set<Course> courses = new LinkedHashSet<>();
         String expected = COURSE_TO_STRING_EMPTY;
         String result = ListCommand.courseToString(courses);
         assertEquals(expected, result);
@@ -127,7 +128,7 @@ public class ListCommandTest {
 
     @Test
     public void contactToString_oneContact_success() {
-        Set<Contact> contacts = new HashSet<>();
+        Set<Contact> contacts = new LinkedHashSet<>();
         contacts.add(new Contact(VALID_CONTACT_AMY));
         String expected = CONTACT_TO_STRING_VALID_CONTACT_AMY;
         String result = ListCommand.contactToString(contacts);
@@ -136,7 +137,7 @@ public class ListCommandTest {
 
     @Test
     public void contactToString_multipleContacts_success() {
-        Set<Contact> contacts = new HashSet<>();
+        Set<Contact> contacts = new LinkedHashSet<>();
         contacts.add(new Contact(VALID_EMAIL_CONTACT_CHARLIE));
         contacts.add(new Contact(VALID_TELE_CONTACT_CHARLIE));
         contacts.add(new Contact(VALID_PHONE_CONTACT_CHARLIE));
@@ -147,7 +148,7 @@ public class ListCommandTest {
 
     @Test
     public void contactToString_emptyContactList_success() {
-        Set<Contact> contacts = new HashSet<>();
+        Set<Contact> contacts = new LinkedHashSet<>();
         String expected = CONTACT_TO_STRING_EMPTY;
         String result = ListCommand.contactToString(contacts);
         assertEquals(expected, result);
@@ -155,7 +156,7 @@ public class ListCommandTest {
 
     @Test
     public void tutorialToString_singleTutorial_success() {
-        Set<Tutorial> tutorials = new HashSet<>();
+        Set<Tutorial> tutorials = new LinkedHashSet<>();
         tutorials.add(VALID_TUTORIAL_1);
         String expected = TUTORIAL_TO_STRING_VALID_TUTORIAL_1;
         String result = ListCommand.tutorialToString(tutorials);
@@ -164,7 +165,7 @@ public class ListCommandTest {
 
     @Test
     public void tutorialToString_multipleTutorials_success() {
-        Set<Tutorial> tutorials = new HashSet<>();
+        Set<Tutorial> tutorials = new LinkedHashSet<>();
         tutorials.add(VALID_TUTORIAL_1);
         tutorials.add(VALID_TUTORIAL_2);
         tutorials.add(VALID_TUTORIAL_3);
@@ -175,7 +176,7 @@ public class ListCommandTest {
 
     @Test
     public void tutorialToString_emptyTutorialList_success() {
-        Set<Tutorial> tutorials = new HashSet<>();
+        Set<Tutorial> tutorials = new LinkedHashSet<>();
         String expected = TUTORIAL_TO_STRING_EMPTY;
         String result = ListCommand.tutorialToString(tutorials);
         assertEquals(expected, result);
