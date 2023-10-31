@@ -102,6 +102,14 @@ public class AddressBook implements ReadOnlyAddressBook {
         persons.favourite(key);
     }
 
+    /**
+     * Unfavourites {@code key} from this {@code AddressBook}.
+     * {@code key} must exist in the address book.
+     */
+    public void unfavouritePerson(Person key) {
+        persons.unfavourite(key);
+    }
+
     //// util methods
 
     @Override

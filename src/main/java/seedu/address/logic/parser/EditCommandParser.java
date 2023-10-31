@@ -64,7 +64,7 @@ public class EditCommandParser implements Parser<EditCommand> {
             throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
         }
 
-        return new EditCommand(index, editPersonDescriptor);
+        return new EditCommand(index, editPersonDescriptor); // more args here
     }
 
     /**
@@ -111,9 +111,9 @@ public class EditCommandParser implements Parser<EditCommand> {
             return Optional.empty();
         }
 
-        Collection<String> tutorialSet = (tutorials.size() == 1 && tutorials.contains(""))
-            ? Collections.emptySet() : tutorials;
+        //        Collection<String> tutorialSet = (tutorials.size() == 1 && tutorials.contains(""))
+        //            ? Collections.emptySet() : tutorials;
 
-        return Optional.of(ParserUtil.parseTutorials(courses, tutorialSet));
+        return Optional.of(ParserUtil.parseTutorials(courses));
     }
 }

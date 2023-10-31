@@ -1,5 +1,6 @@
 package seedu.address.model.person;
 
+
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -11,6 +12,11 @@ import seedu.address.commons.util.ToStringBuilder;
 public class RoleContainsKeywordsPredicate implements Predicate<Person> {
     private final List<String> keywords;
 
+    /**
+     * Constructs a RoleContainsKeywordsPredicate.
+     *
+     * @param keywords A list of keywords to filter roles by.
+     */
     public RoleContainsKeywordsPredicate(List<String> keywords) {
         this.keywords = keywords;
     }
