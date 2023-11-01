@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import seedu.address.logic.commands.CommandKeyword;
@@ -58,49 +59,25 @@ public class CommandBox extends UiPart<Region> {
         this.commandExecutor = commandExecutor;
         // calls #setStyleToDefault() whenever there is a change to the text of the command box.
         // commandTextField.textProperty().addListener((unused1, unused2, unused3) -> setStyleToDefault());
-        commandTextField.textProperty().addListener((observableValue, oldValue, newValue) -> handleSyntaxHighlighting());
+        commandTextField.textProperty().addListener((observableValue, oldValue, newValue)
+                -> handleSyntaxHighlighting(newValue));
     }
 
-    private void handleSyntaxHighlighting() {
-        String commandText = commandTextField.getText();
-        List<Text> styledText = highlightSyntax(commandText);
-
+    private void handleSyntaxHighlighting(String newText) {
         // Clear the existing content of the TextFlow
         textFlow.getChildren().clear();
 
-        // Add the styled Text elements to the TextFlow
-        textFlow.getChildren().addAll(styledText);
-    }
-
-    private List<Text> highlightSyntax(String inputText) {
-        List<Text> styledText = new ArrayList<>();
-        CommandKeyword commandKeyword = new CommandKeyword();
-        String styleClass = "SyntaxHighlighting.css"; // Specify the CSS class for syntax highlighting
-
-        for (String validCommand : commandKeyword.getValidCommands()) {
-            int lastIndex = 0;
-            int startIndex;
-            while ((startIndex = inputText.indexOf(validCommand, lastIndex)) >= 0) {
-                // Add non-highlighted text
-                if (startIndex > lastIndex) {
-                    styledText.add(createTextWithStyle(inputText.substring(lastIndex, startIndex), ""));
-                }
-                // Add highlighted text
-                styledText.add(createTextWithStyle(validCommand, styleClass));
-                lastIndex = startIndex + validCommand.length();
+        // Implement your syntax highlighting logic here
+        // Example: Highlight the word "add" in blue
+        String[] words = newText.split("\\s+"); // Split text into words by whitespace
+        for (String word : words) {
+            Text text = new Text(word);
+            text.setFill(Color.BLACK); // Default color
+            if ("add".equals(word)) {
+                text.setFill(Color.BLUE);
             }
-            // Add the remaining non-highlighted text
-            if (lastIndex < inputText.length()) {
-                styledText.add(createTextWithStyle(inputText.substring(lastIndex), ""));
-            }
+            textFlow.getChildren().add(text);
         }
-        return styledText;
-    }
-
-    private Text createTextWithStyle(String text, String styleClass) {
-        Text styledText = new Text(text);
-        styledText.getStyleClass().add(styleClass);
-        return styledText;
     }
 
     /**
