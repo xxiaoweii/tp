@@ -19,9 +19,9 @@ public class HelpCommand extends Command {
     public static final String FAV = "Adding profiles to favourites: fav INDEX";
 
 
-    public static final String SHOWING_HELP_MESSAGE = "Opened help window. \n" + "Formats: \n" + ADD_PERSON + "\n"
-
-            + LIST + "\n" + DELETE + "\n" + SEARCH + "\n" + FAV;
+    public static final String SHOWING_HELP_MESSAGE = "Quick Guide: \n"
+            + ADD_PERSON + "\n" + LIST + "\n" + DELETE + "\n" + SEARCH + "\n" + FAV + "\n"
+            + "Refer to the User Guide for the detailed implementation.";
 
     @Override
     public CommandResult execute(Model model) {
