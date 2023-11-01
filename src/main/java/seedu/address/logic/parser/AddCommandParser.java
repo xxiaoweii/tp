@@ -1,6 +1,9 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTACT_ADD;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTACT_DELETE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTACT_CHANGE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTACT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
@@ -9,7 +12,9 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import java.util.Set;
 import java.util.stream.Stream;
 
+import javafx.collections.ObservableList;
 import seedu.address.logic.commands.AddCommand;
+import seedu.address.model.Model;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Contact;
 import seedu.address.model.person.Course;
@@ -34,6 +39,8 @@ public class AddCommandParser implements Parser<AddCommand> {
             ArgumentTokenizer.tokenize(args, PREFIX_NAME,
                     PREFIX_ROLE, PREFIX_CONTACT,
                     PREFIX_COURSE);
+
+
 
         if (!arePrefixesPresent(argMultimap)
                 || !argMultimap.getPreamble().isEmpty()) {
