@@ -30,8 +30,9 @@ public class Config {
         return userPrefsFilePath;
     }
 
-    public void setUserPrefsFilePath(Path userPrefsFilePath) {
-        this.userPrefsFilePath = userPrefsFilePath;
+    public void setUserPrefsFilePath(String userPrefsFilePath) {
+        Path newPath = Paths.get(userPrefsFilePath);
+        this.userPrefsFilePath = newPath;
     }
 
     @Override
