@@ -193,7 +193,7 @@ Name: Daycon Dueet; Role: ; Contact: ; Course: ; Tutorials:
 
 ##### EXPECTED OUTPUT ON FAILURE:
 
-For invalid `add` command: 
+#### For invalid `add` command: 
 
 Example: `add --`
 
@@ -204,11 +204,29 @@ Parameters: --name NAME  [--role ROLE1,...] [--contact CONTACT1, ...]  [--course
 Example: add --name John --role Developer, Designer --contact johnd@example.com, 98765432 --course CS2103T/G06, CS2101/G06, CS2100/T24-Lab36
 ```
 
-For wrong input format:
+#### For wrong format:
 
-`Please check that you have entered in the correct format.
-You may refer to the following link for a detailed list of
-acceptable command keyword and the format for the input:`[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
+Example: `add --name`
+
+`Names should only contain alphanumeric characters and spaces, and it should not be blank`
+
+Example: `add --name Charlie --role teacher`
+
+`A role must take one of the roleTypes: Student, TA, or Professor.`
+
+Example: `add --name Charlie --role TA --course CS21111`
+
+```
+INVALID COURSE FORMAT!
+COURSE CODE SHOULD BE IN THE FOLLOWING FORMAT: 
+ 1. Starts with two- or three-letter prefix
+ 2. Follows by four digits, first of which indicates the level of the course
+ 3. Can end with a letter
+ ```
+
+Example: `add --name Charlie --role TA --course CS2100/         F09`
+
+`Tutorials should be written in the format COURSECODE/TUTORIAL`
 
 
 #### Listing all persons : `list`
@@ -235,9 +253,11 @@ Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30
 ```
 
 ##### EXPECTED OUTPUT ON FAILURE:
-`The  command or the format of the command that you have entered is wrong.
-Please refer to this link for the list of valid commands:`
-[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
+This command only recognises `list` as the keyword. 
+
+Any other command word such as `l`, `li` and `lis` will be seen as an invalid command with the following output:
+
+`Unknown command`
 
 #### Deleting a profile : `delete`
 
@@ -255,53 +275,171 @@ less than or equal to the number of profiles the user currently has.
 
 ##### EXPECTED OUTPUT ON SUCCESS:
 ```
-You have deleted a profile
-Deleted Profile: 
-Name: Aiken Dueet  
-Role: STUDENT
-Contact: @aikendueet, aikendueet@gmail.com
-Course: CS2103T, CS2101, CS2100
-Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30 
+Deleted person: Deleted Person: Name: Aiken Dueet; Role: Student; Contacts: [@aikendueet], [aikendueet@gmail.com]; Courses: CS2103T; Tutorials: CS2103T/Tut8
 ```
 
 ##### EXPECTED OUTPUT ON FAILURE:
-The command or the format of the command that you have entered is wrong.
-Please refer to this link for the list of valid commands:
-[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
+#### For invalid index:
 
-#### Searching for profiles: `search`
+Example: `delete -1`
 
-Search for profiles that match the input keyword
+```
+Invalid command format! 
+delete: Deletes the person identified by the index number used in the displayed person list.
+Parameters: INDEX (must be a positive integer)
+Example: delete 1
+```
+
+#### For out of bound index:
+
+Example: `delete 100` [Assuming the address book currently contains 10 profiles]
+
+`The person index provided is invalid`
+
+#### Searching for profiles by name: `search`
+
+Search for profiles using name.
+
+Output profiles which match the given name.
+
+> Note: The input name is NOT case-sensitive.
 
 ##### FORMAT:
-`search KEYWORD`
+`search NAME`
+
+##### EXAMPLE COMMAND:
+`search Charlie`
+
+##### ACCEPTABLE VALUES:
+`NAME`: Any non-empty string of alphanumeric characters (not case-sensitive).
+
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+1 persons found!
+```
+
+##### EXPECTED OUTPUT ON FAILURE:
+#### For incomplete command: 
+
+Example: `search   `
+
+```
+Invalid command format!
+search: Finds all persons whose names contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
+Parameters: KEYWORD [MORE_KEYWORDS]...
+Example: search alice bob charlie
+```
+
+#### Searching for profiles by course: `searchcourse`
+
+Search for profiles using course.
+
+Output profiles which match the given course.
+
+> Note: The input course is NOT case-sensitive.
+
+##### FORMAT:
+`search COURSECODE`
 
 ##### EXAMPLE COMMAND:
 `search CS2100`
 
 ##### ACCEPTABLE VALUES:
-`KEYWORD`: Any non-empty string of alphanumeric characters (not case-sensitive).
+`COURSECODE`: A valid course code that fulfills the following criteria (not case-sensitive):
+1. Starts with two- or three-letter prefix
+2. Follows by four digits, first of which indicates the level of the course
+3. Can end with a letter
 
 ##### EXPECTED OUTPUT ON SUCCESS:
 ```
-There are 2 profile that match your input 'CS2100':
-Name: Aiken Dueet  
-Role: STUDENT
-Contact: @aikendueet, aikendueet@gmail.com
-Course: CS2103T, CS2101, CS2100
-Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30 
-
-Name: Aikennot Dueet  
-Role: STUDENT
-Contact: @aikennotdueet, aikennotdueet@gmail.com
-Course: CS2100
-Tutorials: CS2100/Lab30-Tut10 
+1 persons found!
 ```
 
 ##### EXPECTED OUTPUT ON FAILURE:
-`The command or the format of the command that you have entered is wrong.
-Please refer to this link for the list of valid commands:
-[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)`
+#### For incomplete command:
+
+Example: `searchcourse    `
+
+```
+Invalid command format!
+search: Finds all persons whose names contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
+Parameters: KEYWORD [MORE_KEYWORDS]...
+Example: search alice bob charlie
+```
+
+#### Searching for profiles by rle: `searchrole`
+
+Search for profiles using role.
+
+Output profiles which match the given role.
+
+> Note: The input role is NOT case-sensitive.
+
+##### FORMAT:
+`search ROLE`
+
+##### EXAMPLE COMMAND:
+`search TA`
+
+##### ACCEPTABLE VALUES:
+`ROLE`:
+
+A valid role type: 
+
+1. TA
+2. Student
+3. Professor
+
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+0 persons found!
+```
+
+##### EXPECTED OUTPUT ON FAILURE:
+#### For incomplete command:
+
+Example: `searchrole    `
+
+```
+Invalid command format!
+search: Finds all persons whose names contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
+Parameters: KEYWORD [MORE_KEYWORDS]...
+Example: search alice bob charlie
+```
+
+#### Searching for profiles by rle: `searchtutorial`
+
+Search for profiles using tutorial class.
+
+Output profiles which match the given tutorial class.
+
+> Note: The input tutorial is NOT case-sensitive.
+
+##### FORMAT:
+`search TUTORIAL`
+
+##### EXAMPLE COMMAND:
+`search CS2100/Tut8`
+
+##### ACCEPTABLE VALUES:
+`TUTORIAL`: A valid tutorial in the format: COURSECODE/TUTORIAL.
+
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+0 persons found!
+```
+
+##### EXPECTED OUTPUT ON FAILURE:
+#### For incomplete command:
+
+Example: `searchtutorial    `
+
+```
+Invalid command format!
+search: Finds all persons whose names contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
+Parameters: KEYWORD [MORE_KEYWORDS]...
+Example: search alice bob charlie
+```
 
 #### Adding profiles to favourites: `fav`
 
@@ -323,18 +461,107 @@ less than or equal to the number of profiles the user currently has.
 
 ##### EXPECTED OUTPUT ON SUCCESS:
 ```
-You have favourited this profile: 
-Name: Joseph
-Role: PROFESSOR
-Contact: @josephhhhh, josephhhhh@nus.edu.sg
-Course: CS2102
-Tutorials: CS2102/Tut14
+Favourited Person: Name: Alex Yeoh; Role: Student; Contacts: [alexyeoh@example.com]; Courses: CS1101; Tutorials: CS1101/T03E
 ```
 
 ##### EXPECTED OUTPUT ON FAILURE:
-`The command or the format of the command that you have entered is wrong.
-Please refer to this link for the list of valid commands:
-[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)`
+#### For invalid index:
+
+Example `fav -1`
+
+```
+Invalid command format! 
+fav: Favourites the person identified by the index number used in the displayed person list. 
+Parameters: INDEX (must be a positive integer)
+Example: fav 1
+ ```
+
+#### For index out of bound:
+
+Example: `fav 100` [Assuming the address book currently contains 10 profiles]
+
+`The person index provided is invalid`
+
+#### Removing a profile from favourite: `unfav`
+
+Un-favourite a favourite profile
+
+##### FORMAT:
+`unfav INDEX`
+
+##### EXAMPLE COMMAND:
+`unfav 2`
+
+##### ACCEPTABLE VALUES:
+`INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
+less than or equal to the number of profiles the user currently has.
+
+> 📝Note:
+>
+> INDEX refers to the index of the profile allocated to the specific profile in the current profile list.
+
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+Unfavourited Person: Name: Alex Yeoh; Role: Student; Contacts: [alexyeoh@example.com]; Courses: CS1101; Tutorials: CS1101/T03E
+```
+
+##### EXPECTED OUTPUT ON FAILURE:
+#### For invalid index:
+
+Example `unfav -1`
+
+```
+Invalid command format! 
+unfav: Unfavourites the person identified by the index number used in the displayed person list. 
+Parameters: INDEX (must be a positive integer)
+Example: unfav 1
+ ```
+
+#### For index out of bound:
+
+Example: `unfav 100` [Assuming the address book currently contains 10 profiles]
+
+`The person index provided is invalid`
+
+##### Help page: `help`
+
+Show the help page of the application
+
+##### FORMAT:
+`help`
+
+#### EXAMPLE COMMAND:
+`help`
+
+##### ACCEPTABLE VALUES:
+This command does not accept any parameters
+
+##### EXPECTED OUTPUT ON SUCCESS:
+
+```
+Quick Guide: 
+Adding a person: add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]
+Listing all persons: list
+Deleting a profile: delete INDEX
+Search by name: search NAME
+Search by role: search ROLE
+Search by course: search COURSE
+Search by tutorial class: search TUTORIAL
+Edit current profile by deleting current information: edit --delete
+Edit current profile by adding new information: edit --add
+Edit current profile by changing current information: edit --change
+Adding profiles to favourites: fav INDEX
+Refer to the User Guide for the detailed implementation.
+```
+A help window will pop out as shown: [Help Window](./images/HelpWindow.png)
+
+##### EXPECTED OUTPUT ON FAILURE:
+
+This command only recognises `help` as the keyword.
+
+Any other command word such as `h`, `he` and `hel` will be seen as an invalid command with the following output:
+
+`Unknown command`
 
 #### Exiting the application: `exit`
 
@@ -350,17 +577,16 @@ Closes and exits the application
 This command does not accept any parameters
 
 ##### EXPECTED OUTPUT ON SUCCESS:
-```
-You have exitted the application. 
-```
-> 📝Note:
->
-> App closes and the program stops.
+There will be no output 
+
+The application will close
 
 ##### EXPECTED OUTPUT ON FAILURE:
-`The command or the format of the command that you have entered is wrong.
-Please refer to this link for the list of valid commands:
-[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)`
+This command only recognises `exit` as the keyword.
+
+Any other command word such as `e`, `ex` and `exi` will be seen as an invalid command with the following output:
+
+`Unknown command`
 
 --------------------------------------------------------------------------------------------------------------------
 
