@@ -1,11 +1,16 @@
 package seedu.address.ui;
 
+import java.util.stream.Collectors;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import seedu.address.model.person.Course;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Role;
+import seedu.address.model.person.Tutorial;
 
 /**
  * An UI component that displays information of a {@code Person}.
@@ -57,17 +62,41 @@ public class PersonCard extends UiPart<Region> {
 
         contacts.setText(CONTACTS_BEGIN_STRING + person.getContacts().stream()
                 .map((contact) -> contact.toString())
-                .reduce("", (current, next) -> current + next));
+                .collect(Collectors.joining(Course.PARSE_COURSE_DELIMITER)));
 
         courses.setText(COURSES_BEGIN_STRING + person.getCourses().stream()
                 .map((course) -> course.toString())
-                .reduce("", (current, next) -> current + next));
+                .collect(Collectors.joining(Course.PARSE_COURSE_DELIMITER)));
 
         tutorials.setText(TUTORIAL_BEGIN_STRING + person.getTutorials().stream()
                 .map((tutorial) -> tutorial.toString())
-                .reduce("", (current, next) -> current + next));
-
+                .collect(Collectors.joining(Tutorial.TUTORIAL_SEPARATOR)));
+        /*
         roles.setText(ROLES_BEGIN_STRING + person.getRoles().stream().map((roles) -> roles.toString())
-                .reduce("", (current, next) -> current + next));
+                .collect(Collectors.joining(Role.PARSE_ROLE_DELIMITER)));
+       */
+        // commented this out first
+
+        for (Role role : person.getRoles()) {
+            Label roleLabel = new Label(role.toString());
+
+            Role.RoleType roletype = role.getRoleType();
+            // Set a unique style class for each role
+            if (roletype == Role.RoleType.Student) {
+                roleLabel.getStyleClass().add("stu-label");
+            } else if (roletype == Role.RoleType.TA) {
+                roleLabel.getStyleClass().add("ta-label");
+            } else if (roletype == Role.RoleType.Professor) {
+                roleLabel.getStyleClass().add("prof-label");
+            }
+
+            tags.getChildren().add(roleLabel);
+        }
+
+        Label favouriteLabel = new Label("Favourite");
+        if (person.getFavourite().getFavourite()) {
+            favouriteLabel.getStyleClass().add("fav-label");
+            tags.getChildren().add(favouriteLabel);
+        }
     }
 }

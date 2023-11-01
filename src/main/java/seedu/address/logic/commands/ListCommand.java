@@ -18,9 +18,9 @@ import seedu.address.model.person.Tutorial;
  * Lists all persons in the address book to the user.
  */
 public class ListCommand extends Command {
-
+    public static final String MESSAGE_SUCCESS = "You have 0 profile in your list\n";
     public static final String COMMAND_WORD = "list";
-    private static final String enter = "\n      ";
+    private static final String enter = "\n   ";
     private static int numPeople = 0;
     private static String s = "";
     private ArrayList<Object> nameList = new ArrayList<>();
@@ -29,7 +29,13 @@ public class ListCommand extends Command {
     private ArrayList<Set<Course>> courseList = new ArrayList<>();
     private ArrayList<Set<Tutorial>> tutorialList = new ArrayList<>();
 
-    private String roleToString(Set<Role> roleList) {
+    /**
+     * Converts a set of roles into a formatted string.
+     *
+     * @param roleList A set of roles to be converted.
+     * @return A formatted string representation of the roles, e.g., "Role: Student, TA".
+     */
+    public static String roleToString(Set<Role> roleList) {
         String begin = "Role: ";
         StringBuilder lst = new StringBuilder(begin);
         roleList.forEach(role -> lst.append(role.toString()).append(", "));
@@ -39,7 +45,13 @@ public class ListCommand extends Command {
         return lst.toString();
     }
 
-    private String contactToString(Set<Contact> contactList) {
+    /**
+     * Converts a set of contacts into a formatted string.
+     *
+     * @param contactList A set of contacts to be converted.
+     * @return A formatted string representation of the contacts, e.g., "Contact: [email@example.com], [123456789]".
+     */
+    public static String contactToString(Set<Contact> contactList) {
         String begin = "Contact: ";
         StringBuilder lst = new StringBuilder(begin);
         contactList.forEach(contact -> lst.append(contact.toString()).append(", "));
@@ -49,7 +61,13 @@ public class ListCommand extends Command {
         return lst.toString();
     }
 
-    private String courseToString(Set<Course> courseList) {
+    /**
+     * Converts a set of courses into a formatted string.
+     *
+     * @param courseList A set of courses to be converted.
+     * @return A formatted string representation of the courses, e.g., "Courses: CS2100, CS2103T".
+     */
+    public static String courseToString(Set<Course> courseList) {
         String begin = "Courses: ";
         StringBuilder lst = new StringBuilder(begin);
         courseList.forEach(course -> lst.append(course.toString()).append(", "));
@@ -59,10 +77,15 @@ public class ListCommand extends Command {
         return lst.toString();
     }
 
-    private String tutorialToString(Set<Tutorial> tutorialList) {
+    /**
+     * Converts a set of tutorials into a formatted string.
+     *
+     * @param tutorialList A set of tutorials to be converted.
+     * @return A formatted string representation of the tutorials, e.g., "Tutorials: CS2100/T32, CS2103T/F08".
+     */
+    public static String tutorialToString(Set<Tutorial> tutorialList) {
         String begin = "Tutorials: ";
         StringBuilder lst = new StringBuilder(begin);
-        courseList.forEach(tutorial-> lst.append(tutorial.toString()).append(", "));
         tutorialList.forEach(tutorial-> lst.append(tutorial.toString()).append(", "));
         if (lst.length() > begin.length()) {
             lst.setLength(lst.length() - 2);
@@ -70,15 +93,13 @@ public class ListCommand extends Command {
         return lst.toString();
     }
 
-
-
-
     @Override
     public CommandResult execute(Model model) {
         String peopleList = "";
-
+        requireNonNull(model);
+        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         numPeople = model.getFilteredPersonList().size();
-        s = numPeople == 1 ? "" : "s";
+        s = numPeople <= 1 ? "" : "s";
         model.getFilteredPersonList().forEach((people) -> {
             nameList.add(people.getName());
             roleList.add(people.getRoles());
@@ -88,13 +109,10 @@ public class ListCommand extends Command {
         });;
 
         for (int i = 0; i < nameList.size(); i++) {
-            peopleList += (i + 1) + ".  Name: " + nameList.get(i) + enter
+            peopleList += (i + 1) + ". Name: " + nameList.get(i) + enter
                     + roleToString(roleList.get(i)) + enter + contactToString(contactList.get(i)) + enter
                     + courseToString(courseList.get(i)) + enter + tutorialToString(tutorialList.get(i)) + "\n";
         }
-
-        requireNonNull(model);
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         return new CommandResult("You have " + numPeople + " profile" + s + " in your list\n" + peopleList);
     }
 }

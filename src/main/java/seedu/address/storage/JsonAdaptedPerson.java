@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.Contact;
 import seedu.address.model.person.Course;
+import seedu.address.model.person.Favourite;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Role;
@@ -29,6 +30,7 @@ class JsonAdaptedPerson {
     private final List<JsonAdaptedContact> contacts = new ArrayList<>();
     private final List<JsonAdaptedCourse> courses = new ArrayList<>();
     private final List<JsonAdaptedTutorial> tutorials = new ArrayList<>();
+    private final boolean favourite;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -38,7 +40,8 @@ class JsonAdaptedPerson {
             @JsonProperty("roles") List<JsonAdaptedRole> roles,
             @JsonProperty("contacts") List<JsonAdaptedContact> contacts,
             @JsonProperty("courses") List<JsonAdaptedCourse> courses,
-            @JsonProperty("tutorials") List<JsonAdaptedTutorial> tutorials) {
+            @JsonProperty("tutorials") List<JsonAdaptedTutorial> tutorials,
+            @JsonProperty("favourite") boolean favourite) {
         this.name = name;
 
         if (roles != null) {
@@ -53,6 +56,8 @@ class JsonAdaptedPerson {
         if (tutorials != null) {
             this.tutorials.addAll(tutorials);
         }
+
+        this.favourite = favourite;
     }
 
     /**
@@ -72,6 +77,7 @@ class JsonAdaptedPerson {
         tutorials.addAll(source.getTutorials().stream()
                 .map(JsonAdaptedTutorial::new)
                 .collect(Collectors.toList()));
+        favourite = source.getFavourite().getFavourite();
     }
 
     /**
@@ -97,20 +103,7 @@ class JsonAdaptedPerson {
 
         final List<Tutorial> personTutorials = new ArrayList<>();
         for (JsonAdaptedTutorial tutorial : tutorials) {
-            // Get the course that is relevant to this tutorial.
-            String[] courseTutorialName = Tutorial.splitCourseTutorialName(tutorial.getTutorialString());
-            String courseName = courseTutorialName[0];
-
-            Course relevantCourse = null;
-            for (Course course : personCourses) {
-                if (course.toString().equals(courseName)) {
-                    relevantCourse = course;
-                    break;
-                }
-            }
-            if (relevantCourse != null) {
-                personTutorials.add(tutorial.toModelType(relevantCourse));
-            }
+            personTutorials.add(tutorial.toModelType(tutorial.getCourse()));
         }
 
         if (name == null) {
@@ -119,14 +112,19 @@ class JsonAdaptedPerson {
         if (!Name.isValidName(name)) {
             throw new IllegalValueException(Name.MESSAGE_CONSTRAINTS);
         }
-        final Name modelName = new Name(name);
 
+        if (!Favourite.isValidFavourite(String.valueOf(favourite))) {
+            throw new IllegalValueException(Favourite.MESSAGE_CONSTRAINTS);
+        }
+
+        final Name modelName = new Name(name);
         final Set<Role> modelRoles = new HashSet<>(personRoles);
         final Set<Contact> modelContacts = new HashSet<>(personContacts);
         final Set<Course> modelCourses = new HashSet<>(personCourses);
         final Set<Tutorial> modelTutorials = new HashSet<>(personTutorials);
+        final Favourite modelFavourite = new Favourite(favourite);
 
-        return new Person(modelName, modelRoles, modelContacts, modelCourses, modelTutorials);
+        return new Person(modelName, modelRoles, modelContacts, modelCourses, modelTutorials, modelFavourite);
     }
 
 }

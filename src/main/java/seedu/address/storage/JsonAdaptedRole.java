@@ -25,7 +25,7 @@ class JsonAdaptedRole {
      * Converts a given {@code Role} into this class for Jackson use.
      */
     public JsonAdaptedRole(Role source) {
-        roleName = source.roleType.toString();
+        roleName = source.toString();
     }
 
     @JsonValue

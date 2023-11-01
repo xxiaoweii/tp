@@ -5,7 +5,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTACT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL;
 
 import java.util.Set;
 import java.util.stream.Stream;
@@ -14,6 +13,7 @@ import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Contact;
 import seedu.address.model.person.Course;
+import seedu.address.model.person.Favourite;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Role;
@@ -33,21 +33,22 @@ public class AddCommandParser implements Parser<AddCommand> {
         ArgumentMultimap argMultimap =
             ArgumentTokenizer.tokenize(args, PREFIX_NAME,
                     PREFIX_ROLE, PREFIX_CONTACT,
-                    PREFIX_COURSE, PREFIX_TUTORIAL);
+                    PREFIX_COURSE);
 
         if (!arePrefixesPresent(argMultimap)
                 || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         }
 
-        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_CONTACT, PREFIX_COURSE, PREFIX_TUTORIAL);
+        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_ROLE, PREFIX_CONTACT, PREFIX_COURSE);
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
         Set<Role> roleList = ParserUtil.parseRoles(argMultimap.getAllValues(PREFIX_ROLE));
         Set<Contact> contactList = ParserUtil.parseContacts(argMultimap.getAllValues(PREFIX_CONTACT));
         Set<Course> courseList = ParserUtil.parseCourses(argMultimap.getAllValues(PREFIX_COURSE));
-        Set<Tutorial> tutorialList = ParserUtil.parseTutorials(courseList, argMultimap.getAllValues(PREFIX_TUTORIAL));
+        Set<Tutorial> tutorialList = ParserUtil.parseTutorials(argMultimap.getAllValues(PREFIX_COURSE));
+        Favourite favourite = new Favourite(false); // default favourite is false
 
-        Person person = new Person(name, roleList, contactList, courseList, tutorialList);
+        Person person = new Person(name, roleList, contactList, courseList, tutorialList, favourite);
 
         return new AddCommand(person);
     }

@@ -1,5 +1,6 @@
 package seedu.address.model.person;
 
+
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -11,6 +12,11 @@ import seedu.address.commons.util.ToStringBuilder;
 public class RoleContainsKeywordsPredicate implements Predicate<Person> {
     private final List<String> keywords;
 
+    /**
+     * Constructs a RoleContainsKeywordsPredicate.
+     *
+     * @param keywords A list of keywords to filter roles by.
+     */
     public RoleContainsKeywordsPredicate(List<String> keywords) {
         this.keywords = keywords;
     }
@@ -18,10 +24,9 @@ public class RoleContainsKeywordsPredicate implements Predicate<Person> {
     @Override
     public boolean test(Person person) {
         return person.getRoles().stream()
-                .flatMap(role -> role.getRoleType().stream())
-                .map(Enum::toString)
+                .map(Role::getRoleType)
                 .anyMatch(roleType -> keywords.stream()
-                        .anyMatch(keyword -> keyword.equalsIgnoreCase(roleType)));
+                        .anyMatch(keyword -> keyword.equalsIgnoreCase(roleType.toString())));
     }
 
 
