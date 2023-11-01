@@ -5,7 +5,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTACT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
@@ -26,7 +25,6 @@ public class AddCommand extends Command {
             + " [" + PREFIX_ROLE + "ROLE1,...]"
             + " [" + PREFIX_CONTACT + "CONTACT1, ...] "
             + " [" + PREFIX_COURSE + "COURSECODE1/CLASS1-CLASS2-..., ...]\n"
-            + " [" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_ROLE + "Developer, Designer "
             + PREFIX_CONTACT + "johnd@example.com, 98765432 "
@@ -34,7 +32,8 @@ public class AddCommand extends Command {
 
 
     public static final String MESSAGE_SUCCESS = "You have added a new profile in : \n %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_PERSON = "Note: A person with the same name already exists." + "\n"
+            + "Please edit the existing profile or change the name of this profile to be added";
 
     private final Person toAdd;
 
