@@ -2,7 +2,9 @@
 
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.TextFlow?>
 
 <StackPane styleClass="stack-pane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
   <TextField fx:id="commandTextField" onAction="#handleCommandEntered" onKeyPressed="#onKeyPressed" promptText="Enter command here..."  />
+  <TextFlow fx:id="textFlow" />
 </StackPane>

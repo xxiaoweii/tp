@@ -1,0 +1,4 @@
+.syntax-highlight {
+    -fx-fill: blue; /* Set the text color to blue for syntax-highlighted text */
+    /* Add other styling as needed */
+}

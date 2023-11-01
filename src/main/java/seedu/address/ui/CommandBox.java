@@ -2,6 +2,7 @@ package seedu.address.ui;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -11,6 +12,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
+import seedu.address.logic.commands.CommandKeyword;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.AddressBookParser;
@@ -43,6 +47,9 @@ public class CommandBox extends UiPart<Region> {
     @FXML
     private TextField commandTextField;
 
+    @FXML
+    private TextFlow textFlow;
+
     /**
      * Creates a {@code CommandBox} with the given {@code CommandExecutor}.
      */
@@ -50,7 +57,50 @@ public class CommandBox extends UiPart<Region> {
         super(FXML);
         this.commandExecutor = commandExecutor;
         // calls #setStyleToDefault() whenever there is a change to the text of the command box.
-        commandTextField.textProperty().addListener((unused1, unused2, unused3) -> setStyleToDefault());
+        // commandTextField.textProperty().addListener((unused1, unused2, unused3) -> setStyleToDefault());
+        commandTextField.textProperty().addListener((observableValue, oldValue, newValue) -> handleSyntaxHighlighting());
+    }
+
+    private void handleSyntaxHighlighting() {
+        String commandText = commandTextField.getText();
+        List<Text> styledText = highlightSyntax(commandText);
+
+        // Clear the existing content of the TextFlow
+        textFlow.getChildren().clear();
+
+        // Add the styled Text elements to the TextFlow
+        textFlow.getChildren().addAll(styledText);
+    }
+
+    private List<Text> highlightSyntax(String inputText) {
+        List<Text> styledText = new ArrayList<>();
+        CommandKeyword commandKeyword = new CommandKeyword();
+        String styleClass = "SyntaxHighlighting.css"; // Specify the CSS class for syntax highlighting
+
+        for (String validCommand : commandKeyword.getValidCommands()) {
+            int lastIndex = 0;
+            int startIndex;
+            while ((startIndex = inputText.indexOf(validCommand, lastIndex)) >= 0) {
+                // Add non-highlighted text
+                if (startIndex > lastIndex) {
+                    styledText.add(createTextWithStyle(inputText.substring(lastIndex, startIndex), ""));
+                }
+                // Add highlighted text
+                styledText.add(createTextWithStyle(validCommand, styleClass));
+                lastIndex = startIndex + validCommand.length();
+            }
+            // Add the remaining non-highlighted text
+            if (lastIndex < inputText.length()) {
+                styledText.add(createTextWithStyle(inputText.substring(lastIndex), ""));
+            }
+        }
+        return styledText;
+    }
+
+    private Text createTextWithStyle(String text, String styleClass) {
+        Text styledText = new Text(text);
+        styledText.getStyleClass().add(styleClass);
+        return styledText;
     }
 
     /**
