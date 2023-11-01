@@ -127,7 +127,7 @@ Adds new profiles in the profile lists.
 -Courses can be any of the courses offered by NUS
 
 -Courses can be added without the tutorial classes but tutorial classes must be added with a course 
-(see example below for more details)
+(see Example 2 below for more details)
 
 > 📝Note:
 >
@@ -137,7 +137,7 @@ Adds new profiles in the profile lists.
 
 -The user can press tab to auto fill commands.
 
--The square brackets, [ ], are not needed when entering the command (see example below for more details)
+-The square brackets, [ ], are not needed when entering the command (see Example 3 below for more details)
 
 </box>
 
@@ -146,12 +146,16 @@ Adds new profiles in the profile lists.
 Example 1:
 
 `add --name Aiken Dueet --role Student --contact @aikendueet, aikendueet@gmail.com
---course CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30 `
+--course CS2103T/Tut8, CS2100/Lab40-Tut30`
 
 Example 2:
 
 `add --name Charlie Dueet --role TA, Student --contact @charliee, charliee@gmail.com
---course GEA1000, QF2103 `
+--course GEA1000, QF2103`
+
+Example 3:
+
+`add --name Daycon Dueet`
 
 ##### ACCEPTABLE VALUES:
 `NAME`: Any non-empty input of alphabetical characters.
@@ -169,32 +173,36 @@ Example 2:
 Example 1:
 
 ```
-You have added a new profile in :
-Name: Aiken Dueet  
-Role: Student
-Contact: @aikendueet, aikendueet@gmail.com
-Course: CS2103T, CS2101, CS2100
-Tutorials: CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30
+You have added a new profile in : 
+ Name: Aiken Dueet; Role: Student; Contacts: [@aikendueet], [aikendueet@gmail.com]; Courses: CS2103T, CS2100; Tutorials: CS2103T/Tut8, CS2100/Lab40-Tut30
 ```
 
 Example 2:
 
 ```
 You have added a new profile in :
-Name: Charlie Dueet  
-Role: Student, TA
-Contact: @charliee, charliee@gmail.com
-Course: CS2103T, CS2101, CS2100
-Tutorials: 
+ Name: Charlie Dueet; Role: Student, TA; Contacts: [@charliee]; Courses: CS2103T, CS2101, CS2100; Tutorials: 
+```
+
+Example 3:
+
+```
+You have added a new profile in :
+Name: Daycon Dueet; Role: ; Contact: ; Course: ; Tutorials: 
 ```
 
 ##### EXPECTED OUTPUT ON FAILURE:
 
-For invalid command keyword:
+For invalid `add` command: 
 
-`Error! Invalid command keyword entered. Please double check.
-You may refer to the following link for a detailed list of 
-acceptable command keyword and the format for the input:`[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
+Example: `add --`
+
+```
+Invalid command format! 
+add: Adds a person to the address book. 
+Parameters: --name NAME  [--role ROLE1,...] [--contact CONTACT1, ...]  [--course COURSECODE1/CLASS1-CLASS2-..., ...]
+Example: add --name John --role Developer, Designer --contact johnd@example.com, 98765432 --course CS2103T/G06, CS2101/G06, CS2100/T24-Lab36
+```
 
 For wrong input format:
 
