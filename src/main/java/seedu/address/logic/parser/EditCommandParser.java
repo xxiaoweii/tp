@@ -2,22 +2,23 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTACT_CHANGE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CHANGE_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTACT_ADD;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTACT_CHANGE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTACT_DELETE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_CHANGE_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE_ADD;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE_DELETE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE_CHANGE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE_DELETE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLES_ADD;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLES_DELETE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLES_CHANGE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLES_DELETE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL_ADD;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL_CHANGE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL_DELETE;
+
 
 import java.util.Collection;
 import java.util.Collections;
@@ -75,8 +76,9 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
 
         Name name = extractNameForIndex(index, personList);
-        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_CHANGE_NAME, PREFIX_COURSE_ADD, PREFIX_COURSE_CHANGE,
-                PREFIX_COURSE_DELETE, PREFIX_COURSE, PREFIX_TUTORIAL, PREFIX_ROLES_ADD, PREFIX_ROLES_CHANGE,
+        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_CHANGE_NAME, PREFIX_COURSE_ADD,
+                PREFIX_COURSE_CHANGE, PREFIX_COURSE_DELETE, PREFIX_COURSE, PREFIX_TUTORIAL, PREFIX_ROLES_ADD,
+                PREFIX_ROLES_CHANGE,
                 PREFIX_ROLES_DELETE);
 
         EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
@@ -85,7 +87,7 @@ public class EditCommandParser implements Parser<EditCommand> {
             editPersonDescriptor.setName(argsName);
         }
         for (Person person: personList) {
-           if (person.getName() == name) {
+            if (person.getName() == name) {
                 this.argsContacts = person.getContacts();
                 this.argsCourses = person.getCourses();
                 this.argsRoles = person.getRoles();
@@ -137,7 +139,8 @@ public class EditCommandParser implements Parser<EditCommand> {
         editPersonDescriptor.setRoles(updatedRoles);
 
         //argMultimap.getAllValues(PREFIX_CONTACT) is a collection of String
-        Set<Contact> newContacts = parseContactsForEdit(argMultimap.getAllValues(PREFIX_CONTACT_ADD)).orElse(null);
+        Set<Contact> newContacts = parseContactsForEdit(argMultimap
+                .getAllValues(PREFIX_CONTACT_ADD)).orElse(null);
         Set<Contact> updatedContacts = new HashSet<>();
         if (newContacts == null) {
             newContacts = updatedContacts;
@@ -145,11 +148,13 @@ public class EditCommandParser implements Parser<EditCommand> {
         newContacts.addAll(argsContacts);
         updatedContacts.addAll(newContacts);
 
-        Set<Contact> toDeleteContact = parseContactsForEdit(argMultimap.getAllValues(PREFIX_CONTACT_DELETE)).orElse(null);
+        Set<Contact> toDeleteContact = parseContactsForEdit(argMultimap
+                .getAllValues(PREFIX_CONTACT_DELETE)).orElse(null);
         if (toDeleteContact != null) {
             updatedContacts.removeAll(toDeleteContact);
         }
-        Set<Contact> toChangeContact = parseContactsForEdit(argMultimap.getAllValues(PREFIX_CONTACT_CHANGE)).orElse(null);
+        Set<Contact> toChangeContact = parseContactsForEdit(argMultimap.getAllValues(PREFIX_CONTACT_CHANGE))
+                .orElse(null);
         Contact oldContact = null;
         Contact newContact = null;
         if (toChangeContact != null) {
@@ -182,12 +187,14 @@ public class EditCommandParser implements Parser<EditCommand> {
         newCourses.addAll(argsCourses);
         updatedCourses.addAll(newCourses);
 
-        Set<Course> toDeleteCourse = parseCoursesForEdit(argMultimap.getAllValues(PREFIX_COURSE_DELETE)).orElse(null);
+        Set<Course> toDeleteCourse = parseCoursesForEdit(argMultimap
+                .getAllValues(PREFIX_COURSE_DELETE)).orElse(null);
         if (toDeleteCourse != null) {
             updatedCourses.removeAll(toDeleteCourse);
         }
 
-        Set<Course> toChangeCourse =  parseCoursesForEdit(argMultimap.getAllValues(PREFIX_COURSE_CHANGE)).orElse(null);
+        Set<Course> toChangeCourse =  parseCoursesForEdit(argMultimap
+                .getAllValues(PREFIX_COURSE_CHANGE)).orElse(null);
 
         Course oldCourse = null;
         Course newCourse = null;
@@ -278,6 +285,13 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
     }
 
+    /**
+     * Parses the given input string and returns an EditCommand.
+     *
+     * @param args The input string containing the command arguments.
+     * @return An EditCommand object if the input is valid and can be parsed.
+     * @throws ParseException If the input string is in an invalid format or cannot be parsed.
+     */
     public EditCommand parse(String args) throws ParseException { //not used, just for it to implement interface
         Index index;
         EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
