@@ -19,7 +19,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL_ADD;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL_CHANGE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL_DELETE;
 
-
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -168,7 +167,7 @@ public class EditCommandParser implements Parser<EditCommand> {
                 newContact = iterator.next();
             }
         } else {
-            // Handle the case where toChangeCourse is null
+            //Handle the case where toChangeCourse is null
         }
         if (updatedContacts.contains(oldContact)) {
             updatedContacts.remove(oldContact);
@@ -276,15 +275,6 @@ public class EditCommandParser implements Parser<EditCommand> {
         return new EditCommand(index, editPersonDescriptor); // more args here
     }
 
-    private Name extractNameForIndex(Index index, List<Person> personList) throws ParseException {
-        if (index.getZeroBased() >= 0 && index.getZeroBased() < personList.size()) {
-            Person person = personList.get(index.getZeroBased());
-            return person.getName();
-        } else {
-            throw new ParseException("Invalid index.");
-        }
-    }
-
     /**
      * Parses the given input string and returns an EditCommand.
      *
@@ -292,7 +282,7 @@ public class EditCommandParser implements Parser<EditCommand> {
      * @return An EditCommand object if the input is valid and can be parsed.
      * @throws ParseException If the input string is in an invalid format or cannot be parsed.
      */
-    public EditCommand parse(String args) throws ParseException { //not used, just for it to implement interface
+    public EditCommand parse(String args) throws ParseException {
         Index index;
         EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
         ArgumentMultimap argMultimap =
@@ -306,6 +296,17 @@ public class EditCommandParser implements Parser<EditCommand> {
 
         return new EditCommand(index, editPersonDescriptor);
     }
+
+    private Name extractNameForIndex(Index index, List<Person> personList) throws ParseException {
+        if (index.getZeroBased() >= 0 && index.getZeroBased() < personList.size()) {
+            Person person = personList.get(index.getZeroBased());
+            return person.getName();
+        } else {
+            throw new ParseException("Invalid index.");
+        }
+    }
+
+
 
     /**
      * Parses {@code Collection<String> contacts} into a {@code Set<Contact>} if {@code contacts} is non-empty.
