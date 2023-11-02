@@ -11,7 +11,6 @@ import seedu.address.model.person.Favourite;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Role;
-import seedu.address.model.person.Tutorial;
 // import seedu.address.model.person.Tutorial;
 
 /**
