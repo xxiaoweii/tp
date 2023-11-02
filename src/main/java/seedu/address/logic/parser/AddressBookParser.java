@@ -114,23 +114,24 @@ public class AddressBookParser {
         // Lower-level log messages are used sparingly to minimize noise in the code.
         logger.fine("Command word: " + commandWord + "; Arguments: " + arguments);
 
-
         switch (commandWord) {
-            case AddCommand.COMMAND_WORD:
-                return new AddCommandParser().parse(arguments);
+        case AddCommand.COMMAND_WORD:
+            return new AddCommandParser().parse(arguments);
 
-            case EditCommand.COMMAND_WORD:
-                return new EditCommandParser().parse(arguments, model);
+        case EditCommand.COMMAND_WORD:
+            return new EditCommandParser().parse(arguments, model);
 
-            case DeleteCommand.COMMAND_WORD:
-                return new DeleteCommandParser().parse(arguments);
+        case DeleteCommand.COMMAND_WORD:
+            return new DeleteCommandParser().parse(arguments);
 
-            case ClearCommand.COMMAND_WORD:
-                return new ClearCommand();
+        case ClearCommand.COMMAND_WORD:
+            return new ClearCommand();
 
-            case FavouriteCommand.COMMAND_WORD:
-                return new FavouriteCommandParser().parse(arguments);
+        case FavouriteCommand.COMMAND_WORD:
+            return new FavouriteCommandParser().parse(arguments);
 
+        default:
+            break;
 
         }
         Optional<CheckedFunction<String, Command, ParseException>> commandParserFunctionOptional =
