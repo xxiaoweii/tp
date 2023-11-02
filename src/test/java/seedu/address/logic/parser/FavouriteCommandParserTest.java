@@ -8,8 +8,15 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.FavouriteCommand;
+
 public class FavouriteCommandParserTest {
     private FavouriteCommandParser parser = new FavouriteCommandParser();
+
+    @Test
+    public void parse_emptyArg_throwsParseException() {
+        assertParseFailure(parser, "     ",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FavouriteCommand.MESSAGE_USAGE));
+    }
 
     @Test
     public void parse_validArgs_returnsFavouriteCommand() {

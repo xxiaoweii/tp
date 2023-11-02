@@ -7,8 +7,6 @@ public class CliSyntax {
 
     /* Prefix definitions */
     public static final Prefix PREFIX_NAME = new Prefix("--name");
-    public static final Prefix PREFIX_PHONE = new Prefix("p/");
-    public static final Prefix PREFIX_EMAIL = new Prefix("e/");
     public static final Prefix PREFIX_ROLE = new Prefix("--role");
     public static final Prefix PREFIX_CONTACT = new Prefix("--contact");
     public static final Prefix PREFIX_CONTACT_CHANGE = new Prefix("--change--contact");
@@ -30,6 +28,7 @@ public class CliSyntax {
     public static final Prefix PREFIX_TUTORIAL_ADD = new Prefix("--add--tutorial");
     public static final Prefix PREFIX_TUTORIAL_CHANGE = new Prefix("--change--tutorial");
     public static final Prefix PREFIX_TUTORIAL_DELETE = new Prefix("--delete--tutorial");
+
 
 
 

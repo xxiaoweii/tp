@@ -70,10 +70,29 @@ public class PersonCard extends UiPart<Region> {
 
         tutorials.setText(TUTORIAL_BEGIN_STRING + person.getTutorials().stream()
                 .map((tutorial) -> tutorial.toString())
-                .collect(Collectors.joining(Tutorial.PARSE_TUTORIAL_DELIMITER)));
-
+                .collect(Collectors.joining(Tutorial.TUTORIAL_SEPARATOR)));
+        /*
         roles.setText(ROLES_BEGIN_STRING + person.getRoles().stream().map((roles) -> roles.toString())
                 .collect(Collectors.joining(Role.PARSE_ROLE_DELIMITER)));
+       */
+        // commented this out first
+
+        for (Role role : person.getRoles()) {
+            Label roleLabel = new Label(role.toString());
+
+            Role.RoleType roletype = role.getRoleType();
+            // Set a unique style class for each role
+            if (roletype == Role.RoleType.Student) {
+                roleLabel.getStyleClass().add("stu-label");
+            } else if (roletype == Role.RoleType.TA) {
+                roleLabel.getStyleClass().add("ta-label");
+            } else if (roletype == Role.RoleType.Professor) {
+                roleLabel.getStyleClass().add("prof-label");
+            }
+
+            tags.getChildren().add(roleLabel);
+        }
+
         Label favouriteLabel = new Label("Favourite");
         if (person.getFavourite().getFavourite()) {
             favouriteLabel.getStyleClass().add("fav-label");

@@ -34,6 +34,7 @@ public class CommandTestUtil {
     public static final String VALID_NAME_AMY = "Amy Bee";
     public static final String VALID_NAME_BOB = "Bob Choo";
     public static final String VALID_NAME_CHARLIE = "Charlie";
+    public static final String VALID_NAME_DANNY = "Danny";
     public static final String VALID_ROLE_STUDENT = "Student";
     public static final String VALID_ROLE_TA = "TA";
     public static final String VALID_ROLE_PROFESSOR = "Professor";
@@ -55,9 +56,37 @@ public class CommandTestUtil {
     public static final Tutorial VALID_TUTORIAL_4 = new Tutorial(VALID_COURSE_4,
             VALID_COURSE_4.courseName + "/T04");
 
+    public static final String ROLE_TO_STRING_EMPTY = "Role: ";
+    public static final String ROLE_TO_STRING_STUDENT = ROLE_TO_STRING_EMPTY + VALID_ROLE_STUDENT;
+    public static final String ROLE_TO_STRING_MULTIPLE = ROLE_TO_STRING_EMPTY
+            + VALID_ROLE_STUDENT + ", "
+            + VALID_ROLE_TA + ", "
+            + VALID_ROLE_PROFESSOR;
+    public static final String COURSE_TO_STRING_EMPTY = "Courses: ";
+    public static final String COURSE_TO_STRING_VALID_COURSE_1 = COURSE_TO_STRING_EMPTY + VALID_COURSE_1.toString();
+    public static final String COURSE_TO_STRING_MULTIPLE = COURSE_TO_STRING_EMPTY
+            + VALID_COURSE_1.toString() + ", "
+            + VALID_COURSE_2.toString() + ", "
+            + VALID_COURSE_3.toString();
+    public static final String CONTACT_TO_STRING_EMPTY = "Contact: ";
+    public static final String CONTACT_TO_STRING_VALID_CONTACT_AMY = CONTACT_TO_STRING_EMPTY
+            + "[" + VALID_CONTACT_AMY + "]";
+    public static final String CONTACT_TO_STRING_MULTIPLE = CONTACT_TO_STRING_EMPTY
+            + "[" + VALID_EMAIL_CONTACT_CHARLIE + "]" + ", "
+            + "[" + VALID_TELE_CONTACT_CHARLIE + "]" + ", "
+            + "[" + VALID_PHONE_CONTACT_CHARLIE + "]";
+    public static final String TUTORIAL_TO_STRING_EMPTY = "Tutorials: ";
+    public static final String TUTORIAL_TO_STRING_VALID_TUTORIAL_1 = TUTORIAL_TO_STRING_EMPTY
+            + VALID_TUTORIAL_1.toString();
+    public static final String TUTORIAL_TO_STRING_MULTIPLE = TUTORIAL_TO_STRING_EMPTY
+            + VALID_TUTORIAL_1.toString() + ", "
+            + VALID_TUTORIAL_2.toString() + ", "
+            + VALID_TUTORIAL_3.toString();
+
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + " " + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + " " + VALID_NAME_BOB;
     public static final String NAME_DESC_CHARLIE = " " + PREFIX_NAME + " " + VALID_NAME_CHARLIE;
+    public static final String NAME_DESC_DANNY = " " + PREFIX_NAME + " " + VALID_NAME_DANNY;
     public static final String ROLE_DESC_STUDENT = " " + PREFIX_ROLE + " " + VALID_ROLE_STUDENT;
     public static final String ROLE_DESC_TA = " " + PREFIX_ROLE + " " + VALID_ROLE_TA;
     public static final String ROLE_DESC_PROFESSOR = " " + PREFIX_ROLE + " " + VALID_ROLE_PROFESSOR;
@@ -76,15 +105,23 @@ public class CommandTestUtil {
     public static final String COURSE_DESC_2 = " " + PREFIX_COURSE + " " + VALID_COURSE_2;
     public static final String COURSE_DESC_3 = " " + PREFIX_COURSE + " " + VALID_COURSE_3;
     public static final String COURSE_DESC_4 = " " + PREFIX_COURSE + " " + VALID_COURSE_4;
+    public static final String COURSE_DESC_MULTIPLE = " " + PREFIX_COURSE + " " + VALID_COURSE_1 + ", " + VALID_COURSE_2
+            + ", " + VALID_COURSE_3 + ", " + VALID_COURSE_4;
 
     // when using COURSE_TUTORIAL_DESC, COURSE_DESC should not be used
     public static final String COURSE_TUTORIAL_DESC_1 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_1;
     public static final String COURSE_TUTORIAL_DESC_2 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_2;
     public static final String COURSE_TUTORIAL_DESC_3 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_3;
     public static final String COURSE_TUTORIAL_DESC_4 = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_4;
+    public static final String COURSE_TUTORIAL_DESC_MULTIPLE = " " + PREFIX_COURSE + " " + VALID_TUTORIAL_1
+            + ", " + VALID_TUTORIAL_2 + ", " + VALID_TUTORIAL_3 + ", " + VALID_TUTORIAL_4;
 
-    public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + " "
+    public static final String INVALID_NAME_DESC_SYMBOL = " " + PREFIX_NAME + " "
             + "James&"; // '&' not allowed in names
+    public static final String INVALID_NAME_DESC_PREAMBLE = PREFIX_NAME + " "
+            + "James"; // non-empty preamble
+    public static final String INVALID_NAME_DESC_PREFIX = "James"; // missing prefix
+    public static final String INVALID_ADD_COMMAND_MISSING_PREFIX = INVALID_NAME_DESC_PREFIX + ROLE_DESC_STUDENT;
     public static final String INVALID_ROLE_DESC = " " + PREFIX_ROLE + " "
             + "Teacher"; // Teacher is not a supported role
     public static final String INVALID_CONTACT_DESC = " " + PREFIX_CONTACT + " "; // empty contact
@@ -154,10 +191,6 @@ public class CommandTestUtil {
                                             Model expectedModel) {
         CommandResult expectedCommandResult = new CommandResult(expectedMessage);
         assertCommandSuccess(command, actualModel, expectedCommandResult, expectedModel);
-    }
-
-    public static void asserCommandSuccess() {
-
     }
 
     /**

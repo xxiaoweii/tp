@@ -9,6 +9,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_4;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_CHARLIE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_DANNY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_PROFESSOR;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_STUDENT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_TA;
@@ -85,6 +86,8 @@ public class TypicalPersons {
 
     // CHARLIE --> name present only, not favourited
     public static final Person CHARLIE = new PersonBuilder().withName(VALID_NAME_CHARLIE)
+            .withFavourite(false).build();
+    public static final Person DANNY = new PersonBuilder().withName(VALID_NAME_DANNY)
             .withFavourite(false).build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER

@@ -29,6 +29,7 @@ public class RoleContainsKeywordsPredicate implements Predicate<Person> {
                         .anyMatch(keyword -> keyword.equalsIgnoreCase(roleType.toString())));
     }
 
+
     @Override
     public boolean equals(Object other) {
         if (other == this) {
