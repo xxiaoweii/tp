@@ -149,7 +149,7 @@ public class EditCommand extends Command {
         public EditPersonDescriptor(EditPersonDescriptor toCopy) {
             setName(toCopy.name);
             setRoles(toCopy.roles);
-            setContacts(toCopy.contacts);
+            setContacts(toCopy.contacts); // problem might be here, not sure what this is doing
             setCourses(toCopy.courses);
             setTutorials(toCopy.tutorials);
             setFavourite(toCopy.favourite);
@@ -191,8 +191,12 @@ public class EditCommand extends Command {
          * Sets {@code contacts} to this object's {@code contacts}.
          * A defensive copy of {@code contacts} is used internally.
          */
-        public void setContacts(Set<Contact> contacts) {
-            this.contacts = (contacts != null) ? new HashSet<>(contacts) : null;
+        public void setContacts(Set<Contact> newContacts) {
+            if (newContacts == null) {
+                this.contacts = null;
+            } else {
+                this.contacts = new HashSet<>(newContacts);
+            }
         }
 
         /**
@@ -208,8 +212,12 @@ public class EditCommand extends Command {
          * Sets {@code courses} to this object's {@code courses}.
          * A defensive copy of {@code courses} is used internally.
          */
-        public void setCourses(Set<Course> courses) {
-            this.courses = (courses != null) ? new HashSet<>(courses) : null;
+        public void setCourses(Set<Course> newCourses) {
+            if (newCourses == null) {
+                this.courses = null;
+            } else {
+                this.courses = new HashSet<>(newCourses);
+            }
         }
 
         /**
@@ -225,8 +233,12 @@ public class EditCommand extends Command {
          * Sets {@code tutorials} to this object's {@code tutorials}.
          * A defensive copy of {@code tutorials} is used internally.
          */
-        public void setTutorials(Set<Tutorial> tutorials) {
-            this.tutorials = (tutorials != null) ? new HashSet<>(tutorials) : null;
+        public void setTutorials(Set<Tutorial> newTutorials) {
+            if (newTutorials == null) {
+                this.tutorials = null;
+            } else {
+                this.tutorials = new HashSet<>(newTutorials);
+            }
         }
 
         /**
