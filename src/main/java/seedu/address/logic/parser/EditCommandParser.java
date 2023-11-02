@@ -199,20 +199,23 @@ public class EditCommandParser implements Parser<EditCommand> {
             //return error
         }
 
-        Set<Tutorial> newTutorials = parseTutorialsForEdit(updatedCourses, argMultimap.getAllValues(PREFIX_TUTORIAL_ADD)).orElse(null);
+        Set<Tutorial> newTutorials = parseTutorialsForEdit(updatedCourses,
+                argMultimap.getAllValues(PREFIX_TUTORIAL_ADD)).orElse(null);
         Set<Tutorial> updatedTutorials = new HashSet<>();
         if (newTutorials == null) {
             newTutorials = updatedTutorials;
         }
         newTutorials.addAll(argsTutorials);
         updatedTutorials.addAll(newTutorials);
-        Set<Tutorial> toDeleteTutorial = parseTutorialsForEdit(updatedCourses, argMultimap.getAllValues(PREFIX_TUTORIAL_DELETE)).orElse(null);
+        Set<Tutorial> toDeleteTutorial = parseTutorialsForEdit(updatedCourses,
+                argMultimap.getAllValues(PREFIX_TUTORIAL_DELETE)).orElse(null);
 
         if (toDeleteTutorial != null) {
             updatedTutorials.removeAll(toDeleteTutorial);
         }
 
-        Set<Tutorial> toChangeTutorial = parseTutorialsForEdit(updatedCourses, argMultimap.getAllValues(PREFIX_TUTORIAL_CHANGE)).orElse(null);
+        Set<Tutorial> toChangeTutorial = parseTutorialsForEdit(updatedCourses,
+                argMultimap.getAllValues(PREFIX_TUTORIAL_CHANGE)).orElse(null);
         Tutorial oldTutorial = null;
         Tutorial newTutorial = null;
         if (toChangeTutorial != null) {
@@ -252,8 +255,6 @@ public class EditCommandParser implements Parser<EditCommand> {
         return new EditCommand(index, editPersonDescriptor); // more args here
     }
 
-
-
     private Name extractNameForIndex(Index index, List<Person> personList) throws ParseException {
         if (index.getZeroBased() >= 0 && index.getZeroBased() < personList.size()) {
             Person person = personList.get(index.getZeroBased());
@@ -267,7 +268,8 @@ public class EditCommandParser implements Parser<EditCommand> {
         Index index;
         EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_CONTACT_ADD, PREFIX_CONTACT_DELETE, PREFIX_CONTACT_CHANGE, PREFIX_COURSE, PREFIX_TUTORIAL);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_CONTACT_ADD, PREFIX_CONTACT_DELETE,
+                        PREFIX_CONTACT_CHANGE, PREFIX_COURSE, PREFIX_TUTORIAL);
         try {
             index = ParserUtil.parseIndex(argMultimap.getPreamble());
         } catch (ParseException pe) {

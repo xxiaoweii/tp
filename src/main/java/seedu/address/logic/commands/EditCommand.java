@@ -192,15 +192,12 @@ public class EditCommand extends Command {
          * A defensive copy of {@code contacts} is used internally.
          */
         public void setContacts(Set<Contact> newContacts) {
-                if (newContacts == null) {
-                    this.contacts = null;
-                } else {
-                    this.contacts = new HashSet<>(newContacts);
-                }
+            if (newContacts == null) {
+                this.contacts = null;
+            } else {
+                this.contacts = new HashSet<>(newContacts);
             }
-
-
-
+        }
 
         /**
          * Returns an unmodifiable tag set, which throws {@code UnsupportedOperationException}
