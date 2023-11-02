@@ -2,8 +2,22 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.*;
-
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTACT_CHANGE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTACT_ADD;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTACT_DELETE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_CHANGE_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE_ADD;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE_DELETE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COURSE_CHANGE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLES_ADD;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLES_DELETE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLES_CHANGE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL_ADD;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL_CHANGE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TUTORIAL_DELETE;
 
 import java.util.Collection;
 import java.util.Collections;
