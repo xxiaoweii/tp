@@ -67,11 +67,9 @@ public class CommandBox extends UiPart<Region> {
         // Clear the existing content of the TextFlow
         textFlow.getChildren().clear();
 
-        // Implement your syntax highlighting logic here
-        // Example: Highlight the word "add" in blue
         String[] words = newText.split("\\s+"); // Split text into words by whitespace
         for (String word : words) {
-            Text text = new Text(word);
+            Text text = new Text(word + " "); // Add a space after each word to maintain the formatting
             text.setFill(Color.BLACK); // Default color
             if ("add".equals(word)) {
                 text.setFill(Color.BLUE);
