@@ -19,6 +19,7 @@ import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.ExitCommand;
+import seedu.address.logic.commands.FavListCommand;
 import seedu.address.logic.commands.FavouriteCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.FindCourseCommand;
@@ -64,6 +65,8 @@ public class AddressBookParser {
 
         wordToCommandMap.put(UnfavouriteCommand.COMMAND_WORD, (arguments) ->
                 new UnfavouriteCommandParser().parse(arguments));
+
+        wordToCommandMap.put(FavListCommand.COMMAND_WORD, (arguments) -> new FavListCommand());
 
         wordToCommandMap.put(FindCommand.COMMAND_WORD, (arguments) -> new FindCommandParser().parse(arguments));
         wordToCommandMap.put(ListCommand.COMMAND_WORD, (arguments) -> new ListCommand());
