@@ -26,7 +26,7 @@ public class CliSyntax {
     public static final Prefix PREFIX_COURSE_CHANGE = new Prefix("--change--course");
     public static final Prefix PREFIX_ROLES_ADD = new Prefix("--add--roles");
     public static final Prefix PREFIX_ROLES_DELETE = new Prefix("--delete--roles");
-    public static final Prefix PREFIX_ROLES_CHANGE = new Prefix("--chane--roles");
+    public static final Prefix PREFIX_ROLES_CHANGE = new Prefix("--change--roles");
     public static final Prefix PREFIX_TUTORIAL_ADD = new Prefix("--add--tutorial");
     public static final Prefix PREFIX_TUTORIAL_CHANGE = new Prefix("--change--tutorial");
     public static final Prefix PREFIX_TUTORIAL_DELETE = new Prefix("--delete--tutorial");

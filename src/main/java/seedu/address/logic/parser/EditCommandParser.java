@@ -340,9 +340,9 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (tutorials.isEmpty()) {
             return Optional.empty();
         }
-        //        Collection<String> tutorialSet = (tutorials.size() == 1 && tutorials.contains(""))
-        //            ? Collections.emptySet() : tutorials;
+        Collection<String> tutorialSet = (tutorials.size() == 1 && tutorials.contains(""))
+                   ? Collections.emptySet() : tutorials;
 
-        return Optional.of(ParserUtil.parseTutorials(courses));
+        return Optional.of(ParserUtil.parseTutorials(tutorialSet));
     }
 }
