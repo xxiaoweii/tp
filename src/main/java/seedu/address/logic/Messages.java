@@ -8,6 +8,7 @@ import seedu.address.logic.parser.Prefix;
 import seedu.address.model.person.Contact;
 import seedu.address.model.person.Course;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Role;
 import seedu.address.model.person.Tutorial;
 
 /**
@@ -39,7 +40,14 @@ public class Messages {
      */
     public static String format(Person person) {
         final StringBuilder builder = new StringBuilder();
+        builder.append("Name: ");
         builder.append(person.getName());
+
+        builder.append("; Role: ");
+        String roleList = person.getRoles().stream()
+                .map(Role::toString) // Assuming you have a suitable toString method for Contact
+                .collect(Collectors.joining(", "));
+        builder.append(roleList);
 
         builder.append("; Contacts: ");
         String contactList = person.getContacts().stream()
