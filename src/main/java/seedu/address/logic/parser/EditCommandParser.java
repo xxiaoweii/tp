@@ -192,7 +192,7 @@ public class EditCommandParser implements Parser<EditCommand> {
             updatedCourses.removeAll(toDeleteCourse);
         }
 
-        Set<Course> toChangeCourse =  parseCoursesForEdit(argMultimap
+        Set<Course> toChangeCourse = parseCoursesForEdit(argMultimap
                 .getAllValues(PREFIX_COURSE_CHANGE)).orElse(null);
 
         Course oldCourse = null;
