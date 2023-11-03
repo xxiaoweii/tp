@@ -639,6 +639,13 @@ Any other command word such as `e`, `ex` and `exi` will be seen as an invalid co
 
 `Unknown command`
 
+### Autocomplete
+What if you needed to quickly write a command? Well, Autocomplete feature is here to save you!
+
+All you need to do is: type your command, and then press Tab for it to suggest the next command!
+
+For example, pressing `f` and then `<Tab>` will let the program automatically suggest the `fav` command. You can continue pressing `<Tab>` to cycle through the list of commands. For instance, pressing `<Tab>` again after it suggests `fav` will cause it to autocomplete `favlist` instead. After cycling through all possible autocompletions, it will cycle back to your original input, if you want to amend it some more.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## UI Mockup
@@ -673,4 +680,5 @@ Here's a mockup of how the User Interface might look: <br>
 |   **Search**   | `find KEYWORD`                                                                                                  | `find CS2100`                                                                                                                             | 
 | **Favourite**  | `fav INDEX`                                                                                                     | `fav 1`                                                                                                                                   |
 |    **Exit**    | `exit`                                                                                                          | `exit`                                                                                                                                    | 
+
 
