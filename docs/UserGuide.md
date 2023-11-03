@@ -86,29 +86,6 @@ add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSEC
 
 ### Features
 
-#### Viewing help : `help`
-
-Shows a message which will give you the url to the help page.
-
-##### FORMAT:
-`help`
-
-##### EXAMPLE COMMAND:
-`help`
-
-##### ACCEPTABLE VALUES:
-This command does not accept any parameters.
-
-##### EXPECTED OUTPUT ON SUCCESS:
-Upon successfully executing the help command, you should see a message that provides the URL to the help page.
-The help page is a comprehensive documentation containing a list of valid commands and how to use them.
-![help message](images/helpMessage.png)
-
-##### EXPECTED OUTPUT ON FAILURE:
-`The  command or the format of the command that you have entered is wrong.
-Please refer to this link for the list of valid commands:`
-[Help Page URL](https://se-education.org/addressbook-level3/UserGuide.html)
-
 #### Adding a person: `add`
 
 Adds new profiles in the profile lists.
@@ -562,6 +539,50 @@ This command only recognises `help` as the keyword.
 Any other command word such as `h`, `he` and `hel` will be seen as an invalid command with the following output:
 
 `Unknown command`
+
+#### Editing a profile: `edit`
+
+Edits all fields in the current profile
+
+##### FORMAT:
+`edit INDEX [--name NAME] [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]`
+
+##### EXAMPLE COMMAND:
+`edit 1 --name Aiken Dueet --role Student --contact @aikenduee --course CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30`
+
+##### ACCEPTABLE VALUES:
+`INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …), less than or equal to the number of profiles the user currently has.
+
+`NAME`: Any non-empty input of alphabetical characters.
+
+`ROLE`: Any three roles allowed here: Student, TA, Professor.
+
+`CONTACT`: Any non-empty input of characters.
+
+`COURSECODE`: Any non-empty input of characters.
+
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+You have edited person 1 in the profile to: 
+ Name: Aiken Dueet; Role: Student; Contacts: [@aikendueet]; Courses: CS2103T, CS2101, CS2100; Tutorials: CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30
+ ```
+
+##### EXPECTED OUTPUT ON FAILURE:
+##### For invalid index:
+
+Example `edit -1`
+```
+Invalid command format!
+edit: Edits the person identified by the index number used in the displayed person list.
+Parameters: INDEX [--name NAME] [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]
+Example: edit 1 --name John --role Student
+```
+
+##### For index out of bound:
+
+Example: `edit 100` [Assuming the address book currently contains 10 profiles]
+
+`The person index provided is invalid`
 
 #### Exiting the application: `exit`
 
