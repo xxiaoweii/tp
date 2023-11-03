@@ -259,6 +259,36 @@ Any other command word such as `l`, `li` and `lis` will be seen as an invalid co
 
 `Unknown command`
 
+#### Listing all favourite persons : `favlist`
+
+List all the profiles favourited by the user.
+
+##### FORMAT:
+`favlist`
+
+##### EXAMPLE COMMAND:
+`favlist`
+
+##### ACCEPTABLE VALUES:
+This command does not accept any parameters.
+
+##### EXPECTED OUTPUT ON SUCCESS:
+```
+You have 1 favourited profile in your list. 
+Name: Aiken Dueet  
+Role: STUDENT
+Contact: @aikendueet, aikendueet@gmail.com
+Course: CS2103T, CS2101, CS2100
+Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30 
+```
+
+##### EXPECTED OUTPUT ON FAILURE:
+This command only recognises `favlist` as the keyword.
+
+Any other command word such as `favl`, `favli` and `favlis` will be seen as an invalid command with the following output:
+
+`Unknown command`
+
 #### Deleting a profile : `delete`
 
 Delete the specific profile based on the index allocated to the profile.
