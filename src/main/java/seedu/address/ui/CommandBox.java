@@ -61,13 +61,14 @@ public class CommandBox extends UiPart<Region> {
     private void onKeyPressed(KeyEvent event) {
         if (event.getCode() == AUTOCOMPLETE_KEY) {
             showAutocompleteSuggestions();
+
+            commandTextField.requestFocus();
+            commandTextField.end();
+
         } else {
             // Exit autocomplete mode if any other key is pressed.
             exitAutocompleteMode();
         }
-
-        commandTextField.requestFocus();
-        commandTextField.end();
     }
 
     private void showAutocompleteSuggestions() {
