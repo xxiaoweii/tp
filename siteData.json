@@ -9,9 +9,9 @@
         "nusearch": "NUSearch",
         "fan-ruoyu": "Fan Ruoyu",
         "william-jacob": "William Jacob",
-        "johnny-doe": "Johnny Doe",
-        "jean-doe": "Jean Doe",
-        "james-doe": "James Doe"
+        "law-rui-xi": "Law Rui Xi",
+        "ong-xiao-wei": "Ong Xiao Wei",
+        "kirthigha-shanmuganantham": "Kirthigha Shanmuganantham"
       },
       "headingKeywords": {}
     },
@@ -51,8 +51,12 @@
         "storage-component": "Storage component",
         "common-classes": "Common classes",
         "implementation": "Implementation",
+        "favourite-feature": "Favourite feature",
         "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
         "proposed-data-archiving": "[Proposed] Data archiving",
+        "search-feature": "Search feature",
+        "add-feature": "Add Feature",
+        "proposed-favourite-list-feature": "[Proposed] Favourite List feature",
         "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
         "appendix-requirements": "Appendix: Requirements",
         "product-scope": "Product scope",
@@ -111,20 +115,12 @@
         "motivation": "Motivation",
         "unique-selling-point": "Unique Selling Point",
         "quick-start": "Quick start",
-        "3-features-and-amp-commands": "3. Features &amp; Commands",
+        "features-and-amp-commands": "Features &amp; Commands",
         "a-guide-to-reading-each-command": "A Guide to reading each command",
         "how-to-interpret-a-command-format": "How to interpret a command format",
-        "viewing-help-help": "Viewing help : help",
-        "adding-a-person-add": "Adding a person: add",
-        "listing-all-persons-list": "Listing all persons : list",
-        "editing-a-person-edit": "Editing a person : edit",
-        "locating-persons-by-name-find": "Locating persons by name: find",
-        "deleting-a-person-delete": "Deleting a person : delete",
-        "clearing-all-entries-clear": "Clearing all entries : clear",
-        "exiting-the-program-exit": "Exiting the program : exit",
-        "saving-the-data": "Saving the data",
-        "editing-the-data-file": "Editing the data file",
-        "archiving-data-files-coming-in-v2-0": "Archiving data files [coming in v2.0]",
+        "features": "Features",
+        "autocomplete": "Autocomplete",
+        "ui-mockup": "UI Mockup",
         "faq": "FAQ",
         "known-issues": "Known issues",
         "command-summary": "Command summary"
@@ -150,6 +146,38 @@
     {
       "src": "team/johndoe.md",
       "title": "John Doe's Project Portfolio Page",
+      "headings": {
+        "project-addressbook-level-3": "Project: AddressBook Level 3"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/kayabuttertoastt.md",
+      "title": "Kirthigha Shanmuganantham's Project Portfolio Page",
+      "headings": {
+        "project-nusearch": "Project: NUSearch"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/lawruixi.md",
+      "title": "Law Rui Xi's Project Portfolio Page",
+      "headings": {
+        "project-nusearch": "Project: NUSearch"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/wjacobw.md",
+      "title": "William Jacob's Project Portfolio Page",
+      "headings": {
+        "project-addressbook-to-be-added-soon": "Project: AddressBook [to be added soon]"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/xxiaoweii.md",
+      "title": "Ong Xiao Wei's Project Portfolio Page",
       "headings": {
         "project-addressbook-level-3": "Project: AddressBook Level 3"
       },
