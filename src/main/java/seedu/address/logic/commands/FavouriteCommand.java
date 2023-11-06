@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.List;
 
@@ -42,6 +43,8 @@ public class FavouriteCommand extends Command {
 
         Person personToFavourite = lastShownList.get(targetIndex.getZeroBased());
         model.favouritePerson(personToFavourite);
+        model.setPerson(personToFavourite, personToFavourite);
+        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         return new CommandResult(String.format(MESSAGE_FAVOURITE_PERSON_SUCCESS,
                 Messages.format(personToFavourite)));
     }
