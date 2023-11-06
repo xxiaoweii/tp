@@ -61,7 +61,6 @@ public class FavouriteCommandTest {
 
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
         expectedModel.favouritePerson(personToFavourite);
-        showPersonAtIndex(expectedModel, INDEX_FIRST_PERSON);
 
         assertCommandSuccess(favouriteCommand, model, expectedMessage, expectedModel);
     }
