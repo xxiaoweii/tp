@@ -33,8 +33,14 @@ import seedu.address.model.person.Tutorial;
  */
 public class EditCommand extends Command {
 
+    /**
+     * Keyword to trigger the edit command.
+     */
     public static final String COMMAND_WORD = "edit";
 
+    /**
+     * Usage instructions for the 'edit' command.
+     */
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the person identified "
         + "by the index number used in the displayed person list. "
         + "Existing values will be overwritten by the input values.\n"
@@ -46,10 +52,24 @@ public class EditCommand extends Command {
         + "Example: " + COMMAND_WORD + " 1 "
         + PREFIX_COURSE + "CS2101";
 
+    /**
+     * Message displayed upon successfully editing a person from the address book.
+     */
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
+
+    /**
+     * Message displayed when user does not edit a field.
+     */
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
+
+    /**
+     * Message displayed when the person already exisis in the address book.
+     */
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
 
+    /**
+     * Index of the person to be edited in the address book.
+     */
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
 
@@ -65,6 +85,14 @@ public class EditCommand extends Command {
         this.editPersonDescriptor = new EditPersonDescriptor(editPersonDescriptor);
     }
 
+
+    /**
+     * Executes the EditCommand to edit the person identified by the index in the address book.
+     *
+     * @param model The Model which the command should operate on.
+     * @return The CommandResult of the execution.
+     * @throws CommandException If an error occurs during the execution.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
@@ -104,6 +132,12 @@ public class EditCommand extends Command {
                 updatedFavourite);
     }
 
+    /**
+     * Checks equality of this EditCommand with another object.
+     *
+     * @param other The other object to compare with the EditCommand
+     * @return True if the other object is equal to this EditCommand, otherwise return false.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -120,6 +154,11 @@ public class EditCommand extends Command {
             && editPersonDescriptor.equals(otherEditCommand.editPersonDescriptor);
     }
 
+    /**
+     * Generates a string representation of the EditCommand.
+     *
+     * @return A string representation of the EditCommand.
+     */
     @Override
     public String toString() {
         return new ToStringBuilder(this)

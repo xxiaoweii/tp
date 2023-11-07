@@ -18,7 +18,14 @@ import seedu.address.model.person.Tutorial;
  * Lists all persons in the address book to the user.
  */
 public class ListCommand extends Command {
+    /**
+     * Message displayed upon successful execution of the ListCommand if there are no profiles.
+     */
     public static final String MESSAGE_SUCCESS = "You have 0 profile in your list\n";
+
+    /**
+     * Keyword to trigger the 'list' command.
+     */
     public static final String COMMAND_WORD = "list";
     private static final String enter = "\n   ";
     private static int numPeople = 0;
@@ -93,6 +100,12 @@ public class ListCommand extends Command {
         return lst.toString();
     }
 
+    /**
+     * Executes the ListCommand to display the list of all persons.
+     *
+     * @param model The model this command should operate on.
+     * @return The CommandResult displaying the list of all persons in the address book.
+     */
     @Override
     public CommandResult execute(Model model) {
         String peopleList = "";

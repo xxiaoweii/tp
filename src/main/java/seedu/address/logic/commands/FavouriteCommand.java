@@ -17,20 +17,45 @@ import seedu.address.model.person.Person;
  */
 public class FavouriteCommand extends Command {
 
+    /**
+     * Keyword to trigger the favourite command.
+     */
     public static final String COMMAND_WORD = "fav";
 
+    /**
+     * Usage instructions for the 'fav' command.
+     */
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Favourites the person identified by the index number used in the displayed person list. \n"
             + "Parameters: INDEX (must be a positive integer)\n"
             + " Example: " + COMMAND_WORD + " 1";
 
+    /**
+     * Message displayed upon successfully favouriting a person from the address book.
+     */
     public static final String MESSAGE_FAVOURITE_PERSON_SUCCESS = "Favourited Person: %1$s";
 
+    /**
+     * The index of the person who is favourited in the address book.
+     */
     private final Index targetIndex;
+
+    /**
+     * Constructor for the FavouriteCommand.
+     *
+     * @param targetIndex The index of the person to be favorited in the address book.
+     */
     public FavouriteCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
     }
 
+    /**
+     * Executes the FavouriteCommand to favorite the person identified by the index in the address book.
+     *
+     * @param model The current model.
+     * @return The CommandResult containing a message indicating the successful favoriting of the person.
+     * @throws CommandException If the index is invalid or the person is already favorited.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
@@ -47,6 +72,13 @@ public class FavouriteCommand extends Command {
         return new CommandResult(String.format(MESSAGE_FAVOURITE_PERSON_SUCCESS,
                 Messages.format(personToFavourite)));
     }
+
+    /**
+     * Checks equality of the FavouriteCommand with another object.
+     *
+     * @param other The object to compare for equality.
+     * @return True if the objects are equal, false otherwise.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -61,6 +93,12 @@ public class FavouriteCommand extends Command {
         FavouriteCommand otherFavouriteCommand = (FavouriteCommand) other;
         return targetIndex.equals(otherFavouriteCommand.targetIndex);
     }
+
+    /**
+     * Returns a string representation of the FavouriteCommand.
+     *
+     * @return A string representing the FavouriteCommand.
+     */
     @Override
     public String toString() {
         return new ToStringBuilder(this)
