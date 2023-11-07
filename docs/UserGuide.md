@@ -497,7 +497,7 @@ Parameters: KEYWORD [MORE_KEYWORDS]...
 Example: searchcourse alice bob charlie
 ```
 
-### Searching for profiles by rle: `searchrole`
+### Searching for profiles by role: `searchrole`
 
 Search for profiles using role.
 
