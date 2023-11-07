@@ -14,10 +14,10 @@ public class FindCourseCommand extends Command {
 
     public static final String COMMAND_WORD = "searchcourse";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose names contain any of "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose courses contain any of "
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
-            + "Example: " + COMMAND_WORD + " alice bob charlie";
+            + "Example: " + COMMAND_WORD + " CS2100";
 
     private final CourseContainsKeywordsPredicate predicate;
 

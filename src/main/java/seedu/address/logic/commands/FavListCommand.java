@@ -35,7 +35,6 @@ public class FavListCommand extends Command {
         return new CommandResult("You have " + numbFavouritePeople
                 + " favourite profile" + s + " in your list.\n" + peopleList);
     }
-
     private String formatPersonDetails(Person person) {
         return "Name: " + person.getName() + "\n"
                 + "Roles: " + person.getRoles() + "\n"
