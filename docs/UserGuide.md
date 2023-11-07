@@ -537,7 +537,7 @@ Parameters: KEYWORD [MORE_KEYWORDS]...
 Example: searchrole alice bob charlie
 ```
 
-### Searching for profiles by rle: `searchtutorial`
+### Searching for profiles by tutorial: `searchtutorial`
 
 Search for profiles using tutorial class.
 
