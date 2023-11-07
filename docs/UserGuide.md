@@ -20,10 +20,64 @@ The app helps students to consolidate important data, such as profiles of profes
 ## Quick start
 
 1. Ensure you have Java `11` or above installed in your Computer.
+<box type="info" header="**How do I install Java 11?**" dismissible light>
+First, let's check if Java 11 is installed already:
+    <tabs>
+      <tab header="**Windows**">
+      1. Press Win+R. <br>
+      2. Type "cmd" and press Enter. <br>
+      3. Type "java --version" and press Enter. <br>
+      4. If Java is <b>not</b> installed on your computer, a red error message will pop up. In that case, see below on installing Java 11. <br>
+      5. If Java is installed on your computer, some lines of white text will appear. Among these, there should be a line reading "openjdk" followed by a number, which is the version of Java. If you do not have Java 11 or later, see below on installing Java 11.
+      </tab>
+      <tab header="**Mac**">
+      1. Click the Search button on your device. <br>
+      2. Enter "Terminal" and open the app. <br>
+      3. Type "java --version" and press Enter. <br>
+      4. If Java is <b>not</b> installed on your computer, a red error message will pop up. In that case, see below on installing Java 11. <br>
+      5. If Java is installed on your computer, some lines of white text will appear. Among these, there should be a line reading "openjdk" followed by a number, which is the version of Java. If you do not have Java 11 or later, see below on installing Java 11.
+      </tab>
+      <tab header="**Linux**">
+      1. Open the terminal. <br>
+      2. Enter the command "java --version". <br>
+      3. Check if any error message appears. If there is, Java is not installed; see below on installing Java 11.
+      </tab>
+    </tabs>
+    If Java 11 is not already installed, don't panic! Follow the instructions <a href="https://www.ibm.com/docs/en/oapi/1.3.6?topic=installation-installing-java-11">here</a> to install Java 11.
+</box>
 
-2. to be added
+2. Make sure you place this app's JAR file in an empty folder before launching it for the first time.
 
-3. Refer to the [Features](#features) below for details of each command.
+3. Launch the JAR file by double-clicking it.
+<box type="warning" header="Help! I can't open the JAR file!" dismissible light>
+    <tabs>
+      <tab header="**Windows**">
+      1. Right-click on the JAR file in the File Explorer, and click "Properties". <br>
+      2. Copy the entire <b>file path</b>, listed under Location in the menu that appears.
+      3. Press Win+R. <br>
+      4. Type "cmd" and press Enter. <br>
+      5. Type "cd" and paste the file path copied in Step 2 by pressing Ctrl+Shift+V. <br>
+      5. Finally, type "java -jar NUSearch.jar" and press Enter.
+      </tab>
+      <tab header="**Mac**">
+      1. Locate the JAR file, and right click it. <br>
+      2. Click "Get Info". <br>
+      3. Copy the location listed under "Where:". <br>
+      4. Open the Search, enter "Terminal" and open the app. <br>
+      5. Type "cd" and paste the file path copied in Step 3. <br>
+      6. Finally, type "java -jar NUSearch.jar" and press Enter.
+      </tab>
+      <tab header="**Linux**">
+      1. Open the terminal. <br>
+      2. Enter "cd" and then the path of the directory in which the JAR file resides. <br>
+      3. Enter the command "java -jar NUSearch.jar".
+      </tab>
+    </tabs>
+</box>
+
+4. The application should launch, resembling the UI shown in the Home page.
+
+5. Refer to the [Features](#features) below for details of each command.
 
 --- {.dotted .thick-1 .border-primary}
 
