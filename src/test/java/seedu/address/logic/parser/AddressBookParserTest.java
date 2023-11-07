@@ -92,21 +92,25 @@ public class AddressBookParserTest {
         assertEquals(new FindCommand(new NameContainsKeywordsPredicate(keywords)), command);
     }
 
-//    @Test
-//    public void parseCommand_findCourse() throws Exception {
-//        List<String> keywords = Arrays.asList("CS2100", "CS2100", "CS2103T");
-//        FindCourseCommand command = (FindCourseCommand) parser.parseCommand(
-//                FindCourseCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
-//        assertEquals(new FindCourseCommand(new CourseContainsKeywordsPredicate(keywords)), command);
-//    }
+    /*
 
-//    @Test
-//    public void parseCommand_findRole() throws Exception {
-//        List<String> keywords = Arrays.asList("TA", "TA", "Student");
-//        FindRoleCommand command = (FindRoleCommand) parser.parseCommand(
-//                FindRoleCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
-//        assertEquals(new FindRoleCommand(new RoleContainsKeywordsPredicate(keywords)), command);
-//    }
+    @Test
+    public void parseCommand_findCourse() throws Exception {
+        List<String> keywords = Arrays.asList("CS2100", "CS2100", "CS2103T");
+        FindCourseCommand command = (FindCourseCommand) parser.parseCommand(
+                FindCourseCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
+        assertEquals(new FindCourseCommand(new CourseContainsKeywordsPredicate(keywords)), command);
+    }
+
+    @Test
+    public void parseCommand_findRole() throws Exception {
+        List<String> keywords = Arrays.asList("TA", "TA", "Student");
+        FindRoleCommand command = (FindRoleCommand) parser.parseCommand(
+                FindRoleCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
+        assertEquals(new FindRoleCommand(new RoleContainsKeywordsPredicate(keywords)), command);
+    }
+
+     */
 
     @Test
     public void parseCommand_findTutorial() throws Exception {
