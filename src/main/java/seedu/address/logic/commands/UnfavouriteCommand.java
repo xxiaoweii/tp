@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.List;
 
@@ -42,6 +43,8 @@ public class UnfavouriteCommand extends Command {
 
         Person personToUnfavourite = lastShownList.get(targetIndex.getZeroBased());
         model.unfavouritePerson(personToUnfavourite);
+        model.setPerson(personToUnfavourite, personToUnfavourite);
+        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         return new CommandResult(String.format(MESSAGE_UNFAVOURITE_PERSON_SUCCESS,
                 Messages.format(personToUnfavourite)));
     }

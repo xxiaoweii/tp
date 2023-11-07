@@ -61,7 +61,6 @@ public class UnfavouriteCommandTest {
 
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
         expectedModel.unfavouritePerson(personToUnfavourite);
-        showPersonAtIndex(expectedModel, INDEX_FIRST_PERSON);
 
         assertCommandSuccess(unfavouriteCommand, model, expectedMessage, expectedModel);
     }
