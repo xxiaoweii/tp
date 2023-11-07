@@ -13,10 +13,10 @@ import seedu.address.model.person.TutorialContainsKeywordsPredicate;
 public class FindTutorialCommand extends Command {
     public static final String COMMAND_WORD = "searchtutorial";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose names contain any of "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose tutorials contain any of "
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
-            + "Example: " + COMMAND_WORD + " alice bob charlie";
+            + "Example: " + COMMAND_WORD + "CS2100/G07";
 
     private final TutorialContainsKeywordsPredicate predicate;
 
