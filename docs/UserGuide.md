@@ -106,9 +106,9 @@ Adding a person: add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] 
 Listing all persons: list
 Deleting a profile: delete INDEX
 Search by name: search NAME
-Search by role: search ROLE
-Search by course: search COURSE
-Search by tutorial class: search TUTORIAL
+Search by role: searchrole ROLE
+Search by course: searchcourse COURSE
+Search by tutorial class: searchtutorial TUTORIAL
 Edit current profile by deleting current information: edit --delete
 Edit current profile by adding new information: edit --add
 Edit current profile by changing current information: edit --change
@@ -469,10 +469,10 @@ Output profiles which match the given course.
 > Note: The input course is NOT case-sensitive.
 
 ###### FORMAT:
-`search COURSECODE`
+`searchcourse COURSECODE`
 
 ###### EXAMPLE COMMAND:
-`search CS2100`
+`searchcourse CS2100`
 
 ###### ACCEPTABLE VALUES:
 `COURSECODE`: A valid course code that fulfills the following criteria (not case-sensitive):
@@ -492,9 +492,9 @@ Example: `searchcourse    `
 
 ```
 Invalid command format!
-search: Finds all persons whose names contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
+searchcourse: Finds all persons whose courses contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
 Parameters: KEYWORD [MORE_KEYWORDS]...
-Example: search alice bob charlie
+Example: searchcourse alice bob charlie
 ```
 
 ### Searching for profiles by rle: `searchrole`
@@ -506,10 +506,10 @@ Output profiles which match the given role.
 > Note: The input role is NOT case-sensitive.
 
 ###### FORMAT:
-`search ROLE`
+`searchrole ROLE`
 
 ###### EXAMPLE COMMAND:
-`search TA`
+`searchrole TA`
 
 ###### ACCEPTABLE VALUES:
 `ROLE`:
@@ -532,9 +532,9 @@ Example: `searchrole    `
 
 ```
 Invalid command format!
-search: Finds all persons whose names contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
+searchrole: Finds all persons whose names contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
 Parameters: KEYWORD [MORE_KEYWORDS]...
-Example: search alice bob charlie
+Example: searchrole alice bob charlie
 ```
 
 ### Searching for profiles by rle: `searchtutorial`
@@ -546,10 +546,10 @@ Output profiles which match the given tutorial class.
 > Note: The input tutorial is NOT case-sensitive.
 
 ###### FORMAT:
-`search TUTORIAL`
+`searchtutorial TUTORIAL`
 
 ###### EXAMPLE COMMAND:
-`search CS2100/Tut8`
+`searchtutorial CS2100/Tut8`
 
 ###### ACCEPTABLE VALUES:
 `TUTORIAL`: A valid tutorial in the format: COURSECODE/TUTORIAL.
@@ -566,9 +566,9 @@ Example: `searchtutorial    `
 
 ```
 Invalid command format!
-search: Finds all persons whose names contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
+searchtutorial: Finds all persons whose names contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
 Parameters: KEYWORD [MORE_KEYWORDS]...
-Example: search alice bob charlie
+Example: searchtutorial alice bob charlie
 ```
 
 ### Editing a profile: `edit`
