@@ -58,6 +58,9 @@ Shows the error messages that will be shown to you if an invalid command is give
 ```
 command --specifier INPUTFIELD [--specifier INPUTFIELD1, ...] [--specifier INPUTFIELD1/SUBFIELD1-SUBFIELD2-..., ...]
 ```
+<box type="warning">
+    Note that a command is case-sensitive; in other words, "add" is different from "ADD" and "Add"; be careful not to mix them up!
+</box>
 
 ###### EXAMPLE COMMAND FORMAT
 ```
