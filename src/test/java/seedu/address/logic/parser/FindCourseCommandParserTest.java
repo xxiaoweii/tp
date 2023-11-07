@@ -1,7 +1,7 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.CommandTestUtil.*;
+import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_CHARLIE;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_COURSE_DESC;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
@@ -10,10 +10,8 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.FindCourseCommand;
-import seedu.address.logic.commands.FindRoleCommand;
 import seedu.address.model.person.Course;
 import seedu.address.model.person.CourseContainsKeywordsPredicate;
-import seedu.address.model.person.Role;
 
 public class FindCourseCommandParserTest {
 
