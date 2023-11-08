@@ -3,9 +3,12 @@ package seedu.address.logic.parser;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Set;
 
 import seedu.address.logic.commands.FindTutorialCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.person.Tutorial;
 import seedu.address.model.person.TutorialContainsKeywordsPredicate;
 
 /**
@@ -19,6 +22,7 @@ public class FindTutorialCommandParser implements Parser<FindTutorialCommand> {
      */
     public FindTutorialCommand parse(String args) throws ParseException {
         String trimmedArgs = args.trim();
+        Set<Tutorial> tutorialList = ParserUtil.parseTutorials(Collections.singleton(trimmedArgs));
         if (trimmedArgs.isEmpty()) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindTutorialCommand.MESSAGE_USAGE));

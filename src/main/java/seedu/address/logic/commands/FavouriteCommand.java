@@ -27,7 +27,6 @@ public class FavouriteCommand extends Command {
     public static final String MESSAGE_FAVOURITE_PERSON_SUCCESS = "Favourited Person: %1$s";
 
     private final Index targetIndex;
-
     public FavouriteCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
     }
@@ -48,7 +47,6 @@ public class FavouriteCommand extends Command {
         return new CommandResult(String.format(MESSAGE_FAVOURITE_PERSON_SUCCESS,
                 Messages.format(personToFavourite)));
     }
-
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -63,7 +61,6 @@ public class FavouriteCommand extends Command {
         FavouriteCommand otherFavouriteCommand = (FavouriteCommand) other;
         return targetIndex.equals(otherFavouriteCommand.targetIndex);
     }
-
     @Override
     public String toString() {
         return new ToStringBuilder(this)
