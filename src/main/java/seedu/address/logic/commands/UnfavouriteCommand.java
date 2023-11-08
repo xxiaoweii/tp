@@ -17,8 +17,14 @@ import seedu.address.model.person.Person;
  */
 public class UnfavouriteCommand extends Command {
 
+    /**
+     * Keyword to trigger the unfavourite command.
+     */
     public static final String COMMAND_WORD = "unfav";
 
+    /**
+     * Usage instructions for the 'unfav' command.
+     */
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Unfavourites the person identified by the index number used in the displayed person list. \n"
             + "Parameters: INDEX (must be a positive integer)\n"
@@ -26,12 +32,26 @@ public class UnfavouriteCommand extends Command {
 
     public static final String MESSAGE_UNFAVOURITE_PERSON_SUCCESS = "Unfavourited Person: %1$s";
 
+    /**
+     * The index of the person to be unfavourited.
+     */
     private final Index targetIndex;
 
+    /**
+     * Constructor for the UnfavouriteCommand
+     * @param targetIndex INdex of the person to be unfavourited.
+     */
     public UnfavouriteCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
     }
 
+    /**
+     * Executes the UnfavouriteCommand to remove the favourite status of a person in the address book.
+     *
+     * @param model The model this command should operate on.
+     * @return The CommandResult displaying the success message after unfavouriting a person.
+     * @throws CommandException If the index provided is invalid.
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
@@ -49,6 +69,12 @@ public class UnfavouriteCommand extends Command {
                 Messages.format(personToUnfavourite)));
     }
 
+    /**
+     * Checks equality of the UnfavouriteCommand with another object.
+     *
+     * @param other The object to compare for equality.
+     * @return True if the objects are equal, otherwise returns false.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -64,6 +90,11 @@ public class UnfavouriteCommand extends Command {
         return targetIndex.equals(otherUnfavouriteCommand.targetIndex);
     }
 
+    /**
+     * Returns a string representation of the UnfavouriteCommand.
+     *
+     * @return A string representing the UnfavouriteCommand.
+     */
     @Override
     public String toString() {
         return new ToStringBuilder(this)
