@@ -14,7 +14,7 @@ We aim to simplify the process of accessing academic information by developing a
 
 --- {.dotted .thick-1 .border-primary}
 ## Unique Selling Point
-The app helps students to consolidate important data, such as persons of professors, teaching assistants (TAs), and fellow classmates, providing students with a single platform that is compact and easy to navigate. With this application, students can save time and energy that would otherwise be spent searching for scattered and hard-to-access essential academic contacts. The app features an intuitive and user-friendly interface, making it convenient for users to quickly find the information they need.
+The app helps students to consolidate important data, such as profiles of professors, teaching assistants (TAs), and fellow classmates, providing students with a single platform that is compact and easy to navigate. With this application, students can save time and energy that would otherwise be spent searching for scattered and hard-to-access essential academic contacts. The app features an intuitive and user-friendly interface, making it convenient for users to quickly find the information they need.
 
 --- {.dotted .thick-1 .border-primary}
 
