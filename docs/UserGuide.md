@@ -22,27 +22,33 @@ The app helps students to consolidate important data, such as profiles of profes
 
 1. Ensure you have Java `11` or above installed in your Computer.
 <box type="info" header="**How do I install Java 11?**" dismissible light>
-First, let's check if Java 11 is installed already:
+    First, let's check if Java 11 is installed already:
     <tabs>
-      <tab header="**Windows**">
-      1. Press Win+R. <br>
-      2. Type "cmd" and press Enter. <br>
-      3. Type "java --version" and press Enter. <br>
-      4. If Java is <b>not</b> installed on your computer, a red error message will pop up. In that case, see below on installing Java 11. <br>
-      5. If Java is installed on your computer, some lines of white text will appear. Among these, there should be a line reading "openjdk" followed by a number, which is the version of Java. If you do not have Java 11 or later, see below on installing Java 11.
-      </tab>
-      <tab header="**Mac**">
-      1. Click the Search button on your device. <br>
-      2. Enter "Terminal" and open the app. <br>
-      3. Type "java --version" and press Enter. <br>
-      4. If Java is <b>not</b> installed on your computer, a red error message will pop up. In that case, see below on installing Java 11. <br>
-      5. If Java is installed on your computer, some lines of white text will appear. Among these, there should be a line reading "openjdk" followed by a number, which is the version of Java. If you do not have Java 11 or later, see below on installing Java 11.
-      </tab>
-      <tab header="**Linux**">
-      1. Open the terminal. <br>
-      2. Enter the command "java --version". <br>
-      3. Check if any error message appears. If there is, Java is not installed; see below on installing Java 11.
-      </tab>
+        <tab header="**Windows**">
+            <ol>
+                <li> <md> Press Win+R. </md> </li>
+                <li> <md> Type `cmd` and press Enter. </md> </li>
+                <li> <md> Type `java --version` and press Enter. </md> </li>
+                <li> <md> If Java is *not* installed on your computer, a red error message will pop up. In that case, see below on installing Java 11. </md> </li>
+                <li> <md> If Java is installed on your computer, some lines of white text will appear. Among these, there should be a line reading "openjdk" followed by a number, which is the version of Java. If you do not have Java 11 or later, see below on installing Java 11. </md> </li>
+            </ol>
+        </tab>
+        <tab header="**Mac**">
+            <ol>
+                <li> <md> Click the Search button on your device. </md> </li>
+                <li> <md> Enter "Terminal" and open the app. </md> </li>
+                <li> <md> Type `java --version` and press Enter. </md> </li>
+                <li> <md> If Java is *not* installed on your computer, a red error message will pop up. In that case, see below on installing Java 11. </md> </li>
+                <li> <md> If Java is installed on your computer, some lines of white text will appear. Among these, there should be a line reading "openjdk" followed by a number, which is the version of Java. If you do not have Java 11 or later, see below on installing Java 11. </md> </li>
+            </ol>
+        </tab>
+        <tab header="**Linux**">
+            <ol>
+                <li> <md> Open the terminal. </md> </li>
+                <li> <md> Enter the command `java --version`. </md> </li>
+                <li> <md> Check if any error message appears. If there is, Java is not installed; see below on installing Java 11. </md> </li>
+            </ol>
+        </tab>
     </tabs>
     If Java 11 is not already installed, don't panic! Follow the instructions <a href="https://www.ibm.com/docs/en/oapi/1.3.6?topic=installation-installing-java-11">here</a> to install Java 11.
 </box>
@@ -52,27 +58,33 @@ First, let's check if Java 11 is installed already:
 3. Launch the JAR file by double-clicking it.
 <box type="warning" header="Help! I can't open the JAR file!" dismissible light>
     <tabs>
-      <tab header="**Windows**">
-      1. Right-click on the JAR file in the File Explorer, and click "Properties". <br>
-      2. Copy the entire <b>file path</b>, listed under Location in the menu that appears.
-      3. Press Win+R. <br>
-      4. Type "cmd" and press Enter. <br>
-      5. Type "cd" and paste the file path copied in Step 2 by pressing Ctrl+Shift+V. <br>
-      5. Finally, type "java -jar NUSearch.jar" and press Enter.
-      </tab>
-      <tab header="**Mac**">
-      1. Locate the JAR file, and right click it. <br>
-      2. Click "Get Info". <br>
-      3. Copy the location listed under "Where:". <br>
-      4. Open the Search, enter "Terminal" and open the app. <br>
-      5. Type "cd" and paste the file path copied in Step 3. <br>
-      6. Finally, type "java -jar NUSearch.jar" and press Enter.
-      </tab>
-      <tab header="**Linux**">
-      1. Open the terminal. <br>
-      2. Enter "cd" and then the path of the directory in which the JAR file resides. <br>
-      3. Enter the command "java -jar NUSearch.jar".
-      </tab>
+        <tab header="**Windows**">
+            <ol>
+                <li> <md> Right-click on the JAR file in the File Explorer, and click "Properties". </md> </li>
+                <li> <md> Copy the entire *file path*, listed under Location in the menu that appears. </md> </li>
+                <li> <md> Press Win+R. </md> </li>
+                <li> <md> Type `cmd` and press Enter. </md> </li>
+                <li> <md> Type `cd` and paste the file path copied in Step 2 by pressing Ctrl+Shift+V. </md> </li>
+                <li> <md> Finally, type `java -jar NUSearch.jar` and press Enter. </md> </li>
+            </ol>
+        </tab>
+        <tab header="**Mac**">
+            <ol>
+                <li> <md> Locate the JAR file, and right click it. </md> </li>
+                <li> <md> Click "Get Info". </md> </li>
+                <li> <md> Copy the location listed under "Where:". </md> </li>
+                <li> <md> Open the Search, enter "Terminal" and open the app. </md> </li>
+                <li> <md> Type `cd` and paste the file path copied in Step 3. </md> </li>
+                <li> <md> Finally, type `java -jar NUSearch.jar` and press Enter. </md> </li>
+            </ol>
+        </tab>
+        <tab header="**Linux**">
+            <ol>
+                <li> <md> Open the terminal. </md> </li>
+                <li> <md> Enter `cd` and then the path of the directory in which the JAR file resides. </md> </li>
+                <li> <md> Enter the command `java -jar NUSearch.jar`. </md> </li>
+            </ol>
+        </tab>
     </tabs>
 </box>
 
@@ -720,14 +732,13 @@ Here's a mockup of how the User Interface might look: <br>
 ## FAQ
 
 <panel header="**Q**: How do I transfer my data to another Computer?">
-<b>A</b>: 
-<ol>
-<li>Install the app in the other computer.</li>
-<li>Launch the app for the first time in a new folder. (<a href="#quick-start">How?</a>) Then, close the app via "exit" command or clicking on the X button.</li>
-<li>In the folder that the app was launched, there should be sub-folder called "data".</li>
-<li>Replace the json file in that folder, with the one (in the same location) from the first computer (the data you wish to transfer).</li>
-<li>Reopen the app and the data should have been transferred!</li>
-</ol>
+
+**A**: 
+1. Install the app in the other computer.
+1. Launch the app for the first time in a new folder. (<a href="#quick-start">How?</a>) Then, close the app via `exit` command or clicking on the X button.
+1. In the folder that the app was launched, there should be sub-folder called `data`.
+1. Replace the json file in that folder, with the one (in the same location) from the first computer (the data you wish to transfer).
+1. Reopen the app and the data should have been transferred!
 </panel>
 
 
