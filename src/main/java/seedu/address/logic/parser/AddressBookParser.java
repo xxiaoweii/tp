@@ -110,6 +110,12 @@ public class AddressBookParser {
         if (commandWord.equals("list") && !arguments.equals("")) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ListCommand.MESSAGE_USAGE));
         }
+        if (commandWord.equals("clear") && !arguments.equals("")) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ClearCommand.MESSAGE_USAGE));
+        }
+        if(commandWord.equals("help") && !arguments.equals("")) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
+        }
         // Note to developers: Change the log level in config.json to enable lower-level
         // (i.e., FINE, FINER, and lower) log messages such as the one below.
         // Lower-level log messages are used sparingly to minimize noise in the code.
