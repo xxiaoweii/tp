@@ -22,7 +22,6 @@ public class FindRoleCommandParser implements Parser<FindRoleCommand> {
      */
     public FindRoleCommand parse(String args) throws ParseException {
         String trimmedArgs = args.trim();
-        Set<Role> roleList = ParserUtil.parseRoles(Collections.singleton(trimmedArgs));
         if (trimmedArgs.isEmpty()) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindRoleCommand.MESSAGE_USAGE));

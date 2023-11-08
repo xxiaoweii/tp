@@ -22,7 +22,7 @@ public class FindCourseCommandParser implements Parser<FindCourseCommand> {
      */
     public FindCourseCommand parse(String args) throws ParseException {
         String trimmedArgs = args.trim();
-        Set<Course> courseList = ParserUtil.parseCourses(Collections.singleton(trimmedArgs));
+
         if (trimmedArgs.isEmpty()) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCourseCommand.MESSAGE_USAGE));

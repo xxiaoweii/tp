@@ -22,7 +22,6 @@ public class FindTutorialCommandParser implements Parser<FindTutorialCommand> {
      */
     public FindTutorialCommand parse(String args) throws ParseException {
         String trimmedArgs = args.trim();
-        Set<Tutorial> tutorialList = ParserUtil.parseTutorials(Collections.singleton(trimmedArgs));
         if (trimmedArgs.isEmpty()) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindTutorialCommand.MESSAGE_USAGE));
