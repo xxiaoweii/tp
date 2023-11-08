@@ -551,7 +551,7 @@ Example: `searchcourse    `
 Invalid command format!
 searchcourse: Finds all persons whose courses contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
 Parameters: KEYWORD [MORE_KEYWORDS]...
-Example: searchcourse alice bob charlie
+Example: searchcourse CS2100
 ```
 
 ### Searching for profiles by role: `searchrole`
@@ -560,7 +560,9 @@ Search for profiles using role.
 
 Output profiles which match the given role.
 
-> Note: The input role is NOT case-sensitive.
+<box type="important">
+    Unlike other search commands where the input is case-insensitive, note that searchrole <b>is</b> case-sensitive. In other words, "searchrole TA" would be valid, while "searchrole ta" would not.
+</box>
 
 ###### FORMAT:
 `searchrole ROLE`
@@ -589,9 +591,9 @@ Example: `searchrole    `
 
 ```
 Invalid command format!
-searchrole: Finds all persons whose names contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
+searchrole: Finds all persons whose roles contain any of the specified keywords (case-sensitive) and displays them as a list with index numbers.
 Parameters: KEYWORD [MORE_KEYWORDS]...
-Example: searchrole alice bob charlie
+Example: searchrole TA
 ```
 
 ### Searching for profiles by tutorial: `searchtutorial`
@@ -623,9 +625,9 @@ Example: `searchtutorial    `
 
 ```
 Invalid command format!
-searchtutorial: Finds all persons whose names contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
+searchtutorial: Finds all persons whose tutorials contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
 Parameters: KEYWORD [MORE_KEYWORDS]...
-Example: searchtutorial alice bob charlie
+Example: searchtutorial CS2100/G07
 ```
 
 ### Editing a profile: `edit`
