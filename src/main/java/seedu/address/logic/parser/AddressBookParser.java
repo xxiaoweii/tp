@@ -113,7 +113,7 @@ public class AddressBookParser {
         if (commandWord.equals("clear") && !arguments.equals("")) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ClearCommand.MESSAGE_USAGE));
         }
-        if(commandWord.equals("help") && !arguments.equals("")) {
+        if (commandWord.equals("help") && !arguments.equals("")) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
         }
         // Note to developers: Change the log level in config.json to enable lower-level
