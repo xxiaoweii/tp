@@ -17,6 +17,7 @@ We aim to simplify the process of accessing academic information by developing a
 The app helps students to consolidate important data, such as profiles of professors, teaching assistants (TAs), and fellow classmates, providing students with a single platform that is compact and easy to navigate. With this application, students can save time and energy that would otherwise be spent searching for scattered and hard-to-access essential academic contacts. The app features an intuitive and user-friendly interface, making it convenient for users to quickly find the information they need.
 
 --- {.dotted .thick-1 .border-primary}
+
 ## Quick start
 
 1. Ensure you have Java `11` or above installed in your Computer.
@@ -718,8 +719,17 @@ Here's a mockup of how the User Interface might look: <br>
 
 ## FAQ
 
-**Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
+<panel header="**Q**: How do I transfer my data to another Computer?">
+<b>A</b>: 
+<ol>
+<li>Install the app in the other computer.</li>
+<li>Launch the app for the first time in a new folder. (<a href="#quick-start">How?</a>) Then, close the app via "exit" command or clicking on the X button.</li>
+<li>In the folder that the app was launched, there should be sub-folder called "data".</li>
+<li>Replace the json file in that folder, with the one (in the same location) from the first computer (the data you wish to transfer).</li>
+<li>Reopen the app and the data should have been transferred!</li>
+</ol>
+</panel>
+
 
 --- {.dotted .thick-1 .border-primary}
 
