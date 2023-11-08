@@ -27,10 +27,24 @@ public class FindTutorialCommandParser implements Parser<FindTutorialCommand> {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindTutorialCommand.MESSAGE_USAGE));
         }
 
+        if (!checkValidTutorials(trimmedArgs)) {
+            throw new ParseException(Tutorial.MESSAGE_CONSTRAINTS);
+        }
+
         String[] roleKeywords = trimmedArgs.split("\\s+");
 
         return new FindTutorialCommand(new TutorialContainsKeywordsPredicate(Arrays.asList(roleKeywords)));
     }
 
-
+    /**
+     * Returns whether the tutorials provided are valid tutorials.
+     */
+    private boolean checkValidTutorials(String args) {
+        try {
+            Set<Tutorial> tutorials = ParserUtil.parseTutorials(Collections.singleton(args));
+            return tutorials.size() > 0;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
 }
