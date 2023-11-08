@@ -6,15 +6,15 @@ pageNav: 3
 
 # NUSearch User Guide
 
-NUSearch is a **desktop app for consolidating NUS professors, teaching assistants (TAs) and students’ profiles, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a **Graphical User Interface (GUI)**. If you can type fast, NUSearch add and search for your NUS peers and mentors faster than traditional GUI apps.
+NUSearch is a **desktop app for consolidating NUS professors, teaching assistants (TAs) and students’ persons, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a **Graphical User Interface (GUI)**. If you can type fast, NUSearch add and search for your NUS peers and mentors faster than traditional GUI apps.
 
 --- {.dotted .thick-1 .border-primary}
 ## Motivation
-We aim to simplify the process of accessing academic information by developing an efficient directory app. This app will help students to consolidate professors, teaching assistants (TAs) and their fellow classmates’ profile, improving the ease of accessing the details of individuals whom the students might need to contact for that semester.
+We aim to simplify the process of accessing academic information by developing an efficient directory app. This app will help students to consolidate professors, teaching assistants (TAs) and their fellow classmates’ person, improving the ease of accessing the details of individuals whom the students might need to contact for that semester.
 
 --- {.dotted .thick-1 .border-primary}
 ## Unique Selling Point
-The app helps students to consolidate important data, such as profiles of professors, teaching assistants (TAs), and fellow classmates, providing students with a single platform that is compact and easy to navigate. With this application, students can save time and energy that would otherwise be spent searching for scattered and hard-to-access essential academic contacts. The app features an intuitive and user-friendly interface, making it convenient for users to quickly find the information they need.
+The app helps students to consolidate important data, such as persons of professors, teaching assistants (TAs), and fellow classmates, providing students with a single platform that is compact and easy to navigate. With this application, students can save time and energy that would otherwise be spent searching for scattered and hard-to-access essential academic contacts. The app features an intuitive and user-friendly interface, making it convenient for users to quickly find the information they need.
 
 --- {.dotted .thick-1 .border-primary}
 
@@ -30,14 +30,14 @@ The app helps students to consolidate important data, such as profiles of profes
             <li> <a href="#help-page-help">Help</a> </li>
             <li> <a href="#adding-a-person-add">Add a Person</a> </li>
             <li> <a href="#listing-all-persons-list">List all Persons</a> </li>
-            <li> <a href="#adding-profiles-to-favourites-fav">Favourite a Person</a> </li>
-            <li> <a href="#removing-a-profile-from-favourite-unfav">Unfavourite a Person</a> </li>
+            <li> <a href="#adding-persons-to-favourites-fav">Favourite a Person</a> </li>
+            <li> <a href="#removing-a-person-from-favourite-unfav">Unfavourite a Person</a> </li>
             <li> <a href="#listing-all-favourite-persons-favlist">List all Favourites</a> </li>
-            <li> <a href="#deleting-a-profile-delete">Delete a Person</a> </li>
-            <li> <a href="#searching-for-profiles-by-name-search">Search by Name</a> </li>
-            <li> <a href="#searching-for-profiles-by-role-searchrole">Search by Role</a> </li>
-            <li> <a href="#searching-for-profiles-by-course-searchcourse">Search by Course</a> </li>
-            <li> <a href="#searching-for-profiles-by-tutorial-searchtutorial">Search by Tutorial</a> </li>
+            <li> <a href="#deleting-a-person-delete">Delete a Person</a> </li>
+            <li> <a href="#searching-for-persons-by-name-search">Search by Name</a> </li>
+            <li> <a href="#searching-for-persons-by-role-searchrole">Search by Role</a> </li>
+            <li> <a href="#searching-for-persons-by-course-searchcourse">Search by Course</a> </li>
+            <li> <a href="#searching-for-persons-by-tutorial-searchtutorial">Search by Tutorial</a> </li>
             <li> <a href="#exiting-the-application-exit">Exit the Application</a> </li>
         </ol>
         <li> <a href="#faq">Frequently Asked Questions</a> </li>
@@ -213,12 +213,12 @@ Quick Guide:
 Adding a person: add --name NAME [--role ROLE1, ...]  
 [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]
 Listing all persons: list
-Deleting a profile: delete INDEX
+Deleting a person: delete INDEX
 Search by name: search NAME
 Search by role: searchrole ROLE
 Search by course: searchcourse COURSE
 Search by tutorial class: searchtutorial TUTORIAL
-Adding profiles to favourites: fav INDEX
+Adding persons to favourites: fav INDEX
 Refer to the User Guide for the detailed implementation.
 ```
 A help window will pop out as shown: [Help Window](./images/HelpWindow.png)
@@ -235,7 +235,7 @@ Any other command word such as `h`, `he` and `hel` will be seen as an invalid co
 
 ### Adding a person: `add`
 
-Adds new profiles in the profile lists.
+Adds new persons in the person lists.
 
 ###### FORMAT:
 `add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...] `
@@ -295,7 +295,7 @@ Example 3:
 Example 1:
 
 ```
-You have added a new profile in : 
+You have added a new person in : 
  Name: Aiken Dueet; Role: Student; Contacts: [@aikendueet], 
  [aikendueet@gmail.com]; Courses: CS2103T, CS2100; 
  Tutorials: CS2103T/Tut8, CS2100/Lab40-Tut30
@@ -304,7 +304,7 @@ You have added a new profile in :
 Example 2:
 
 ```
-You have added a new profile in :
+You have added a new person in :
  Name: Charlie Dueet; Role: Student, TA; Contacts: [@charliee]; 
  Courses: CS2103T, CS2101, CS2100; Tutorials: 
 ```
@@ -312,7 +312,7 @@ You have added a new profile in :
 Example 3:
 
 ```
-You have added a new profile in :
+You have added a new person in :
 Name: Daycon Dueet; Role: ; Contact: ; Course: ; Tutorials: 
 ```
 
@@ -361,7 +361,7 @@ Example: `add --name Charlie --role TA --course CS2100/         F09`
 
 ### Listing all persons : `list`
 
-List all the profiles added by the user.
+List all the persons added by the user.
 
 ###### FORMAT:
 `list`
@@ -374,7 +374,7 @@ This command does not accept any parameters.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
-You have 1 profile in your list: 
+You have 1 person in your list: 
 Name: Aiken Dueet  
 Role: STUDENT
 Contact: @aikendueet, aikendueet@gmail.com
@@ -392,9 +392,9 @@ Any other command word such as `l`, `li` and `lis` will be seen as an invalid co
 
 <div style="page-break-after: always;"></div>
 
-### Adding profiles to favourites: `fav`
+### Adding persons to favourites: `fav`
 
-Favourite the profiles in the user’s current profile list.
+Favourite the persons in the user’s current person list.
 
 ###### FORMAT:
 `fav INDEX`
@@ -404,11 +404,11 @@ Favourite the profiles in the user’s current profile list.
 
 ###### ACCEPTABLE VALUES:
 `INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
-less than or equal to the number of profiles the user currently has.
+less than or equal to the number of persons the user currently has.
 
 > 📝Note:
 >
-> INDEX refers to the index of the profile allocated to the specific profile in the current profile list.
+> INDEX refers to the index of the person allocated to the specific person in the current person list.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
@@ -431,15 +431,15 @@ Example: fav 1
 
 **For index out of bound:**
 
-Example: `fav 100` [Assuming the address book currently contains 10 profiles]
+Example: `fav 100` [Assuming the address book currently contains 10 persons]
 
 `The person index provided is invalid`
 
 <div style="page-break-after: always;"></div>
 
-### Removing a profile from favourite: `unfav`
+### Removing a person from favourite: `unfav`
 
-Un-favourite a favourite profile
+Un-favourite a favourite person
 
 ###### FORMAT:
 `unfav INDEX`
@@ -449,11 +449,11 @@ Un-favourite a favourite profile
 
 ###### ACCEPTABLE VALUES:
 `INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
-less than or equal to the number of profiles the user currently has.
+less than or equal to the number of persons the user currently has.
 
 > 📝Note:
 >
-> INDEX refers to the index of the profile allocated to the specific profile in the current profile list.
+> INDEX refers to the index of the person allocated to the specific person in the current person list.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
@@ -476,7 +476,7 @@ Example: unfav 1
 
 **For index out of bound:**
 
-Example: `unfav 100` [Assuming the address book currently contains 10 profiles]
+Example: `unfav 100` [Assuming the address book currently contains 10 persons]
 
 `The person index provided is invalid`
 
@@ -485,7 +485,7 @@ Example: `unfav 100` [Assuming the address book currently contains 10 profiles]
 
 ### Listing all favourite persons : `favlist`
 
-List all the profiles favourited by the user.
+List all the persons favourited by the user.
 
 ###### FORMAT:
 `favlist`
@@ -498,7 +498,7 @@ This command does not accept any parameters.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
-You have 1 favourited profile in your list. 
+You have 1 favourited person in your list. 
 Name: Aiken Dueet  
 Role: STUDENT
 Contact: @aikendueet, aikendueet@gmail.com
@@ -515,9 +515,9 @@ Any other command word such as `favl`, `favli` and `favlis` will be seen as an i
 
 <div style="page-break-after: always;"></div>
 
-### Deleting a profile : `delete`
+### Deleting a person : `delete`
 
-Delete the specific profile based on the index allocated to the profile.
+Delete the specific person based on the index allocated to the person.
 
 ###### FORMAT:
 `delete INDEX`
@@ -527,7 +527,7 @@ Delete the specific profile based on the index allocated to the profile.
 
 ###### ACCEPTABLE VALUES:
 `INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
-less than or equal to the number of profiles the user currently has.
+less than or equal to the number of persons the user currently has.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
@@ -551,17 +551,17 @@ Example: delete 1
 
 **For out of bound index:**
 
-Example: `delete 100` [Assuming the address book currently contains 10 profiles]
+Example: `delete 100` [Assuming the address book currently contains 10 persons]
 
 `The person index provided is invalid`
 
 <div style="page-break-after: always;"></div>
 
-### Searching for profiles by name: `search`
+### Searching for persons by name: `search`
 
-Search for profiles using name.
+Search for persons using name.
 
-Output profiles which match the given name.
+Output persons which match the given name.
 
 > Note: The input name is NOT case-sensitive.
 
@@ -594,11 +594,11 @@ Example: search alice bob charlie
 
 <div style="page-break-after: always;"></div>
 
-### Searching for profiles by role: `searchrole`
+### Searching for persons by role: `searchrole`
 
-Search for profiles using role.
+Search for persons using role.
 
-Output profiles which match the given role.
+Output persons which match the given role.
 
 <box type="important">
     Unlike other search commands where the input is case-insensitive, note that searchrole <b>is</b> case-sensitive. In other words, "searchrole TA" would be valid, while "searchrole ta" would not.
@@ -639,11 +639,11 @@ Example: searchrole TA
 
 <div style="page-break-after: always;"></div>
 
-### Searching for profiles by course: `searchcourse`
+### Searching for persons by course: `searchcourse`
 
-Search for profiles using course.
+Search for persons using course.
 
-Output profiles which match the given course.
+Output persons which match the given course.
 
 > Note: The input course is NOT case-sensitive.
 
@@ -681,11 +681,11 @@ Example: searchcourse CS2100
 
 <div style="page-break-after: always;"></div>
 
-### Searching for profiles by tutorial: `searchtutorial`
+### Searching for persons by tutorial: `searchtutorial`
 
-Search for profiles using tutorial class.
+Search for persons using tutorial class.
 
-Output profiles which match the given tutorial class.
+Output persons which match the given tutorial class.
 
 > Note: The input tutorial is NOT case-sensitive.
 
