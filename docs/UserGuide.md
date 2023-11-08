@@ -6,11 +6,11 @@ pageNav: 3
 
 # NUSearch User Guide
 
-NUSearch is a **desktop app for consolidating NUS professors, teaching assistants (TAs) and students’ persons, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a **Graphical User Interface (GUI)**. If you can type fast, NUSearch add and search for your NUS peers and mentors faster than traditional GUI apps.
+NUSearch is a **desktop app for consolidating NUS professors, teaching assistants (TAs) and students’ profiles, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a **Graphical User Interface (GUI)**. If you can type fast, NUSearch add and search for your NUS peers and mentors faster than traditional GUI apps.
 
 --- {.dotted .thick-1 .border-primary}
 ## Motivation
-We aim to simplify the process of accessing academic information by developing an efficient directory app. This app will help students to consolidate professors, teaching assistants (TAs) and their fellow classmates’ person, improving the ease of accessing the details of individuals whom the students might need to contact for that semester.
+We aim to simplify the process of accessing academic information by developing an efficient directory app. This app will help students to consolidate professors, teaching assistants (TAs) and their fellow classmates’ profile, improving the ease of accessing the details of individuals whom the students might need to contact for that semester.
 
 --- {.dotted .thick-1 .border-primary}
 ## Unique Selling Point
