@@ -17,15 +17,117 @@ We aim to simplify the process of accessing academic information by developing a
 The app helps students to consolidate important data, such as profiles of professors, teaching assistants (TAs), and fellow classmates, providing students with a single platform that is compact and easy to navigate. With this application, students can save time and energy that would otherwise be spent searching for scattered and hard-to-access essential academic contacts. The app features an intuitive and user-friendly interface, making it convenient for users to quickly find the information they need.
 
 --- {.dotted .thick-1 .border-primary}
-## Quick start
 
-1. Ensure you have Java `11` or above installed in your Computer.
+<div style="page-break-after: always;"></div>
 
-2. to be added
-
-3. Refer to the [Features](#features) below for details of each command.
+## Table of Contents
+<box>
+    <ol>
+        <li> <a href="#table-of-contents">Table of Contents</a> </li>
+        <li> <a href="#quick-start">Quick Start</a> </li>
+        <li> <a href="#features">Features</a> </li>
+        <ol>
+            <li> <a href="#help-page-help">Help</a> </li>
+            <li> <a href="#adding-a-person-add">Add a Person</a> </li>
+            <li> <a href="#listing-all-persons-list">List all Persons</a> </li>
+            <li> <a href="#adding-profiles-to-favourites-fav">Favourite a Person</a> </li>
+            <li> <a href="#removing-a-profile-from-favourite-unfav">Unfavourite a Person</a> </li>
+            <li> <a href="#listing-all-favourite-persons-favlist">List all Favourites</a> </li>
+            <li> <a href="#deleting-a-profile-delete">Delete a Person</a> </li>
+            <li> <a href="#searching-for-profiles-by-name-search">Search by Name</a> </li>
+            <li> <a href="#searching-for-profiles-by-role-searchrole">Search by Role</a> </li>
+            <li> <a href="#searching-for-profiles-by-course-searchcourse">Search by Course</a> </li>
+            <li> <a href="#searching-for-profiles-by-tutorial-searchtutorial">Search by Tutorial</a> </li>
+            <li> <a href="#exiting-the-application-exit">Exit the Application</a> </li>
+        </ol>
+        <li> <a href="#faq">Frequently Asked Questions</a> </li>
+        <li> <a href="#known-issues">Known Issues</a> </li>
+        <li> <a href="#command-summary">Command Summary</a> </li>
+    </ol>
+</box>
 
 --- {.dotted .thick-1 .border-primary}
+
+<div style="page-break-after: always;"></div>
+
+## Quick Start
+
+1. Ensure you have Java 11 or above installed on your Computer.
+<box type="info" header="**How do I install Java 11?**" dismissible light>
+    First, let's check if Java 11 is installed already:
+    <tabs>
+        <tab header="**Windows**">
+            <ol>
+                <li> <md> Press Win+R. </md> </li>
+                <li> <md> Type `cmd` and press Enter. </md> </li>
+                <li> <md> Type `java --version` and press Enter. </md> </li>
+                <li> <md> If Java is *not* installed on your computer, a red error message will pop up. In that case, see below on installing Java 11. </md> </li>
+                <li> <md> If Java is installed on your computer, some lines of white text will appear. Among these, there should be a line reading `openjdk` followed by a number, which is the version of Java. If you do not have Java 11 or later, see below on installing Java 11. </md> </li>
+            </ol>
+        </tab>
+        <tab header="**Mac**">
+            <ol>
+                <li> <md> Click the Search button on your device. </md> </li>
+                <li> <md> Enter "Terminal" and open the app. </md> </li>
+                <li> <md> Type `java --version` and press Enter. </md> </li>
+                <li> <md> If Java is *not* installed on your computer, a red error message will pop up. In that case, see below on installing Java 11. </md> </li>
+                <li> <md> If Java is installed on your computer, some lines of white text will appear. Among these, there should be a line reading `openjdk` followed by a number, which is the version of Java. If you do not have Java 11 or later, see below on installing Java 11. </md> </li>
+            </ol>
+        </tab>
+        <tab header="**Linux**">
+            <ol>
+                <li> <md> Open the terminal. </md> </li>
+                <li> <md> Enter the command `java --version`. </md> </li>
+                <li> <md> Check if any error message appears. If there is, Java is not installed; see below on installing Java 11. </md> </li>
+            </ol>
+        </tab>
+    </tabs>
+    If Java 11 is not already installed, don't panic! Follow the instructions <a href="https://www.ibm.com/docs/en/oapi/1.3.6?topic=installation-installing-java-11">here</a> to install Java 11.
+</box>
+
+2. Make sure you place this app's JAR file in an empty folder before launching it for the first time.
+
+3. Launch the JAR file by double-clicking it.
+<box type="warning" header="Help! I can't open the JAR file!" dismissible light>
+    If double clicking the JAR file to open it doesn't work, try the following steps:
+    <tabs>
+        <tab header="**Windows**">
+            <ol>
+                <li> <md> Right-click on the JAR file in the File Explorer, and click "Properties". </md> </li>
+                <li> <md> Copy the entire *file path*, listed under Location in the menu that appears. </md> </li>
+                <li> <md> Press Win+R. </md> </li>
+                <li> <md> Type `cmd` and press Enter. </md> </li>
+                <li> <md> Type `cd` and paste the file path copied in Step 2 by pressing Ctrl+Shift+V. </md> </li>
+                <li> <md> Finally, type `java -jar NUSearch.jar` and press Enter. </md> </li>
+            </ol>
+        </tab>
+        <tab header="**Mac**">
+            <ol>
+                <li> <md> Locate the JAR file, and right click it. </md> </li>
+                <li> <md> Click "Get Info". </md> </li>
+                <li> <md> Copy the location listed under "Where:". </md> </li>
+                <li> <md> Open the Search, enter "Terminal" and open the app. </md> </li>
+                <li> <md> Type `cd` and paste the file path copied in Step 3. </md> </li>
+                <li> <md> Finally, type `java -jar NUSearch.jar` and press Enter. </md> </li>
+            </ol>
+        </tab>
+        <tab header="**Linux**">
+            <ol>
+                <li> <md> Open the terminal. </md> </li>
+                <li> <md> Enter `cd` and then the path of the directory in which the JAR file resides. </md> </li>
+                <li> <md> Enter the command `java -jar NUSearch.jar`. </md> </li>
+            </ol>
+        </tab>
+    </tabs>
+</box>
+
+4. The application should launch, resembling the UI shown in the Home page.
+
+5. Refer to the [Features](#features) below for details of each command.
+
+--- {.dotted .thick-1 .border-primary}
+
+<div style="page-break-after: always;"></div>
 
 ## Features
 
@@ -56,12 +158,17 @@ Shows the error messages that will be shown to you if an invalid command is give
 
 ###### COMMAND FORMAT
 ```
-command --specifier INPUTFIELD [--specifier INPUTFIELD1, ...] [--specifier INPUTFIELD1/SUBFIELD1-SUBFIELD2-..., ...]
+command --specifier INPUTFIELD [--specifier INPUTFIELD1, ...] 
+[--specifier INPUTFIELD1/SUBFIELD1-SUBFIELD2-..., ...]
 ```
+<box type="warning">
+    Note that a command is case-sensitive; in other words, "add" is different from "ADD" and "Add"; be careful not to mix them up!
+</box>
 
 ###### EXAMPLE COMMAND FORMAT
 ```
-add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...] 
+add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] 
+[--course COURSECODE1/CLASS1-CLASS2-..., ...] 
 ```
 
 | Command Types |          Examples           | What they mean                                                                                              |
@@ -84,6 +191,7 @@ add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSEC
 | `--contact` | The contact details of the person you are adding |
 | `--course`  | The course the person is taking                  |
 
+<div style="page-break-after: always;"></div>
 
 ### Help page: `help`
 
@@ -102,16 +210,14 @@ This command does not accept any parameters
 
 ```
 Quick Guide: 
-Adding a person: add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]
+Adding a person: add --name NAME [--role ROLE1, ...]  
+[--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]
 Listing all persons: list
 Deleting a profile: delete INDEX
 Search by name: search NAME
-Search by role: search ROLE
-Search by course: search COURSE
-Search by tutorial class: search TUTORIAL
-Edit current profile by deleting current information: edit --delete
-Edit current profile by adding new information: edit --add
-Edit current profile by changing current information: edit --change
+Search by role: searchrole ROLE
+Search by course: searchcourse COURSE
+Search by tutorial class: searchtutorial TUTORIAL
 Adding profiles to favourites: fav INDEX
 Refer to the User Guide for the detailed implementation.
 ```
@@ -125,6 +231,8 @@ Any other command word such as `h`, `he` and `hel` will be seen as an invalid co
 
 `Unknown command`
 
+<div style="page-break-after: always;"></div>
+
 ### Adding a person: `add`
 
 Adds new profiles in the profile lists.
@@ -132,28 +240,26 @@ Adds new profiles in the profile lists.
 ###### FORMAT:
 `add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...] `
 
-<box type="tip" seamless>
+<box type="tip" dismissible light>
 
 **Tip:**
 
--The input for role is case-sensitive
+- The input for role is **case-sensitive**.
 
--Contacts can be any type of contact: email address, telegram handle, phone number, etc.
+- Contacts can be any type of contact: email address, telegram handle, phone number, etc.
 
--Courses can be any of the courses offered by NUS
+- Courses can be any of the courses offered by NUS.
 
--Courses can be added without the tutorial classes but tutorial classes must be added with a course 
-(see Example 2 below for more details)
+- Courses can be added without the tutorial classes but tutorial classes must be added with a course
+(see Example 2 below for more details).
 
 > 📝Note:
 >
-> Please use a comma (,) to separate the different roles, contacts and courses
+> Please use a comma (`,`) to separate the different roles, contacts and courses.
 
--The different fields are colour-coded to differentiate between them.
+- The different fields are colour-coded to differentiate between them.
 
--The user can press tab to auto fill commands.
-
--The square brackets, [ ], are not needed when entering the command (see Example 3 below for more details)
+- The square brackets, `[ ]`, are not needed when entering the command (see Example 3 below for more details).
 
 </box>
 
@@ -190,14 +296,17 @@ Example 1:
 
 ```
 You have added a new profile in : 
- Name: Aiken Dueet; Role: Student; Contacts: [@aikendueet], [aikendueet@gmail.com]; Courses: CS2103T, CS2100; Tutorials: CS2103T/Tut8, CS2100/Lab40-Tut30
+ Name: Aiken Dueet; Role: Student; Contacts: [@aikendueet], 
+ [aikendueet@gmail.com]; Courses: CS2103T, CS2100; 
+ Tutorials: CS2103T/Tut8, CS2100/Lab40-Tut30
 ```
 
 Example 2:
 
 ```
 You have added a new profile in :
- Name: Charlie Dueet; Role: Student, TA; Contacts: [@charliee]; Courses: CS2103T, CS2101, CS2100; Tutorials: 
+ Name: Charlie Dueet; Role: Student, TA; Contacts: [@charliee]; 
+ Courses: CS2103T, CS2101, CS2100; Tutorials: 
 ```
 
 Example 3:
@@ -216,8 +325,11 @@ Example: `add --`
 ```
 Invalid command format! 
 add: Adds a person to the address book. 
-Parameters: --name NAME  [--role ROLE1,...] [--contact CONTACT1, ...]  [--course COURSECODE1/CLASS1-CLASS2-..., ...]
-Example: add --name John --role Developer, Designer --contact johnd@example.com, 98765432 --course CS2103T/G06, CS2101/G06, CS2100/T24-Lab36
+Parameters: --name NAME  [--role ROLE1,...] [--contact CONTACT1, ...]  
+[--course COURSECODE1/CLASS1-CLASS2-..., ...]
+Example: add --name John --role Developer, Designer 
+--contact johnd@example.com, 98765432
+--course CS2103T/G06, CS2101/G06, CS2100/T24-Lab36
 ```
 
 **For wrong format:**
@@ -244,6 +356,8 @@ Example: `add --name Charlie --role TA --course CS2100/         F09`
 
 `Tutorials should be written in the format COURSECODE/TUTORIAL`
 
+
+<div style="page-break-after: always;"></div>
 
 ### Listing all persons : `list`
 
@@ -276,6 +390,8 @@ Any other command word such as `l`, `li` and `lis` will be seen as an invalid co
 `Unknown command`
 
 
+<div style="page-break-after: always;"></div>
+
 ### Adding profiles to favourites: `fav`
 
 Favourite the profiles in the user’s current profile list.
@@ -296,7 +412,8 @@ less than or equal to the number of profiles the user currently has.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
-Favourited Person: Name: Alex Yeoh; Role: Student; Contacts: [alexyeoh@example.com]; Courses: CS1101; Tutorials: CS1101/T03E
+Favourited Person: Name: Alex Yeoh; Role: Student; 
+Contacts: [alexyeoh@example.com]; Courses: CS1101; Tutorials: CS1101/T03E
 ```
 
 ###### EXPECTED OUTPUT ON FAILURE:
@@ -306,7 +423,8 @@ Example `fav -1`
 
 ```
 Invalid command format! 
-fav: Favourites the person identified by the index number used in the displayed person list. 
+fav: Favourites the person identified by the index number used in the 
+displayed person list. 
 Parameters: INDEX (must be a positive integer)
 Example: fav 1
  ```
@@ -316,6 +434,8 @@ Example: fav 1
 Example: `fav 100` [Assuming the address book currently contains 10 profiles]
 
 `The person index provided is invalid`
+
+<div style="page-break-after: always;"></div>
 
 ### Removing a profile from favourite: `unfav`
 
@@ -337,7 +457,8 @@ less than or equal to the number of profiles the user currently has.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
-Unfavourited Person: Name: Alex Yeoh; Role: Student; Contacts: [alexyeoh@example.com]; Courses: CS1101; Tutorials: CS1101/T03E
+Unfavourited Person: Name: Alex Yeoh; Role: Student; 
+Contacts: [alexyeoh@example.com]; Courses: CS1101; Tutorials: CS1101/T03E
 ```
 
 ###### EXPECTED OUTPUT ON FAILURE:
@@ -347,7 +468,8 @@ Example `unfav -1`
 
 ```
 Invalid command format! 
-unfav: Unfavourites the person identified by the index number used in the displayed person list. 
+unfav: Unfavourites the person identified by the index number used in the 
+displayed person list. 
 Parameters: INDEX (must be a positive integer)
 Example: unfav 1
  ```
@@ -358,6 +480,8 @@ Example: `unfav 100` [Assuming the address book currently contains 10 profiles]
 
 `The person index provided is invalid`
 
+
+<div style="page-break-after: always;"></div>
 
 ### Listing all favourite persons : `favlist`
 
@@ -389,6 +513,8 @@ Any other command word such as `favl`, `favli` and `favlis` will be seen as an i
 
 `Unknown command`
 
+<div style="page-break-after: always;"></div>
+
 ### Deleting a profile : `delete`
 
 Delete the specific profile based on the index allocated to the profile.
@@ -405,7 +531,9 @@ less than or equal to the number of profiles the user currently has.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
-Deleted person: Deleted Person: Name: Aiken Dueet; Role: Student; Contacts: [@aikendueet], [aikendueet@gmail.com]; Courses: CS2103T; Tutorials: CS2103T/Tut8
+Deleted person: Deleted Person: Name: Aiken Dueet; Role: Student; 
+Contacts: [@aikendueet], [aikendueet@gmail.com]; 
+Courses: CS2103T; Tutorials: CS2103T/Tut8
 ```
 
 ###### EXPECTED OUTPUT ON FAILURE:
@@ -415,7 +543,8 @@ Example: `delete -1`
 
 ```
 Invalid command format! 
-delete: Deletes the person identified by the index number used in the displayed person list.
+delete: Deletes the person identified by the index number used in the 
+displayed person list.
 Parameters: INDEX (must be a positive integer)
 Example: delete 1
 ```
@@ -425,6 +554,8 @@ Example: delete 1
 Example: `delete 100` [Assuming the address book currently contains 10 profiles]
 
 `The person index provided is invalid`
+
+<div style="page-break-after: always;"></div>
 
 ### Searching for profiles by name: `search`
 
@@ -455,61 +586,29 @@ Example: `search   `
 
 ```
 Invalid command format!
-search: Finds all persons whose names contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
+search: Finds all persons whose names contain any of the specified keywords 
+(case-insensitive) and displays them as a list with index numbers.
 Parameters: KEYWORD [MORE_KEYWORDS]...
 Example: search alice bob charlie
 ```
 
-### Searching for profiles by course: `searchcourse`
+<div style="page-break-after: always;"></div>
 
-Search for profiles using course.
-
-Output profiles which match the given course.
-
-> Note: The input course is NOT case-sensitive.
-
-###### FORMAT:
-`search COURSECODE`
-
-###### EXAMPLE COMMAND:
-`search CS2100`
-
-###### ACCEPTABLE VALUES:
-`COURSECODE`: A valid course code that fulfills the following criteria (not case-sensitive):
-1. Starts with two- or three-letter prefix
-2. Follows by four digits, first of which indicates the level of the course
-3. Can end with a letter
-
-###### EXPECTED OUTPUT ON SUCCESS:
-```
-1 persons found!
-```
-
-###### EXPECTED OUTPUT ON FAILURE:
-**For incomplete command:**
-
-Example: `searchcourse    `
-
-```
-Invalid command format!
-search: Finds all persons whose names contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
-Parameters: KEYWORD [MORE_KEYWORDS]...
-Example: search alice bob charlie
-```
-
-### Searching for profiles by rle: `searchrole`
+### Searching for profiles by role: `searchrole`
 
 Search for profiles using role.
 
 Output profiles which match the given role.
 
-> Note: The input role is NOT case-sensitive.
+<box type="important">
+    Unlike other search commands where the input is case-insensitive, note that searchrole <b>is</b> case-sensitive. In other words, "searchrole TA" would be valid, while "searchrole ta" would not.
+</box>
 
 ###### FORMAT:
-`search ROLE`
+`searchrole ROLE`
 
 ###### EXAMPLE COMMAND:
-`search TA`
+`searchrole TA`
 
 ###### ACCEPTABLE VALUES:
 `ROLE`:
@@ -532,12 +631,57 @@ Example: `searchrole    `
 
 ```
 Invalid command format!
-search: Finds all persons whose names contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
+searchrole: Finds all persons whose roles contain any of the specified keywords 
+(case-sensitive) and displays them as a list with index numbers.
 Parameters: KEYWORD [MORE_KEYWORDS]...
-Example: search alice bob charlie
+Example: searchrole TA
 ```
 
-### Searching for profiles by rle: `searchtutorial`
+<div style="page-break-after: always;"></div>
+
+### Searching for profiles by course: `searchcourse`
+
+Search for profiles using course.
+
+Output profiles which match the given course.
+
+> Note: The input course is NOT case-sensitive.
+
+###### FORMAT:
+`searchcourse COURSECODE`
+
+###### EXAMPLE COMMAND:
+`searchcourse CS2100`
+
+###### ACCEPTABLE VALUES:
+`COURSECODE`: A valid course code that fulfills the following criteria (not case-sensitive):
+1. Starts with two- or three-letter prefix
+2. Follows by four digits, first of which indicates the level of the course
+3. Can end with a letter
+
+###### EXPECTED OUTPUT ON SUCCESS:
+```
+1 persons found!
+```
+
+###### EXPECTED OUTPUT ON FAILURE:
+**For incomplete command:**
+
+Example: `searchcourse    `
+
+```
+Invalid command format!
+searchcourse: Finds all persons whose courses contain any of the 
+specified keywords (case-insensitive) and displays them as a list 
+with index numbers.
+Parameters: KEYWORD [MORE_KEYWORDS]...
+Example: searchcourse CS2100
+```
+
+
+<div style="page-break-after: always;"></div>
+
+### Searching for profiles by tutorial: `searchtutorial`
 
 Search for profiles using tutorial class.
 
@@ -546,10 +690,10 @@ Output profiles which match the given tutorial class.
 > Note: The input tutorial is NOT case-sensitive.
 
 ###### FORMAT:
-`search TUTORIAL`
+`searchtutorial TUTORIAL`
 
 ###### EXAMPLE COMMAND:
-`search CS2100/Tut8`
+`searchtutorial CS2100/Tut8`
 
 ###### ACCEPTABLE VALUES:
 `TUTORIAL`: A valid tutorial in the format: COURSECODE/TUTORIAL.
@@ -566,54 +710,14 @@ Example: `searchtutorial    `
 
 ```
 Invalid command format!
-search: Finds all persons whose names contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
+searchtutorial: Finds all persons whose tutorials contain any of the 
+specified keywords (case-insensitive) and displays them as a list 
+with index numbers.
 Parameters: KEYWORD [MORE_KEYWORDS]...
-Example: search alice bob charlie
+Example: searchtutorial CS2100/G07
 ```
 
-### Editing a profile: `edit`
-
-Edits all fields in the current profile
-
-###### FORMAT:
-`edit INDEX [--name NAME] [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]`
-
-###### EXAMPLE COMMAND:
-`edit 1 --name Aiken Dueet --role Student --contact @aikenduee --course CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30`
-
-###### ACCEPTABLE VALUES:
-`INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …), less than or equal to the number of profiles the user currently has.
-
-`NAME`: Any non-empty input of alphabetical characters.
-
-`ROLE`: Any three roles allowed here: Student, TA, Professor.
-
-`CONTACT`: Any non-empty input of characters.
-
-`COURSECODE`: Any non-empty input of characters.
-
-###### EXPECTED OUTPUT ON SUCCESS:
-```
-You have edited person 1 in the profile to: 
- Name: Aiken Dueet; Role: Student; Contacts: [@aikendueet]; Courses: CS2103T, CS2101, CS2100; Tutorials: CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30
- ```
-
-###### EXPECTED OUTPUT ON FAILURE:
-**For invalid index:**
-
-Example `edit -1`
-```
-Invalid command format!
-edit: Edits the person identified by the index number used in the displayed person list.
-Parameters: INDEX [--name NAME] [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]
-Example: edit 1 --name John --role Student
-```
-
-**For index out of bound:**
-
-Example: `edit 100` [Assuming the address book currently contains 10 profiles]
-
-`The person index provided is invalid`
+<div style="page-break-after: always;"></div>
 
 ### Exiting the application: `exit`
 
@@ -640,6 +744,8 @@ Any other command word such as `e`, `ex` and `exi` will be seen as an invalid co
 
 `Unknown command`
 
+<div style="page-break-after: always;"></div>
+
 ### Autocomplete
 What if you needed to quickly write a command? Well, Autocomplete feature is here to save you!
 
@@ -653,14 +759,24 @@ For example, pressing `f` and then `<Tab>` will let the program automatically su
 
 Here's a mockup of how the User Interface might look: <br>
 
-![NUSearch UI Mockup](./images/Ui.png)
+<img src="./images/Ui.png" width="100%" >
 
 --- {.dotted .thick-1 .border-primary}
 
+<div style="page-break-after: always;"></div>
+
 ## FAQ
 
-**Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
+<panel header="**Q**: How do I transfer my data to another Computer?">
+
+**A**: 
+1. Install the app in the other computer.
+1. Launch the app for the first time in a new folder. (<a href="#quick-start">How?</a>) Then, close the app via `exit` command or clicking on the X button.
+1. In the folder that the app was launched, there should be sub-folder called `data`.
+1. Replace the json file in that folder, with the one (in the same location) from the first computer (the data you wish to transfer).
+1. Reopen the app and the data should have been transferred!
+</panel>
+
 
 --- {.dotted .thick-1 .border-primary}
 
@@ -670,16 +786,21 @@ Here's a mockup of how the User Interface might look: <br>
 
 --- {.dotted .thick-1 .border-primary}
 
+<div style="page-break-after: always;"></div>
+
 ## Command summary
 
 |     Action     | Format                                                                                                          | Example                                                                                                                                   |
 |:--------------:|-----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 |    **Help**    | `help`                                                                                                          | `help`                                                                                                                                    |                                                                                                                                  
-|    **Add**     | `add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]`  | `add --name Aiken Dueet --role STUDENT --contact @aikendueet, aikendueet@gmail.com --course CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30` |
+|    **Add**     | `add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]`  | `add --name Aiken Dueet --role Student --contact @aikendueet, aikendueet@gmail.com --course CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30` |
 |    **List**    | `list`                                                                                                          | `list`                                                                                                                                    |
 |   **Delete**   | `delete INDEX`                                                                                                  | `delete 3`                                                                                                                                |
-|   **Search**   | `find KEYWORD`                                                                                                  | `find CS2100`                                                                                                                             | 
+|   **Search by Name**   | `search KEYWORD`                                                                                                  | `search Alex`                                                                                                                             |
+|   **Search by Role**   | `searchrole KEYWORD`                                                                                                  | `searchrole TA`                                                                                                                             |
+|   **Search by Course**   | `searchcourse KEYWORD`                                                                                                  | `searchcourse CS2100`                                                                                                                             |
+|   **Search by Tutorial**   | `searchtutorial KEYWORD`                                                                                                  | `searchtutorial CS2100/G06`                                                                                                                             |
 | **Favourite**  | `fav INDEX`                                                                                                     | `fav 1`                                                                                                                                   |
+| **Unfavourite**  | `unfav INDEX`                                                                                                     | `unfav 1`                                                                                                                                   |
 |    **Exit**    | `exit`                                                                                                          | `exit`                                                                                                                                    | 
-
-
+<scroll-top-button><scroll-top-button/>
