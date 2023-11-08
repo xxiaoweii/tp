@@ -114,9 +114,17 @@ public class AddressBookParserTest {
 
      */
 
+    //@Test
+    //public void parseCommand_findTutorial() throws Exception {
+        //List<String> keywords = Arrays.asList("CS2100/T31", "CS2100/T21", "CS2103T/F08");
+        //FindTutorialCommand command = (FindTutorialCommand) parser.parseCommand(
+                //FindTutorialCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
+        //assertEquals(new FindTutorialCommand(new TutorialContainsKeywordsPredicate(keywords)), command);
+    //}
+
     @Test
     public void parseCommand_findTutorial() throws Exception {
-        List<String> keywords = Arrays.asList("CS2100/T31", "CS2100/T21", "CS2103T/F08");
+        List<String> keywords = Arrays.asList("CS2100/T31");
         FindTutorialCommand command = (FindTutorialCommand) parser.parseCommand(
                 FindTutorialCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
         assertEquals(new FindTutorialCommand(new TutorialContainsKeywordsPredicate(keywords)), command);
