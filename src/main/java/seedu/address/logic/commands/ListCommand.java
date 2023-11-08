@@ -27,6 +27,10 @@ public class ListCommand extends Command {
      * Keyword to trigger the 'list' command.
      */
     public static final String COMMAND_WORD = "list";
+
+    /**
+     * Usage instructions for the 'list' command.
+     */
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Display all the users stored\n"
             + "Example: " + COMMAND_WORD;
     private static final String enter = "\n   ";

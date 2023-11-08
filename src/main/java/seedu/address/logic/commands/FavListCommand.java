@@ -24,6 +24,12 @@ public class FavListCommand extends Command {
     public static final String COMMAND_WORD = "favlist";
 
     /**
+     * Usage instructions for the 'favlist' command.
+     */
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Display all the users stored\n"
+            + "Example: " + COMMAND_WORD;
+
+    /**
      * Executes the command to list all favorite persons in the address book.
      *
      * @param model The current model.
