@@ -20,6 +20,8 @@ import seedu.address.model.person.Tutorial;
 public class ListCommand extends Command {
     public static final String MESSAGE_SUCCESS = "You have 0 profile in your list\n";
     public static final String COMMAND_WORD = "list";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Display all the users stored\n"
+            + "Example: " + COMMAND_WORD;
     private static final String enter = "\n   ";
     private static int numPeople = 0;
     private static String s = "";
