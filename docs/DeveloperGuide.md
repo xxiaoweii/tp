@@ -343,6 +343,15 @@ contact details, the course he is taking, as well as the respective tutorial cla
 - Users can have more than one input for each of the optional field.
 - When adding a `course`, users can also choose to include or not to include the tutorial classes of the course.
 
+### List Feature 
+#### Implementation details
+
+the `list`feature allows user to get the information (name, role,
+contact details, courses, tutorial classes) of all the people stored.
+
+#### Implementation:
+- the list feature is executed using the `list` command
+
 ### \[Proposed\] Favourite List feature 
 #### Proposed Implementation Details & Philosophy
 High Level Description: 
@@ -592,3 +601,5 @@ testers are expected to do more *exploratory* testing.
     1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
 2. _{ more test cases …​ }_
+
+
