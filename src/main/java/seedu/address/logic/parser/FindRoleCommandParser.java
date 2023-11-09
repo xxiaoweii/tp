@@ -22,10 +22,13 @@ public class FindRoleCommandParser implements Parser<FindRoleCommand> {
      */
     public FindRoleCommand parse(String args) throws ParseException {
         String trimmedArgs = args.trim();
-        Set<Role> roleList = ParserUtil.parseRoles(Collections.singleton(trimmedArgs));
         if (trimmedArgs.isEmpty()) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindRoleCommand.MESSAGE_USAGE));
+        }
+
+        if (!checkValidRoles(trimmedArgs)) {
+            throw new ParseException(Role.MESSAGE_CONSTRAINTS);
         }
 
         String[] roleKeywords = trimmedArgs.split("\\s+");
@@ -33,4 +36,15 @@ public class FindRoleCommandParser implements Parser<FindRoleCommand> {
         return new FindRoleCommand(new RoleContainsKeywordsPredicate(Arrays.asList(roleKeywords)));
     }
 
+    /**
+     * Returns whether the roles provided are valid roles.
+     */
+    private boolean checkValidRoles(String args) {
+        try {
+            Set<Role> roles = ParserUtil.parseRoles(Collections.singleton(args));
+            return roles.size() > 0;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
 }

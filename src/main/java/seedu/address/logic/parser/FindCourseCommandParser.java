@@ -22,14 +22,30 @@ public class FindCourseCommandParser implements Parser<FindCourseCommand> {
      */
     public FindCourseCommand parse(String args) throws ParseException {
         String trimmedArgs = args.trim();
-        Set<Course> courseList = ParserUtil.parseCourses(Collections.singleton(trimmedArgs));
+
         if (trimmedArgs.isEmpty()) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCourseCommand.MESSAGE_USAGE));
         }
 
+        if (!checkValidCourses(trimmedArgs)) {
+            throw new ParseException(Course.MESSAGE_CONSTRAINTS);
+        }
+
         String[] courseKeywords = trimmedArgs.split("\\s+");
 
         return new FindCourseCommand(new CourseContainsKeywordsPredicate(Arrays.asList(courseKeywords)));
+    }
+
+    /**
+     * Returns whether the courses provided are valid courses.
+     */
+    private boolean checkValidCourses(String args) {
+        try {
+            Set<Course> courses = ParserUtil.parseCourses(Collections.singleton(args));
+            return courses.size() > 0;
+        } catch (ParseException e) {
+            return false;
+        }
     }
 }

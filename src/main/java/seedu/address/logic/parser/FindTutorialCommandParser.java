@@ -22,10 +22,13 @@ public class FindTutorialCommandParser implements Parser<FindTutorialCommand> {
      */
     public FindTutorialCommand parse(String args) throws ParseException {
         String trimmedArgs = args.trim();
-        Set<Tutorial> tutorialList = ParserUtil.parseTutorials(Collections.singleton(trimmedArgs));
         if (trimmedArgs.isEmpty()) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindTutorialCommand.MESSAGE_USAGE));
+        }
+
+        if (!checkValidTutorials(trimmedArgs)) {
+            throw new ParseException(Tutorial.MESSAGE_CONSTRAINTS);
         }
 
         String[] roleKeywords = trimmedArgs.split("\\s+");
@@ -33,5 +36,15 @@ public class FindTutorialCommandParser implements Parser<FindTutorialCommand> {
         return new FindTutorialCommand(new TutorialContainsKeywordsPredicate(Arrays.asList(roleKeywords)));
     }
 
-
+    /**
+     * Returns whether the tutorials provided are valid tutorials.
+     */
+    private boolean checkValidTutorials(String args) {
+        try {
+            Set<Tutorial> tutorials = ParserUtil.parseTutorials(Collections.singleton(args));
+            return tutorials.size() > 0;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
 }
