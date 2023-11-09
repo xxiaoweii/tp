@@ -21,7 +21,7 @@ public class ListCommand extends Command {
     /**
      * Message displayed upon successful execution of the ListCommand if there are no persons.
      */
-    public static final String MESSAGE_SUCCESS = "You have 0 person in your list\n";
+    public static final String MESSAGE_SUCCESS = "You have 0 persons in your list\n";
 
     /**
      * Keyword to trigger the 'list' command.
@@ -118,7 +118,7 @@ public class ListCommand extends Command {
         requireNonNull(model);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         numPeople = model.getFilteredPersonList().size();
-        s = numPeople <= 1 ? "" : "s";
+        s = numPeople == 1 ? "" : "s";
         model.getFilteredPersonList().forEach((people) -> {
             nameList.add(people.getName());
             roleList.add(people.getRoles());

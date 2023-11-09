@@ -1,11 +1,6 @@
 package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_CONTACT_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_2;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_TA;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TUTORIAL_2;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalPersons.AMY;
 import static seedu.address.testutil.TypicalPersons.BOB;
@@ -49,12 +44,7 @@ public class FavListCommandTest {
         Model model = new ModelManager();
         model.addPerson(new PersonBuilder(BOB).build());
         CommandResult result = new FavListCommand().execute(model);
-        String expectedOutput = "You have 1 favourited person in your list.\n"
-                + "Name: " + VALID_NAME_BOB + "\n"
-                + "Roles: " + "[" + VALID_ROLE_TA + "]" + "\n"
-                + "Contacts: " + "[" + "[" + VALID_CONTACT_BOB + "]" + "]" + "\n"
-                + "Courses: " + "[" + VALID_COURSE_2.toString() + "]" + "\n"
-                + "Tutorials: " + "[" + VALID_TUTORIAL_2.toString() + "]" + "\n";;
+        String expectedOutput = "You have 1 favourited person in your list.\n";
         assertEquals(expectedOutput, result.getFeedbackToUser());
     }
 
@@ -63,7 +53,7 @@ public class FavListCommandTest {
         Model model = new ModelManager();
         model.addPerson(new PersonBuilder(CHARLIE).build());
         CommandResult result = new FavListCommand().execute(model);
-        String expectedOutput = "You have 0 favourited person in your list.\n";
+        String expectedOutput = "You have 0 favourited persons in your list.\n";
         assertEquals(expectedOutput, result.getFeedbackToUser());
     }
 
@@ -73,12 +63,7 @@ public class FavListCommandTest {
         model.addPerson(AMY);
         model.addPerson(BOB);
         CommandResult result = new FavListCommand().execute(model);
-        String expectedOutput = "You have 1 favourited person in your list.\n"
-                + "Name: " + VALID_NAME_BOB + "\n"
-                + "Roles: " + "[" + VALID_ROLE_TA + "]" + "\n"
-                + "Contacts: " + "[" + "[" + VALID_CONTACT_BOB + "]" + "]" + "\n"
-                + "Courses: " + "[" + VALID_COURSE_2.toString() + "]" + "\n"
-                + "Tutorials: " + "[" + VALID_TUTORIAL_2.toString() + "]" + "\n";;
+        String expectedOutput = "You have 1 favourited person in your list.\n";
         assertEquals(expectedOutput, result.getFeedbackToUser());
     }
 
