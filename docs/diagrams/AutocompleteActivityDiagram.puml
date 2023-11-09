@@ -7,7 +7,7 @@ title Autocomplete Feature
 
 start
 
-:User enters part of command; 
+:User enters part of command;
 
 while () is ([user enters Tab])
   :Search for commands starting with user's input;
