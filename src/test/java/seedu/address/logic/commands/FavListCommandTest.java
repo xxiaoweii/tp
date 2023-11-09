@@ -49,7 +49,7 @@ public class FavListCommandTest {
         Model model = new ModelManager();
         model.addPerson(new PersonBuilder(BOB).build());
         CommandResult result = new FavListCommand().execute(model);
-        String expectedOutput = "You have 1 favourite profile in your list.\n"
+        String expectedOutput = "You have 1 favourited person in your list.\n"
                 + "Name: " + VALID_NAME_BOB + "\n"
                 + "Roles: " + "[" + VALID_ROLE_TA + "]" + "\n"
                 + "Contacts: " + "[" + "[" + VALID_CONTACT_BOB + "]" + "]" + "\n"
@@ -63,7 +63,7 @@ public class FavListCommandTest {
         Model model = new ModelManager();
         model.addPerson(new PersonBuilder(CHARLIE).build());
         CommandResult result = new FavListCommand().execute(model);
-        String expectedOutput = "You have 0 favourite profile in your list.\n";
+        String expectedOutput = "You have 0 favourited person in your list.\n";
         assertEquals(expectedOutput, result.getFeedbackToUser());
     }
 
@@ -73,7 +73,7 @@ public class FavListCommandTest {
         model.addPerson(AMY);
         model.addPerson(BOB);
         CommandResult result = new FavListCommand().execute(model);
-        String expectedOutput = "You have 1 favourite profile in your list.\n"
+        String expectedOutput = "You have 1 favourited person in your list.\n"
                 + "Name: " + VALID_NAME_BOB + "\n"
                 + "Roles: " + "[" + VALID_ROLE_TA + "]" + "\n"
                 + "Contacts: " + "[" + "[" + VALID_CONTACT_BOB + "]" + "]" + "\n"

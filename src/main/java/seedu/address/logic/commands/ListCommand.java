@@ -19,9 +19,9 @@ import seedu.address.model.person.Tutorial;
  */
 public class ListCommand extends Command {
     /**
-     * Message displayed upon successful execution of the ListCommand if there are no profiles.
+     * Message displayed upon successful execution of the ListCommand if there are no persons.
      */
-    public static final String MESSAGE_SUCCESS = "You have 0 profile in your list\n";
+    public static final String MESSAGE_SUCCESS = "You have 0 person in your list\n";
 
     /**
      * Keyword to trigger the 'list' command.
@@ -132,6 +132,6 @@ public class ListCommand extends Command {
                     + roleToString(roleList.get(i)) + enter + contactToString(contactList.get(i)) + enter
                     + courseToString(courseList.get(i)) + enter + tutorialToString(tutorialList.get(i)) + "\n";
         }
-        return new CommandResult("You have " + numPeople + " profile" + s + " in your list\n" + peopleList);
+        return new CommandResult("You have " + numPeople + " person" + s + " in your list\n" + peopleList);
     }
 }

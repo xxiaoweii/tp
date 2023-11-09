@@ -16,7 +16,7 @@ public class FavListCommand extends Command {
     /**
      * Message displayed upon successful execution of the FavListCommand if there are no favorite profiles.
      */
-    public static final String MESSAGE_SUCCESS = "You have 0 favourite profile in your list.\n";
+    public static final String MESSAGE_SUCCESS = "You have 0 favourited person in your list.\n";
 
     /**
      * Keyword to trigger the 'favorite list' command.
@@ -33,7 +33,7 @@ public class FavListCommand extends Command {
      * Executes the command to list all favorite persons in the address book.
      *
      * @param model The current model.
-     * @return The CommandResult containing the list of favorite profiles or a message indicating no favorites.
+     * @return The CommandResult containing the list of favourited persons or a message indicating no favorites.
      */
     @Override
     public CommandResult execute(Model model) {
@@ -53,7 +53,7 @@ public class FavListCommand extends Command {
                 .collect(Collectors.joining("\n"));
 
         return new CommandResult("You have " + numbFavouritePeople
-                + " favourite profile" + s + " in your list.\n" + peopleList);
+                + " favourited person" + s + " in your list.\n" + peopleList);
     }
 
     /**
