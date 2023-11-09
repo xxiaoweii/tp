@@ -39,6 +39,8 @@ Given below are my contributions to the project.
   * Developer Guide:
     * Added a list of Non-Functional Requirements to the Developer Guide.
     * Updated the UML Guide for Model section with the new attributes assigned to the Model class.
+    * Added and formatted the Autocomplete section in the Developer Guide.
+    * Added the UML Activity Diagram for Autocomplete section in the Developer Guide.
 
 ##### **Community**:
   * PRs reviewed (with non-trivial review comments):
