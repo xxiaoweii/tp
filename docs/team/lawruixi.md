@@ -31,6 +31,9 @@ Given below are my contributions to the project.
 ##### **Code contributed**: 
 - [RepoSense link.](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=lawruixi&breakdown=true)
 
+##### **Project Management**:
+- Added issues on GitHub to keep track of bugs whenever they appear.
+
 ##### **Documentation**:
   * User Guide:
     * Added a mockup of the UI created using HTML / CSS.
