@@ -21,8 +21,8 @@ Given below are my contributions to the project.
 ##### **Bug Fixes**
 - Fixed a bug that arose where new code was written based on outdating code on a newer branch, resulting in compilation failure Pull Requests.
 - Fixed 27 bugs related to the User Guide.
-- Most of these are typos.
-- But some are pretty large and required rewriting entire sections of the User Guide; see **Documentation** below.
+    - Most of these are typos.
+    - But some are pretty large and required rewriting entire sections of the User Guide; see **Documentation** below.
 - Fixed a bug where roles weren't being saved properly.
 - Fixed a bug where data was not saved upon exiting the app.
 - Fixed a bug with autocomplete where the user could not move the cursor in the text field.
