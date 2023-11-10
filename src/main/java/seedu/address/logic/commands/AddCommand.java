@@ -48,6 +48,9 @@ public class AddCommand extends Command {
     public static final String MESSAGE_DUPLICATE_PERSON = "Note: A person with the same name already exists." + "\n"
             + "Please edit the existing person or change the name of this person to be added";
 
+    public static final String MESSAGE_NAME_MISSING = "Note: Compulsory name input is missing"
+            + "\nUnable to add a person without a name";
+
     private final Person toAdd;
 
     /**
