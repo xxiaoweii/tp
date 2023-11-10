@@ -257,8 +257,6 @@ Adds new persons in the person lists.
 >
 > Please use a comma (`,`) to separate the different roles, contacts and courses.
 
-- The different fields are colour-coded to differentiate between them.
-
 - The square brackets, `[ ]`, are not needed when entering the command (see Example 3 below for more details).
 
 </box>
@@ -286,7 +284,8 @@ Example 3:
 
 `CONTACT1`: Any non-empty input of characters.
 
-`COURSECODE1`: Any non-empty input of characters.
+`COURSECODE1`: Starts with two or three letter prefix, followed by four digits and can end with or without a letter. 
+Example: CS2100, CS2109S
 
 `CLASS1`: Any non-empty input of characters.
 
