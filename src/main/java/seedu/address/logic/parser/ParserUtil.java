@@ -78,6 +78,8 @@ public class ParserUtil {
             for (String roleName : roleNameSplit) {
                 if (!roleName.trim().isEmpty()) {
                     roleSet.add(parseRole(roleName));
+                } else {
+                    throw new ParseException(Role.MESSAGE_CONSTRAINTS);
                 }
             }
         }
