@@ -49,7 +49,7 @@ public class AddCommand extends Command {
             + "Please edit the existing person or change the name of this person to be added";
 
     public static final String MESSAGE_NAME_MISSING = "Note: Compulsory name input is missing"
-            + "\nUnable to add a person without a name";
+            + "\nUnable to add a person without name";
 
     private final Person toAdd;
 
