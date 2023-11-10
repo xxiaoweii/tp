@@ -275,6 +275,8 @@ will be recognised as the same course and be printed as `CS2100`)
 
 - The square brackets, `[ ]`, are not needed when entering the command (see Example 3 below for more details).
 
+> IMPORTANT: Invalid prefix format will NOT be recognised. It will be treated as an input for the
+previous prefix (if any). [See Example 7 below for more details]
 </box>
 
 ###### EXAMPLE COMMAND:
@@ -334,7 +336,7 @@ Name: Daycon Dueet; Role: ; Contact: ; Course: ; Tutorials:
 
 **For invalid `add` command:** 
 
-Example: `add --`
+Example 4.1: `add --`
 
 ```
 Invalid command format! 
@@ -346,7 +348,7 @@ Example: add --name John --role Developer, Designer
 --course CS2103T/G06, CS2101/G06, CS2100/T24-Lab36
 ```
 
-Example: `add`
+Example 4.2: `add`
 ```
 Invalid command format! 
 Note: Compulsory name input is missing
@@ -355,15 +357,19 @@ Unable to add a person without name
 
 **For wrong format:**
 
-Example: `add --name`
+Example 5.1: `add --name`
 
-`Names should only contain alphanumeric characters and spaces, and it should not be blank`
+```
+Names should only contain alphanumeric characters and spaces, and it should not be blank
+```
 
-Example: `add --name Charlie --role teacher`
+Example 5.2: `add --name Charlie --role teacher`
 
-`A role must take one of the roleTypes: Student, TA, or Professor.`
+```
+A role must take one of the roleTypes: Student, TA, or Professor.
+```
 
-Example: `add --name Charlie --role TA --course CS21111`
+Example 5.3: `add --name Charlie --role TA --course CS21111`
 
 ```
 INVALID COURSE FORMAT!
@@ -373,17 +379,25 @@ COURSE CODE SHOULD BE IN THE FOLLOWING FORMAT:
  3. Can end with a letter
  ```
 
-Example: `add --name Charlie --role TA --course CS2100/         F09`
+Example 5.4: `add --name Charlie --role TA --course CS2100/         F09`
 
 `Tutorials should be written in the format COURSECODE/TUTORIAL`
 
 **For duplicate name:**
 
-Example: `add --name alex yeoh` [Assuming Alex Yeoh already exists in the list] 
+Example 6: `add --name alex yeoh` [Assuming Alex Yeoh already exists in the list] 
 
 ```
 Note: A person with the same name already exists.
 Please edit the existing person or change the name of this person to be added
+```
+
+**For invaid prefix:**
+
+Example 7: `add --name alex yeoh -/-role TA` 
+
+```
+Names should only contain alphanumeric characters and spaces, and it should not be blank
 ```
 
 <div style="page-break-after: always;"></div>
