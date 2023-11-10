@@ -231,6 +231,13 @@ Any other command word such as `h`, `he` and `hel` will be seen as an invalid co
 
 `Unknown command`
 
+Command with extra parameters after the keyword will throw error: `help 1`:
+```
+Invalid command format! 
+help: Shows program usage instructions.
+Example: help
+```
+
 <div style="page-break-after: always;"></div>
 
 ### Adding a person: `add`
@@ -244,7 +251,11 @@ Adds new persons in the person lists.
 
 **Tip:**
 
-- The input for role is **case-sensitive**.
+- The input for name is **not case-sensitive** (i.e `Aiken`, `AIKEN`, `AiKeN` and `aiken` will be recognised as the same input). 
+
+- Duplicate names are not allowed. 
+
+- The input for role is **case-sensitive**. 
 
 - Contacts can be any type of contact: email address, telegram handle, phone number, etc.
 
@@ -253,9 +264,9 @@ Adds new persons in the person lists.
 - Courses can be added without the tutorial classes but tutorial classes must be added with a course
 (see Example 2 below for more details).
 
-> 📝Note:
->
-> Please use a comma (`,`) to separate the different roles, contacts and courses.
+- Multiple tutorial classes added to the same course need to be separated by hyphen (`-`) (COURSECODE/TUT1-TUT2-...).
+
+- Please use a comma (`,`) to separate the different roles, contacts and courses.
 
 - The square brackets, `[ ]`, are not needed when entering the command (see Example 3 below for more details).
 
@@ -330,6 +341,9 @@ Example: add --name John --role Developer, Designer
 --contact johnd@example.com, 98765432
 --course CS2103T/G06, CS2101/G06, CS2100/T24-Lab36
 ```
+
+Example: `add`
+
 
 **For wrong format:**
 
