@@ -231,6 +231,13 @@ Any other command word such as `h`, `he` and `hel` will be seen as an invalid co
 
 `Unknown command`
 
+Command with extra parameter(s) after the keyword will throw error: `help 1`
+```
+Invalid command format! 
+help: Shows program usage instructions.
+Example: help
+```
+
 <div style="page-break-after: always;"></div>
 
 ### Adding a person: `add`
@@ -244,20 +251,27 @@ Adds new persons in the person lists.
 
 **Tip:**
 
+
+- The input for name is **not case-sensitive** (i.e `Aiken`, `AIKEN`, `AiKeN` and `aiken`
+will be recognised as the same input).
+
+- Duplicate names are not allowed.
+
 - The input for role is **case-sensitive**.
 
 - Contacts can be any type of contact: email address, telegram handle, phone number, etc.
 
 - Courses can be any of the courses offered by NUS.
 
+- Inputs for course is **not case-sensitive** and will be printed in upper case (i.e `CS2100`, `cs2100` and `Cs2100`
+will be recognised as the same course and be printed as `CS2100`)
+
 - Courses can be added without the tutorial classes but tutorial classes must be added with a course
-(see Example 2 below for more details).
+  (see Example 2 below for more details).
 
-> 📝Note:
->
-> Please use a comma (`,`) to separate the different roles, contacts and courses.
+- Multiple tutorial classes added to the same course need to be separated by hyphen (`-`) (COURSECODE/TUT1-TUT2-...).
 
-- The different fields are colour-coded to differentiate between them.
+- Please use a comma (`,`) to separate the different roles, contacts and courses.
 
 - The square brackets, `[ ]`, are not needed when entering the command (see Example 3 below for more details).
 
@@ -286,7 +300,7 @@ Example 3:
 
 `CONTACT1`: Any non-empty input of characters.
 
-`COURSECODE1`: Any non-empty input of characters.
+`COURSECODE1`: Starts with two or three letter prefix, follows by four digit, can end with or without a letter.
 
 `CLASS1`: Any non-empty input of characters.
 
@@ -332,6 +346,13 @@ Example: add --name John --role Developer, Designer
 --course CS2103T/G06, CS2101/G06, CS2100/T24-Lab36
 ```
 
+Example: `add`
+```
+Invalid command format! 
+Note: Compulsory name input is missing
+Unable to add a person without name
+```
+
 **For wrong format:**
 
 Example: `add --name`
@@ -356,6 +377,14 @@ Example: `add --name Charlie --role TA --course CS2100/         F09`
 
 `Tutorials should be written in the format COURSECODE/TUTORIAL`
 
+**For duplicate name:**
+
+Example: `add --name alex yeoh` [Assuming Alex Yeoh already exists in the list] 
+
+```
+Note: A person with the same name already exists.
+Please edit the existing person or change the name of this person to be added
+```
 
 <div style="page-break-after: always;"></div>
 
