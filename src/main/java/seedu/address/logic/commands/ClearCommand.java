@@ -14,8 +14,8 @@ public class ClearCommand extends Command {
      * Keyword to trigger the clear command.
      */
     public static final String COMMAND_WORD = "clear";
-    public static final String MESSAGE_SUCCESS = "All the profiles have been cleared!";
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Clear all of the profiles\n"
+    public static final String MESSAGE_SUCCESS = "All persons have been cleared!";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Clear all of persons\n"
             + "Example: " + COMMAND_WORD;
 
 

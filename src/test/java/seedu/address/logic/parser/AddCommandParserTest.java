@@ -159,24 +159,24 @@ public class AddCommandParserTest {
     }
 
     @Test
-    public void parse_addProfileWithRepeatedPrefix_failure() {
+    public void parse_addPersonWithRepeatedPrefix_failure() {
 
         String validPersonStringWithCourse = NAME_DESC_CHARLIE + ROLE_DESC_TA
                 + CONTACT_DESC_CHARLIE_TELE + COURSE_DESC_1;
 
-        //Adding a profile that has multiple names
+        //Adding a person that has multiple names
         assertParseFailure(parser, NAME_DESC_DANNY + validPersonStringWithCourse,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_NAME));
 
-        // Adding a profile using more than one role prefix
+        // Adding a person using more than one role prefix
         assertParseFailure(parser, ROLE_DESC_STUDENT + validPersonStringWithCourse,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_ROLE));
 
-        // Adding a profile using more than one contact prefix
+        // Adding a person using more than one contact prefix
         assertParseFailure(parser, CONTACT_DESC_CHARLIE_PHONE + validPersonStringWithCourse,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_CONTACT));
 
-        // Adding a profile using more than one course prefix
+        // Adding a person using more than one course prefix
         assertParseFailure(parser, COURSE_DESC_2 + validPersonStringWithCourse,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_COURSE));
     }

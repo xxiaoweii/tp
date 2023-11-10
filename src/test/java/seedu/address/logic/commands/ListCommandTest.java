@@ -193,7 +193,7 @@ public class ListCommandTest {
         Model model = new ModelManager();
         model.addPerson(new PersonBuilder(CHARLIE).build());
         CommandResult result = new ListCommand().execute(model);
-        String expectedOutput = "You have 1 profile in your list\n"
+        String expectedOutput = "You have 1 person in your list\n"
                 + "1. Name: " + VALID_NAME_CHARLIE + "\n"
                 + "   Role: \n" + "   Contact: \n" + "   Courses: \n" + "   Tutorials: \n";
         assertEquals(expectedOutput, result.getFeedbackToUser());
@@ -205,7 +205,7 @@ public class ListCommandTest {
         model.addPerson(AMY);
         model.addPerson(BOB);
         CommandResult result = new ListCommand().execute(model);
-        String expectedOutput = "You have 2 profiles in your list\n"
+        String expectedOutput = "You have 2 persons in your list\n"
                 + "1. Name: " + VALID_NAME_AMY + "\n"
                 + "   Role: " + VALID_ROLE_STUDENT + "\n"
                 + "   Contact: " + "[" + VALID_CONTACT_AMY + "]" + "\n"

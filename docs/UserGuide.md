@@ -497,13 +497,9 @@ List all the persons favourited by the user.
 This command does not accept any parameters.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
+*(if user has only favourited 1 person)*
 ```
 You have 1 favourited person in your list. 
-Name: Aiken Dueet  
-Role: STUDENT
-Contact: @aikendueet, aikendueet@gmail.com
-Course: CS2103T, CS2101, CS2100
-Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30 
 ```
 
 ###### EXPECTED OUTPUT ON FAILURE:
