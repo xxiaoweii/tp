@@ -32,7 +32,7 @@ public class FindCourseCommandParser implements Parser<FindCourseCommand> {
             throw new ParseException(Course.MESSAGE_CONSTRAINTS);
         }
 
-        String[] courseKeywords = trimmedArgs.split("\\s+");
+        String[] courseKeywords = trimmedArgs.split(Course.PARSE_COURSE_DELIMITER);
 
         return new FindCourseCommand(new CourseContainsKeywordsPredicate(Arrays.asList(courseKeywords)));
     }
