@@ -31,7 +31,7 @@ public class FindRoleCommandParser implements Parser<FindRoleCommand> {
             throw new ParseException(Role.MESSAGE_CONSTRAINTS);
         }
 
-        String[] roleKeywords = trimmedArgs.split("\\s+");
+        String[] roleKeywords = trimmedArgs.split(Role.PARSE_ROLE_DELIMITER);
 
         return new FindRoleCommand(new RoleContainsKeywordsPredicate(Arrays.asList(roleKeywords)));
     }
