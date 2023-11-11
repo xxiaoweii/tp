@@ -171,7 +171,7 @@ public class ParserUtil {
                 if (courseTutorialLength == 2) {
                     Course stringToCourse = new Course(splitCourseInput);
                     courseSet.add(stringToCourse);
-                } if (courseTutorialLength > 2) {
+                } else if (courseTutorialLength > 2) {
                     throw new ParseException(AddCommand.MESSAGE_USAGE);
                 }
             }
