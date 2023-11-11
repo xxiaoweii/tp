@@ -378,12 +378,20 @@ This command does not accept any parameters.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
-You have 1 person in your list: 
-Name: Aiken Dueet  
+
+You have 2 profiles in your list: 
+1. Name: Aiken Dueet  
 Role: STUDENT
 Contact: @aikendueet, aikendueet@gmail.com
 Course: CS2103T, CS2101, CS2100
 Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30 
+
+2. Name: Eren Yeager
+Role: TA
+Contact: @ErenYeager@gmail.com
+Course: CS1101S
+Tutorials: CS1101S/Tut8
+
 ```
 
 ###### EXPECTED OUTPUT ON FAILURE:
