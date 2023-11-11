@@ -88,7 +88,7 @@ The app helps students to consolidate important data, such as profiles of profes
 2. Make sure you place this app's JAR file in an empty folder before launching it for the first time.
 
 3. Launch the JAR file by double-clicking it.
-<box type="warning" header="Help! I can't open the JAR file!" dismissible light>
+<box type="warning" header="**Help! I can't open the JAR file!**" dismissible light>
     If double clicking the JAR file to open it doesn't work, try the following steps:
     <tabs>
         <tab header="**Windows**">
@@ -162,7 +162,9 @@ command --specifier INPUTFIELD [--specifier INPUTFIELD1, ...]
 [--specifier INPUTFIELD1/SUBFIELD1-SUBFIELD2-..., ...]
 ```
 <box type="warning">
-    Note that a command is case-sensitive; in other words, "add" is different from "ADD" and "Add"; be careful not to mix them up!
+    <md>
+        Note that a command is case-sensitive; in other words, `add` is different from `ADD` and `Add`; be careful not to mix them up!
+    </md>
 </box>
 
 ###### EXAMPLE COMMAND FORMAT
@@ -221,7 +223,9 @@ Search by tutorial class: searchtutorial TUTORIAL
 Adding persons to favourites: fav INDEX
 Refer to the User Guide for the detailed implementation.
 ```
-A help window will pop out as shown: [Help Window](./images/HelpWindow.png)
+A help window will pop out as shown: 
+
+<img src="./images/HelpWindow.png" width="100%" >
 
 ###### EXPECTED OUTPUT ON FAILURE:
 
@@ -597,7 +601,9 @@ Search for persons using role.
 Output persons which match the given role.
 
 <box type="important">
-    Unlike other search commands where the input is case-insensitive, note that searchrole <b>is</b> case-sensitive. In other words, "searchrole TA" would be valid, while "searchrole ta" would not.
+    <md>
+        Unlike other search commands where the input is case-insensitive, note that searchrole **is** case-sensitive. In other words, `searchrole TA` would be valid, while `searchrole ta` would not.
+    </md>
 </box>
 
 ###### FORMAT:
