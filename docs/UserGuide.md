@@ -601,7 +601,9 @@ Search for persons using role.
 Output persons which match the given role.
 
 <box type="important">
-    Unlike other search commands where the input is case-insensitive, note that searchrole <b>is</b> case-sensitive. In other words, "searchrole TA" would be valid, while "searchrole ta" would not.
+    <md>
+        Unlike other search commands where the input is case-insensitive, note that searchrole **is** case-sensitive. In other words, `searchrole TA` would be valid, while `searchrole ta` would not.
+    </md>
 </box>
 
 ###### FORMAT:
