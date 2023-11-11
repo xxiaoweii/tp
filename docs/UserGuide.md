@@ -88,7 +88,7 @@ The app helps students to consolidate important data, such as profiles of profes
 2. Make sure you place this app's JAR file in an empty folder before launching it for the first time.
 
 3. Launch the JAR file by double-clicking it.
-<box type="warning" header="Help! I can't open the JAR file!" dismissible light>
+<box type="warning" header="**Help! I can't open the JAR file!**" dismissible light>
     If double clicking the JAR file to open it doesn't work, try the following steps:
     <tabs>
         <tab header="**Windows**">
