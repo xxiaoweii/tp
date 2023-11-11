@@ -223,7 +223,9 @@ Search by tutorial class: searchtutorial TUTORIAL
 Adding persons to favourites: fav INDEX
 Refer to the User Guide for the detailed implementation.
 ```
-A help window will pop out as shown: [Help Window](./images/HelpWindow.png)
+A help window will pop out as shown: 
+
+<img src="./images/HelpWindow.png" width="100%" >
 
 ###### EXPECTED OUTPUT ON FAILURE:
 
