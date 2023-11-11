@@ -157,9 +157,204 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### Favourite feature
+### Add Feature
+#### Implementation details 
 
-The favourite feature is implemented using the `Favourite` class. The `Favourite` class contains a `boolean` field `isFavourite` to indicate whether the person is a favourite.
+The `add` feature allows user to add up to five different details of a person, including the name, role,
+contact details, the course he is taking, as well as the respective tutorial classes.
+
+#### Implementation:
+
+- When adding a profile, the only compulsory field that user has to include is the `name` field. 
+- All the other fields `role`, `contact` and `course` are optional.
+- Users can have more than one input for each of the optional field.
+- When adding a `course`, users can also choose to include or not to include the tutorial classes of the course.
+
+### List Feature 
+#### Implementation details
+
+the `list`feature allows user to get the information (name, role,
+contact details, courses, tutorial classes) of all the people stored.
+
+#### Implementation:
+- the list feature is executed using the `list` command
+
+### Favourite feature
+#### Implementation details
+The favourite feature allows the user to favourite persons that they want to view more often so that they can
+view their favourited people easily by calling the `favlist` command. 
+
+#### Implementation:
+* The favourite feature is implemented using the `Favourite` class. The `Favourite` class contains a `boolean` field
+`isFavourite` to indicate whether the person is a favourite.
+* When user calls `fav INDEX` *(the index is a positive integer the person has in the list)*, the `isFavourite` field 
+of the person will be set to `true`.
+* When the `isFavourite` boolean is true, the current Person will be set to a new Person using the `setPerson` method,
+to be set to a new favourited Person with all the same fields as the current Person, except that the `isFavourite` field
+is true. This is to ensure that the yellow favourite tag in the UI is shown.
+
+#### Design considerations
+<ol>
+    <li>
+        <b>User Expectations:</b> 
+        <md>
+            Users have a common expectation that their favorite persons should be identifiable in the UI. Hence, a 
+            yellow tag is added to the UI to indicate that the person is a favourite.
+        </md>
+    </li>
+</ol>
+
+### Favourite List feature 
+#### Implementation Details & Philosophy
+High Level Description: 
+
+The favourite list feature is executed using the `favlist` command. 
+
+**FavList Command**
+
+A FavListCommand Java class that extends the parent Command class will be created. This base class
+will represent the `favlist` command
+
+**Command Word**
+
+A constant COMMAND_WORD = "favlist" is instantiated. 
+
+**Usage Message**
+
+A usage message constant MESSAGE_USAGE will be created to explain to the users how to interact and 
+use the `favlist` command
+
+**Integration with Model**
+To ensure that the FavListCommand class interacts with the application's model 
+to perform actions related to the favorite list. This will be done through the 
+`model.updateFilteredPersonList(predicate)` method. 
+
+#### Design considerations 
+<ol>
+    <li>
+        <b>User Expectations:</b> 
+        <md>
+            Users have a common expectation that their favorited people should be accessible
+            and manageable in a straightforward manner. Hence, this is fulfilled using a simple and intuitive 
+            `favlist` command.
+        </md>
+    </li>
+</ol>
+
+
+### Search feature
+#### Implementation Details & Philosophy
+Description:
+
+The search feature contains 4 different sub commands namely : `search`, `searchrole`,
+`searchcourse`, `searchtutorial` .
+
+1. `search` allows the user to search for a person through their name
+2. `searchrole` allows the user to search for a list of people with the same role
+3. `searchcourse` allows the user to search for a list of people taking a particular course
+4. `searchtutorial` allows the user to search for a list of people taking a particular tutorial
+
+Implementation:
+
+`search`
+<p>
+A `search` class has a `NameContainsKeywordPredicate` field that describes the search criteria and 
+filters the list of persons.`NameContainsKeywordPredicate` implements the Predicate interface for Person
+object. It is used to filter a collection of Person objects based on whether their names contain 
+a certain keyword.
+</p>
+
+`searchrole`
+<p>
+A `searchrole` class has a `RoleContainsKeywordPredicate` field that describes the search criteria and 
+filters the list of persons. `RoleContainsKeywordPredicate` implements the Predicate interface for Person
+object. It is used to filter a collection of Person objects based on whether their role contain 
+a certain keyword. 
+</p>
+
+`searchcourse`
+<p>
+A `searchcourse` class has a `CourseContainsKeywordPredicate` field that describes the search criteria and 
+filters the list of persons. `CourseContainsKeywordPredicate` implements the Predicate interface for Person
+object. It is used to filter a collection of Person objects based on whether their courses contain 
+a certain keyword. 
+</p>
+
+`searchtutorial`
+<p>
+A `searchtutorial` class has a `TutorialContainsKeywordPredicate` field that describes the search criteria and 
+filters the list of persons. `TutorialContainsKeywordPredicate` implements the Predicate interface for Person
+object. It is used to filter a collection of Person objects based on whether their tutorials contain 
+a certain keyword. 
+</p>
+
+#### Design considerations
+<ol>
+1. Clarity and Ease of Use 
+<p>
+Having distinct search commands for different purposes instead of a single search 
+command that searches all four makes it clear to the user what each command is used for. Hence, 
+this will make the interface more user-friendly as it reduces the likelihood of the users getting 
+confused about the commands.
+</p>
+2. Scalability
+<p>
+If the search feature were to be expanded or modified in the future, it would be easier
+to add or change specific commands and their functions without affecting the whole search system. 
+
+Additionally, if the search feature was to modified to allow multiple searches in a single command,
+If a single search command was used, users may need to use complex syntax to specify what they
+are searching for. Hence, having 4 different search commands will reduce ambiguity and hence
+make it more scalable.
+</p>
+3. Improved Error Handling
+<p>
+With a specific search command for each search, it is easier to give specific and targeted error 
+messages. For a single search command that handles multiple types of searches, providing relevant 
+feedback can be more challenging. Hence, the error messages for a single search command might not be 
+specific, making the application less user-friendly. 
+</p>
+
+</ol>
+
+### Autocomplete Feature
+
+#### Implementation
+The autocomplete feature relies on the `Map` from Command Words to `CheckedFunction` in the `AddressBookParser.java` named `wordToCommandMap`. On instantiation, this `Map` is populated with each Command Word as keys, and their respective values as lambda `CheckedFunction`s taking in the `String` userInput as arguments and returning a parsed version of their respective function. For example, a short excerpt is shown below;
+
+```java
+/**
+ * Initialize the word to command map. Remember each command word maps to a lambda function
+ * that will return the parsed Command object. This command object will then be executed.
+ */
+public AddressBookParser() {
+    // Command taking in arguments
+    wordToCommandMap.put(AddCommand.COMMAND_WORD, (arguments) -> new AddCommandParser().parse(arguments));
+    // Command taking in no arguments; no need to parse via parser
+    wordToCommandMap.put(ClearCommand.COMMAND_WORD, (arguments) -> new ClearCommand());
+    // ...
+}
+```
+
+Once all the command words are stored in the map, the autocomplete feature will, on key pressed in the command box, check for any command that starts with the `String` input supplied by the user, and iterate through them one by one. In essence, the sequence of events is illustrated by the following activity diagram:
+
+<puml src="diagrams/AutocompleteActivityDiagram.puml" width="250" />
+
+#### Design Considerations
+<ol>
+    <li>
+        <b>Performance and Scalability:</b> 
+        <md>
+            In order for autocomplete to be used with many commands, a `HashMap` implementation was chosen for `AddressBookParser`'s command word storage data structure as lookup for command words can be done in approximately `O(1)` time.
+        </md>
+    </li>
+    <li>
+        <b>Consistency:</b>
+        <md>
+            To maintain consistency with users' expectations of how Autocomplete features work, the exact mechanics (ie pressing Tab to cycle through command suggestions) are inspired by some traditional terminals' command autocomplete features, which are similar (for instance, Powershell's default autocomplete works similarly). Thus, users do not have to learn a new mental model for how they would expect the autocomplete to function.
+        </md>
+    </li>
+</ol>
 
 
 ### \[Proposed\] Undo/redo feature
@@ -184,7 +379,7 @@ Step 2. The user executes `delete 5` command to delete the 5th person in the add
 
 <puml src="diagrams/UndoRedoState1.puml" alt="UndoRedoState1" />
 
-Step 3. The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
+Step 3. The user executes `add --name David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
 
 <puml src="diagrams/UndoRedoState2.puml" alt="UndoRedoState2" />
 
@@ -251,181 +446,9 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
-### \[Proposed\] Data archiving
+### \[Proposed\] Edit feature
 
-_{Explain here how the data archiving feature will be implemented}_
-
-### Search feature
-#### Implementation Details & Philosophy
-Description: 
-
-The search feature contains 4 different sub commands namely : `search`, `searchrole`,
-`searchcourse`, `searchtutorial` .
-
-1. `search` allows the user to search for a person through their name
-2. `searchrole` allows the user to search for a list of people with the same role
-3. `searchcourse` allows the user to search for a list of people taking a particular course
-4. `searchtutorial` allows the user to search for a list of people taking a particular tutorial
-
-Implementation:
-
-`search`
-<p>
-A `search` class has a `NameContainsKeywordPredicate` field that describes the search criteria and 
-filters the list of persons.`NameContainsKeywordPredicate` implements the Predicate interface for Person
-object. It is used to filter a collection of Person objects based on whether their names contain 
-a certain keyword.
-</p>
-
-`searchrole`
-<p>
-A `searchrole` class has a `RoleContainsKeywordPredicate` field that describes the search criteria and 
-filters the list of persons. `RoleContainsKeywordPredicate` implements the Predicate interface for Person
-object. It is used to filter a collection of Person objects based on whether their role contain 
-a certain keyword. 
-</p>
-
-`searchcourse`
-<p>
-A `searchcourse` class has a `CourseContainsKeywordPredicate` field that describes the search criteria and 
-filters the list of persons. `CourseContainsKeywordPredicate` implements the Predicate interface for Person
-object. It is used to filter a collection of Person objects based on whether their courses contain 
-a certain keyword. 
-</p>
-
-`searchtutorial`
-<p>
-A `searchtutorial` class has a `TutorialContainsKeywordPredicate` field that describes the search criteria and 
-filters the list of persons. `TutorialContainsKeywordPredicate` implements the Predicate interface for Person
-object. It is used to filter a collection of Person objects based on whether their tutorials contain 
-a certain keyword. 
-</p>
-
-#### Design considerations
-<ol>
-1. Clarity and Ease of Use 
-<p>
-Having distinct search commands for different purposes instead of a single search 
-command that searches all four makes it clear to the user what each command is used for. Hence, 
-this will make the interface more user-friendly as it reduces the likelihood of the users getting 
-confused about the commands.
-</p>
-2. Scalability
-<p>
-If the search feature were to be expanded or modified in the future, it would be easier
-to add or change specific commands and their functions without affecting the whole search system. 
-
-Additionally, if the search feature was to modified to allow multiple searches in a single command,
-If a single search command was used, users may need to use complex syntax to specify what they 
-are searching for. Hence, having 4 different search commands will reduce ambiguity and hence
-make it more scalable. 
-</p>
-3. Improved Error Handling
-<p>
-With a specific search command for each search, it is easier to give specific and targeted error 
-messages. For a single search command that handles multiple types of searches, providing relevant 
-feedback can be more challenging. Hence, the error messages for a single search command might not be 
-specific, making the application less user-friendly. 
-</p>
-
-</ol>
-
-### Add Feature
-#### Implementation details 
-
-The `add` feature allows user to add up to five different details of a person, including the name, role,
-contact details, the course he is taking, as well as the respective tutorial classes.
-
-#### Implementation:
-
-- When adding a profile, the only compulsory field that user has to include is the `name` field. 
-- All the other fields `role`, `contact` and `course` are optional.
-- Users can have more than one input for each of the optional field.
-- When adding a `course`, users can also choose to include or not to include the tutorial classes of the course.
-
-### List Feature 
-#### Implementation details
-
-the `list`feature allows user to get the information (name, role,
-contact details, courses, tutorial classes) of all the people stored.
-
-#### Implementation:
-- the list feature is executed using the `list` command
-
-### \[Proposed\] Favourite List feature 
-#### Proposed Implementation Details & Philosophy
-High Level Description: 
-
-The favourite list feature is executed using the `favlist` command. 
-
-**FavList Command**
-
-A FavListCommand Java class that extends the parent Command class will be created. This base class
-will represent the `favlist` command
-
-**Command Word**
-
-A constant COMMAND_WORD = "favlist" is instantiated. 
-
-**Usage Message**
-
-A usage message constant MESSAGE_USAGE will be created to explain to the users how to interact and 
-use the `favlist` command
-
-**Integration with Model**
-To ensure that the FavListCommand class interacts with the application's model 
-to perform actions related to the favorite list. This will be done through the 
-`model.updateFilteredPersonList(predicate)` method. 
-
-#### Design considerations 
-<ol>
-1. User Expectations 
-<p>
-Users have a common expectation that their favorite items should be accessible
-and manageable in a straightforward manner. Hence, this is fulfilled using a simple and intuitive 
-`favlist` command.
-</p>
-
-</ol>
-
-### Autocomplete Feature
-
-#### Implementation
-The autocomplete feature relies on the `Map` from Command Words to `CheckedFunction` in the `AddressBookParser.java` named `wordToCommandMap`. On instantiation, this `Map` is populated with each Command Word as keys, and their respective values as lambda `CheckedFunction`s taking in the `String` userInput as arguments and returning a parsed version of their respective function. For example, a short excerpt is shown below;
-
-```java
-/**
- * Initialize the word to command map. Remember each command word maps to a lambda function
- * that will return the parsed Command object. This command object will then be executed.
- */
-public AddressBookParser() {
-    // Command taking in arguments
-    wordToCommandMap.put(AddCommand.COMMAND_WORD, (arguments) -> new AddCommandParser().parse(arguments));
-    // Command taking in no arguments; no need to parse via parser
-    wordToCommandMap.put(ClearCommand.COMMAND_WORD, (arguments) -> new ClearCommand());
-    // ...
-}
-```
-
-Once all the command words are stored in the map, the autocomplete feature will, on key pressed in the command box, check for any command that starts with the `String` input supplied by the user, and iterate through them one by one. In essence, the sequence of events is illustrated by the following activity diagram:
-
-<puml src="diagrams/AutocompleteActivityDiagram.puml" width="250" />
-
-#### Design Considerations
-<ol>
-    <li>
-        <b>Performance and Scalability:</b> 
-        <md>
-            In order for autocomplete to be used with many commands, a `HashMap` implementation was chosen for `AddressBookParser`'s command word storage data structure as lookup for command words can be done in approximately `O(1)` time.
-        </md>
-    </li>
-    <li>
-        <b>Consistency:</b>
-        <md>
-            To maintain consistency with users' expectations of how Autocomplete features work, the exact mechanics (ie pressing Tab to cycle through command suggestions) are inspired by some traditional terminals' command autocomplete features, which are similar (for instance, Powershell's default autocomplete works similarly). Thus, users do not have to learn a new mental model for how they would expect the autocomplete to function.
-        </md>
-    </li>
-</ol>
+#### Proposed Implementation
 
 --------------------------------------------------------------------------------------------------------------------
 
