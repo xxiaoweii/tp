@@ -78,6 +78,8 @@ public class ParserUtil {
             for (String roleName : roleNameSplit) {
                 if (!roleName.trim().isEmpty()) {
                     roleSet.add(parseRole(roleName));
+                } else {
+                    throw new ParseException(Role.MESSAGE_CONSTRAINTS);
                 }
             }
         }
@@ -145,7 +147,8 @@ public class ParserUtil {
             String[] splitCourse = courseNames.split(Course.PARSE_COURSE_DELIMITER);
             for (String courseName : splitCourse) {
                 if (!courseName.trim().isEmpty()) {
-                    courseSet.add(parseCourse(courseName));
+                    String courseNameUpperCase = courseName.toUpperCase();
+                    courseSet.add(parseCourse(courseNameUpperCase));
                 } else {
                     throw new ParseException(Course.MESSAGE_CONSTRAINTS);
                 }

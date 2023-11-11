@@ -358,7 +358,7 @@ High Level Description:
 
 The favourite list feature is executed using the `favlist` command. 
 
-**FavListCommand**
+**FavList Command**
 
 A FavListCommand Java class that extends the parent Command class will be created. This base class
 will represent the `favlist` command
@@ -386,6 +386,45 @@ and manageable in a straightforward manner. Hence, this is fulfilled using a sim
 `favlist` command.
 </p>
 
+</ol>
+
+### Autocomplete Feature
+
+#### Implementation
+The autocomplete feature relies on the `Map` from Command Words to `CheckedFunction` in the `AddressBookParser.java` named `wordToCommandMap`. On instantiation, this `Map` is populated with each Command Word as keys, and their respective values as lambda `CheckedFunction`s taking in the `String` userInput as arguments and returning a parsed version of their respective function. For example, a short excerpt is shown below;
+
+```java
+/**
+ * Initialize the word to command map. Remember each command word maps to a lambda function
+ * that will return the parsed Command object. This command object will then be executed.
+ */
+public AddressBookParser() {
+    // Command taking in arguments
+    wordToCommandMap.put(AddCommand.COMMAND_WORD, (arguments) -> new AddCommandParser().parse(arguments));
+    // Command taking in no arguments; no need to parse via parser
+    wordToCommandMap.put(ClearCommand.COMMAND_WORD, (arguments) -> new ClearCommand());
+    // ...
+}
+```
+
+Once all the command words are stored in the map, the autocomplete feature will, on key pressed in the command box, check for any command that starts with the `String` input supplied by the user, and iterate through them one by one. In essence, the sequence of events is illustrated by the following activity diagram:
+
+<puml src="diagrams/AutocompleteActivityDiagram.puml" width="250" />
+
+#### Design Considerations
+<ol>
+    <li>
+        <b>Performance and Scalability:</b> 
+        <md>
+            In order for autocomplete to be used with many commands, a `HashMap` implementation was chosen for `AddressBookParser`'s command word storage data structure as lookup for command words can be done in approximately `O(1)` time.
+        </md>
+    </li>
+    <li>
+        <b>Consistency:</b>
+        <md>
+            To maintain consistency with users' expectations of how Autocomplete features work, the exact mechanics (ie pressing Tab to cycle through command suggestions) are inspired by some traditional terminals' command autocomplete features, which are similar (for instance, Powershell's default autocomplete works similarly). Thus, users do not have to learn a new mental model for how they would expect the autocomplete to function.
+        </md>
+    </li>
 </ol>
 
 --------------------------------------------------------------------------------------------------------------------

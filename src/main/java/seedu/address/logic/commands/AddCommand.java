@@ -40,13 +40,16 @@ public class AddCommand extends Command {
     /**
      * Success message displayed upon successfully adding a person.
      */
-    public static final String MESSAGE_SUCCESS = "You have added a new profile in : \n %1$s";
+    public static final String MESSAGE_SUCCESS = "You have added a new person in : \n %1$s";
 
     /**
      * Message displayed when trying to add a person with a name that already exists.
      */
     public static final String MESSAGE_DUPLICATE_PERSON = "Note: A person with the same name already exists." + "\n"
-            + "Please edit the existing profile or change the name of this profile to be added";
+            + "Please edit the existing person or change the name of this person to be added";
+
+    public static final String MESSAGE_NAME_MISSING = "Note: Compulsory name input is missing"
+            + "\nUnable to add a person without name";
 
     private final Person toAdd;
 
