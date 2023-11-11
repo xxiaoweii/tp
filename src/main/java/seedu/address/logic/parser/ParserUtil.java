@@ -9,6 +9,7 @@ import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
+import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Contact;
 import seedu.address.model.person.Course;
@@ -170,6 +171,8 @@ public class ParserUtil {
                 if (courseTutorialLength == 2) {
                     Course stringToCourse = new Course(splitCourseInput);
                     courseSet.add(stringToCourse);
+                } if (courseTutorialLength > 2) {
+                    throw new ParseException(AddCommand.MESSAGE_USAGE);
                 }
             }
         }
