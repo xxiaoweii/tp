@@ -18,8 +18,21 @@ import seedu.address.model.person.Tutorial;
  * Lists all persons in the address book to the user.
  */
 public class ListCommand extends Command {
-    public static final String MESSAGE_SUCCESS = "You have 0 profile in your list\n";
+    /**
+     * Message displayed upon successful execution of the ListCommand if there are no persons.
+     */
+    public static final String MESSAGE_SUCCESS = "You have 0 persons in your list\n";
+
+    /**
+     * Keyword to trigger the 'list' command.
+     */
     public static final String COMMAND_WORD = "list";
+
+    /**
+     * Usage instructions for the 'list' command.
+     */
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Display all the users stored\n"
+            + "Example: " + COMMAND_WORD;
     private static final String enter = "\n   ";
     private static int numPeople = 0;
     private static String s = "";
@@ -93,13 +106,19 @@ public class ListCommand extends Command {
         return lst.toString();
     }
 
+    /**
+     * Executes the ListCommand to display the list of all persons.
+     *
+     * @param model The model this command should operate on.
+     * @return The CommandResult displaying the list of all persons in the address book.
+     */
     @Override
     public CommandResult execute(Model model) {
         String peopleList = "";
         requireNonNull(model);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         numPeople = model.getFilteredPersonList().size();
-        s = numPeople <= 1 ? "" : "s";
+        s = numPeople == 1 ? "" : "s";
         model.getFilteredPersonList().forEach((people) -> {
             nameList.add(people.getName());
             roleList.add(people.getRoles());
@@ -113,6 +132,6 @@ public class ListCommand extends Command {
                     + roleToString(roleList.get(i)) + enter + contactToString(contactList.get(i)) + enter
                     + courseToString(courseList.get(i)) + enter + tutorialToString(tutorialList.get(i)) + "\n";
         }
-        return new CommandResult("You have " + numPeople + " profile" + s + " in your list\n" + peopleList);
+        return new CommandResult("You have " + numPeople + " person" + s + " in your list\n" + peopleList);
     }
 }

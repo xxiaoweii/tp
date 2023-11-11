@@ -9,23 +9,39 @@ NUSearch is a desktop application used for consolidating NUS professors, teachin
 
 Given below are my contributions to the project.
 
-* **New Feature**:
-    * to be added soon
+* **Search Feature**:
+    * What it does: The search function is divided into 4 subcommands : search, searchrole, searchcourse, 
+and searchtutorial. It allows the users to search and filter through the list people based on their 
+name, role, course as well as tutorial. 
+  
+    * Justification: This feature allows the user to easily find the contact information of one based on 
+one of the 4 categories. 
 
-* **New Feature**:
-    * to be added soon
+*  **FavList Feature**:
+    * What it does: It allows the user to easily access the list of favourited persons with a single simple 
+command. 
+    * Justification: This feature allows users to access their favourite list, which typically contains 
+the information of those they frequently search for quickly. 
 
-* **Code contributed**: [Kirthigha's RepoSense link](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=kayabuttertoastt&breakdown=true)
+
+* **Code contributed**: 
+* [Kirthigha's RepoSense link](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=kayabuttertoastt&breakdown=true)
 
 * **Project management**:
-    * Set up team's collaborative project document and take minutes during meetings
+    * Set up team's collaborative project document and update weekly
+    * Organise and lead weekly meetings
+    * Take minutes during meetings
+    * Update collaborate project document
     * Added & modified README.md to include project description and motivation
 
 * **Enhancements to existing features**:
-    * to be added soon
+The existing implementation of the find command only allowed the user to search by the name in 
+the address book. However, my new implementation of the feature allows the user to search for a person
+or multiple people at once based on their name, role, course or tutorial class. 
+
 
 * **Documentation**:
-    * User Guide (v1.1):
+    * User Guide:
         * For Features & Commands:
             * Created user guide for the various commands
                 * What the command does
@@ -34,15 +50,28 @@ Given below are my contributions to the project.
                 * Acceptable Values
                 * Expected Output on Success
                 * Expected Output on Failure
-    * Developer Guide (v1.1):
+    * Developer Guide:
         * Added user stories
+
 
 * **Team Tasks**:
     * Updated AboutUs
+    * Updated Developer Guide
+    * Updated User Guide
+    * Updated Collaborative Project Document Weekly
+
 
 * **Community**:
     * PRs reviewed:
-        * to be added
-    * to be added
+        * team member's PRs in v1.1
+        * team member's PRs in v1.2
+        * team member's PRs in v2.1
+        * team member's PRs in v2.2
+        * team member's PRs in v3.1
+        * team member's PRs in v3.2
+        * team member's PRs in v4.1
+        * team member's PRs in v4.2
+
 
 * **Beyond the project team**:
+  * to be added soon 

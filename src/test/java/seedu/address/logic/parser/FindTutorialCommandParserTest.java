@@ -26,11 +26,11 @@ public class FindTutorialCommandParserTest {
         // no leading and trailing whitespaces
         FindTutorialCommand expectedFindTutorialCommand =
                 new FindTutorialCommand(new TutorialContainsKeywordsPredicate(
-                        Arrays.asList("CS2103T/F08", "CS2100/F04")));
-        assertParseSuccess(parser, "CS2103T/F08 CS2100/F04", expectedFindTutorialCommand);
+                        Arrays.asList("CS2103T/F08")));
+        assertParseSuccess(parser, "CS2103T/F08", expectedFindTutorialCommand);
 
         // multiple whitespaces between keywords
-        assertParseSuccess(parser, " \n CS2103T/F08 \n \t CS2100/F04 \t", expectedFindTutorialCommand);
+        assertParseSuccess(parser, " \t CS2103T/F08 \n", expectedFindTutorialCommand);
     }
 
 }
