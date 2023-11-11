@@ -31,9 +31,9 @@ public class FindTutorialCommandParser implements Parser<FindTutorialCommand> {
             throw new ParseException(Tutorial.MESSAGE_CONSTRAINTS);
         }
 
-        String[] roleKeywords = trimmedArgs.split("\\s+");
+        String[] tutorialKeywords = trimmedArgs.split(Tutorial.TUTORIAL_SEPARATOR);
 
-        return new FindTutorialCommand(new TutorialContainsKeywordsPredicate(Arrays.asList(roleKeywords)));
+        return new FindTutorialCommand(new TutorialContainsKeywordsPredicate(Arrays.asList(tutorialKeywords)));
     }
 
     /**

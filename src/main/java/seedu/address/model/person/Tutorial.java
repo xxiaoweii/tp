@@ -17,7 +17,7 @@ public class Tutorial {
         "Given course's name (%s) does not match Tutorial's course name (%s).";
 
     // Matches a single character, any number of characters, a slash, a single character, then any number of characters.
-    public static final String VALIDATION_REGEX = "^[A-Za-z]{2,3}\\d{4}[A-Za-z]?\\/[^\\s].*$";
+    public static final String VALIDATION_REGEX = "^[A-Za-z]{2,3}\\d{4}[A-Za-z]?\\/[A-Za-z0-9]*-?[A-Za-z0-9].*$";
 
     // A tutorial String is in the format of courseName + COURSE_TUTORIAL_DELIMITER + tutorialName.
     // This is a constant representing that delimiter.
