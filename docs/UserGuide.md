@@ -162,7 +162,9 @@ command --specifier INPUTFIELD [--specifier INPUTFIELD1, ...]
 [--specifier INPUTFIELD1/SUBFIELD1-SUBFIELD2-..., ...]
 ```
 <box type="warning">
-    Note that a command is case-sensitive; in other words, "add" is different from "ADD" and "Add"; be careful not to mix them up!
+    <md>
+        Note that a command is case-sensitive; in other words, `add` is different from `ADD` and `Add`; be careful not to mix them up!
+    </md>
 </box>
 
 ###### EXAMPLE COMMAND FORMAT
