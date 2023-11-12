@@ -235,12 +235,10 @@ Any other command word such as `h`, `he` and `hel` will be seen as an invalid co
 
 `Unknown command`
 
-Command with extra parameter(s) after the keyword will throw error: `help 1`
-```
-Invalid command format! 
-help: Shows program usage instructions.
-Example: help
-```
+> 📝Note:
+>
+> Anything after `help`, i.e. `help im dying` will be ignored and the `help` command will still be executed.
+
 
 <div style="page-break-after: always;"></div>
 
@@ -444,6 +442,10 @@ Any other command word such as `l`, `li` and `lis` will be seen as an invalid co
 
 `Unknown command`
 
+> 📝Note:
+> 
+> Anything after `list`, i.e. `list hello` will be ignored and the `list` command will still be executed.
+
 
 <div style="page-break-after: always;"></div>
 
@@ -555,6 +557,11 @@ This command does not accept any parameters.
 *(if user has only favourited 1 person)*
 ```
 You have 1 favourited person in your list. 
+Name: Aiken Dueet  
+Role: STUDENT
+Contact: [[@aikendueet], [aikendueet@gmail.com]]
+Course: CS2103T, CS2101, CS2100
+Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30 
 ```
 
 ###### EXPECTED OUTPUT ON FAILURE:
@@ -563,6 +570,11 @@ This command only recognises `favlist` as the keyword.
 Any other command word such as `favl`, `favli` and `favlis` will be seen as an invalid command with the following output:
 
 `Unknown command`
+
+> 📝Note:
+>
+> Anything after `favlist`, i.e. `favlist hello` will be ignored and the `favlist` command will still be executed.
+
 
 <div style="page-break-after: always;"></div>
 
@@ -796,6 +808,11 @@ This command only recognises `exit` as the keyword.
 Any other command word such as `e`, `ex` and `exi` will be seen as an invalid command with the following output:
 
 `Unknown command`
+
+> 📝Note:
+>
+> Anything after `exit`, i.e. `exit hello` will be ignored and the `exit` command will still be executed.
+
 
 <div style="page-break-after: always;"></div>
 
