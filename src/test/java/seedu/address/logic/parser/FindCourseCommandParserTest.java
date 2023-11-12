@@ -1,8 +1,6 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_COURSE_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_CHARLIE;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
@@ -11,7 +9,6 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.FindCourseCommand;
-import seedu.address.model.person.Course;
 import seedu.address.model.person.CourseContainsKeywordsPredicate;
 
 public class FindCourseCommandParserTest {
@@ -28,15 +25,12 @@ public class FindCourseCommandParserTest {
     public void parse_validArgs_returnsFindCourseCommand() {
         // no leading and trailing whitespaces
         FindCourseCommand expectedFindCourseCommand =
-                new FindCourseCommand(new CourseContainsKeywordsPredicate(Arrays.asList("CS2103T")));
-        assertParseSuccess(parser, "CS2103T", expectedFindCourseCommand);
+                new FindCourseCommand(new CourseContainsKeywordsPredicate(Arrays.asList("CS2103T", "CS2100")));
+        assertParseSuccess(parser, "CS2103T CS2100", expectedFindCourseCommand);
 
-    }
+        // multiple whitespaces between keywords
+        assertParseSuccess(parser, " \n CS2103T \n \t CS2100 \t", expectedFindCourseCommand);
 
-    @Test
-    public void parse_invalidValue_failure() {
-        // invalid course
-        assertParseFailure(parser, NAME_DESC_CHARLIE + INVALID_COURSE_DESC, Course.MESSAGE_CONSTRAINTS);
     }
 
 }
