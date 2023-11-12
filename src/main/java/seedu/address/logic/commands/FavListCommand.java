@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
@@ -48,10 +48,26 @@ public class FavListCommand extends Command {
         int numbFavouritePeople = favouritePersons.size();
         String s = numbFavouritePeople == 1 ? "" : "s";
 
-        Stream<Person> peopleList = favouritePersons.stream();
+        String peopleList = favouritePersons.stream()
+                .map(this::formatPersonDetails)
+                .collect(Collectors.joining("\n"));
 
         return new CommandResult("You have " + numbFavouritePeople
-                + " favourited person" + s + " in your list.\n");
+                + " favourited person" + s + " in your list.\n" + peopleList);
+    }
+
+    /**
+     * Format the details of a person to a string representation.
+     *
+     * @param person The person whose details need to be formatted.
+     * @return A string with the formatted details of the person.
+     */
+    private String formatPersonDetails(Person person) {
+        return "Name: " + person.getName() + "\n"
+                + "Roles: " + person.getRoles() + "\n"
+                + "Contacts: " + person.getContacts() + "\n"
+                + "Courses: " + person.getCourses() + "\n"
+                + "Tutorials: " + person.getTutorials() + "\n";
     }
 
 }
