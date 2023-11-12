@@ -651,11 +651,7 @@ Search for persons using role.
 
 Output persons which match the given role.
 
-<box type="important">
-    <md>
-        Unlike other search commands where the input is case-insensitive, note that searchrole **is** case-sensitive. In other words, `searchrole TA` would be valid, while `searchrole ta` would not.
-    </md>
-</box>
+> Note: The input name is NOT case-sensitive.
 
 ###### FORMAT:
 `searchrole ROLE`
@@ -672,6 +668,9 @@ A valid role type:
 2. Student
 3. Professor
 
+If the user enters a ROLE that does not match any of the aforementioned options, 
+the system will not generate an error message.
+
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
 0 persons found!
@@ -680,7 +679,7 @@ A valid role type:
 ###### EXPECTED OUTPUT ON FAILURE:
 **For incomplete command:**
 
-Example: `searchrole    `
+Example 1: `searchrole    `
 
 ```
 Invalid command format!
@@ -705,12 +704,6 @@ Output persons which match the given course.
 
 ###### EXAMPLE COMMAND:
 `searchcourse CS2100`
-
-###### ACCEPTABLE VALUES:
-`COURSECODE`: A valid course code that fulfills the following criteria (not case-sensitive):
-1. Starts with two- or three-letter prefix
-2. Follows by four digits, first of which indicates the level of the course
-3. Can end with a letter
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```

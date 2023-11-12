@@ -3,12 +3,9 @@ package seedu.address.logic.parser;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Set;
 
 import seedu.address.logic.commands.FindTutorialCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Tutorial;
 import seedu.address.model.person.TutorialContainsKeywordsPredicate;
 
 /**
@@ -27,24 +24,9 @@ public class FindTutorialCommandParser implements Parser<FindTutorialCommand> {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindTutorialCommand.MESSAGE_USAGE));
         }
 
-        if (!checkValidTutorials(trimmedArgs)) {
-            throw new ParseException(Tutorial.MESSAGE_CONSTRAINTS);
-        }
-
-        String[] tutorialKeywords = trimmedArgs.split(Tutorial.TUTORIAL_SEPARATOR);
+        String[] tutorialKeywords = trimmedArgs.split("\\s+");
 
         return new FindTutorialCommand(new TutorialContainsKeywordsPredicate(Arrays.asList(tutorialKeywords)));
     }
 
-    /**
-     * Returns whether the tutorials provided are valid tutorials.
-     */
-    private boolean checkValidTutorials(String args) {
-        try {
-            Set<Tutorial> tutorials = ParserUtil.parseTutorials(Collections.singleton(args));
-            return tutorials.size() > 0;
-        } catch (ParseException e) {
-            return false;
-        }
-    }
 }

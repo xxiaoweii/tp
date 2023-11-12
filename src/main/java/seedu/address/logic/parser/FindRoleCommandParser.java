@@ -3,12 +3,9 @@ package seedu.address.logic.parser;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Set;
 
 import seedu.address.logic.commands.FindRoleCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Role;
 import seedu.address.model.person.RoleContainsKeywordsPredicate;
 
 /**
@@ -27,24 +24,9 @@ public class FindRoleCommandParser implements Parser<FindRoleCommand> {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindRoleCommand.MESSAGE_USAGE));
         }
 
-        if (!checkValidRoles(trimmedArgs)) {
-            throw new ParseException(Role.MESSAGE_CONSTRAINTS);
-        }
-
-        String[] roleKeywords = trimmedArgs.split(Role.PARSE_ROLE_DELIMITER);
+        String[] roleKeywords = trimmedArgs.split("\\s+");
 
         return new FindRoleCommand(new RoleContainsKeywordsPredicate(Arrays.asList(roleKeywords)));
     }
 
-    /**
-     * Returns whether the roles provided are valid roles.
-     */
-    private boolean checkValidRoles(String args) {
-        try {
-            Set<Role> roles = ParserUtil.parseRoles(Collections.singleton(args));
-            return roles.size() > 0;
-        } catch (ParseException e) {
-            return false;
-        }
-    }
 }

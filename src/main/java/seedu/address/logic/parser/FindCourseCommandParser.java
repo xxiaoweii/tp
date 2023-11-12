@@ -3,12 +3,9 @@ package seedu.address.logic.parser;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Set;
 
 import seedu.address.logic.commands.FindCourseCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Course;
 import seedu.address.model.person.CourseContainsKeywordsPredicate;
 
 /**
@@ -28,24 +25,9 @@ public class FindCourseCommandParser implements Parser<FindCourseCommand> {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCourseCommand.MESSAGE_USAGE));
         }
 
-        if (!checkValidCourses(trimmedArgs)) {
-            throw new ParseException(Course.MESSAGE_CONSTRAINTS);
-        }
-
-        String[] courseKeywords = trimmedArgs.split(Course.PARSE_COURSE_DELIMITER);
+        String[] courseKeywords = trimmedArgs.split("\\s+");
 
         return new FindCourseCommand(new CourseContainsKeywordsPredicate(Arrays.asList(courseKeywords)));
     }
 
-    /**
-     * Returns whether the courses provided are valid courses.
-     */
-    private boolean checkValidCourses(String args) {
-        try {
-            Set<Course> courses = ParserUtil.parseCourses(Collections.singleton(args));
-            return courses.size() > 0;
-        } catch (ParseException e) {
-            return false;
-        }
-    }
 }
