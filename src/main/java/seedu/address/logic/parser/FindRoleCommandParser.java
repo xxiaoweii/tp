@@ -28,4 +28,5 @@ public class FindRoleCommandParser implements Parser<FindRoleCommand> {
 
         return new FindRoleCommand(new RoleContainsKeywordsPredicate(Arrays.asList(roleKeywords)));
     }
+
 }

@@ -29,4 +29,5 @@ public class FindCourseCommandParser implements Parser<FindCourseCommand> {
 
         return new FindCourseCommand(new CourseContainsKeywordsPredicate(Arrays.asList(courseKeywords)));
     }
+
 }
