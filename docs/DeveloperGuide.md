@@ -626,8 +626,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 5. **PlantUML**: A text-based tool for creating diagrams using simple text descriptions
 6. **Sequence Diagram**: A visual tool showing the order of actions between system components or objects
 7. **Object-oriented paradigm**:A programming paradigm
-
-*{More to be added}*
+8. **Profile**: Information or details of a person, including their name, role, contact details, courses, tutorial classes, etc.
+9. **Manual testing**: The process of testing the application through manual execution of specific test cases.
+10. **Logic Component**: The component responsible for executing commands and coordinating interactions between different parts of the application. 
+11. **Model Component**: The part of the application that stores and manages the data, including the address book and user preferences. 
+12. **Storage Component**: The part of the application that handles reading and writing data.
 
 --------------------------------------------------------------------------------------------------------------------
 
