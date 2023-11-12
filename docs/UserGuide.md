@@ -820,6 +820,22 @@ Here's a mockup of how the User Interface might look: <br>
 
 ## FAQ
 
+<panel header="**Q**: Where is the save data file stored?">
+
+**A**: 
+By default, the data file is stored in the `root/data/addressbook.json` file, where `root` refers to the directory the executable JAR file is in.
+<box type="info">
+    <md>
+        This data file is created when the app is launched **for the first time**. If the data file does not exist yet, try to launch the app and exit it (either via `exit` command or by closing with the X button), and then checking the directory again.
+    </md>
+</box>
+<box type="warning">
+    <md>
+        Editing the save data file manually may result in **unexpected behaviour**. Only edit the data file if **you know what you are doing.** Otherwise, the data file may become corrupted and the app may unable to read or access your data.
+    </md>
+</box>
+</panel>
+
 <panel header="**Q**: How do I transfer my data to another Computer?">
 
 **A**: 
@@ -829,6 +845,7 @@ Here's a mockup of how the User Interface might look: <br>
 1. Replace the json file in that folder, with the one (in the same location) from the first computer (the data you wish to transfer).
 1. Reopen the app and the data should have been transferred!
 </panel>
+
 
 
 --- {.dotted .thick-1 .border-primary}
