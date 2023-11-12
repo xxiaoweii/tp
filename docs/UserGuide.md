@@ -206,7 +206,8 @@ Show the help page of the application
 `help`
 
 ###### ACCEPTABLE VALUES:
-This command does not accept any parameters
+Command accepts parameters after the keyword `help`, i.e. `help im dying` but they will be ignored 
+and the `help` command will still be executed.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 
@@ -234,10 +235,6 @@ This command only recognises `help` as the keyword.
 Any other command word such as `h`, `he` and `hel` will be seen as an invalid command with the following output:
 
 `Unknown command`
-
-> 📝Note:
->
-> Anything after `help`, i.e. `help im dying` will be ignored and the `help` command will still be executed.
 
 
 <div style="page-break-after: always;"></div>
@@ -415,7 +412,8 @@ List all the persons added by the user.
 `list`
 
 ###### ACCEPTABLE VALUES:
-This command does not accept any parameters.
+Command accepts parameters after the keyword `list`, i.e. `list everything` but they will be ignored 
+and the `list` command will still be executed.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
@@ -439,12 +437,6 @@ Tutorials: CS1101S/Tut8
 This command only recognises `list` as the keyword. 
 
 Any other command word such as `l`, `li` and `lis` will be seen as an invalid command with the following output:
-
-`Unknown command`
-
-> 📝Note:
-> 
-> Anything after `list`, i.e. `list hello` will be ignored and the `list` command will still be executed.
 
 
 <div style="page-break-after: always;"></div>
@@ -551,7 +543,8 @@ List all the persons favourited by the user.
 `favlist`
 
 ###### ACCEPTABLE VALUES:
-This command does not accept any parameters.
+Command accepts parameters after the keyword `favlist`, i.e. `favlist hehe` but they will be ignored 
+and the `favlist` command will still be executed.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 *(if user has only favourited 1 person)*
@@ -570,10 +563,6 @@ This command only recognises `favlist` as the keyword.
 Any other command word such as `favl`, `favli` and `favlis` will be seen as an invalid command with the following output:
 
 `Unknown command`
-
-> 📝Note:
->
-> Anything after `favlist`, i.e. `favlist hello` will be ignored and the `favlist` command will still be executed.
 
 
 <div style="page-break-after: always;"></div>
@@ -784,6 +773,34 @@ Example: searchtutorial CS2100/G07
 
 <div style="page-break-after: always;"></div>
 
+### Clearing the person list: `clear`
+
+Clears the address book.
+
+###### FORMAT:
+`clear`
+
+###### EXAMPLE COMMAND:
+`clear`
+
+###### ACCEPTABLE VALUES:
+Command accepts parameters after the keyword `clear`, i.e. `clear your mind` but they will be ignored 
+and the `clear` command will still be executed. 
+
+###### EXPECTED OUTPUT ON SUCCESS:
+```
+All persons have been cleared!
+```
+
+###### EXPECTED OUTPUT ON FAILURE:
+This command only recognises `clear` as the keyword.
+
+Any other command word such as `c`, `cl` and `clea` will be seen as an invalid command with the following output:
+
+`Unknown command`
+
+<div style="page-break-after: always;"></div>
+
 ### Exiting the application: `exit`
 
 Closes and exits the application
@@ -795,7 +812,8 @@ Closes and exits the application
 `exit`
 
 ###### ACCEPTABLE VALUES:
-This command does not accept any parameters
+Command accepts parameters after the keyword `exit`, i.e. `exit world` but they will be ignored and
+the `exit` command will still be executed.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 There will be no output 
@@ -808,11 +826,6 @@ This command only recognises `exit` as the keyword.
 Any other command word such as `e`, `ex` and `exi` will be seen as an invalid command with the following output:
 
 `Unknown command`
-
-> 📝Note:
->
-> Anything after `exit`, i.e. `exit hello` will be ignored and the `exit` command will still be executed.
-
 
 <div style="page-break-after: always;"></div>
 
