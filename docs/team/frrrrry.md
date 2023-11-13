@@ -41,7 +41,7 @@ Click [here](https://github.com/AY2324S1-CS2103T-F08-0/tp/issues?q=is%3Aissue+is
 * User Guide:
   * Added section - A guide to reading each command
   * Added section - Clearing the person list: `clear`
-  * Created the structure for all the section - Features
+  * Created the structure for the section - Features
   * Formatted the heading levels and order of the sections
   * Created command summary table
 * Developer Guide:
