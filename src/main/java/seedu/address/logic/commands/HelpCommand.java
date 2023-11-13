@@ -19,7 +19,7 @@ public class HelpCommand extends Command {
             + "Example: " + COMMAND_WORD;
 
     public static final String ADD_PERSON = "Adding a person: add --name NAME [--role ROLE1, ...]  "
-            + "[--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]";
+            + "[--contact CONTACT1, ...] [--course COURSECODE1/CLASS1, ...]";
     public static final String LIST = "Listing all persons: list";
     public static final String DELETE = "Deleting a person: delete INDEX";
     public static final String SEARCH_NAME = "Search by name: search NAME";
