@@ -37,6 +37,8 @@ Given below are my contributions to the project.
 ##### **Project Management**:
 - Added issues on GitHub to keep track of bugs whenever they appear.
 
+<div style="page-break-after: always;"></div>
+
 ##### **Documentation**:
   * User Guide:
     * Added a mockup of the UI created using HTML / CSS.
