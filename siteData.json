@@ -131,6 +131,7 @@
         "searching-for-persons-by-role-searchrole": "Searching for persons by role: searchrole",
         "searching-for-persons-by-course-searchcourse": "Searching for persons by course: searchcourse",
         "searching-for-persons-by-tutorial-searchtutorial": "Searching for persons by tutorial: searchtutorial",
+        "clearing-the-person-list-clear": "Clearing the person list: clear",
         "exiting-the-application-exit": "Exiting the application: exit",
         "autocomplete": "Autocomplete",
         "ui-mockup": "UI Mockup",
@@ -192,7 +193,7 @@
       "src": "team/xxiaoweii.md",
       "title": "Ong Xiao Wei's Project Portfolio Page",
       "headings": {
-        "project-addressbook-level-3": "Project: AddressBook Level 3"
+        "project-nusearch": "Project: NUSearch"
       },
       "headingKeywords": {}
     },
