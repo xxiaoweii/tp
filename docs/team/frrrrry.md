@@ -22,26 +22,32 @@ Given below are my contributions to the project.
 
 ##### Project management
 * Created team organization, team repository, and set up repository with MarkBind and Codecov
-* Created milestones (v1.1, v1.2, v1.3, v1.3b & v1.4) and assigned issues(tasks) to team members for v1.1, v1.2, v1.3, v1.3b & v1.4
+* Created milestones (v1.1, v1.2, v1.3, v1.3b & v1.4) 
+* Added 40 issues for all milestones. 
+* Assigned issues(tasks) to team members for all milestones. 
+* Filtered out and labelled all PE-D bug reports with the labels "bug.mustFix", "bug.goodToFix", "bug.duplicate",
+ "bug.wontFix", "bug.notAllowedToFix", required for bug triaging and submission for v1.4. 
 
 ##### Enhancements to existing features
 * Add a favourite tag to a person's person card in the UI to indicate that this person is favourited by the user. 
 
 ##### Bug fixes
 * Fixed a bug where the ParseException is not thrown when parsing invalid contacts and courses.
-* Fixed a bug where `list` caused the tutorial field of each person to show the tutorials of all the people in the user's list.
-* Fixed a bug where the favourite tag is not displayed immediately after the user favourites the person. 
+* Fixed a bug where the favourite tag is not displayed immediately after the user favourites the person.
+* Fixed a bug where invalid `add` command format does not throw an error message.
 
 ##### Documentation
 * User Guide:
-  * For Features & Commands:
-  * Added section - A guide to reading each command 
-  * Created the structure for all the existing features 
+  * Added section - A guide to reading each command
+  * Added section - Clearing the person list: `clear`
+  * Created the structure for all the section - Features
+  * Formatted the heading levels and order of the sections
   * Created command summary table
 * Developer Guide:
   * Added product scope
   * Added user stories
   * Edited the class diagram for Storage. 
+  * Added implementation of the favourite feature
 
 ##### Team Tasks
   * Set up team organization and repository
