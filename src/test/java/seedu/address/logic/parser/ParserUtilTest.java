@@ -24,11 +24,13 @@ import seedu.address.model.person.Tutorial;
 
 public class ParserUtilTest {
     private static final String INVALID_NAME = "R@chel";
-    private static final String INVALID_ROLE = "Teacher";
+    private static final String INVALID_ROLE_1 = "Teacher";
+    private static final String INVALID_ROLE_2 = " ";
     private static final String INVALID_CONTACT = " ";
     private static final String INVALID_COURSE = " ";
-    private static final String INVALID_TUTORIAL_1 = "/tutorial";
+    private static final String INVALID_TUTORIAL_1 = "CS2100";
     private static final String INVALID_TUTORIAL_2 = "CS2103T/ F08";
+    private static final String INVALID_COURSE_1 = "CS2100/F08/CS2103T";
 
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_ROLE_1 = "TA";
@@ -93,7 +95,7 @@ public class ParserUtilTest {
 
     @Test
     public void parseRole_invalidValue_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseRole(INVALID_ROLE));
+        assertThrows(ParseException.class, () -> ParserUtil.parseRole(INVALID_ROLE_1));
     }
 
     @Test
@@ -117,12 +119,17 @@ public class ParserUtilTest {
 
     @Test
     public void parseRoles_collectionWithInvalidTags_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseRoles(Arrays.asList(VALID_ROLE_1, INVALID_ROLE)));
+        assertThrows(ParseException.class, () -> ParserUtil.parseRoles(Arrays.asList(VALID_ROLE_1, INVALID_ROLE_1)));
     }
 
     @Test
     public void parseRoles_emptyCollection_returnsEmptySet() throws Exception {
         assertTrue(ParserUtil.parseRoles(Collections.emptyList()).isEmpty());
+    }
+
+    @Test
+    public void parseRoles_emptyRole_throwParseException() throws Exception {
+        assertThrows(ParseException.class, () -> ParserUtil.parseRoles(Arrays.asList(INVALID_ROLE_2)));
     }
 
     @Test
@@ -233,6 +240,11 @@ public class ParserUtilTest {
         assertEquals(expectedTagSet, actualTagSet);
     }
 
+    @Test
+    public void parseCourseInput_invalidCourseFormat_throwParseException() throws Exception {
+        assertThrows(ParseException.class, () -> ParserUtil.parseCourseInput(Arrays.asList(INVALID_COURSE_1)));
+    }
+
     // parse tutorials
 
     @Test
@@ -254,6 +266,16 @@ public class ParserUtilTest {
         invalidTutorials.add(new Course(INVALID_TUTORIAL_2));
 
         assertThrows(ParseException.class, () -> ParserUtil.parseTutorials(invalidTutorials));
+    }
+
+    @Test
+    public void parseTutorialsSetCourse_setWithInvalidTutorialFormat_throwParseException() throws ParseException {
+
+        Set<Course> invalidTutorials = new HashSet<>();
+        invalidTutorials.add(new Course(INVALID_TUTORIAL_1));
+        String invalidTutorialString = INVALID_TUTORIAL_1;
+
+        assertThrows(ParseException.class, () -> ParserUtil.parseTutorial(invalidTutorials, invalidTutorialString));
     }
 
     @Test
@@ -306,53 +328,4 @@ public class ParserUtilTest {
 
         assertEquals(expectedTutorials, ParserUtil.parseTutorials(courseCollection));
     }
-
-    // Added some tests for parse tutorial, can add more if there are any
-    /*
-    @Test
-    public void parseTag_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseTag(null));
-    }
-
-    @Test
-    public void parseTag_invalidValue_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseTag(INVALID_TAG));
-    }
-
-    @Test
-    public void parseTag_validValueWithoutWhitespace_returnsTag() throws Exception {
-        Tag expectedTag = new Tag(VALID_TAG_1);
-        assertEquals(expectedTag, ParserUtil.parseTag(VALID_TAG_1));
-    }
-
-    @Test
-    public void parseTag_validValueWithWhitespace_returnsTrimmedTag() throws Exception {
-        String tagWithWhitespace = WHITESPACE + VALID_TAG_1 + WHITESPACE;
-        Tag expectedTag = new Tag(VALID_TAG_1);
-        assertEquals(expectedTag, ParserUtil.parseTag(tagWithWhitespace));
-    }
-
-    @Test
-    public void parseTags_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseTags(null));
-    }
-
-    @Test
-    public void parseTags_collectionWithInvalidTags_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseTags(Arrays.asList(VALID_TAG_1, INVALID_TAG)));
-    }
-
-    @Test
-    public void parseTags_emptyCollection_returnsEmptySet() throws Exception {
-        assertTrue(ParserUtil.parseTags(Collections.emptyList()).isEmpty());
-    }
-
-    @Test
-    public void parseTags_collectionWithValidTags_returnsTagSet() throws Exception {
-        Set<Tag> actualTagSet = ParserUtil.parseTags(Arrays.asList(VALID_TAG_1, VALID_TAG_2));
-        Set<Tag> expectedTagSet = new HashSet<Tag>(Arrays.asList(new Tag(VALID_TAG_1), new Tag(VALID_TAG_2)));
-
-        assertEquals(expectedTagSet, actualTagSet);
-    }
-    */
 }
