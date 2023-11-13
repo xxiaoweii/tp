@@ -23,7 +23,7 @@ Given below are my contributions to the project.
 ##### Project management
 * Created team organization, team repository, and set up repository with MarkBind and Codecov
 * Created milestones (v1.1, v1.2, v1.3, v1.3b & v1.4) 
-* Added a total of 40 issues for all milestones. 
+* Added a total of 45 issues for all milestones. 
 Click [here](https://github.com/AY2324S1-CS2103T-F08-0/tp/issues?q=is%3Aissue+is%3Aclosed+author%3Afrrrrry) to view the issues.  
 * Assigned issues(tasks) to team members for all milestones. 
 * Filtered out and labelled all PE-D bug reports with the labels "bug.mustFix", "bug.goodToFix", "bug.duplicate",
@@ -45,11 +45,12 @@ Click [here](https://github.com/AY2324S1-CS2103T-F08-0/tp/issues?q=is%3Aissue+is
   * Formatted the heading levels and order of the sections
   * Created command summary table
 * Developer Guide:
+  * Add content page
+  * Edited the class diagram for Storage. 
+  * Added implementation of the delete, favourite, and unfavourite features
+  * Added proposed implementation of the edit feature
   * Added product scope
   * Added user stories
-  * Edited the class diagram for Storage. 
-  * Added implementation of the favourite feature
-  * Added proposed implementation of the edit feature
 
 ##### Team Tasks
   * Set up team organization and repository

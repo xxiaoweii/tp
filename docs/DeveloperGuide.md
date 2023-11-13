@@ -6,22 +6,69 @@ pageNav: 3
 
 # NUSearch Developer Guide
 
-<!-- * Table of Contents -->
-<page-nav-print />
+## Table of Contents
+<box>
+    <ol>
+        <li> <a href="#table-of-contents">Table of Contents</a> </li>
+        <li> <a href="#acknowledgements">Acknowledgement</a> </li>
+        <li> <a href="#setting-up-getting-started">Setting up, getting started</a> </li>
+        <li> <a href="#design">Design</a> </li>
+        <ol>
+            <li> <a href="#architecture">Architecture</a> </li>
+            <li> <a href="#ui-component">UI component</a> </li>
+            <li> <a href="#logic-component">Logic component</a> </li>
+            <li> <a href="#model-component">Model component</a> </li>
+            <li> <a href="#storage-component">Storage component</a> </li>
+            <li> <a href="#common-classes">Common classes</a> </li>
+        </ol>
+        <li> <a href="#implementation">Implementation</a> </li>
+        <ol>
+            <li> <a href="#add-feature">Add feature</a> </li>
+            <li> <a href="#list-feature">List feature</a> </li>
+            <li> <a href="#delete-feature">Delete feature</a> </li>
+            <li> <a href="#favourite-feature">Favourite feature</a> </li>
+            <li> <a href="#unfavourite-feature">Unfavourite feature</a> </li>
+            <li> <a href="#favourite-list-feature">Favourite List feature</a> </li>
+            <li> <a href="#search-feature">Search feature</a> </li>
+            <li> <a href="#autocomplete-feature">Autocomplete feature</a> </li>
+            <li> <a href="#proposed-undo-redo-feature">[Proposed] Undo/redo feature</a> </li>
+            <li> <a href="#proposed-edit-feature">[Proposed] Edit feature</a> </li>
+        </ol>
+        <li> <a href="#documentation-logging-testing-configuration-dev-ops">Documentation, logging, testing, configuration, dev-ops</a> </li>
+        <li> <a href="#appendix-requirements">Appendix: Requirements</a> </li>    
+        <ol>
+            <li> <a href="#product-scope">Product scope</a> </li>
+            <li> <a href="#user-stories">User stories</a> </li>
+            <li> <a href="#use-cases">Use cases</a> </li>
+            <li> <a href="#non-functional-requirements">Non-Functional Requirements</a> </li>
+            <li> <a href="#glossary">Glossary</a> </li>
+        </ol>
+        <li> <a href="#appendix-instructions-for-manual-testing">Appendix: Instructions for manual testing</a> </li>
+        <ol>
+            <li> <a href="#launch-and-shutdown">Launch and shutdown</a> </li>
+            <li> <a href="#deleting-a-person">Deleting a person</a> </li>
+            <li> <a href="#saving-data">Saving data</a> </li>
+        </ol>
+    </ol>
+</box>
 
---------------------------------------------------------------------------------------------------------------------
+--- {.dotted .thick-1 .border-primary}
+
+<div style="page-break-after: always;"></div>
 
 ## **Acknowledgements**
 
-_{ list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well }_
+This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
 
---------------------------------------------------------------------------------------------------------------------
+--- {.dotted .thick-1 .border-primary}
 
 ## **Setting up, getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
---------------------------------------------------------------------------------------------------------------------
+--- {.dotted .thick-1 .border-primary}
+
+<div style="page-break-after: always;"></div>
 
 ## **Design**
 
@@ -65,6 +112,8 @@ For example, the `Logic` component defines its API in the `Logic.java` interface
 
 The sections below give more details of each component.
 
+<div style="page-break-after: always;"></div>
+
 ### UI component
 
 The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
@@ -81,6 +130,8 @@ The `UI` component,
 * listens for changes to `Model` data so that the UI can be updated with the modified data.
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 * depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
+
+<div style="page-break-after: always;"></div>
 
 ### Logic component
 
@@ -113,6 +164,8 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+
+<div style="page-break-after: always;"></div>
 
 ### Model component
 **API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
@@ -151,7 +204,9 @@ The `Storage` component,
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
---------------------------------------------------------------------------------------------------------------------
+--- {.dotted .thick-1 .border-primary}
+
+<div style="page-break-after: always;"></div>
 
 ## **Implementation**
 
@@ -199,6 +254,8 @@ contact details, courses, tutorial classes) of all the people stored.
 #### Implementation:
 - the list feature is executed using the `list` command
 
+<div style="page-break-after: always;"></div>
+
 ### Delete feature
 
 #### Implementation:
@@ -230,6 +287,8 @@ The following sequence diagram shows how the delete operation works:
   The lifeline for `DeleteCommandParser` should end at the destroy marker [X].
 </md>
 </box>
+
+<div style="page-break-after: always;"></div>
 
 ### Favourite feature
 
@@ -275,6 +334,7 @@ The following sequence diagram shows how the unfavourite operation works:
     </li>
 </ol>
 
+<div style="page-break-after: always;"></div>
 
 ### Unfavourite feature
 
@@ -309,6 +369,7 @@ The following sequence diagram shows how the unfavourite operation works:
 </md>
 </box>
 
+<div style="page-break-after: always;"></div>
 
 ### Favourite List feature 
 #### Implementation Details & Philosophy
@@ -351,6 +412,7 @@ In essence, the sequence of events is illustrated by the following activity diag
     </li>
 </ol>
 
+<div style="page-break-after: always;"></div>
 
 ### Search feature
 #### Implementation Details & Philosophy
@@ -443,6 +505,8 @@ specific, making the application less user-friendly.
 
 </ol>
 
+<div style="page-break-after: always;"></div>
+
 ### Autocomplete Feature
 
 #### Implementation
@@ -481,6 +545,8 @@ Once all the command words are stored in the map, the autocomplete feature will,
         </md>
     </li>
 </ol>
+
+<div style="page-break-after: always;"></div>
 
 
 ### \[Proposed\] Undo/redo feature
@@ -557,6 +623,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 <puml src="diagrams/CommitActivityDiagram.puml" width="250" />
 
+<div style="page-break-after: always;"></div>
+
 #### Design considerations:
 
 **Aspect: How undo & redo executes:**
@@ -571,6 +639,8 @@ The following activity diagram summarizes what happens when a user executes a ne
     * Cons: We must ensure that the implementation of each individual command are correct.
 
 _{more aspects and alternatives to be added}_
+
+<div style="page-break-after: always;"></div>
 
 ### \[Proposed\] Edit feature
 
@@ -607,7 +677,9 @@ The following sequence diagram illustrates the above steps for editing a `Person
 </md>
 </box>
 
---------------------------------------------------------------------------------------------------------------------
+--- {.dotted .thick-1 .border-primary}
+
+<div style="page-break-after: always;"></div>
 
 ## **Documentation, logging, testing, configuration, dev-ops**
 
@@ -617,7 +689,7 @@ The following sequence diagram illustrates the above steps for editing a `Person
 * [Configuration guide](Configuration.md)
 * [DevOps guide](DevOps.md)
 
---------------------------------------------------------------------------------------------------------------------
+--- {.dotted .thick-1 .border-primary}
 
 ## **Appendix: Requirements**
 
@@ -640,6 +712,7 @@ NUS students:
 * Students can save time and energy that would otherwise be spent searching for scattered and hard-to-access essential college information
 * Features an intuitive and user-friendly interface, making it convenient for users to quickly find the information they need
 
+<div style="page-break-after: always;"></div>
 
 ### User stories
 
@@ -659,9 +732,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * `  | NUS student   | delete my classmates, professors or teaching assistants profiles                           | I can remove entries I no longer need                         |
 | `*  `   | NUS student   | find the direction to my tutorial / lecture classrooms                         | I will not get lost on campus.                       |
 
-
-
-*{More to be added}*
+<div style="page-break-after: always;"></div>
 
 ### Use cases
 
@@ -733,6 +804,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 *{More to be added}*
 
+<div style="page-break-after: always;"></div>
+
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
@@ -752,7 +825,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 15. The system should generally follow the object-oriented paradigm.
 16. It should be easy to incorporate new commands, attributes or fields into the system.
 
-*{More to be added}*
 
 ### Glossary
 
@@ -769,7 +841,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 11. **Model Component**: The part of the application that stores and manages the data, including the address book and user preferences. 
 12. **Storage Component**: The part of the application that handles reading and writing data.
 
---------------------------------------------------------------------------------------------------------------------
+--- {.dotted .thick-1 .border-primary}
+
+<div style="page-break-after: always;"></div>
 
 ## **Appendix: Instructions for manual testing**
 
