@@ -126,14 +126,9 @@ The app helps students to consolidate important data, such as profiles of profes
 
 4. The application should launch, resembling the UI shown below
 
-
-
-
 <img src="./images/Ui.png" width="100%" >
 
 --- {.dotted .thick-1 .border-primary}
-
-<div style="page-break-after: always;"></div>
 
 5. Refer to the [Features](#features) below for details of each command.
 
