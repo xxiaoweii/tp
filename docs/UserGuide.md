@@ -51,6 +51,8 @@ The app helps students to consolidate important data, such as profiles of profes
 
 <div style="page-break-after: always;"></div>
 
+
+
 ## Quick Start
 
 1. Ensure you have Java 11 or above installed on your Computer.
@@ -122,13 +124,23 @@ The app helps students to consolidate important data, such as profiles of profes
     </tabs>
 </box>
 
-4. The application should launch, resembling the UI shown in the Home page.
+4. The application should launch, resembling the UI shown below
+
+
+
+
+<img src="./images/Ui.png" width="100%" >
+
+--- {.dotted .thick-1 .border-primary}
+
+<div style="page-break-after: always;"></div>
 
 5. Refer to the [Features](#features) below for details of each command.
 
 --- {.dotted .thick-1 .border-primary}
 
 <div style="page-break-after: always;"></div>
+
 
 ## Features
 
@@ -848,15 +860,7 @@ For example, pressing `f` and then `<Tab>` will let the program automatically su
 
 --- {.dotted .thick-1 .border-primary}
 
-## UI Mockup
 
-Here's a mockup of how the User Interface might look: <br>
-
-<img src="./images/Ui.png" width="100%" >
-
---- {.dotted .thick-1 .border-primary}
-
-<div style="page-break-after: always;"></div>
 
 ## FAQ
 
