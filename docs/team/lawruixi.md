@@ -16,13 +16,16 @@ Given below are my contributions to the project.
  - `Course`
  - `Tutorial`
 - Updated the Person model, as well as all other places in the entire codebase, to use the aforementioned classes instead.
-- Added an autocomplete feature, as well as changing the UI appropriately to support it.
+- Added an autocomplete feature;
+  - Allows the user to press Tab to cycle through possible autocompletions.
+  - Also changed the UI appropriately to support it.
 
 ##### **Bug Fixes**
 - Fixed a bug that arose where new code was written based on outdating code on a newer branch, resulting in compilation failure Pull Requests.
-- Fixed 27 bugs related to the User Guide.
+- Fixed at least 27 bugs related to the User Guide.
     - Most of these are typos.
-    - But some are pretty large and required rewriting entire sections of the User Guide; see **Documentation** below.
+    - Some of these are grammar mistakes.
+    - But a few are pretty large and required rewriting entire sections of the User Guide; see **Documentation** below.
 - Fixed a bug where roles weren't being saved properly.
 - Fixed a bug where data was not saved upon exiting the app.
 - Fixed a bug with autocomplete where the user could not move the cursor in the text field.
@@ -34,11 +37,14 @@ Given below are my contributions to the project.
 ##### **Project Management**:
 - Added issues on GitHub to keep track of bugs whenever they appear.
 
+<div style="page-break-after: always;"></div>
+
 ##### **Documentation**:
   * User Guide:
     * Added a mockup of the UI created using HTML / CSS.
     * Redesigned the User Guide using various features (boxes, HTML elements) provided by Markbind.
     * General beautification of the User Guide.
+    * Ensured User Guide is consistent with the code output.
   * Developer Guide:
     * Added a list of Non-Functional Requirements to the Developer Guide.
     * Updated the UML Guide for Model section with the new attributes assigned to the Model class.
