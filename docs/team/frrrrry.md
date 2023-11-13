@@ -37,6 +37,8 @@ Click [here](https://github.com/AY2324S1-CS2103T-F08-0/tp/issues?q=is%3Aissue+is
 * Fixed a bug where the favourite tag is not displayed immediately after the user favourites the person.
 * Fixed a bug where invalid `add` command format does not throw an error message.
 
+<div style="page-break-after: always;"></div>
+
 ##### Documentation
 * User Guide:
   * Added section - A guide to reading each command
