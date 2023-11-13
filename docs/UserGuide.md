@@ -124,7 +124,7 @@ The app helps students to consolidate important data, such as profiles of profes
     </tabs>
 </box>
 
-4. The application should launch, resembling the UI shown in the [UI mockup](#ui-mockup) below
+4. The application should launch, resembling the UI shown below
 
 
 
