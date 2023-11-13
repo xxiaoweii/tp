@@ -148,8 +148,7 @@ public class ParserUtil {
             String[] splitCourse = courseNames.split(Course.PARSE_COURSE_DELIMITER);
             for (String courseName : splitCourse) {
                 if (!courseName.trim().isEmpty()) {
-                    String courseNameUpperCase = courseName.toUpperCase();
-                    courseSet.add(parseCourse(courseNameUpperCase));
+                    courseSet.add(parseCourse(courseName));
                 } else {
                     throw new ParseException(Course.MESSAGE_CONSTRAINTS);
                 }
