@@ -38,6 +38,7 @@ The app helps students to consolidate important data, such as profiles of profes
             <li> <a href="#searching-for-persons-by-role-searchrole">Search by Role</a> </li>
             <li> <a href="#searching-for-persons-by-course-searchcourse">Search by Course</a> </li>
             <li> <a href="#searching-for-persons-by-tutorial-searchtutorial">Search by Tutorial</a> </li>
+            <li> <a href="#clearing-the-person-list-clear">Clear Person List</a> </li>
             <li> <a href="#exiting-the-application-exit">Exit the Application</a> </li>
         </ol>
         <li> <a href="#faq">Frequently Asked Questions</a> </li>
