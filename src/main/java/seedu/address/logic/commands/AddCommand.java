@@ -34,7 +34,7 @@ public class AddCommand extends Command {
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_ROLE + "Developer, Designer "
             + PREFIX_CONTACT + "johnd@example.com, 98765432 "
-            + PREFIX_COURSE + "CS2103T/G06, CS2101/G06, CS2100/T24-Lab36";
+            + PREFIX_COURSE + "CS2103T/G06, CS2101/G06, CS2100/T24";
 
 
     /**
