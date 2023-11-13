@@ -171,7 +171,7 @@ command --specifier INPUTFIELD [--specifier INPUTFIELD1, ...]
 ###### EXAMPLE COMMAND FORMAT
 ```
 add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] 
-[--course COURSECODE1/CLASS1-CLASS2-..., ...] 
+[--course COURSECODE1/CLASS1, ...] 
 ```
 
 | Command Types |          Examples           | What they mean                                                                                              |
@@ -183,7 +183,6 @@ add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...]
 | ` [ ] ` | `[--contact CONTACT1, ...]` | Square brackets indicate an optional field. The user can input these fields if they want to in the command. |
 | `, ` |       `CONTACT1, ...`       | Comma separates the multiple INPUTFIELDs                                                                    |
 | `INPUTFIELD/SUBFIELD` |     `COURSECODE/CLASS`      | Slash indicates that this INPUTFIELD can have a SUBFIELD. This SUBFIELD is optional.                        |
-| `SUBFIELD1-SUBFIELD2` |    `CLASS1-CLASS2-...`      | Dash separates the multiple SUBFIELDs.                                                                      |
 
 ###### VALID SPECIFIERS
 
@@ -215,7 +214,7 @@ and the `help` command will still be executed.
 ```
 Quick Guide: 
 Adding a person: add --name NAME [--role ROLE1, ...]  
-[--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]
+[--contact CONTACT1, ...] [--course COURSECODE1/CLASS1, ...]
 Listing all persons: list
 Deleting a person: delete INDEX
 Search by name: search NAME
@@ -245,7 +244,7 @@ Any other command word such as `h`, `he` and `hel` will be seen as an invalid co
 Adds new persons in the person lists.
 
 ###### FORMAT:
-`add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...] `
+`add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1, ...] `
 
 <box type="tip" dismissible light>
 
@@ -263,13 +262,16 @@ will be recognised as the different input).
 
 - Courses can be any of the courses offered by NUS.
 
-- Inputs for course is **case-sensitive** (i.e `CS2100`, `cs2100` and `Cs2100`
+- Inputs for course are **case-sensitive** (i.e `CS2100`, `cs2100` and `Cs2100`
 will be recognised as the different courses)
 
-- Courses can be added without the tutorial classes but tutorial classes must be added with a course
+- Courses can be added without the tutorial class but tutorial class must be added with a course
   (see Example 2 below for more details).
 
-- Multiple tutorial classes added to the same course need to be separated by hyphen (`-`) (COURSECODE/TUT1-TUT2-...).
+- Multiple tutorial classes for the same course are to be added separately (i.e To add T12 and Lab30 class for CS2100,
+it has to be added like this: `CS2100/T12, CS2100/Lab30`) 
+
+- Input for tutorial is **case-sensitive** (i.e `CS2100/T21 and CS2100/t21 will be recognised as different tutorials)
 
 - Please use a comma (`,`) to separate the different roles, contacts and courses.
 
@@ -285,7 +287,7 @@ previous prefix (if any). [See Example 7 below for more details]
 Example 1:
 
 `add --name Aiken Dueet --role Student --contact @aikendueet, aikendueet@gmail.com
---course CS2103T/Tut8, CS2100/Lab40-Tut30`
+--course CS2103T/Tut8, CS2100/Lab40`
 
 
 Example 2:
@@ -316,7 +318,7 @@ Example 1:
 You have added a new person in : 
  Name: Aiken Dueet; Role: Student; Contacts: [@aikendueet], 
  [aikendueet@gmail.com]; Courses: CS2103T, CS2100; 
- Tutorials: CS2103T/Tut8, CS2100/Lab40-Tut30
+ Tutorials: CS2103T/Tut8, CS2100/Lab40
 ```
 
 Example 2:
@@ -347,7 +349,7 @@ Parameters: --name NAME  [--role ROLE1,...] [--contact CONTACT1, ...]
 [--course COURSECODE1/CLASS1-CLASS2-..., ...]
 Example: add --name John --role Developer, Designer 
 --contact johnd@example.com, 98765432
---course CS2103T/G06, CS2101/G06, CS2100/T24-Lab36
+--course CS2103T/G06, CS2101/G06, CS2100/T24
 ```
 
 Example 4.2: `add`
@@ -426,7 +428,7 @@ You have 2 profiles in your list:
 Role: STUDENT
 Contact: @aikendueet, aikendueet@gmail.com
 Course: CS2103T, CS2101, CS2100
-Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30 
+Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40
 
 2. Name: Eren Yeager
 Role: TA
@@ -557,7 +559,7 @@ Name: Aiken Dueet
 Role: STUDENT
 Contact: [[@aikendueet], [aikendueet@gmail.com]]
 Course: CS2103T, CS2101, CS2100
-Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30 
+Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40
 ```
 
 ###### EXPECTED OUTPUT ON FAILURE:
