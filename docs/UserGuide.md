@@ -252,10 +252,10 @@ Adds new persons in the person lists.
 **Tip:**
 
 
-- The input for name is **not case-sensitive** (i.e `Aiken`, `AIKEN`, `AiKeN` and `aiken`
-will be recognised as the same input).
+- The input for name is **case-sensitive** (i.e `Aiken`, `AIKEN`, `AiKeN` and `aiken`
+will be recognised as the different input).
 
-- Duplicate names are not allowed.
+- Duplicate names (with same case) are not allowed.
 
 - The input for role is **case-sensitive**.
 
@@ -263,8 +263,8 @@ will be recognised as the same input).
 
 - Courses can be any of the courses offered by NUS.
 
-- Inputs for course is **not case-sensitive** and will be printed in upper case (i.e `CS2100`, `cs2100` and `Cs2100`
-will be recognised as the same course and be printed as `CS2100`)
+- Inputs for course is **case-sensitive** (i.e `CS2100`, `cs2100` and `Cs2100`
+will be recognised as the different courses)
 
 - Courses can be added without the tutorial classes but tutorial classes must be added with a course
   (see Example 2 below for more details).
@@ -275,7 +275,8 @@ will be recognised as the same course and be printed as `CS2100`)
 
 - The square brackets, `[ ]`, are not needed when entering the command (see Example 3 below for more details).
 
-> IMPORTANT: Invalid prefix format will NOT be recognised. It will be treated as an input for the
+> #### IMPORTANT: 
+> Invalid prefix format will NOT be recognised. It will be treated as an input for the
 previous prefix (if any). [See Example 7 below for more details]
 </box>
 
@@ -285,6 +286,7 @@ Example 1:
 
 `add --name Aiken Dueet --role Student --contact @aikendueet, aikendueet@gmail.com
 --course CS2103T/Tut8, CS2100/Lab40-Tut30`
+
 
 Example 2:
 
@@ -385,14 +387,14 @@ Example 5.4: `add --name Charlie --role TA --course CS2100/         F09`
 
 **For duplicate name:**
 
-Example 6: `add --name alex yeoh` [Assuming Alex Yeoh already exists in the list] 
+Example 6: `add --name Alex Yeoh` [Assuming Alex Yeoh already exists in the list] 
 
 ```
 Note: A person with the same name already exists.
 Please edit the existing person or change the name of this person to be added
 ```
 
-**For invaid prefix:**
+**For invalid prefix:**
 
 Example 7: `add --name alex yeoh -/-role TA` 
 
