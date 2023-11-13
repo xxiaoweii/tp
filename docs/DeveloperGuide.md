@@ -160,15 +160,35 @@ This section describes some noteworthy details on how certain features are imple
 ### Add Feature
 #### Implementation details 
 
-The `add` feature allows user to add up to five different details of a person, including the name, role,
-contact details, the course he is taking, as well as the respective tutorial classes.
+The `add` feature allows user to add up to five different details of a person, including the name, role the person,
+contact details, the course the person is taking, as well as the respective tutorial classes.
 
 #### Implementation:
 
 - When adding a profile, the only compulsory field that user has to include is the `name` field. 
 - All the other fields `role`, `contact` and `course` are optional.
+- The fields can be added in any order. 
 - Users can have more than one input for each of the optional field.
 - When adding a `course`, users can also choose to include or not to include the tutorial classes of the course.
+
+#### Design Considerations
+<ol>
+    <li>
+        <b>User Expectations:</b> 
+        <md>
+            Users have a common expectation that their favorite persons should be identifiable in the UI. Hence, a role
+            tag is being added for different roles. 
+        </md>
+    </li>
+    <li>
+        <b>Ease of Use: </b>
+        <md>
+            Having only one compulsory field when adding a person makes it faster and easier for users to add someone
+            into the list, instead of having to type include every single field, some of which might be unknown to the
+            users. 
+        </md>
+    </li>
+</ol>
 
 ### List Feature 
 #### Implementation details
@@ -606,8 +626,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 5. **PlantUML**: A text-based tool for creating diagrams using simple text descriptions
 6. **Sequence Diagram**: A visual tool showing the order of actions between system components or objects
 7. **Object-oriented paradigm**:A programming paradigm
-
-*{More to be added}*
+8. **Profile**: Information or details of a person, including their name, role, contact details, courses, tutorial classes, etc.
+9. **Manual testing**: The process of testing the application through manual execution of specific test cases.
+10. **Logic Component**: The component responsible for executing commands and coordinating interactions between different parts of the application. 
+11. **Model Component**: The part of the application that stores and manages the data, including the address book and user preferences. 
+12. **Storage Component**: The part of the application that handles reading and writing data.
 
 --------------------------------------------------------------------------------------------------------------------
 
