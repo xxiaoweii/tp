@@ -457,6 +457,7 @@ Favourite the persons in the user’s current person list.
 ###### ACCEPTABLE VALUES:
 `INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
 less than or equal to the number of persons the user currently has.
+The maximum `INDEX` allowed is `2 147 483 647`.
 
 > 📝Note:
 >
@@ -502,6 +503,7 @@ Un-favourite a favourite person
 ###### ACCEPTABLE VALUES:
 `INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
 less than or equal to the number of persons the user currently has.
+The maximum `INDEX` allowed is `2 147 483 647`.
 
 > 📝Note:
 >
@@ -583,6 +585,7 @@ Delete the specific person based on the index allocated to the person.
 ###### ACCEPTABLE VALUES:
 `INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
 less than or equal to the number of persons the user currently has.
+The maximum `INDEX` allowed is `2 147 483 647`.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
