@@ -220,9 +220,13 @@ Listing all persons: list
 Deleting a person: delete INDEX
 Search by name: search NAME
 Search by role: searchrole ROLE
-Search by course: searchcourse COURSE
+Search by course: searchcourse COURSECODE
 Search by tutorial class: searchtutorial TUTORIAL
 Adding persons to favourites: fav INDEX
+Removing persons from favourites: unfav INDEX
+Display all favourites: favlist
+Clear all data: clear
+Exit the application: exit
 Refer to the User Guide for the detailed implementation.
 ```
 A help window will pop out as shown: 
