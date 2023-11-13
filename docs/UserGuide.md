@@ -194,6 +194,13 @@ add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...]
 | `--contact` | The contact details of the person you are adding |
 | `--course`  | The course the person is taking                  |
 
+<box type="info">
+    <md>
+        While no space is required between the specifier and the following field (in other words, `--courseCS2100` is equivalent to `--course CS2100`), it is recommended that a space be added for readability.
+    </md>
+</box>
+
+
 <div style="page-break-after: always;"></div>
 
 ### Help page: `help`
