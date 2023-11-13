@@ -41,7 +41,6 @@ The app helps students to consolidate important data, such as profiles of profes
             <li> <a href="#clearing-the-person-list-clear">Clear Person List</a> </li>
             <li> <a href="#exiting-the-application-exit">Exit the Application</a> </li>
         </ol>
-        <li> <a href="#ui-mockup">UI Mock Up</a></li>
         <li> <a href="#faq">Frequently Asked Questions</a> </li>
         <li> <a href="#known-issues">Known Issues</a> </li>
         <li> <a href="#command-summary">Command Summary</a> </li>
@@ -125,7 +124,16 @@ The app helps students to consolidate important data, such as profiles of profes
     </tabs>
 </box>
 
-4. The application should launch, resembling the UI shown in the Home page.
+4. The application should launch, resembling the UI shown in the [UI mockup](#ui-mockup) below
+
+
+
+
+<img src="./images/Ui.png" width="100%" >
+
+--- {.dotted .thick-1 .border-primary}
+
+<div style="page-break-after: always;"></div>
 
 5. Refer to the [Features](#features) below for details of each command.
 
@@ -133,15 +141,6 @@ The app helps students to consolidate important data, such as profiles of profes
 
 <div style="page-break-after: always;"></div>
 
-## UI Mockup
-
-Here's a mockup of how the User Interface might look: <br>
-
-<img src="./images/Ui.png" width="100%" >
-
---- {.dotted .thick-1 .border-primary}
-
-<div style="page-break-after: always;"></div>
 
 ## Features
 
