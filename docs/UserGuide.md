@@ -41,6 +41,7 @@ The app helps students to consolidate important data, such as profiles of profes
             <li> <a href="#clearing-the-person-list-clear">Clear Person List</a> </li>
             <li> <a href="#exiting-the-application-exit">Exit the Application</a> </li>
         </ol>
+        <li> <a href="#ui-mockup">UI Mock Up</a></li>
         <li> <a href="#faq">Frequently Asked Questions</a> </li>
         <li> <a href="#known-issues">Known Issues</a> </li>
         <li> <a href="#command-summary">Command Summary</a> </li>
@@ -50,6 +51,8 @@ The app helps students to consolidate important data, such as profiles of profes
 --- {.dotted .thick-1 .border-primary}
 
 <div style="page-break-after: always;"></div>
+
+
 
 ## Quick Start
 
@@ -125,6 +128,16 @@ The app helps students to consolidate important data, such as profiles of profes
 4. The application should launch, resembling the UI shown in the Home page.
 
 5. Refer to the [Features](#features) below for details of each command.
+
+--- {.dotted .thick-1 .border-primary}
+
+<div style="page-break-after: always;"></div>
+
+## UI Mockup
+
+Here's a mockup of how the User Interface might look: <br>
+
+<img src="./images/Ui.png" width="100%" >
 
 --- {.dotted .thick-1 .border-primary}
 
@@ -834,15 +847,7 @@ For example, pressing `f` and then `<Tab>` will let the program automatically su
 
 --- {.dotted .thick-1 .border-primary}
 
-## UI Mockup
 
-Here's a mockup of how the User Interface might look: <br>
-
-<img src="./images/Ui.png" width="100%" >
-
---- {.dotted .thick-1 .border-primary}
-
-<div style="page-break-after: always;"></div>
 
 ## FAQ
 
