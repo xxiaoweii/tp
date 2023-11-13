@@ -160,7 +160,7 @@ Shows the error messages that will be shown to you if an invalid command is give
 ###### COMMAND FORMAT
 ```
 command --specifier INPUTFIELD [--specifier INPUTFIELD1, ...] 
-[--specifier INPUTFIELD1/SUBFIELD1-SUBFIELD2-..., ...]
+[--specifier INPUTFIELD1/SUBFIELD1, ...]
 ```
 <box type="warning">
     <md>
@@ -180,7 +180,7 @@ add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...]
 | `--specifier` |          `--name`           | The specifier of the field to indicate the field type.                                                      |
 | `INPUTFIELD`  |           `NAME`            | The content of the INPUT FIELD the user wants to input.                                                     |
 |     `...`      |       `CONTACT1, ...`       | Ellipses indicate that the field can accept multiple values.                                                |
-| ` [ ] ` | `[--contact CONTACT1, ...]` | Square brackets indicate an optional field. The user can input these fields if they want to in the command. |
+| ` [ ] ` | `[--contact CONTACT1, ...]` | Square brackets indicate an optional field. The user can input these fields in the command if they want to. |
 | `, ` |       `CONTACT1, ...`       | Comma separates the multiple INPUTFIELDs                                                                    |
 | `INPUTFIELD/SUBFIELD` |     `COURSECODE/CLASS`      | Slash indicates that this INPUTFIELD can have a SUBFIELD. This SUBFIELD is optional.                        |
 
@@ -275,11 +275,11 @@ it has to be added like this: `CS2100/T12, CS2100/Lab30`)
 
 - Please use a comma (`,`) to separate the different roles, contacts and courses.
 
-- The square brackets, `[ ]`, are not needed when entering the command (see Example 3 below for more details).
+- The square brackets, `[ ]`, are not needed when entering optional field [see examples below for more details].
 
 > #### IMPORTANT: 
 > Invalid prefix format will NOT be recognised. It will be treated as an input for the
-previous prefix (if any). [See Example 7 below for more details]
+previous prefix (if any) or be treated as . [See Example 7 & 8 below for more details]
 </box>
 
 ###### EXAMPLE COMMAND:
@@ -346,8 +346,8 @@ Example 4.1: `add --`
 Invalid command format! 
 add: Adds a person to the address book. 
 Parameters: --name NAME  [--role ROLE1,...] [--contact CONTACT1, ...]  
-[--course COURSECODE1/CLASS1-CLASS2-..., ...]
-Example: add --name John --role Developer, Designer 
+[--course COURSECODE1/CLASS1, ...]
+Example: add --name John --role Student, TA
 --contact johnd@example.com, 98765432
 --course CS2103T/G06, CS2101/G06, CS2100/T24
 ```
@@ -359,7 +359,7 @@ Note: Compulsory name input is missing
 Unable to add a person without name
 ```
 
-**For wrong format:**
+**For wrong input value:**
 
 Example 5.1: `add --name`
 
@@ -402,6 +402,15 @@ Example 7: `add --name alex yeoh -/-role TA`
 
 ```
 Names should only contain alphanumeric characters and spaces, and it should not be blank
+```
+
+Example 8: `add -/-name alex yeoh`
+
+```
+Invalid command format! 
+add: Adds a person to the address book. 
+Parameters: --nameNAME  [--roleROLE1,...] [--contactCONTACT1, ...]  [--courseCOURSECODE1/CLASS1, ...]
+Example: add --roleStudent, TA--contactjohnd@example.com, 98765432 --courseCS2103T/G06, CS2101/G06, CS2100/T24
 ```
 
 <div style="page-break-after: always;"></div>
@@ -891,7 +900,7 @@ By default, the data file is stored in the `root/data/addressbook.json` file, wh
 |     Action     | Format                                                                                                          | Example                                                                                                                                   |
 |:--------------:|-----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 |    **Help**    | `help`                                                                                                          | `help`                                                                                                                                    |                                                                                                                                  
-|    **Add**     | `add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]`  | `add --name Aiken Dueet --role Student --contact @aikendueet, aikendueet@gmail.com --course CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30` |
+|    **Add**     | `add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1, ...]`  | `add --name Aiken Dueet --role Student --contact @aikendueet, aikendueet@gmail.com --course CS2103T/Tut8, CS2101/G06, CS2100/Lab40` |
 |    **List**    | `list`                                                                                                          | `list`                                                                                                                                    |
 |   **Delete**   | `delete INDEX`                                                                                                  | `delete 3`                                                                                                                                |
 |   **Search by Name**   | `search KEYWORD`                                                                                                  | `search Alex`                                                                                                                             |
