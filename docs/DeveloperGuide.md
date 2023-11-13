@@ -199,19 +199,70 @@ contact details, courses, tutorial classes) of all the people stored.
 #### Implementation:
 - the list feature is executed using the `list` command
 
-### Favourite feature
-#### Implementation details
-The favourite feature allows the user to favourite persons that they want to view more often so that they can
-view their favourited people easily by calling the `favlist` command. 
+### Delete feature
 
 #### Implementation:
-* The favourite feature is implemented using the `Favourite` class. The `Favourite` class contains a `boolean` field
-`isFavourite` to indicate whether the person is a favourite.
-* When user calls `fav INDEX` *(the index is a positive integer the person has in the list)*, the `isFavourite` field 
-of the person will be set to `true`.
-* When the `isFavourite` boolean is true, the current Person will be set to a new Person using the `setPerson` method,
-to be set to a new favourited Person with all the same fields as the current Person, except that the `isFavourite` field
-is true. This is to ensure that the yellow favourite tag in the UI is shown.
+The delete feature allows the user to delete a person that they don't want to view anymore or a person with fields that 
+have to be edited (such that they can add the person with the same name but with edited fields after deleting the original).
+It identifies the person based on its displayed index in the person list.
+
+* `DeleteCommandParser#parse(String args)` -- Parses the user input and creates a `DeleteCommand`object.
+* `DeleteCommand#execute(Model model)` -- Executes the command to delete a person identified by the index in the person list
+  and returns a `CommandResult` object.
+
+Given below is an example usage scenario and how the delete feature behaves at each step:
+
+1. The user wants to delete a person that they want to view on a frequent basis.
+2. The user executes `delete` command with the person index. For instance, `delete 1` will favourite the person at index 1.
+3. The command is parsed in `AddressBookParser`. `DeleteCommandParser` object then is created.
+4. `DeleteCommandParser` object parses the user input and creates an `DeleteCommand` object with the given `INDEX` which
+   represents the index of the `Person` to be deleted in the person list.
+5. The `DeleteCommand#execute(Model model)` calls `Model::getFilteredPersonList` and gets the specified `Person` from the filtered person list using the index.
+6. The `execute` method then calls the `deletePerson` method in the `ModelManager` with the specified `Person` to be deleted.
+7. The result of the `execute` method is returned as a `CommandResult` object, which is returned back to the `LogicManager`.
+
+The following sequence diagram shows how the delete operation works:
+
+<puml src="diagrams/DeletePersonSequenceDiagram.puml" alt="DeletePersonSequenceDiagram" />
+
+<box type="info" header="**Note**" >
+<md>
+  The lifeline for `DeleteCommandParser` should end at the destroy marker [X].
+</md>
+</box>
+
+### Favourite feature
+
+#### Implementation:
+The favourite feature allows the user to favourite persons that they want to view on a frequent basis.
+It identifies the person based on its displayed index in the person list.
+
+* `FavouriteCommandParser#parse(String args)` -- Parses the user input and creates a `FavouriteCommand`object.
+* `FavouriteCommand#execute(Model model)` -- Executes the command to favourite a person identified by the index in the person list
+  and returns a `CommandResult` object.
+
+Given below is an example usage scenario and how the favourite feature behaves at each step:
+
+1. The user wants to favourite a person that they want to view on a frequent basis.
+2. The user executes `fav` command with the person index. For instance, `fav 1` will favourite the person at index 1.
+3. The command is parsed in `AddressBookParser`. `FavouriteCommandParser` object then is created.
+4. `FavouriteCommandParser` object parses the user input and creates an `FavouriteCommand` object with the given `INDEX` which
+   represents the index of the `Person` to be favourited in the person list.
+5. The `FavouriteCommand#execute(Model model)` calls `Model::getFilteredPersonList` and gets the specified `Person` from the filtered person list using the index.
+6. The `execute` method then calls the `favouritePerson` method in the `ModelManager` with the specified `Person` to be favourited.
+7. After that, the `execute` method will call the `setPerson` method in the `ModelManager` to set the current `Person` to
+   a new `Person` with the same fields as the current `Person`, except that the `isFavourite` field is set to `true`.
+8. The result of the `execute` method is returned as a `CommandResult` object, which is returned back to the `LogicManager`.
+
+The following sequence diagram shows how the unfavourite operation works:
+
+<puml src="diagrams/FavouritePersonSequenceDiagram.puml" alt="FavouritePersonSequenceDiagram" />
+
+<box type="info" header="**Note**">
+<md>
+  The lifeline for `FavouriteCommandParser` should end at the destroy marker [X].
+</md>
+</box>
 
 #### Design considerations
 <ol>
@@ -223,6 +274,41 @@ is true. This is to ensure that the yellow favourite tag in the UI is shown.
         </md>
     </li>
 </ol>
+
+
+### Unfavourite feature
+
+#### Implementation:
+The unfavourite feature allows the user to unfavourite favourited persons that they do not want to view on a frequent basis anymore.
+It identifies the person based on its displayed index in the person list.
+
+* `UnfavouriteCommandParser#parse(String args)` -- Parses the user input and creates a `UnfavouriteCommand`object.
+* `UnfavouriteCommand#execute(Model model)` -- Executes the command to unfavourite a person identified by the index in the person list
+and returns a `CommandResult` object.
+
+Given below is an example usage scenario and how the unfavourite feature behaves at each step: 
+
+1. The user wants to unfavourite a person that they do not want to view on a frequent basis anymore.
+2. The user executes `unfav` command with the person index. For instance, `unfav 1` will unfavourite the person at index 1.
+3. The command is parsed in `AddressBookParser`. `UnfavouriteCommandParser` object then is created.
+4. `UnfavouriteCommandParser` object parses the user input and creates an `UnfavouriteCommand` object with the given `INDEX` which
+represents the index of the `Person` to be unfavourited in the person list.
+5. The `UnfavouriteCommand#execute(Model model)` calls `Model::getFilteredPersonList` and gets the specified `Person` from the filtered person list using the index.
+6. The `execute` method then calls the `unfavouritePerson` method in the `ModelManager` with the specified `Person` to be unfavourited.
+7. After that, the `execute` method will call the `setPerson` method in the `ModelManager` to set the current `Person` to 
+a new `Person` with the same fields as the current `Person`, except that the `isFavourite` field is set to `false`.
+8. The result of the `execute` method is returned as a `CommandResult` object, which is returned back to the `LogicManager`.
+
+The following sequence diagram shows how the unfavourite operation works:
+
+<puml src="diagrams/UnfavouritePersonSequenceDiagram.puml" alt="UnfavouritePersonSequenceDiagram" />
+
+<box type="info" header="**Note**">
+<md>
+  The lifeline for `UnfavouriteCommandParser` should end at the destroy marker [X].
+</md>
+</box>
+
 
 ### Favourite List feature 
 #### Implementation Details & Philosophy
@@ -489,6 +575,37 @@ _{more aspects and alternatives to be added}_
 ### \[Proposed\] Edit feature
 
 #### Proposed Implementation
+
+The edit feature allows users to edit specific fields in a person they want to edit. It identifies the person based on
+its displayed index in the person list. 
+
+* `EditCommandParser#parse(String args)` -- Parses the user input and creates a `EditCommand`object.
+* `EditCommand#execute(Model model)` -- Executes the command to edit a person identified by the index in the person list 
+and returns a `CommandResult` object.
+
+Given below is an example usage scenario and how the edit feature behaves at each step.
+
+1. The user wants to edit some fields that may be typed wrongly in the person fields.
+2. The user executes `edit` command with the person index and the specifiers of the attribute to be edited. For instance, 
+`edit 1 --name new name` will edit the name of the person at index 1 to `new name`.
+3. The command is parsed in `AddressBookParser`. `EditCommandParser` object is created, which creates an `EditPersonDescriptor` object.
+This `EditPersonDescriptor` object contains the new fields which is to be in the new edited `Person`. 
+4. An `EditCommand` object is then constructed with this `EditPersonDescriptor` object and the index of the person to be edited.
+5. The `EditCommand` object gets the `Person` to be edited from the filtered person list using the index. 
+6. `EditCommand` object then creates an edited `Person` from the specified `Person` and the`EditPersonDescriptor` object.
+7. `EditCommand` object then calls the `setPerson` method in `ModelManager` with the edited `Person`. This sets the `Person` specified by the index
+in the model to be that edited `Person`. 
+8. `EditCommand` object updates the person list to then display the edited `Person` in the UI.
+
+The following sequence diagram illustrates the above steps for editing a `Person`.
+
+<puml src="diagrams/EditPersonSequenceDiagram.puml" alt="EditPersonSequenceDiagram" />
+
+<box type="info" header="**Note**">
+<md>
+  The lifeline for `EditCommandParser` should end at the destroy marker [X].
+</md>
+</box>
 
 --------------------------------------------------------------------------------------------------------------------
 
