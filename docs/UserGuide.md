@@ -193,6 +193,13 @@ add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...]
 | `--contact` | The contact details of the person you are adding |
 | `--course`  | The course the person is taking                  |
 
+<box type="info">
+    <md>
+        While no space is required between the specifier and the following field (in other words, `--courseCS2100` is equivalent to `--course CS2100`), it is recommended that a space be added for readability.
+    </md>
+</box>
+
+
 <div style="page-break-after: always;"></div>
 
 ### Help page: `help`
@@ -219,9 +226,13 @@ Listing all persons: list
 Deleting a person: delete INDEX
 Search by name: search NAME
 Search by role: searchrole ROLE
-Search by course: searchcourse COURSE
+Search by course: searchcourse COURSECODE
 Search by tutorial class: searchtutorial TUTORIAL
 Adding persons to favourites: fav INDEX
+Removing persons from favourites: unfav INDEX
+Display all favourites: favlist
+Clear all data: clear
+Exit the application: exit
 Refer to the User Guide for the detailed implementation.
 ```
 A help window will pop out as shown: 
@@ -468,6 +479,7 @@ Favourite the persons in the user’s current person list.
 ###### ACCEPTABLE VALUES:
 `INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
 less than or equal to the number of persons the user currently has.
+The maximum `INDEX` allowed is `2 147 483 647`.
 
 > 📝Note:
 >
@@ -513,6 +525,7 @@ Un-favourite a favourite person
 ###### ACCEPTABLE VALUES:
 `INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
 less than or equal to the number of persons the user currently has.
+The maximum `INDEX` allowed is `2 147 483 647`.
 
 > 📝Note:
 >
@@ -594,6 +607,7 @@ Delete the specific person based on the index allocated to the person.
 ###### ACCEPTABLE VALUES:
 `INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
 less than or equal to the number of persons the user currently has.
+The maximum `INDEX` allowed is `2 147 483 647`.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
@@ -666,7 +680,7 @@ Search for persons using role.
 
 Output persons which match the given role.
 
-> Note: The input name is NOT case-sensitive.
+> Note: The input role is NOT case-sensitive. In other words, `searchrole ta` is equivalent to `searchrole TA`, which will find all `TA` entries.
 
 ###### FORMAT:
 `searchrole ROLE`
@@ -712,7 +726,7 @@ Search for persons using course.
 
 Output persons which match the given course.
 
-> Note: The input course is NOT case-sensitive.
+> Note: The input course is NOT case-sensitive. In other words, `searchcourse cs1101` is equivalent to `searchcourse CS1101`, which will match both `CS1101` and `cs1101`.
 
 ###### FORMAT:
 `searchcourse COURSECODE`
@@ -748,7 +762,7 @@ Search for persons using tutorial class.
 
 Output persons which match the given tutorial class.
 
-> Note: The input tutorial is NOT case-sensitive.
+> Note: The input tutorial is NOT case-sensitive. In other words, `searchtutorial cs2100/t03` is equivalent to `searchtutorial CS2100/T03` which will match both `cs2100/t03` as well as `CS2100/T03`.
 
 ###### FORMAT:
 `searchtutorial TUTORIAL`
