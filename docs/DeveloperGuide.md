@@ -249,6 +249,10 @@ To ensure that the FavListCommand class interacts with the application's model
 to perform actions related to the favorite list. This will be done through the 
 `model.updateFilteredPersonList(predicate)` method. 
 
+In essence, the sequence of events is illustrated by the following activity diagram:
+
+<puml src="diagrams/FavListActivityDiagram.puml" width="250" />
+
 #### Design considerations 
 <ol>
     <li>
@@ -282,6 +286,10 @@ A `search` class has a `NameContainsKeywordPredicate` field that describes the s
 filters the list of persons.`NameContainsKeywordPredicate` implements the Predicate interface for Person
 object. It is used to filter a collection of Person objects based on whether their names contain 
 a certain keyword.
+
+In essence, the sequence of events is illustrated by the following activity diagram:
+
+<puml src="diagrams/SearchActivityDiagram.puml" width="250" />
 </p>
 
 `searchrole`
@@ -290,6 +298,10 @@ A `searchrole` class has a `RoleContainsKeywordPredicate` field that describes t
 filters the list of persons. `RoleContainsKeywordPredicate` implements the Predicate interface for Person
 object. It is used to filter a collection of Person objects based on whether their role contain 
 a certain keyword. 
+
+In essence, the sequence of events is illustrated by the following activity diagram:
+
+<puml src="diagrams/SearchRoleActivityDiagram.puml" width="250" />
 </p>
 
 `searchcourse`
@@ -298,6 +310,10 @@ A `searchcourse` class has a `CourseContainsKeywordPredicate` field that describ
 filters the list of persons. `CourseContainsKeywordPredicate` implements the Predicate interface for Person
 object. It is used to filter a collection of Person objects based on whether their courses contain 
 a certain keyword. 
+
+In essence, the sequence of events is illustrated by the following activity diagram:
+
+<puml src="diagrams/SearchCourseActivityDiagram.puml" width="250" />
 </p>
 
 `searchtutorial`
@@ -306,6 +322,10 @@ A `searchtutorial` class has a `TutorialContainsKeywordPredicate` field that des
 filters the list of persons. `TutorialContainsKeywordPredicate` implements the Predicate interface for Person
 object. It is used to filter a collection of Person objects based on whether their tutorials contain 
 a certain keyword. 
+
+In essence, the sequence of events is illustrated by the following activity diagram:
+
+<puml src="diagrams/SearchTutorialActivityDiagram.puml" width="250" />
 </p>
 
 #### Design considerations
