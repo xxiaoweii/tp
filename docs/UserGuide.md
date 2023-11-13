@@ -124,11 +124,9 @@ The app helps students to consolidate important data, such as profiles of profes
     </tabs>
 </box>
 
-4. The application should launch, resembling the UI shown below
+4. The application should launch, resembling the UI shown below.
 
 <img src="./images/Ui.png" width="100%" >
-
---- {.dotted .thick-1 .border-primary}
 
 5. Refer to the [Features](#features) below for details of each command.
 
@@ -382,7 +380,8 @@ Unable to add a person without name
 Example 5.1: `add --name`
 
 ```
-Names should only contain alphanumeric characters and spaces, and it should not be blank
+Names should only contain alphanumeric characters and spaces, 
+and it should not be blank
 ```
 
 Example 5.2: `add --name Charlie --role teacher`
