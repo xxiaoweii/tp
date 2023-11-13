@@ -23,9 +23,9 @@ public class HelpCommand extends Command {
     public static final String LIST = "Listing all persons: list";
     public static final String DELETE = "Deleting a person: delete INDEX";
     public static final String SEARCH_NAME = "Search by name: search NAME";
-    public static final String SEARCH_ROLE = "Search by role: search ROLE";
-    public static final String SEARCH_COURSE = "Search by course: search COURSE";
-    public static final String SEARCH_TUTORIAL = "Search by tutorial class: search TUTORIAL";
+    public static final String SEARCH_ROLE = "Search by role: searchrole ROLE";
+    public static final String SEARCH_COURSE = "Search by course: searchcourse COURSECODE";
+    public static final String SEARCH_TUTORIAL = "Search by tutorial class: searchtutorial TUTORIAL";
     public static final String FAV = "Adding persons to favourites: fav INDEX";
 
 
