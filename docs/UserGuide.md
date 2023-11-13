@@ -51,6 +51,8 @@ The app helps students to consolidate important data, such as profiles of profes
 
 <div style="page-break-after: always;"></div>
 
+
+
 ## Quick Start
 
 1. Ensure you have Java 11 or above installed on your Computer.
@@ -122,13 +124,18 @@ The app helps students to consolidate important data, such as profiles of profes
     </tabs>
 </box>
 
-4. The application should launch, resembling the UI shown in the Home page.
+4. The application should launch, resembling the UI shown below
+
+<img src="./images/Ui.png" width="100%" >
+
+--- {.dotted .thick-1 .border-primary}
 
 5. Refer to the [Features](#features) below for details of each command.
 
 --- {.dotted .thick-1 .border-primary}
 
 <div style="page-break-after: always;"></div>
+
 
 ## Features
 
@@ -160,7 +167,7 @@ Shows the error messages that will be shown to you if an invalid command is give
 ###### COMMAND FORMAT
 ```
 command --specifier INPUTFIELD [--specifier INPUTFIELD1, ...] 
-[--specifier INPUTFIELD1/SUBFIELD1-SUBFIELD2-..., ...]
+[--specifier INPUTFIELD1/SUBFIELD1, ...]
 ```
 <box type="warning">
     <md>
@@ -171,7 +178,7 @@ command --specifier INPUTFIELD [--specifier INPUTFIELD1, ...]
 ###### EXAMPLE COMMAND FORMAT
 ```
 add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] 
-[--course COURSECODE1/CLASS1-CLASS2-..., ...] 
+[--course COURSECODE1/CLASS1, ...] 
 ```
 
 | Command Types |          Examples           | What they mean                                                                                              |
@@ -180,10 +187,9 @@ add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...]
 | `--specifier` |          `--name`           | The specifier of the field to indicate the field type.                                                      |
 | `INPUTFIELD`  |           `NAME`            | The content of the INPUT FIELD the user wants to input.                                                     |
 |     `...`      |       `CONTACT1, ...`       | Ellipses indicate that the field can accept multiple values.                                                |
-| ` [ ] ` | `[--contact CONTACT1, ...]` | Square brackets indicate an optional field. The user can input these fields if they want to in the command. |
+| ` [ ] ` | `[--contact CONTACT1, ...]` | Square brackets indicate an optional field. The user can input these fields in the command if they want to. |
 | `, ` |       `CONTACT1, ...`       | Comma separates the multiple INPUTFIELDs                                                                    |
 | `INPUTFIELD/SUBFIELD` |     `COURSECODE/CLASS`      | Slash indicates that this INPUTFIELD can have a SUBFIELD. This SUBFIELD is optional.                        |
-| `SUBFIELD1-SUBFIELD2` |    `CLASS1-CLASS2-...`      | Dash separates the multiple SUBFIELDs.                                                                      |
 
 ###### VALID SPECIFIERS
 
@@ -193,6 +199,13 @@ add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...]
 |  `--role`   | The role of the person you are adding            |
 | `--contact` | The contact details of the person you are adding |
 | `--course`  | The course the person is taking                  |
+
+<box type="info">
+    <md>
+        While no space is required between the specifier and the following field (in other words, `--courseCS2100` is equivalent to `--course CS2100`), it is recommended that a space be added for readability.
+    </md>
+</box>
+
 
 <div style="page-break-after: always;"></div>
 
@@ -215,14 +228,18 @@ and the `help` command will still be executed.
 ```
 Quick Guide: 
 Adding a person: add --name NAME [--role ROLE1, ...]  
-[--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]
+[--contact CONTACT1, ...] [--course COURSECODE1/CLASS1, ...]
 Listing all persons: list
 Deleting a person: delete INDEX
 Search by name: search NAME
 Search by role: searchrole ROLE
-Search by course: searchcourse COURSE
+Search by course: searchcourse COURSECODE
 Search by tutorial class: searchtutorial TUTORIAL
 Adding persons to favourites: fav INDEX
+Removing persons from favourites: unfav INDEX
+Display all favourites: favlist
+Clear all data: clear
+Exit the application: exit
 Refer to the User Guide for the detailed implementation.
 ```
 A help window will pop out as shown: 
@@ -245,7 +262,7 @@ Any other command word such as `h`, `he` and `hel` will be seen as an invalid co
 Adds new persons in the person lists.
 
 ###### FORMAT:
-`add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...] `
+`add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1, ...] `
 
 <box type="tip" dismissible light>
 
@@ -263,21 +280,24 @@ will be recognised as the different input).
 
 - Courses can be any of the courses offered by NUS.
 
-- Inputs for course is **case-sensitive** (i.e `CS2100`, `cs2100` and `Cs2100`
+- Inputs for course are **case-sensitive** (i.e `CS2100`, `cs2100` and `Cs2100`
 will be recognised as the different courses)
 
-- Courses can be added without the tutorial classes but tutorial classes must be added with a course
+- Courses can be added without the tutorial class but tutorial class must be added with a course
   (see Example 2 below for more details).
 
-- Multiple tutorial classes added to the same course need to be separated by hyphen (`-`) (COURSECODE/TUT1-TUT2-...).
+- Multiple tutorial classes for the same course are to be added separately (i.e To add T12 and Lab30 class for CS2100,
+it has to be added like this: `CS2100/T12, CS2100/Lab30`) 
+
+- Input for tutorial is **case-sensitive** (i.e `CS2100/T21 and CS2100/t21 will be recognised as different tutorials)
 
 - Please use a comma (`,`) to separate the different roles, contacts and courses.
 
-- The square brackets, `[ ]`, are not needed when entering the command (see Example 3 below for more details).
+- The square brackets, `[ ]`, are not needed when entering optional field [see examples below for more details].
 
 > #### IMPORTANT: 
 > Invalid prefix format will NOT be recognised. It will be treated as an input for the
-previous prefix (if any). [See Example 7 below for more details]
+previous prefix (if any) or be treated as . [See Example 7 & 8 below for more details]
 </box>
 
 ###### EXAMPLE COMMAND:
@@ -285,7 +305,7 @@ previous prefix (if any). [See Example 7 below for more details]
 Example 1:
 
 `add --name Aiken Dueet --role Student --contact @aikendueet, aikendueet@gmail.com
---course CS2103T/Tut8, CS2100/Lab40-Tut30`
+--course CS2103T/Tut8, CS2100/Lab40`
 
 
 Example 2:
@@ -316,7 +336,7 @@ Example 1:
 You have added a new person in : 
  Name: Aiken Dueet; Role: Student; Contacts: [@aikendueet], 
  [aikendueet@gmail.com]; Courses: CS2103T, CS2100; 
- Tutorials: CS2103T/Tut8, CS2100/Lab40-Tut30
+ Tutorials: CS2103T/Tut8, CS2100/Lab40
 ```
 
 Example 2:
@@ -344,10 +364,10 @@ Example 4.1: `add --`
 Invalid command format! 
 add: Adds a person to the address book. 
 Parameters: --name NAME  [--role ROLE1,...] [--contact CONTACT1, ...]  
-[--course COURSECODE1/CLASS1-CLASS2-..., ...]
-Example: add --name John --role Developer, Designer 
+[--course COURSECODE1/CLASS1, ...]
+Example: add --name John --role Student, TA
 --contact johnd@example.com, 98765432
---course CS2103T/G06, CS2101/G06, CS2100/T24-Lab36
+--course CS2103T/G06, CS2101/G06, CS2100/T24
 ```
 
 Example 4.2: `add`
@@ -357,7 +377,7 @@ Note: Compulsory name input is missing
 Unable to add a person without name
 ```
 
-**For wrong format:**
+**For wrong input value:**
 
 Example 5.1: `add --name`
 
@@ -402,6 +422,15 @@ Example 7: `add --name alex yeoh -/-role TA`
 Names should only contain alphanumeric characters and spaces, and it should not be blank
 ```
 
+Example 8: `add -/-name alex yeoh`
+
+```
+Invalid command format! 
+add: Adds a person to the address book. 
+Parameters: --nameNAME  [--roleROLE1,...] [--contactCONTACT1, ...]  [--courseCOURSECODE1/CLASS1, ...]
+Example: add --roleStudent, TA--contactjohnd@example.com, 98765432 --courseCS2103T/G06, CS2101/G06, CS2100/T24
+```
+
 <div style="page-break-after: always;"></div>
 
 ### Listing all persons : `list`
@@ -426,7 +455,7 @@ You have 2 profiles in your list:
 Role: STUDENT
 Contact: @aikendueet, aikendueet@gmail.com
 Course: CS2103T, CS2101, CS2100
-Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30 
+Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40
 
 2. Name: Eren Yeager
 Role: TA
@@ -457,6 +486,7 @@ Favourite the persons in the user’s current person list.
 ###### ACCEPTABLE VALUES:
 `INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
 less than or equal to the number of persons the user currently has.
+The maximum `INDEX` allowed is `2 147 483 647`.
 
 > 📝Note:
 >
@@ -502,6 +532,7 @@ Un-favourite a favourite person
 ###### ACCEPTABLE VALUES:
 `INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
 less than or equal to the number of persons the user currently has.
+The maximum `INDEX` allowed is `2 147 483 647`.
 
 > 📝Note:
 >
@@ -557,7 +588,7 @@ Name: Aiken Dueet
 Role: STUDENT
 Contact: [[@aikendueet], [aikendueet@gmail.com]]
 Course: CS2103T, CS2101, CS2100
-Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40-Tut30 
+Tutorials: CS2103T/Tut8 , CS2101/G06, CS2100/Lab40
 ```
 
 ###### EXPECTED OUTPUT ON FAILURE:
@@ -583,6 +614,7 @@ Delete the specific person based on the index allocated to the person.
 ###### ACCEPTABLE VALUES:
 `INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
 less than or equal to the number of persons the user currently has.
+The maximum `INDEX` allowed is `2 147 483 647`.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
@@ -655,7 +687,7 @@ Search for persons using role.
 
 Output persons which match the given role.
 
-> Note: The input name is NOT case-sensitive.
+> Note: The input role is NOT case-sensitive. In other words, `searchrole ta` is equivalent to `searchrole TA`, which will find all `TA` entries.
 
 ###### FORMAT:
 `searchrole ROLE`
@@ -701,7 +733,7 @@ Search for persons using course.
 
 Output persons which match the given course.
 
-> Note: The input course is NOT case-sensitive.
+> Note: The input course is NOT case-sensitive. In other words, `searchcourse cs1101` is equivalent to `searchcourse CS1101`, which will match both `CS1101` and `cs1101`.
 
 ###### FORMAT:
 `searchcourse COURSECODE`
@@ -737,7 +769,7 @@ Search for persons using tutorial class.
 
 Output persons which match the given tutorial class.
 
-> Note: The input tutorial is NOT case-sensitive.
+> Note: The input tutorial is NOT case-sensitive. In other words, `searchtutorial cs2100/t03` is equivalent to `searchtutorial CS2100/T03` which will match both `cs2100/t03` as well as `CS2100/T03`.
 
 ###### FORMAT:
 `searchtutorial TUTORIAL`
@@ -834,15 +866,7 @@ For example, pressing `f` and then `<Tab>` will let the program automatically su
 
 --- {.dotted .thick-1 .border-primary}
 
-## UI Mockup
 
-Here's a mockup of how the User Interface might look: <br>
-
-<img src="./images/Ui.png" width="100%" >
-
---- {.dotted .thick-1 .border-primary}
-
-<div style="page-break-after: always;"></div>
 
 ## FAQ
 
@@ -886,17 +910,18 @@ By default, the data file is stored in the `root/data/addressbook.json` file, wh
 
 ## Command summary
 
-|     Action     | Format                                                                                                          | Example                                                                                                                                   |
-|:--------------:|-----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-|    **Help**    | `help`                                                                                                          | `help`                                                                                                                                    |                                                                                                                                  
-|    **Add**     | `add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1-CLASS2-..., ...]`  | `add --name Aiken Dueet --role Student --contact @aikendueet, aikendueet@gmail.com --course CS2103T/Tut8, CS2101/G06, CS2100/Lab40-Tut30` |
-|    **List**    | `list`                                                                                                          | `list`                                                                                                                                    |
-|   **Delete**   | `delete INDEX`                                                                                                  | `delete 3`                                                                                                                                |
-|   **Search by Name**   | `search KEYWORD`                                                                                                  | `search Alex`                                                                                                                             |
-|   **Search by Role**   | `searchrole KEYWORD`                                                                                                  | `searchrole TA`                                                                                                                             |
-|   **Search by Course**   | `searchcourse KEYWORD`                                                                                                  | `searchcourse CS2100`                                                                                                                             |
-|   **Search by Tutorial**   | `searchtutorial KEYWORD`                                                                                                  | `searchtutorial CS2100/G06`                                                                                                                             |
-| **Favourite**  | `fav INDEX`                                                                                                     | `fav 1`                                                                                                                                   |
-| **Unfavourite**  | `unfav INDEX`                                                                                                     | `unfav 1`                                                                                                                                   |
-|    **Exit**    | `exit`                                                                                                          | `exit`                                                                                                                                    | 
+|         Action         | Format                                                                                              | Example                                                                                                                             |
+|:----------------------:|-----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+|        **Help**        | `help`                                                                                              | `help`                                                                                                                              |                                                                                                                                  
+|        **Add**         | `add --name NAME [--role ROLE1, ...]  [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1, ...]` | `add --name Aiken Dueet --role Student --contact @aikendueet, aikendueet@gmail.com --course CS2103T/Tut8, CS2101/G06, CS2100/Lab40` |
+|        **List**        | `list`                                                                                              | `list`                                                                                                                              |
+|       **Delete**       | `delete INDEX`                                                                                      | `delete 3`                                                                                                                          |
+|   **Search by Name**   | `search KEYWORD`                                                                                    | `search Alex`                                                                                                                       |
+|   **Search by Role**   | `searchrole KEYWORD`                                                                                | `searchrole TA`                                                                                                                     |
+|  **Search by Course**  | `searchcourse KEYWORD`                                                                              | `searchcourse CS2100`                                                                                                               |
+| **Search by Tutorial** | `searchtutorial KEYWORD`                                                                            | `searchtutorial CS2100/G06`                                                                                                         |
+|     **Favourite**      | `fav INDEX`                                                                                         | `fav 1`                                                                                                                             |
+|    **Unfavourite**     | `unfav INDEX`                                                                                       | `unfav 1`                                                                                                                           |
+|   **Clear the list**   | `clear`                                                                                             | `clear`                                                                                                                              |
+|        **Exit**        | `exit`                                                                                              | `exit`                                                                                                                              | 
 <scroll-top-button><scroll-top-button/>

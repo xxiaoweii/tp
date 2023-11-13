@@ -30,11 +30,11 @@ public class AddCommand extends Command {
             + PREFIX_NAME + "NAME "
             + " [" + PREFIX_ROLE + "ROLE1,...]"
             + " [" + PREFIX_CONTACT + "CONTACT1, ...] "
-            + " [" + PREFIX_COURSE + "COURSECODE1/CLASS1-CLASS2-..., ...]\n"
+            + " [" + PREFIX_COURSE + "COURSECODE1/CLASS1, ...]\n"
             + "Example: " + COMMAND_WORD + " "
-            + PREFIX_ROLE + "Developer, Designer "
+            + PREFIX_ROLE + "Student, TA"
             + PREFIX_CONTACT + "johnd@example.com, 98765432 "
-            + PREFIX_COURSE + "CS2103T/G06, CS2101/G06, CS2100/T24-Lab36";
+            + PREFIX_COURSE + "CS2103T/G06, CS2101/G06, CS2100/T24";
 
 
     /**
