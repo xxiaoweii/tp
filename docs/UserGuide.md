@@ -665,7 +665,7 @@ Search for persons using role.
 
 Output persons which match the given role.
 
-> Note: The input name is NOT case-sensitive.
+> Note: The input role is NOT case-sensitive. In other words, `searchrole ta` is equivalent to `searchrole TA`, which will find all `TA` entries.
 
 ###### FORMAT:
 `searchrole ROLE`
@@ -711,7 +711,7 @@ Search for persons using course.
 
 Output persons which match the given course.
 
-> Note: The input course is NOT case-sensitive.
+> Note: The input course is NOT case-sensitive. In other words, `searchcourse cs1101` is equivalent to `searchcourse CS1101`, which will match both `CS1101` and `cs1101`.
 
 ###### FORMAT:
 `searchcourse COURSECODE`
@@ -747,7 +747,7 @@ Search for persons using tutorial class.
 
 Output persons which match the given tutorial class.
 
-> Note: The input tutorial is NOT case-sensitive.
+> Note: The input tutorial is NOT case-sensitive. In other words, `searchtutorial cs2100/t03` is equivalent to `searchtutorial CS2100/T03` which will match both `cs2100/t03` as well as `CS2100/T03`.
 
 ###### FORMAT:
 `searchtutorial TUTORIAL`
