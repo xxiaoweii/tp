@@ -367,7 +367,8 @@ Example 4.1: `add --`
 ```
 Invalid command format! 
 add: Adds a person to the address book. 
-Parameters: --name NAME [--role ROLE1, ...] [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1, ...]
+Parameters: --name NAME [--role ROLE1, ...] [--contact CONTACT1, ...] 
+[--course COURSECODE1/CLASS1, ...]
 Example: add --name John --role Student, TA --contact john@example.com, 98765432 
 --course CS2103T/G06, CS2101/G06, CS2100/T24
 ```
@@ -431,7 +432,8 @@ Example 8: `add -/-name alex yeoh`
 ```
 Invalid command format! 
 add: Adds a person to the address book. 
-Parameters: --name NAME [--role ROLE1, ...] [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1, ...]
+Parameters: --name NAME [--role ROLE1, ...] [--contact CONTACT1, ...] 
+[--course COURSECODE1/CLASS1, ...]
 Example: add --name John --role Student, TA --contact john@example.com, 98765432 
 --course CS2103T/G06, CS2101/G06, CS2100/T24
 ```
