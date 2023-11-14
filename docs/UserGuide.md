@@ -292,10 +292,15 @@ it has to be added like this: `CS2100/T12, CS2100/Lab30`).
 - Please use a comma (`,`) to separate the different roles, contacts and courses.
 
 - The square brackets, (`[ ]`), are not needed when entering optional fields [see examples below for more details].
+</box>
 
-> #### IMPORTANT: 
-> Invalid prefix format will NOT be recognised. It will be treated as an input for the
-previous prefix (if any), or it will be treated as an invalid add command format if there is no previous prefix. [See Examples 7 & 8 below for more details.]
+<box type="important" light>
+
+**Important:**
+
+- Specifiers must be preceded by a space.
+- Invalid specifiers will NOT be recognised. It will be treated as an input for the previous specifier (if any), or it will be treated as an invalid add command format if there is no previous specifier. [See Examples 7 & 8 below for more details.]
+    </md>
 </box>
 
 ###### EXAMPLE COMMAND:
@@ -340,8 +345,9 @@ You have added a new person in :
 Example 2:
 
 ```
-You have added a new person in :
- Name: Charlie Dueet; Role: Student, TA; Contacts: [@charliee]; 
+You have added a new person in : 
+ Name: Charlie Dueet; Role: Student, TA; 
+ Contacts: [@charliee], [charliee@gmail.com]; 
  Courses: GEA1000, QF2103; Tutorials: 
 ```
 
@@ -363,9 +369,9 @@ Invalid command format!
 add: Adds a person to the address book. 
 Parameters: --name NAME  [--role ROLE1,...] [--contact CONTACT1, ...]  
 [--course COURSECODE1/CLASS1, ...]
-Example: add --name John --role Student, TA
---contact johnd@example.com, 98765432
---course CS2103T/G06, CS2101/G06, CS2100/T24
+Example: add --name John --roleStudent, TA
+--contactjohnd@example.com, 98765432
+--courseCS2103T/G06, CS2101/G06, CS2100/T24
 ```
 
 Example 4.2: `add`
@@ -413,7 +419,7 @@ Note: A person with the same name already exists.
 Please edit the existing person or change the name of this person to be added
 ```
 
-**For invalid prefix:**
+**For invalid specifier:**
 
 Example 7: `add --name alex yeoh -/-role TA` 
 
