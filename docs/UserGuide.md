@@ -367,11 +367,8 @@ Example 4.1: `add --`
 ```
 Invalid command format! 
 add: Adds a person to the address book. 
-Parameters: --name NAME  [--role ROLE1,...] [--contact CONTACT1, ...]  
-[--course COURSECODE1/CLASS1, ...]
-Example: add --name John --roleStudent, TA
---contactjohnd@example.com, 98765432
---courseCS2103T/G06, CS2101/G06, CS2100/T24
+Parameters: --name NAME [--role ROLE1, ...] [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1, ...]
+Example: add --name John --role Student, TA --contact john@example.com, 98765432 --course CS2103T/G06, CS2101/G06, CS2100/T24
 ```
 
 Example 4.2: `add`
@@ -433,10 +430,8 @@ Example 8: `add -/-name alex yeoh`
 ```
 Invalid command format! 
 add: Adds a person to the address book. 
-Parameters: --nameNAME  [--roleROLE1,...] [--contactCONTACT1, ...]  
-[--courseCOURSECODE1/CLASS1, ...]
-Example: add --roleStudent, TA--contactjohnd@example.com, 98765432 
---courseCS2103T/G06, CS2101/G06, CS2100/T24
+Parameters: --name NAME [--role ROLE1, ...] [--contact CONTACT1, ...] [--course COURSECODE1/CLASS1, ...]
+Example: add --name John --role Student, TA --contact john@example.com, 98765432 --course CS2103T/G06, CS2101/G06, CS2100/T24
 ```
 
 <div style="page-break-after: always;"></div>
@@ -458,7 +453,7 @@ and the `list` command will still be executed.
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
 
-You have 2 profiles in your list: 
+You have 2 persons in your list: 
 1. Name: Aiken Dueet  
 Role: STUDENT
 Contact: @aikendueet, aikendueet@gmail.com
@@ -494,7 +489,7 @@ Favourite the persons in the user’s current person list.
 ###### ACCEPTABLE VALUES:
 `INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
 less than or equal to the number of persons the user currently has.
-The maximum `INDEX` allowed is `2 147 483 647`.
+The maximum `INDEX` allowed is `2147483647`.
 
 > 📝Note:
 >
@@ -540,7 +535,7 @@ Un-favourite a favourite person
 ###### ACCEPTABLE VALUES:
 `INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
 less than or equal to the number of persons the user currently has.
-The maximum `INDEX` allowed is `2 147 483 647`.
+The maximum `INDEX` allowed is `2147483647`.
 
 > 📝Note:
 >
@@ -622,7 +617,11 @@ Delete the specific person based on the index allocated to the person.
 ###### ACCEPTABLE VALUES:
 `INDEX`: Any number representing a positive integer (i.e. 1, 2, 3, …),
 less than or equal to the number of persons the user currently has.
-The maximum `INDEX` allowed is `2 147 483 647`.
+The maximum `INDEX` allowed is `2147483647`.
+
+> 📝Note:
+>
+> INDEX refers to the index of the person allocated to the specific person in the current person list.
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
@@ -667,7 +666,11 @@ Output persons which match the given name.
 `search Charlie`
 
 ###### ACCEPTABLE VALUES:
-`NAME`: Any non-empty string of alphanumeric characters (not case-sensitive).
+`NAME`: Any non-empty input of characters (not case-sensitive).
+
+> 📝Note:
+>
+> `search` does not check for invalid `name` input so no error message will be shown for invalid input
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
@@ -704,16 +707,11 @@ Output persons which match the given role.
 `searchrole TA`
 
 ###### ACCEPTABLE VALUES:
-`ROLE`:
+`ROLE`: Any non-empty input of characters (not case-sensitive).
 
-A valid role type: 
-
-1. TA
-2. Student
-3. Professor
-
-If the user enters a ROLE that does not match any of the aforementioned options, 
-the system will not generate an error message.
+> 📝Note:
+>
+> `searchrole` does not check for invalid `role` input so no error message will be shown for invalid input
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
@@ -748,6 +746,13 @@ Output persons which match the given course.
 
 ###### EXAMPLE COMMAND:
 `searchcourse CS2100`
+
+###### ACCEPTABLE VALUES:
+`COURSE`: Any non-empty input of characters (not case-sensitive).
+
+> 📝Note:
+>
+> `searchcourse` does not check for invalid `course` input so no error message will be shown for invalid input
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
@@ -786,7 +791,11 @@ Output persons which match the given tutorial class.
 `searchtutorial CS2100/Tut8`
 
 ###### ACCEPTABLE VALUES:
-`TUTORIAL`: A valid tutorial in the format: COURSECODE/TUTORIAL.
+`TUTORIAL`: Any non-empty input of characters (not case-sensitive).
+
+> 📝Note:
+>
+> `searchtutorial` does not check for invalid `tutorial` input so no error message will be shown for invalid input
 
 ###### EXPECTED OUTPUT ON SUCCESS:
 ```
