@@ -267,8 +267,8 @@ Adds new persons in the person lists.
 **Tip:**
 
 
-- The input for name is **case-sensitive** (i.e `Aiken`, `AIKEN`, `AiKeN` and `aiken`
-will be recognised as the different input).
+- The input for name is **case-sensitive** (i.e. `Aiken`, `AIKEN`, `AiKeN` and `aiken`
+will be recognised as different inputs).
 
 - Duplicate names (with same case) are not allowed.
 
@@ -278,24 +278,24 @@ will be recognised as the different input).
 
 - Courses can be any of the courses offered by NUS.
 
-- Inputs for course are **case-sensitive** (i.e `CS2100`, `cs2100` and `Cs2100`
-will be recognised as the different courses)
+- Inputs for course are **case-sensitive** (i.e. `CS2100`, `cs2100` and `Cs2100`
+will be recognised as different courses).
 
 - Courses can be added without the tutorial class but tutorial class must be added with a course
   (see Example 2 below for more details).
 
-- Multiple tutorial classes for the same course are to be added separately (i.e To add T12 and Lab30 class for CS2100,
-it has to be added like this: `CS2100/T12, CS2100/Lab30`) 
+- Multiple tutorial classes for the same course are to be added separately (i.e. To add T12 and Lab30 class for CS2100,
+it has to be added like this: `CS2100/T12, CS2100/Lab30`).
 
-- Input for tutorial is **case-sensitive** (i.e `CS2100/T21 and CS2100/t21 will be recognised as different tutorials)
+- Input for tutorial is **case-sensitive** (i.e. `CS2100/T21 and CS2100/t21 will be recognised as different tutorials).
 
 - Please use a comma (`,`) to separate the different roles, contacts and courses.
 
-- The square brackets, `[ ]`, are not needed when entering optional field [see examples below for more details].
+- The square brackets, (`[ ]`), are not needed when entering optional fields [see examples below for more details].
 
 > #### IMPORTANT: 
 > Invalid prefix format will NOT be recognised. It will be treated as an input for the
-previous prefix (if any) or be treated as . [See Example 7 & 8 below for more details]
+previous prefix (if any), or it will be treated as an invalid add command format if there is no previous prefix. [See Examples 7 & 8 below for more details.]
 </box>
 
 ###### EXAMPLE COMMAND:
@@ -342,7 +342,7 @@ Example 2:
 ```
 You have added a new person in :
  Name: Charlie Dueet; Role: Student, TA; Contacts: [@charliee]; 
- Courses: CS2103T, CS2101, CS2100; Tutorials: 
+ Courses: GEA1000, QF2103; Tutorials: 
 ```
 
 Example 3:
@@ -418,7 +418,8 @@ Please edit the existing person or change the name of this person to be added
 Example 7: `add --name alex yeoh -/-role TA` 
 
 ```
-Names should only contain alphanumeric characters and spaces, and it should not be blank
+Names should only contain alphanumeric characters and spaces, 
+and it should not be blank
 ```
 
 Example 8: `add -/-name alex yeoh`
@@ -426,8 +427,10 @@ Example 8: `add -/-name alex yeoh`
 ```
 Invalid command format! 
 add: Adds a person to the address book. 
-Parameters: --nameNAME  [--roleROLE1,...] [--contactCONTACT1, ...]  [--courseCOURSECODE1/CLASS1, ...]
-Example: add --roleStudent, TA--contactjohnd@example.com, 98765432 --courseCS2103T/G06, CS2101/G06, CS2100/T24
+Parameters: --nameNAME  [--roleROLE1,...] [--contactCONTACT1, ...]  
+[--courseCOURSECODE1/CLASS1, ...]
+Example: add --roleStudent, TA--contactjohnd@example.com, 98765432 
+--courseCS2103T/G06, CS2101/G06, CS2100/T24
 ```
 
 <div style="page-break-after: always;"></div>
@@ -865,7 +868,7 @@ For example, pressing `f` and then `<Tab>` will let the program automatically su
 
 --- {.dotted .thick-1 .border-primary}
 
-
+<div style="page-break-after: always;"></div>
 
 ## FAQ
 
