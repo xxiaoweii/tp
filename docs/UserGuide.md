@@ -707,7 +707,7 @@ Output persons which match the given role.
 `searchrole TA`
 
 ###### ACCEPTABLE VALUES:
-`NAME`: Any non-empty input of characters (not case-sensitive).
+`ROLE`: Any non-empty input of characters (not case-sensitive).
 
 > 📝Note:
 >
@@ -748,7 +748,7 @@ Output persons which match the given course.
 `searchcourse CS2100`
 
 ###### ACCEPTABLE VALUES:
-`NAME`: Any non-empty input of characters (not case-sensitive).
+`COURSE`: Any non-empty input of characters (not case-sensitive).
 
 > 📝Note:
 >
@@ -791,7 +791,7 @@ Output persons which match the given tutorial class.
 `searchtutorial CS2100/Tut8`
 
 ###### ACCEPTABLE VALUES:
-`NAME`: Any non-empty input of characters (not case-sensitive).
+`TUTORIAL`: Any non-empty input of characters (not case-sensitive).
 
 > 📝Note:
 >
